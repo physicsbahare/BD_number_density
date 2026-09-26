@@ -1,0 +1,48 @@
+field:
+  name: COSMOS-Web
+  ra_deg: 150.12
+  dec_deg: 2.20
+
+survey:
+  filters: [F115W, F150W, F277W, F444W]
+  nominal_area_deg2: 0.54
+  # Final calculation must use spatial depth zones.
+  depth_mode: zones
+
+reference_depth_zones:
+  # Official COSMOS-Web observing-strategy values. Areas for SW and LW differ.
+  F115W_5sigma_by_exposures:
+    1: 26.87
+    2: 27.13
+    3: 27.26
+    4: 27.45
+  F150W_5sigma_by_exposures:
+    1: 27.14
+    2: 27.35
+    3: 27.50
+    4: 27.66
+  F277W_5sigma_by_exposures:
+    1: 27.71
+    2: 27.99
+    3: 28.12
+    4: 28.28
+  F444W_5sigma_by_exposures:
+    1: 27.61
+    2: 27.83
+    3: 27.94
+    4: 28.17
+
+population:
+  spectral_types: [M9, L0, L1, L2, L3, L4, L5, L6, L7, L8, L9, T0, T1, T2, T3, T4, T5, T6, T7, T8, T9, Y0, Y1, Y2]
+  teff_min_K: 275
+  teff_max_K: 2400
+
+galactic_model:
+  R_sun_pc: 8300
+  Z_sun_pc: 27
+  L_thin_pc: 2600
+  L_thick_pc: 3600
+  H_thick_pc: 900
+  thick_to_thin_local: 0.02
+  halo_to_thin_local: 0.0025
+  note: "Values follow the Innala et al. paper text; public-code discrepancies are tracked in docs/methodology_audit.md."
