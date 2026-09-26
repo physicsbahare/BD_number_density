@@ -6,31 +6,37 @@ field:
 survey:
   filters: [F115W, F150W, F277W, F444W]
   nominal_area_deg2: 0.54
-  # Final calculation must use spatial depth zones.
-  depth_mode: zones
+  depth_mode: spatial_maps
+  depth_reference: "Franco et al. 2026, ApJ 999, 200, Table 4"
+  depth_aperture_radius_arcsec: 0.15
+  depth_sigma: 5
+  final_products:
+    tiles: 20
+    resolutions_mas: [30, 60]
+    extensions: [SCI, ERR, WHT]
+  note: "Publication calculation should use the local SCI/ERR/WHT mosaics to preserve joint four-band spatial covariance. Table-4 marginal fractions are validation targets only."
 
-reference_depth_zones:
-  # Official COSMOS-Web observing-strategy values. Areas for SW and LW differ.
-  F115W_5sigma_by_exposures:
-    1: 26.87
-    2: 27.13
-    3: 27.26
-    4: 27.45
-  F150W_5sigma_by_exposures:
-    1: 27.14
-    2: 27.35
-    3: 27.50
-    4: 27.66
-  F277W_5sigma_by_exposures:
-    1: 27.71
-    2: 27.99
-    3: 28.12
-    4: 28.28
-  F444W_5sigma_by_exposures:
-    1: 27.61
-    2: 27.83
-    3: 27.94
-    4: 28.17
+achieved_depth_validation:
+  F115W:
+    1: {mag_5sigma: 26.69, mosaic_fraction: 0.037}
+    2: {mag_5sigma: 27.05, mosaic_fraction: 0.499}
+    3: {mag_5sigma: 27.24, mosaic_fraction: 0.033}
+    4: {mag_5sigma: 27.41, mosaic_fraction: 0.403}
+  F150W:
+    1: {mag_5sigma: 26.95, mosaic_fraction: 0.038}
+    2: {mag_5sigma: 27.30, mosaic_fraction: 0.509}
+    3: {mag_5sigma: 27.49, mosaic_fraction: 0.033}
+    4: {mag_5sigma: 27.65, mosaic_fraction: 0.403}
+  F277W:
+    1: {mag_5sigma: 27.74, mosaic_fraction: 0.013}
+    2: {mag_5sigma: 28.01, mosaic_fraction: 0.498}
+    3: {mag_5sigma: 28.19, mosaic_fraction: 0.013}
+    4: {mag_5sigma: 28.34, mosaic_fraction: 0.453}
+  F444W:
+    1: {mag_5sigma: 27.60, mosaic_fraction: 0.014}
+    2: {mag_5sigma: 27.88, mosaic_fraction: 0.508}
+    3: {mag_5sigma: 28.07, mosaic_fraction: 0.013}
+    4: {mag_5sigma: 28.22, mosaic_fraction: 0.455}
 
 population:
   spectral_types: [M9, L0, L1, L2, L3, L4, L5, L6, L7, L8, L9, T0, T1, T2, T3, T4, T5, T6, T7, T8, T9, Y0, Y1, Y2]
