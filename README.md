@@ -26,3 +26,13 @@ The first target is the intrinsic population. Selection functions are applied on
 ## Status
 
 Initial audit started 2026-09-26. Do not use preliminary outputs for a paper until the validation tests in `docs/methodology_audit.md` pass.
+
+
+## Current validated baseline (2026-09-26)
+
+See `docs/results_2026-09-26.md` and `data/preliminary_cosmosweb_teff_counts.csv`.
+
+Key reference points:
+- Literature conventional-T benchmark: Ryan & Reid prediction quoted by Chen et al. (2025): 21.4 T0-T5 dwarfs over 0.54 deg2; 13.1 +/- 7.9 over Chen's 0.243 deg2 search area at F115W=27.45.
+- Cold-population baseline using official COSMOS-Web depth zones + Elf Owl reach + Kirkpatrick (2024) Teff-bin densities: about 52.5 detectable 450-750 K objects, and >=62.2 in 300-750 K, before project-specific selection/completeness cuts.
+- Public FC-ENZO implementation discrepancies/bugs are documented and are not silently inherited.
