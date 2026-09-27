@@ -42,7 +42,7 @@ def disk_rho(d,l,b,rho0,L,H,R0=8300.,Z0=27.):
 def halo_rho(d,l,b,rho0,R0=8300.,Z0=27.,q=.64,n=2.77):
     X=R0-d*np.cos(b)*np.cos(l); Y=-d*np.cos(b)*np.sin(l); Z=Z0+d*np.sin(b)
     R=np.hypot(X,Y); ell=np.sqrt(R**2+(Z/q)**2)
-    return rho0*(R0/ell)**n
+    ell0=np.sqrt(R0**2+(Z0/q)**2)\n    return rho0*(ell0/ell)**n
 
 def count_to_distance(dmax_pc,area_arcmin2,rho0,H_pc=187.,
                       thick_fraction=.02,halo_fraction=.0025):
