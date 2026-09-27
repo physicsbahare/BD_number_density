@@ -1,2 +1,0 @@
-GitHub connector write test successful on 2026-09-27.
-This file can be removed after verification.
