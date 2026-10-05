@@ -1,6 +1,7 @@
+import pandas as pd
 import numpy as np
 
-from src.validate_uncover import field_count, garwood_interval
+from src.validate_uncover import field_count, has_primary_f277w_reach
 
 
 def test_uncover_count_is_positive():
@@ -15,6 +16,16 @@ def test_uncover_count_is_positive():
     assert np.isclose(n, 0.214, atol=0.002)
 
 
-def test_five_count_poisson_interval_contains_baseline_prediction():
-    lo, hi = garwood_interval(5, confidence=0.68)
-    assert lo < 2.880 < hi
+def test_primary_validation_requires_f277w_reach():
+    current = pd.DataFrame(
+        {
+            "teff_bin_K": ["450-600"],
+            "d25_F115W_pc": [120.0],
+            "d25_F444W_pc": [306.57],
+        }
+    )
+    assert not has_primary_f277w_reach(current)
+
+    ready = current.copy()
+    ready["d25_F277W_pc"] = [200.0]
+    assert has_primary_f277w_reach(ready)
