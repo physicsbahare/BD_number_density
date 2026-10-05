@@ -7,9 +7,10 @@ field:
 
 survey:
   effective_area_arcmin2: 53.4
-  f115w_limit_ab: 28.03
+  primary_limit_band: F277W
   f277w_limit_ab: 29.24
-  note: "Li et al. (2026) DR3 common F277W+F444W+(F115W/F150W) footprint and quoted limiting depths."
+  f115w_reference_ab: 28.03
+  note: "Li et al. (2026) define the survey depth by the faintest object in the sample at F277W=29.24 mag; F115W=28.03 is an auxiliary magnitude for that same object."
 
 observed:
   total_t_dwarfs: 5
@@ -34,4 +35,6 @@ model:
   h_thin_pc: 187.0
   thick_to_thin_local: 0.02
   halo_to_thin_local: 0.0025
-  f115w_d25_source: "data/preliminary_cosmosweb_teff_counts.csv"
+  f277w_d25_source: null
+  f115w_proxy_d25_source: "data/preliminary_cosmosweb_teff_counts.csv"
+  validation_status: "PRIMARY_F277W_REACH_PENDING"
