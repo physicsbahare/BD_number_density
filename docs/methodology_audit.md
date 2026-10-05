@@ -52,3 +52,29 @@ The public FC-ENZO code requires an audit before reuse.
 - uncertainty budget
 - comparison with Chen et al. observed candidates and Ryan & Reid prediction
 - separate selection-matched predictions for each project
+
+
+## Independent-field validation: UNCOVER/A2744 (2026-10-05)
+
+A first independent sightline check has been completed using Li et al. (2026).
+
+Using the UNCOVER effective area (53.4 arcmin^2), F115W=28.03 depth and the
+repository's existing atmosphere-based F115W reach, the baseline Galactic
+model predicts 2.88 objects across 450-1500 K versus 5 observed T dwarfs.
+The model expectation is inside the exact central 68% Poisson interval for
+five counts (2.849-8.365).
+
+The colder 450-1050 K subset is more constraining: 4 objects are observed,
+while the current F115W-depth model predicts 0.92; using Li et al.'s quoted
+bin-specific d_max values gives 1.10. The latter sits at the lower edge of
+the exact 95% Poisson interval for four counts. This is retained as a
+temperature-distribution tension to investigate, not silently tuned away.
+
+Before publication:
+- forward-model the UNCOVER colour/SED selection;
+- propagate local-density and atmosphere/distance uncertainties;
+- test scale-height uncertainties and Teff-dependent thick-disk populations;
+- retain the paper-text thick/thin=0.02 baseline, with 0.12 only as a
+  documented sensitivity test.
+
+Details: `docs/uncover_validation_2026-10-05.md`.
