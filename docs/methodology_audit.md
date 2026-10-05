@@ -54,23 +54,26 @@ The public FC-ENZO code requires an audit before reuse.
 - separate selection-matched predictions for each project
 
 
-## Independent-field validation: UNCOVER/A2744 (2026-10-05)
+## Independent-field audit: UNCOVER/A2744 (corrected 2026-10-05)
 
-A first independent sightline check has been completed using Li et al. (2026).
+Li et al. (2026) define the density depth using the faintest sample object at
+F277W=29.24 AB. F115W=28.03 is also quoted for that object, but it is not the
+primary depth definition for their density calculation.
 
-Using the UNCOVER effective area (53.4 arcmin^2), F115W=28.03 depth and the
-repository's existing atmosphere-based F115W reach, the baseline Galactic
-model predicts 2.88 objects across 450-1500 K versus 5 observed T dwarfs.
-The model expectation is inside the exact central 68% Poisson interval for
-five counts (2.849-8.365).
+The repository currently lacks atmosphere-based F277W d25 values. Therefore
+the primary matched-depth UNCOVER validation is **pending**. The earlier
+F115W=28.03 calculation (2.88 objects over 450-1500 K) is retained only as
+an auxiliary proxy and must not be cited as a successful validation.
 
-The colder 450-1050 K subset is more constraining: 4 objects are observed,
-while the current F115W-depth model predicts 0.92; using Li et al.'s quoted
-bin-specific d_max values gives 1.10. The latter sits at the lower edge of
-the exact 95% Poisson interval for four counts. This is retained as a
-temperature-distribution tension to investigate, not silently tuned away.
+A separate cross-check using Li et al.'s own Table-4 d_max values remains
+valid as a Galactic-density/geometry test: the baseline model gives about
+1.10 objects across 450-1050 K versus 4 observed. This lies at the lower edge
+of the exact 95% Poisson interval and is retained as a temperature-
+distribution tension to investigate.
 
 Before publication:
+- generate atmosphere-based F277W reach and add `d25_F277W_pc`;
+- rerun the primary validation at F277W=29.24;
 - forward-model the UNCOVER colour/SED selection;
 - propagate local-density and atmosphere/distance uncertainties;
 - test scale-height uncertainties and Teff-dependent thick-disk populations;
