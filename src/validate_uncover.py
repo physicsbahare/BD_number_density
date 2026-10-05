@@ -1,12 +1,15 @@
-"""Independent UNCOVER validation for the Galactic UCD count model.
+"""UNCOVER/A2744 audit for the Galactic UCD count model.
 
-This script applies the same thin+thick+halo line-of-sight integration used
-for COSMOS-Web to the independent UNCOVER/A2744 field.
+Li et al. (2026) define their surface/space-density depth using the faintest
+T dwarf at F277W=29.24 mag. They also quote F115W=28.03 mag for that object.
 
-Two checks are intentionally kept separate:
-1. F115W depth-only prediction using the repository's atmosphere-based d25
-   values and Li et al. (2026) F115W=28.03 depth.
-2. A late-T cross-check using the d_max values quoted by Li et al. (2026).
+The repository currently has atmosphere-based d25 values for F115W and F444W,
+but not F277W. Therefore the primary matched-depth validation is explicitly
+PENDING until d25_F277W_pc is generated. The F115W=28.03 calculation is kept
+only as an auxiliary diagnostic proxy.
+
+Li et al.'s Table-4 d_max values are retained as a separate late-T
+Galactic-density/geometry cross-check.
 
 This is NOT yet a forward model of the Li et al. colour/SED selection.
 """
@@ -14,7 +17,6 @@ This is NOT yet a forward model of the Li et al. colour/SED selection.
 from __future__ import annotations
 
 from pathlib import Path
-import math
 
 import numpy as np
 import pandas as pd
@@ -35,6 +37,7 @@ from src.cosmosweb_counts import (
 ROOT = Path(__file__).resolve().parents[1]
 CONFIG = ROOT / "config" / "uncover_validation.yaml"
 D25_TABLE = ROOT / "data" / "preliminary_cosmosweb_teff_counts.csv"
+OUTPUT = ROOT / "data" / "uncover_validation_2026-10-05.csv"
 
 
 def field_count(
@@ -82,17 +85,24 @@ def parse_bin(label: str) -> tuple[int, int]:
     return int(lo), int(hi)
 
 
+def has_primary_f277w_reach(table: pd.DataFrame) -> bool:
+    """True only when atmosphere-based F277W reach is available."""
+    return "d25_F277W_pc" in table.columns and table["d25_F277W_pc"].notna().any()
+
+
 def main() -> None:
     cfg = yaml.safe_load(CONFIG.read_text())
     d25 = pd.read_csv(D25_TABLE)
 
     area = float(cfg["survey"]["effective_area_arcmin2"])
-    depth = float(cfg["survey"]["f115w_limit_ab"])
+    depth_f277 = float(cfg["survey"]["f277w_limit_ab"])
+    ref_f115 = float(cfg["survey"]["f115w_reference_ab"])
     ra = float(cfg["field"]["ra_deg"])
     dec = float(cfg["field"]["dec_deg"])
     hthin = float(cfg["model"]["h_thin_pc"])
     thick = float(cfg["model"]["thick_to_thin_local"])
     halo = float(cfg["model"]["halo_to_thin_local"])
+    f277_ready = has_primary_f277w_reach(d25)
 
     rows = []
     for _, row in d25.iterrows():
@@ -103,14 +113,29 @@ def main() -> None:
             continue
 
         rho = TEFF_DENSITY_2024[teff_bin][0]
-        dmax_f115 = distance_at_mag(float(row["d25_F115W_pc"]), depth)
-        n_f115 = field_count(
-            dmax_f115, area, rho, ra, dec, hthin, thick, halo
+        label = f"{teff_bin[0]}-{teff_bin[1]}"
+
+        # Auxiliary proxy only: F115W=28.03 is not Li et al.'s primary
+        # survey-depth definition.
+        dmax_f115_proxy = distance_at_mag(
+            float(row["d25_F115W_pc"]), ref_f115
+        )
+        n_f115_proxy = field_count(
+            dmax_f115_proxy, area, rho, ra, dec, hthin, thick, halo
         )
 
-        label = f"{teff_bin[0]}-{teff_bin[1]}"
+        dmax_f277 = np.nan
+        n_f277 = np.nan
+        if f277_ready and pd.notna(row.get("d25_F277W_pc", np.nan)):
+            dmax_f277 = distance_at_mag(
+                float(row["d25_F277W_pc"]), depth_f277
+            )
+            n_f277 = field_count(
+                dmax_f277, area, rho, ra, dec, hthin, thick, halo
+            )
+
         paper_dmax = cfg["paper_detection_reach_pc"].get(label)
-        n_paper = None
+        n_paper = np.nan
         if paper_dmax is not None:
             n_paper = field_count(
                 float(paper_dmax), area, rho, ra, dec, hthin, thick, halo
@@ -120,8 +145,10 @@ def main() -> None:
             {
                 "teff_bin_K": label,
                 "rho_local_pc-3": rho,
-                "dmax_F115W_pc": dmax_f115,
-                "N_model_F115W": n_f115,
+                "dmax_F277W_primary_pc": dmax_f277,
+                "N_model_F277W_primary": n_f277,
+                "dmax_F115W_proxy_pc": dmax_f115_proxy,
+                "N_model_F115W_proxy": n_f115_proxy,
                 "N_observed": int(cfg["observed"]["teff_counts"].get(label, 0)),
                 "Li_dmax_pc": paper_dmax,
                 "N_model_Li_dmax": n_paper,
@@ -129,15 +156,18 @@ def main() -> None:
         )
 
     out = pd.DataFrame(rows)
-    total_model = out["N_model_F115W"].sum()
+    out.to_csv(OUTPUT, index=False)
+
     total_obs = int(cfg["observed"]["total_t_dwarfs"])
-    total_lo, total_hi = garwood_interval(total_obs, 0.68)
+    proxy_total = float(out["N_model_F115W_proxy"].sum())
+    primary_total = (
+        float(out["N_model_F277W_primary"].sum()) if f277_ready else np.nan
+    )
 
     late = out[out["teff_bin_K"].isin(
         ["450-600", "600-750", "750-900", "900-1050"]
     )]
-    late_model = late["N_model_F115W"].sum()
-    late_model_paper = late["N_model_Li_dmax"].sum()
+    late_model_paper = float(late["N_model_Li_dmax"].sum())
     late_obs = int(late["N_observed"].sum())
     late_lo95, late_hi95 = garwood_interval(late_obs, 0.95)
 
@@ -145,17 +175,29 @@ def main() -> None:
     print()
     print(f"UNCOVER area: {area:.1f} arcmin^2")
     print(f"Observed all-T count: {total_obs}")
-    print(f"Depth-only model, 450-1500 K: {total_model:.3f}")
-    print(f"Depth-only model surface density: {total_model/area:.4f} arcmin^-2")
-    print(f"Observed surface density: {total_obs/area:.4f} arcmin^-2")
+    print(f"Primary survey-depth definition: F277W={depth_f277:.2f} AB")
+
+    if f277_ready:
+        print(f"PRIMARY F277W model, 450-1500 K: {primary_total:.3f}")
+        print(
+            f"PRIMARY F277W surface density: "
+            f"{primary_total/area:.4f} arcmin^-2"
+        )
+    else:
+        print(
+            "PRIMARY F277W VALIDATION: PENDING - no d25_F277W_pc "
+            "atmosphere-based reach exists in the current input table."
+        )
+
+    print()
     print(
-        f"Observed 68% exact Poisson count interval: "
-        f"[{total_lo:.3f}, {total_hi:.3f}]"
+        f"AUXILIARY F115W=28.03 proxy, 450-1500 K: {proxy_total:.3f} "
+        "(do not label this as the primary validation)"
     )
+    print(f"Observed surface density: {total_obs/area:.4f} arcmin^-2")
     print()
     print(f"Observed late-T (450-1050 K) count: {late_obs}")
-    print(f"Depth-only late-T model: {late_model:.3f}")
-    print(f"Li-dmax late-T model: {late_model_paper:.3f}")
+    print(f"Li-table-dmax Galactic-model cross-check: {late_model_paper:.3f}")
     print(
         f"Observed late-T 95% exact Poisson interval: "
         f"[{late_lo95:.3f}, {late_hi95:.3f}]"
