@@ -85,9 +85,35 @@ def parse_bin(label: str) -> tuple[int, int]:
     return int(lo), int(hi)
 
 
+PRIMARY_TEFF_BINS = (
+    "450-600",
+    "600-750",
+    "750-900",
+    "900-1050",
+    "1050-1200",
+    "1200-1350",
+    "1350-1500",
+)
+
+
 def has_primary_f277w_reach(table: pd.DataFrame) -> bool:
-    """True only when atmosphere-based F277W reach is available."""
-    return "d25_F277W_pc" in table.columns and table["d25_F277W_pc"].notna().any()
+    """Require valid F277W reach for every Teff bin used in the primary test.
+
+    Extra rows are allowed, but the seven 450-1500 K bins must each appear
+    exactly once with a finite, strictly positive d25_F277W_pc value.
+    """
+    required_columns = {"teff_bin_K", "d25_F277W_pc"}
+    if not required_columns.issubset(table.columns):
+        return False
+
+    subset = table[table["teff_bin_K"].astype(str).isin(PRIMARY_TEFF_BINS)].copy()
+    if len(subset) != len(PRIMARY_TEFF_BINS):
+        return False
+    if subset["teff_bin_K"].astype(str).nunique() != len(PRIMARY_TEFF_BINS):
+        return False
+
+    reach = pd.to_numeric(subset["d25_F277W_pc"], errors="coerce").to_numpy()
+    return bool(np.isfinite(reach).all() and (reach > 0).all())
 
 
 def main() -> None:
@@ -185,8 +211,8 @@ def main() -> None:
         )
     else:
         print(
-            "PRIMARY F277W VALIDATION: PENDING - no d25_F277W_pc "
-            "atmosphere-based reach exists in the current input table."
+            "PRIMARY F277W VALIDATION: PENDING - all seven 450-1500 K "
+            "bins must have finite, positive d25_F277W_pc atmosphere reaches."
         )
 
     print()
