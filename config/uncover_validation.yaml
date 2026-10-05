@@ -1,0 +1,37 @@
+field:
+  name: UNCOVER_A2744
+  # Abell 2744 field center. Small offsets within the 53.4 arcmin^2 footprint
+  # have negligible impact on the Galactic line-of-sight integral.
+  ra_deg: 3.58125
+  dec_deg: -30.388661
+
+survey:
+  effective_area_arcmin2: 53.4
+  f115w_limit_ab: 28.03
+  f277w_limit_ab: 29.24
+  note: "Li et al. (2026) DR3 common F277W+F444W+(F115W/F150W) footprint and quoted limiting depths."
+
+observed:
+  total_t_dwarfs: 5
+  total_surface_density_arcmin2: 0.094
+  teff_counts:
+    "450-600": 2
+    "600-750": 1
+    "750-900": 0
+    "900-1050": 1
+    "1050-1200": 0
+    "1200-1350": 0
+    "1350-1500": 1
+  note: "The four T5+ counts are from Li et al. Table 4; the 1350-1500 K entry is the known sdT1 object in their Table 3."
+
+paper_detection_reach_pc:
+  "450-600": 700
+  "600-750": 1300
+  "750-900": 2000
+  "900-1050": 2600
+
+model:
+  h_thin_pc: 187.0
+  thick_to_thin_local: 0.02
+  halo_to_thin_local: 0.0025
+  f115w_d25_source: "data/preliminary_cosmosweb_teff_counts.csv"
