@@ -24,7 +24,7 @@ The COSMOS-Web temperature-bin table currently contains atmosphere-based d25 val
 
 `d25_F277W_pc(Teff)`
 
-The validation script now checks explicitly for a `d25_F277W_pc` column. If it is absent, it reports the primary F277W validation as pending instead of silently substituting F115W.
+The validation script now requires `d25_F277W_pc` to be present, finite, and strictly positive for **all seven required 150-K bins from 450 to 1500 K**. Missing bins, duplicate required bins, NaN values, zero/negative reaches, or a missing F277W column all keep the primary validation in the pending state.
 
 ## Auxiliary F115W proxy
 
