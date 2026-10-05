@@ -1,143 +1,61 @@
-# Independent UNCOVER validation - 2026-10-05
+# UNCOVER/A2744 validation audit - corrected 2026-10-05
 
-## Goal
+## Status
 
-Use the same Galactic line-of-sight machinery developed for COSMOS-Web on an
-independent JWST deep field: UNCOVER around Abell 2744.
+**Primary matched-depth validation is pending.**
 
-The comparison source is Li et al. (2026), *Two late-T dwarfs at kiloparsec
-distances revealed by JWST UNCOVER survey*, MNRAS 547, stag227,
-doi:10.1093/mnras/stag227.
+Li et al. (2026), *Two late-T dwarfs at kiloparsec distances revealed by JWST UNCOVER survey* (MNRAS 547, stag227), define the depth for their surface- and space-density calculation using the faintest T dwarf in the sample at **F277W = 29.24 AB**. They also quote **F115W = 28.03 AB** for that same object.
 
-Li et al. report:
-- effective common imaging area = 53.4 arcmin^2;
-- five T dwarfs in that footprint;
-- measured surface density = 0.094 arcmin^-2;
-- limiting depth F277W = 29.24 AB, with F115W = 28.03 AB quoted from the
-  faintest T dwarf;
-- late-T temperature-bin counts of 2, 1, 0, 1 in 450-600, 600-750,
-  750-900 and 900-1050 K, respectively;
-- detection-cone d_max values of 0.7, 1.3, 2.0 and 2.6 kpc for those bins.
+The first repository implementation incorrectly treated F115W=28.03 as the main validation depth. That value can be kept as an auxiliary reference, but it must not replace the paper's primary F277W depth definition.
 
-The fifth object is the previously known sdT1 candidate with a best-fit
-temperature of about 1400 K, so the first-pass all-T comparison uses
-450-1500 K.
+## Li et al. quantities used here
 
-## Method
+- effective common imaging area: **53.4 arcmin^2**;
+- observed T dwarfs in that area: **5**;
+- measured surface density: **0.094 arcmin^-2**;
+- primary depth definition: **F277W = 29.24 AB**;
+- auxiliary/reference magnitude for the same faintest object: **F115W = 28.03 AB**;
+- Table-4 late-T counts in 450-600, 600-750, 750-900 and 900-1050 K: **2, 1, 0, 1**;
+- Table-4 d_max values for those bins: **0.7, 1.3, 2.0 and 2.6 kpc**.
 
-The validation deliberately preserves the repository's baseline assumptions:
+## What the repository can currently test
 
-- Kirkpatrick et al. (2024) local 150-K temperature-bin densities;
-- thin + thick disk + halo density integration;
-- thin-disk scale height H = 187 pc;
-- thick/thin local normalization = 0.02;
-- halo/thin local normalization = 0.0025;
-- the existing FC-ENZO/Elf-Owl-derived F115W d25 values.
+The COSMOS-Web temperature-bin table currently contains atmosphere-based d25 values for F115W and F444W, but **not F277W**. Therefore the repository does not yet contain the quantity needed for a like-for-like primary UNCOVER depth calculation:
 
-For the primary check, each repository d25(F115W) value is scaled from
-m_AB=25 to the Li et al. F115W depth of 28.03 via the distance modulus, then
-integrated along the Abell 2744 line of sight over 53.4 arcmin^2.
+`d25_F277W_pc(Teff)`
 
-A second, narrower check uses Li et al.'s own d_max values for the four
-450-1050 K bins. This isolates the Galactic-density part of our calculation
-from atmosphere-based detection reach.
+The validation script now checks explicitly for a `d25_F277W_pc` column. If it is absent, it reports the primary F277W validation as pending instead of silently substituting F115W.
 
-This is a depth-only intrinsic-population validation. It does **not** yet
-forward-model the Li et al. colour cuts, SED-fit acceptance, source
-completeness, blending or morphology/point-source selection.
+## Auxiliary F115W proxy
 
-## Reproducible results
+For reproducibility, the previous F115W calculation is retained but relabelled as an **auxiliary proxy**. Using F115W=28.03 and the existing F115W d25 values gives:
 
-| Teff (K) | Observed | dmax from our F115W reach (pc) | Model N | Li dmax (pc) | Model N at Li dmax |
-|---|---:|---:|---:|---:|---:|
-| 450-600 | 2 | 484 | 0.132 | 700 | 0.214 |
-| 600-750 | 1 | 1010 | 0.227 | 1300 | 0.285 |
-| 750-900 | 0 | 1761 | 0.247 | 2000 | 0.285 |
-| 900-1050 | 1 | 2601 | 0.314 | 2600 | 0.314 |
-| 1050-1200 | 0 | 3574 | 0.426 | - | - |
-| 1200-1350 | 0 | 4491 | 0.909 | - | - |
-| 1350-1500 | 1 | 5673 | 0.625 | - | - |
+- N_proxy(450-1500 K) = **2.88** over 53.4 arcmin^2;
+- Sigma_proxy = **0.0539 arcmin^-2**;
+- observed Sigma = 5/53.4 = **0.0936 arcmin^-2**.
 
-### All T-like objects, 450-1500 K
+Although 2.88 happens to lie inside the exact central 68% Poisson interval for five observed counts, this must **not** be described as a successful primary UNCOVER validation because the detection band/reach is not matched to the paper's F277W depth definition.
 
-The model predicts
+## Table-4 d_max cross-check
 
-N_model = 2.880
+A separate test remains useful: take Li et al.'s own late-T d_max values and test only the Galactic thin+thick+halo density integration. With the current baseline assumptions the four 450-1050 K bins give **N_model = 1.10** versus **4 observed** late-T dwarfs.
 
-over 53.4 arcmin^2, corresponding to
+For four observed counts, the exact central 95% Poisson interval is about 1.09-10.24 counts, so the model lies at the lower edge. This is a useful temperature-distribution tension, not a replacement for the missing primary F277W calculation.
 
-Sigma_model = 0.0539 arcmin^-2.
+## Required next step
 
-Li et al. observe 5 objects,
+Generate synthetic **F277W** photometry from the same atmosphere grid used for the COSMOS-Web reach calculation and add a `d25_F277W_pc` column to the temperature-bin input table. Only then should the code report a primary F277W=29.24 UNCOVER prediction.
 
-Sigma_obs = 5 / 53.4 = 0.0936 arcmin^-2,
+After that, forward-model the Li et al. photometric colour selection, SED-fit acceptance, completeness and source-selection effects.
 
-consistent with their rounded published value of 0.094 arcmin^-2.
+## Publication rule
 
-For n=5, the exact central 68% Poisson interval is 2.849-8.365 counts.
-The model expectation of 2.880 lies just inside this interval. Therefore the
-independent field does **not** show a significant disagreement with the
-current depth-only Galactic model. The observed/model ratio is 1.74, which
-is modest given Poisson noise, atmosphere-to-distance systematics, and the
-fact that the Li selection has not yet been forward modeled.
+Until `d25_F277W_pc` exists and the primary run has been completed, do not state that the COSMOS-Web model reproduces or validates against the five UNCOVER T dwarfs. The defensible statement is that UNCOVER is an independent validation target, with an F115W proxy and a Table-4 d_max geometry check already completed while the matched F277W calculation remains pending.
 
-### Late-T check, 450-1050 K
-
-Observed late-T count: 4.
-
-Using our F115W-based detection reaches:
-
-N_model = 0.920.
-
-Using Li et al.'s quoted d_max values:
-
-N_model = 1.098.
-
-This temperature distribution is more late-T-rich than the baseline model.
-For n=4, the exact 95% Poisson interval is 1.090-10.242 counts. The
-Li-dmax prediction of 1.098 sits at the lower edge of that interval, while
-the atmosphere-based 0.920 value is slightly below it.
-
-This should be treated as a useful tension, not as a failed validation.
-Li et al. themselves note that their T8-T8.9 density in the thick disk is
-comparable to the local value and discuss cooling of an old thick-disk
-population toward later spectral types. Our current model partitions a
-single local Teff-bin density into thin/thick/halo components using fixed
-normalizations. The UNCOVER result therefore motivates testing whether the
-Teff distribution of the thick disk should be modeled separately.
-
-## Interpretation
-
-The first-pass independent-field test is encouraging:
-
-1. The total 450-1500 K population prediction is consistent with the five
-   observed T dwarfs within exact 68% Poisson uncertainty.
-2. The temperature-bin distribution is not reproduced equally well: the
-   observed sample contains more very late/cold T dwarfs than the baseline
-   fixed-component model predicts.
-3. This makes UNCOVER a stronger validation target than a single scalar
-   count. It can constrain the component/temperature treatment before the
-   final COSMOS-Web prediction is published.
-
-## Next validation steps
-
-- Forward-model the Li et al. photometric colour selection and SED-fit
-  acceptance rather than comparing only depth-limited intrinsic counts.
-- Add uncertainty propagation from Kirkpatrick density errors and
-  atmosphere-based d_max.
-- Test the Aganze scale-height uncertainty range.
-- Test a Teff-dependent thick-disk population instead of assigning a fixed
-  thick/thin ratio to every Teff bin.
-- Keep the public FC-ENZO 0.12 thick-disk normalization only as a sensitivity
-  test; do not silently replace the paper-text 0.02 baseline.
-- Once these checks are stable, rerun COSMOS-Web and report UNCOVER as an
-  independent external validation in the methods/results section.
-
-Reproduce with:
+Run the current audit with:
 
 ```bash
 python -m src.validate_uncover
 ```
 
-The numerical snapshot is stored in
-`data/uncover_validation_2026-10-05.csv`.
+The generated snapshot is stored in `data/uncover_validation_2026-10-05.csv`.
