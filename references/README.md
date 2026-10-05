@@ -10,3 +10,5 @@
 - COSMOS-Web survey official depth/area table, four NIRCam filters and exposure zones.
 
 Exact bibliographic metadata/DOIs should be inserted in the paper bibliography from ADS.
+
+- Li et al. 2026, MNRAS 547, stag227, "Two late-T dwarfs at kiloparsec distances revealed by JWST UNCOVER survey", doi:10.1093/mnras/stag227. Independent A2744 validation: 53.4 arcmin^2, five T dwarfs, surface density 0.094 arcmin^-2.
