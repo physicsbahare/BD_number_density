@@ -38,23 +38,25 @@ Key reference points:
 - Public FC-ENZO implementation discrepancies/bugs are documented and are not silently inherited.
 
 
-## Independent UNCOVER validation (2026-10-05)
+## Independent UNCOVER audit (corrected 2026-10-05)
 
-The Galactic line-of-sight model has now been tested on the independent
-UNCOVER/A2744 JWST field using Li et al. (2026).
+UNCOVER/A2744 is an independent validation target using Li et al. (2026).
 
 - Observed: 5 T dwarfs over 53.4 arcmin^2 (0.094 arcmin^-2).
-- Current depth-only model over 450-1500 K: 2.88 objects
-  (0.0539 arcmin^-2).
-- The prediction lies inside the exact 68% Poisson interval for 5 observed
-  objects, so the total-count check is encouraging.
-- The 450-1050 K distribution is more late-T-rich than the fixed-component
-  baseline predicts, motivating a Teff-dependent thick-disk sensitivity test.
+- Li et al. define the density depth using the faintest object at
+  **F277W=29.24 AB**. F115W=28.03 is an auxiliary magnitude for that object.
+- The repository does not yet contain atmosphere-based `d25_F277W_pc`
+  values, so the **primary matched-depth validation is pending**.
+- The previous 2.88-object result is retained only as an F115W proxy and must
+  not be labelled a successful UNCOVER validation.
+- Using Li et al.'s own late-T d_max values gives a separate
+  Galactic-density/geometry cross-check of about 1.10 predicted versus
+  4 observed objects in 450-1050 K.
 
 See `docs/uncover_validation_2026-10-05.md`,
 `data/uncover_validation_2026-10-05.csv`, and run
 `python -m src.validate_uncover`.
 
-This remains an intrinsic depth-only validation. The Li et al. colour/SED
-selection must be forward-modelled before claiming selection-matched
-agreement.
+Next requirement: generate F277W synthetic reach from the atmosphere grid,
+then forward-model the Li et al. colour/SED selection before making a
+selection-matched validation claim.
