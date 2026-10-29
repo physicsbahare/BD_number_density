@@ -88,3 +88,17 @@ def test_missing_celestial_wcs_fails_with_diagnostics(tmp_path, monkeypatch):
     with pytest.raises(ValueError, match="HDU header diagnostics"):
         wht.wht_tile("A1", grid, math.radians(0.6 / 3600),
                      math.radians(-0.08), 10, tmp_path)
+
+
+def test_official_dr1_a1_corners_reconstruct_missing_wht_wcs():
+    # Real A1 WHT FITS has 9600 x 12455 pixels and zero WCS cards.
+    derived, meta = wht.official_corner_wcs("A1", nx=9600, ny=12455)
+    assert derived.has_celestial
+    assert meta["wcs_corner_residual_arcsec_max"] < 1
+    assert all(0.055 < x < 0.065 for x in meta["wcs_pixel_scales_arcsec"])
+    assert "NOT_original_header" in meta["wcs_source"]
+
+
+def test_corner_wcs_rejects_inconsistent_image_shape():
+    with pytest.raises(ValueError, match="pixel scales"):
+        wht.official_corner_wcs("A1", nx=100, ny=100)
