@@ -1,0 +1,75 @@
+{
+  "generated_utc": "2026-10-29T13:52:31.517556+00:00",
+  "source": "https://cosmos2025.iap.fr/nircam.html",
+  "status": "PASS",
+  "results": [
+    {
+      "tile": "A1",
+      "official_i2d_url": "https://cosmos2025.iap.fr/data/nircam/mosaic_nircam_f444w_COSMOS-Web_60mas_A1_v1.0_i2d.fits.gz",
+      "image_shape": [
+        12455,
+        9600
+      ],
+      "sci_ctype": [
+        "RA---TAN",
+        "DEC--TAN"
+      ],
+      "corner_vs_original_sci_wcs_arcsec": [
+        0.06929778317817668,
+        0.04759850463478845,
+        0.028579623950378448,
+        0.05787490006849019,
+        0.048541461306215866
+      ],
+      "max_wcs_difference_arcsec": 0.06929778317817668,
+      "corner_fit": {
+        "wcs_source": "reconstructed_from_official_DR1_tile_corners_NOT_original_header",
+        "wcs_corner_residual_arcsec_max": 3.753614506081724e-05,
+        "wcs_pixel_scales_arcsec": [
+          0.060003128876161806,
+          0.060002418155837574
+        ],
+        "wcs_reference": "https://cosmos2025.iap.fr/nircam.html",
+        "wcs_independent_i2d_validation": "PENDING"
+      },
+      "http_status": 206,
+      "compressed_prefix_bytes": 4194304,
+      "decompressed_prefix_bytes": 4194304,
+      "status": "PASS_WITHIN_0P6ARCSEC"
+    },
+    {
+      "tile": "B10",
+      "official_i2d_url": "https://cosmos2025.iap.fr/data/nircam/mosaic_nircam_f444w_COSMOS-Web_60mas_B10_v1.0_i2d.fits.gz",
+      "image_shape": [
+        12455,
+        9600
+      ],
+      "sci_ctype": [
+        "RA---TAN",
+        "DEC--TAN"
+      ],
+      "corner_vs_original_sci_wcs_arcsec": [
+        0.3262028567746911,
+        0.3222055459392824,
+        0.3519420455444816,
+        0.35559294612183207,
+        0.3386557131178245
+      ],
+      "max_wcs_difference_arcsec": 0.35559294612183207,
+      "corner_fit": {
+        "wcs_source": "reconstructed_from_official_DR1_tile_corners_NOT_original_header",
+        "wcs_corner_residual_arcsec_max": 9.835751431261441e-05,
+        "wcs_pixel_scales_arcsec": [
+          0.06000311977810745,
+          0.060002397383419115
+        ],
+        "wcs_reference": "https://cosmos2025.iap.fr/nircam.html",
+        "wcs_independent_i2d_validation": "PENDING"
+      },
+      "http_status": 206,
+      "compressed_prefix_bytes": 4194304,
+      "decompressed_prefix_bytes": 4194304,
+      "status": "PASS_WITHIN_0P6ARCSEC"
+    }
+  ]
+}
