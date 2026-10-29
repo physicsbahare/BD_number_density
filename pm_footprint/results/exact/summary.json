@@ -1,7 +1,7 @@
 {
   "method": "unit_sphere_lambert_equal_area_shapely_polygon_intersections",
   "status": "EXACT_GEOMETRY_PRELIMINARY_REQUIRES_USABLE_MASK_AND_ASTROMETRY_QC",
-  "generated_utc": "2026-10-29T11:37:33.026947+00:00",
+  "generated_utc": "2026-10-29T12:18:36.011897+00:00",
   "mast_rows": 3168,
   "imaging_rows_with_valid_time": 2976,
   "cweb_f444w_rows": 155,
@@ -639,7 +639,7 @@
     "A real COSMOS-Web F444W usable-depth/masking footprint is needed for selection-matched fractions.",
     "Candidate deblending and source-level astrometric S/N require independent checks."
   ],
-  "exact_source_sha256": "c031c446913ceee3c36638c98584a24ea9f2f6f70385edd6a9f7259e8a264c93",
+  "exact_source_sha256": "219d16e7a622a9d7cb6d6643c07b77666556fbcc70309a56e4ecbeab24061d6f",
   "mast_metadata_sha256": "2e03857153777bddf6f0a0ad19c5bc289829d1c8d0da42a628ae4695e45e62db",
   "candidate_catalog_sha256": "d43ce32e33b898f6bf57551affe41f209e0b455a4e4e63b4e99a8eea03236bbd"
 }
