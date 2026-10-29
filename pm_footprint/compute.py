@@ -6,6 +6,7 @@ Only public MAST metadata are queried; no FITS pixels are downloaded.
 from __future__ import annotations
 
 import argparse
+import hashlib
 from datetime import datetime, timezone
 import json
 import math
@@ -263,13 +264,22 @@ def main():
     out = Path(opt.out)
     out.mkdir(parents=True, exist_ok=True)
     try:
-        table = pd.read_csv(opt.metadata_csv) if opt.metadata_csv else retrieve()
-        cols = [c for c in ("obs_id", "obsid", "obs_collection", "instrument_name",
-                            "dataproduct_type", "intentType", "filters", "proposal_id",
-                            "t_min", "t_max", "s_region") if c in table]
-        table[cols].to_csv(out / "mast_observations.csv", index=False)
+        if opt.metadata_csv:
+            meta_path = Path(opt.metadata_csv)
+            table = pd.read_csv(meta_path)
+        else:
+            table = retrieve()
+            cols = [c for c in ("obs_id", "obsid", "obs_collection", "instrument_name",
+                                "dataproduct_type", "intentType", "filters", "proposal_id",
+                                "t_min", "t_max", "s_region") if c in table]
+            meta_path = out / "mast_observations.csv"
+            table[cols].to_csv(meta_path, index=False)
+            table = pd.read_csv(meta_path)
         data = pd.read_csv(opt.candidates)
         result, members, masks = calculate(table, data, opt.depth, opt.baseline_days)
+        result["compute_source_sha256"] = hashlib.sha256(Path(__file__).read_bytes()).hexdigest()
+        result["mast_metadata_sha256"] = hashlib.sha256(meta_path.read_bytes()).hexdigest()
+        result["candidate_catalog_sha256"] = hashlib.sha256(Path(opt.candidates).read_bytes()).hexdigest()
         members.to_csv(out / "dave125_coverage.csv", index=False)
         for key, mask in masks.items():
             mask.save(out / (key + ".fits"), format="fits", overwrite=True)
