@@ -1,0 +1,487 @@
+{
+  "method": "post_rasterization_occupancy_grid_sensitivity",
+  "limitations": [
+    "1.2arcsec grid is a 2x2 mean of the 0.6arcsec grid, not an independent 60mas FITS resample.",
+    "Half-cell translation uses bilinear occupancy interpolation.",
+    "Grid convergence does not establish photometric depth or astrometric completeness."
+  ],
+  "comparisons": {
+    "0": {
+      "archive_f444w": {
+        "coarsened_1p2arcsec": {
+          "area_deg2": 0.528266578888767,
+          "relative_area_delta": -0.0010534817668808867,
+          "candidate_count_delta": 0
+        },
+        "shifted_0p3arcsec": {
+          "area_deg2": 0.528266874998272,
+          "relative_area_delta": -0.0010529218269362214,
+          "candidate_count_delta": 0
+        }
+      },
+      "same_f444w_30d": {
+        "coarsened_1p2arcsec": {
+          "area_deg2": 0.07327194666667187,
+          "relative_area_delta": -0.001016650598243155,
+          "candidate_count_delta": 0
+        },
+        "shifted_0p3arcsec": {
+          "area_deg2": 0.07327065416669523,
+          "relative_area_delta": -0.001034272430533796,
+          "candidate_count_delta": 0
+        }
+      },
+      "f444w_plus_red_30d": {
+        "coarsened_1p2arcsec": {
+          "area_deg2": 0.34842628111119817,
+          "relative_area_delta": -0.0010047871912968076,
+          "candidate_count_delta": 0
+        },
+        "shifted_0p3arcsec": {
+          "area_deg2": 0.3484258069437079,
+          "relative_area_delta": -0.0010061467071500337,
+          "candidate_count_delta": 0
+        }
+      },
+      "any_nircam_30d": {
+        "coarsened_1p2arcsec": {
+          "area_deg2": 0.35808963111119185,
+          "relative_area_delta": -0.0009984786849890944,
+          "candidate_count_delta": 0
+        },
+        "shifted_0p3arcsec": {
+          "area_deg2": 0.3580890049992165,
+          "relative_area_delta": -0.0010002254175431038,
+          "candidate_count_delta": 0
+        }
+      },
+      "same_f444w_180d": {
+        "coarsened_1p2arcsec": {
+          "area_deg2": 0.06352483777778217,
+          "relative_area_delta": -0.0010178644445940795,
+          "candidate_count_delta": 0
+        },
+        "shifted_0p3arcsec": {
+          "area_deg2": 0.06352407472224493,
+          "relative_area_delta": -0.0010298641422998535,
+          "candidate_count_delta": 0
+        }
+      },
+      "f444w_plus_red_180d": {
+        "coarsened_1p2arcsec": {
+          "area_deg2": 0.3422907944445325,
+          "relative_area_delta": -0.0010012599312121178,
+          "candidate_count_delta": 0
+        },
+        "shifted_0p3arcsec": {
+          "area_deg2": 0.34228958972150647,
+          "relative_area_delta": -0.0010047759965128623,
+          "candidate_count_delta": 0
+        }
+      },
+      "any_nircam_180d": {
+        "coarsened_1p2arcsec": {
+          "area_deg2": 0.35244695222230527,
+          "relative_area_delta": -0.0010018506988052447,
+          "candidate_count_delta": 0
+        },
+        "shifted_0p3arcsec": {
+          "area_deg2": 0.35244701388812527,
+          "relative_area_delta": -0.0010016759092669253,
+          "candidate_count_delta": 0
+        }
+      },
+      "same_f444w_365d": {
+        "coarsened_1p2arcsec": {
+          "area_deg2": 0.03829821444444693,
+          "relative_area_delta": -0.0010193584492605072,
+          "candidate_count_delta": 0
+        },
+        "shifted_0p3arcsec": {
+          "area_deg2": 0.03829845083333529,
+          "relative_area_delta": -0.0010131924196746741,
+          "candidate_count_delta": 0
+        }
+      },
+      "f444w_plus_red_365d": {
+        "coarsened_1p2arcsec": {
+          "area_deg2": 0.3143084366667482,
+          "relative_area_delta": -0.0010044373470844904,
+          "candidate_count_delta": 0
+        },
+        "shifted_0p3arcsec": {
+          "area_deg2": 0.3143092466660227,
+          "relative_area_delta": -0.0010018628515042842,
+          "candidate_count_delta": 0
+        }
+      },
+      "any_nircam_365d": {
+        "coarsened_1p2arcsec": {
+          "area_deg2": 0.328604910000071,
+          "relative_area_delta": -0.0010047126565469798,
+          "candidate_count_delta": 0
+        },
+        "shifted_0p3arcsec": {
+          "area_deg2": 0.32860560138817996,
+          "relative_area_delta": -0.0010026107601920312,
+          "candidate_count_delta": 0
+        }
+      },
+      "same_f444w_730d": {
+        "coarsened_1p2arcsec": {
+          "area_deg2": 0.011954461111109777,
+          "relative_area_delta": -0.0010053536067749825,
+          "candidate_count_delta": 0
+        },
+        "shifted_0p3arcsec": {
+          "area_deg2": 0.011953971944445379,
+          "relative_area_delta": -0.0010462316417099184,
+          "candidate_count_delta": 0
+        }
+      },
+      "f444w_plus_red_730d": {
+        "coarsened_1p2arcsec": {
+          "area_deg2": 0.21276160666674393,
+          "relative_area_delta": -0.0009947548661718424,
+          "candidate_count_delta": 0
+        },
+        "shifted_0p3arcsec": {
+          "area_deg2": 0.21276240749979608,
+          "relative_area_delta": -0.0009909946181077835,
+          "candidate_count_delta": 0
+        }
+      },
+      "any_nircam_730d": {
+        "coarsened_1p2arcsec": {
+          "area_deg2": 0.23185730555564688,
+          "relative_area_delta": -0.0009867712551179266,
+          "candidate_count_delta": 0
+        },
+        "shifted_0p3arcsec": {
+          "area_deg2": 0.2318565602775156,
+          "relative_area_delta": -0.0009899824660411414,
+          "candidate_count_delta": 0
+        }
+      }
+    },
+    "0.1": {
+      "archive_f444w": {
+        "coarsened_1p2arcsec": {
+          "area_deg2": 0.5281922066665485,
+          "relative_area_delta": -0.0010425209579423688,
+          "candidate_count_delta": 0
+        },
+        "shifted_0p3arcsec": {
+          "area_deg2": 0.5281923399982739,
+          "relative_area_delta": -0.0010422687907908506,
+          "candidate_count_delta": 0
+        }
+      },
+      "same_f444w_30d": {
+        "coarsened_1p2arcsec": {
+          "area_deg2": 0.07326319111111633,
+          "relative_area_delta": -0.0010085913323401778,
+          "candidate_count_delta": 0
+        },
+        "shifted_0p3arcsec": {
+          "area_deg2": 0.07326191944447293,
+          "relative_area_delta": -0.0010259313366750061,
+          "candidate_count_delta": 0
+        }
+      },
+      "f444w_plus_red_30d": {
+        "coarsened_1p2arcsec": {
+          "area_deg2": 0.348387821111199,
+          "relative_area_delta": -0.0009966717628952274,
+          "candidate_count_delta": 0
+        },
+        "shifted_0p3arcsec": {
+          "area_deg2": 0.34838733416593237,
+          "relative_area_delta": -0.0009980680801960449,
+          "candidate_count_delta": 0
+        }
+      },
+      "any_nircam_30d": {
+        "coarsened_1p2arcsec": {
+          "area_deg2": 0.35804953666674827,
+          "relative_area_delta": -0.0009900680352915021,
+          "candidate_count_delta": 0
+        },
+        "shifted_0p3arcsec": {
+          "area_deg2": 0.3580488563881078,
+          "relative_area_delta": -0.000991966110973053,
+          "candidate_count_delta": 0
+        }
+      },
+      "same_f444w_180d": {
+        "coarsened_1p2arcsec": {
+          "area_deg2": 0.06351738777778218,
+          "relative_area_delta": -0.001009621532214576,
+          "candidate_count_delta": 0
+        },
+        "shifted_0p3arcsec": {
+          "area_deg2": 0.0635166452778004,
+          "relative_area_delta": -0.0010212994422130477,
+          "candidate_count_delta": 0
+        }
+      },
+      "f444w_plus_red_180d": {
+        "coarsened_1p2arcsec": {
+          "area_deg2": 0.3422535866667554,
+          "relative_area_delta": -0.0009932419845744642,
+          "candidate_count_delta": 0
+        },
+        "shifted_0p3arcsec": {
+          "area_deg2": 0.3422523722215089,
+          "relative_area_delta": -0.000996786838611912,
+          "candidate_count_delta": 0
+        }
+      },
+      "any_nircam_180d": {
+        "coarsened_1p2arcsec": {
+          "area_deg2": 0.35240811111119513,
+          "relative_area_delta": -0.0009935028891062364,
+          "candidate_count_delta": 0
+        },
+        "shifted_0p3arcsec": {
+          "area_deg2": 0.3524081286103501,
+          "relative_area_delta": -0.000993453282502568,
+          "candidate_count_delta": 0
+        }
+      },
+      "same_f444w_365d": {
+        "coarsened_1p2arcsec": {
+          "area_deg2": 0.03829388222222467,
+          "relative_area_delta": -0.0010105695300959864,
+          "candidate_count_delta": 0
+        },
+        "shifted_0p3arcsec": {
+          "area_deg2": 0.03829407472222423,
+          "relative_area_delta": -0.0010055476975273114,
+          "candidate_count_delta": 0
+        }
+      },
+      "f444w_plus_red_365d": {
+        "coarsened_1p2arcsec": {
+          "area_deg2": 0.3142745022223045,
+          "relative_area_delta": -0.0009963059766988041,
+          "candidate_count_delta": 0
+        },
+        "shifted_0p3arcsec": {
+          "area_deg2": 0.3142752774993583,
+          "relative_area_delta": -0.0009938415558338016,
+          "candidate_count_delta": 0
+        }
+      },
+      "any_nircam_365d": {
+        "coarsened_1p2arcsec": {
+          "area_deg2": 0.3285684188889606,
+          "relative_area_delta": -0.0009964400104322043,
+          "candidate_count_delta": 0
+        },
+        "shifted_0p3arcsec": {
+          "area_deg2": 0.3285690655548488,
+          "relative_area_delta": -0.0009944738399565191,
+          "candidate_count_delta": 0
+        }
+      },
+      "same_f444w_730d": {
+        "coarsened_1p2arcsec": {
+          "area_deg2": 0.011952699999998664,
+          "relative_area_delta": -0.0009984972395312456,
+          "candidate_count_delta": 0
+        },
+        "shifted_0p3arcsec": {
+          "area_deg2": 0.011952203333334261,
+          "relative_area_delta": -0.0010400084247956674,
+          "candidate_count_delta": 0
+        }
+      },
+      "f444w_plus_red_730d": {
+        "coarsened_1p2arcsec": {
+          "area_deg2": 0.21273768444452174,
+          "relative_area_delta": -0.0009866516008618462,
+          "candidate_count_delta": 0
+        },
+        "shifted_0p3arcsec": {
+          "area_deg2": 0.21273851249979742,
+          "relative_area_delta": -0.0009827630642550017,
+          "candidate_count_delta": 0
+        }
+      },
+      "any_nircam_730d": {
+        "coarsened_1p2arcsec": {
+          "area_deg2": 0.2318313100000911,
+          "relative_area_delta": -0.0009783925569000814,
+          "candidate_count_delta": 0
+        },
+        "shifted_0p3arcsec": {
+          "area_deg2": 0.23183053055529496,
+          "relative_area_delta": -0.0009817513879102813,
+          "candidate_count_delta": 0
+        }
+      }
+    },
+    "0.5": {
+      "archive_f444w": {
+        "coarsened_1p2arcsec": {
+          "area_deg2": 0.5171832333333928,
+          "relative_area_delta": -0.0006679224369712433,
+          "candidate_count_delta": 0
+        },
+        "shifted_0p3arcsec": {
+          "area_deg2": 0.5171835452763338,
+          "relative_area_delta": -0.0006673196823433814,
+          "candidate_count_delta": 0
+        }
+      },
+      "same_f444w_30d": {
+        "coarsened_1p2arcsec": {
+          "area_deg2": 0.07200503333333971,
+          "relative_area_delta": -0.00082608792095338,
+          "candidate_count_delta": 0
+        },
+        "shifted_0p3arcsec": {
+          "area_deg2": 0.07200298972224661,
+          "relative_area_delta": -0.0008544459786631503,
+          "candidate_count_delta": 0
+        }
+      },
+      "f444w_plus_red_30d": {
+        "coarsened_1p2arcsec": {
+          "area_deg2": 0.34200025888901087,
+          "relative_area_delta": -0.0006682709315713295,
+          "candidate_count_delta": 0
+        },
+        "shifted_0p3arcsec": {
+          "area_deg2": 0.3420003480550138,
+          "relative_area_delta": -0.0006680103866929246,
+          "candidate_count_delta": 0
+        }
+      },
+      "any_nircam_30d": {
+        "coarsened_1p2arcsec": {
+          "area_deg2": 0.35140641888901,
+          "relative_area_delta": -0.0006516611056936672,
+          "candidate_count_delta": 0
+        },
+        "shifted_0p3arcsec": {
+          "area_deg2": 0.3514062461105289,
+          "relative_area_delta": -0.0006521524623644069,
+          "candidate_count_delta": 0
+        }
+      },
+      "same_f444w_180d": {
+        "coarsened_1p2arcsec": {
+          "area_deg2": 0.06236348000000442,
+          "relative_area_delta": -0.0007973245458652067,
+          "candidate_count_delta": 0
+        },
+        "shifted_0p3arcsec": {
+          "area_deg2": 0.062362443611129845,
+          "relative_area_delta": -0.0008139298176730896,
+          "candidate_count_delta": 0
+        }
+      },
+      "f444w_plus_red_180d": {
+        "coarsened_1p2arcsec": {
+          "area_deg2": 0.33598044777789804,
+          "relative_area_delta": -0.0006641747986172842,
+          "candidate_count_delta": 0
+        },
+        "shifted_0p3arcsec": {
+          "area_deg2": 0.33598002888836503,
+          "relative_area_delta": -0.0006654207381352002,
+          "candidate_count_delta": 0
+        }
+      },
+      "any_nircam_180d": {
+        "coarsened_1p2arcsec": {
+          "area_deg2": 0.34587282555567583,
+          "relative_area_delta": -0.000653840469918509,
+          "candidate_count_delta": 0
+        },
+        "shifted_0p3arcsec": {
+          "area_deg2": 0.34587325194387974,
+          "relative_area_delta": -0.0006526084869971474,
+          "candidate_count_delta": 0
+        }
+      },
+      "same_f444w_365d": {
+        "coarsened_1p2arcsec": {
+          "area_deg2": 0.037588858888889166,
+          "relative_area_delta": -0.0007306885753914972,
+          "candidate_count_delta": 0
+        },
+        "shifted_0p3arcsec": {
+          "area_deg2": 0.03758861527778094,
+          "relative_area_delta": -0.0007371647790211279,
+          "candidate_count_delta": 0
+        }
+      },
+      "f444w_plus_red_365d": {
+        "coarsened_1p2arcsec": {
+          "area_deg2": 0.30848801444455587,
+          "relative_area_delta": -0.0006620497698290297,
+          "candidate_count_delta": 0
+        },
+        "shifted_0p3arcsec": {
+          "area_deg2": 0.30848882722175447,
+          "relative_area_delta": -0.0006594168017342881,
+          "candidate_count_delta": 0
+        }
+      },
+      "any_nircam_365d": {
+        "coarsened_1p2arcsec": {
+          "area_deg2": 0.3224606222223308,
+          "relative_area_delta": -0.000656909429542422,
+          "candidate_count_delta": 0
+        },
+        "shifted_0p3arcsec": {
+          "area_deg2": 0.3224613222216959,
+          "relative_area_delta": -0.0006547400498393163,
+          "candidate_count_delta": 0
+        }
+      },
+      "same_f444w_730d": {
+        "coarsened_1p2arcsec": {
+          "area_deg2": 0.01174791999999859,
+          "relative_area_delta": -0.000669244829554684,
+          "candidate_count_delta": 0
+        },
+        "shifted_0p3arcsec": {
+          "area_deg2": 0.011747445277778368,
+          "relative_area_delta": -0.0007096268303539859,
+          "candidate_count_delta": 0
+        }
+      },
+      "f444w_plus_red_730d": {
+        "coarsened_1p2arcsec": {
+          "area_deg2": 0.20875645000007703,
+          "relative_area_delta": -0.0006550513707185174,
+          "candidate_count_delta": 0
+        },
+        "shifted_0p3arcsec": {
+          "area_deg2": 0.2087571574998826,
+          "relative_area_delta": -0.0006516644748556264,
+          "candidate_count_delta": 0
+        }
+      },
+      "any_nircam_730d": {
+        "coarsened_1p2arcsec": {
+          "area_deg2": 0.22750702666675576,
+          "relative_area_delta": -0.0006320105689325721,
+          "candidate_count_delta": 0
+        },
+        "shifted_0p3arcsec": {
+          "area_deg2": 0.22750616999984313,
+          "relative_area_delta": -0.0006357736416720394,
+          "candidate_count_delta": 0
+        }
+      }
+    }
+  },
+  "max_abs_relative_area_delta": 0.0010534817668808867,
+  "max_abs_candidate_count_delta": 0,
+  "status": "GRID_INTEGRATION_STABLE_WITHIN_2PCT_AND_2_CANDIDATES"
+}

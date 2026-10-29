@@ -1,0 +1,902 @@
+[
+  {
+    "tile": "A1",
+    "url": "https://cosmos2025.iap.fr/data/nircam/extensions/mosaic_nircam_f444w_COSMOS-Web_60mas_A1_v1.0_wht.fits.gz",
+    "gz_sha256": "32f66a2b946ae4b7ef8f8fb8e0c734e4524f741efd884dc0762f60751a65fec0",
+    "wcs_source": "ORIGINAL_DR1_i2d_SCI_header_prefix",
+    "wcs_i2d_url": "https://cosmos2025.iap.fr/data/nircam/mosaic_nircam_f444w_COSMOS-Web_60mas_A1_v1.0_i2d.fits.gz",
+    "wcs_vs_published_corners_arcsec_max": 0.06929778317817668,
+    "wcs_corner_fit": {
+      "wcs_source": "reconstructed_from_official_DR1_tile_corners_NOT_original_header",
+      "wcs_corner_residual_arcsec_max": 3.753614506081724e-05,
+      "wcs_pixel_scales_arcsec": [
+        0.060003128876161806,
+        0.060002418155837574
+      ],
+      "wcs_reference": "https://cosmos2025.iap.fr/nircam.html",
+      "wcs_independent_i2d_validation": "PENDING"
+    },
+    "wcs_prefix_http_status": 206,
+    "wcs_prefix_bytes": 4194304,
+    "median_positive_wht_sample": 60990.2890625,
+    "fits_shape": [
+      12455,
+      9600
+    ],
+    "coarse_cells_mapped": 1152457,
+    "native_tile_area_deg2": [
+      0.03198281305555555,
+      0.03197498027777778,
+      0.031097314166666664
+    ],
+    "gridded_tile_area_deg2": [
+      0.03167677982661178,
+      0.031670313104647276,
+      0.03085834085498964
+    ],
+    "grid_area_conservation_error_fraction": [
+      -0.009568677664850108,
+      -0.009528299016410792,
+      -0.00768469297368391
+    ],
+    "trimmed_native_edge_pixels": [
+      5,
+      0
+    ]
+  },
+  {
+    "tile": "A2",
+    "url": "https://cosmos2025.iap.fr/data/nircam/extensions/mosaic_nircam_f444w_COSMOS-Web_60mas_A2_v1.0_wht.fits.gz",
+    "gz_sha256": "b3c3597fc0c90d1da0326a7c5adbf3d523a2e464f3d2a3e49ec09ada72e53e66",
+    "wcs_source": "ORIGINAL_DR1_i2d_SCI_header_prefix",
+    "wcs_i2d_url": "https://cosmos2025.iap.fr/data/nircam/mosaic_nircam_f444w_COSMOS-Web_60mas_A2_v1.0_i2d.fits.gz",
+    "wcs_vs_published_corners_arcsec_max": 0.06919882991266753,
+    "wcs_corner_fit": {
+      "wcs_source": "reconstructed_from_official_DR1_tile_corners_NOT_original_header",
+      "wcs_corner_residual_arcsec_max": 8.468967838767853e-05,
+      "wcs_pixel_scales_arcsec": [
+        0.06000311697458576,
+        0.06000242240218817
+      ],
+      "wcs_reference": "https://cosmos2025.iap.fr/nircam.html",
+      "wcs_independent_i2d_validation": "PENDING"
+    },
+    "wcs_prefix_http_status": 206,
+    "wcs_prefix_bytes": 4194304,
+    "median_positive_wht_sample": 58390.41796875,
+    "fits_shape": [
+      12455,
+      9600
+    ],
+    "coarse_cells_mapped": 1194385,
+    "native_tile_area_deg2": [
+      0.03316494194444444,
+      0.03315816333333333,
+      0.03239790277777777
+    ],
+    "gridded_tile_area_deg2": [
+      0.03284794833513081,
+      0.03284240453890287,
+      0.03214594878355118
+    ],
+    "grid_area_conservation_error_fraction": [
+      -0.009558093297574318,
+      -0.009522807136697809,
+      -0.007776861235579987
+    ],
+    "trimmed_native_edge_pixels": [
+      5,
+      0
+    ]
+  },
+  {
+    "tile": "A3",
+    "url": "https://cosmos2025.iap.fr/data/nircam/extensions/mosaic_nircam_f444w_COSMOS-Web_60mas_A3_v1.0_wht.fits.gz",
+    "gz_sha256": "e934a8b5f6a9d43e7f6b95793ddca5ae631f475749d8c75e01810df121d5763c",
+    "wcs_source": "ORIGINAL_DR1_i2d_SCI_header_prefix",
+    "wcs_i2d_url": "https://cosmos2025.iap.fr/data/nircam/mosaic_nircam_f444w_COSMOS-Web_60mas_A3_v1.0_i2d.fits.gz",
+    "wcs_vs_published_corners_arcsec_max": 0.06924025061603338,
+    "wcs_corner_fit": {
+      "wcs_source": "reconstructed_from_official_DR1_tile_corners_NOT_original_header",
+      "wcs_corner_residual_arcsec_max": 6.360612127450949e-05,
+      "wcs_pixel_scales_arcsec": [
+        0.0600031362290655,
+        0.060002415546045976
+      ],
+      "wcs_reference": "https://cosmos2025.iap.fr/nircam.html",
+      "wcs_independent_i2d_validation": "PENDING"
+    },
+    "wcs_prefix_http_status": 206,
+    "wcs_prefix_bytes": 4194304,
+    "median_positive_wht_sample": 58038.916015625,
+    "fits_shape": [
+      12455,
+      9600
+    ],
+    "coarse_cells_mapped": 1194439,
+    "native_tile_area_deg2": [
+      0.03316968833333332,
+      0.03316371555555555,
+      0.03242404222222222
+    ],
+    "gridded_tile_area_deg2": [
+      0.03285282666640419,
+      0.032848065939861774,
+      0.03217080667085941
+    ],
+    "grid_area_conservation_error_fraction": [
+      -0.009552747790237955,
+      -0.009517920727700175,
+      -0.007810116629728817
+    ],
+    "trimmed_native_edge_pixels": [
+      5,
+      0
+    ]
+  },
+  {
+    "tile": "A4",
+    "url": "https://cosmos2025.iap.fr/data/nircam/extensions/mosaic_nircam_f444w_COSMOS-Web_60mas_A4_v1.0_wht.fits.gz",
+    "gz_sha256": "f3736c852f07d539359d2c385fb21d999a83802aa307da42463938bf030af34d",
+    "wcs_source": "ORIGINAL_DR1_i2d_SCI_header_prefix",
+    "wcs_i2d_url": "https://cosmos2025.iap.fr/data/nircam/mosaic_nircam_f444w_COSMOS-Web_60mas_A4_v1.0_i2d.fits.gz",
+    "wcs_vs_published_corners_arcsec_max": 0.06927191131366575,
+    "wcs_corner_fit": {
+      "wcs_source": "reconstructed_from_official_DR1_tile_corners_NOT_original_header",
+      "wcs_corner_residual_arcsec_max": 4.432391894423099e-05,
+      "wcs_pixel_scales_arcsec": [
+        0.06000312565421706,
+        0.06000241482634036
+      ],
+      "wcs_reference": "https://cosmos2025.iap.fr/nircam.html",
+      "wcs_independent_i2d_validation": "PENDING"
+    },
+    "wcs_prefix_http_status": 206,
+    "wcs_prefix_bytes": 4194304,
+    "median_positive_wht_sample": 57874.720703125,
+    "fits_shape": [
+      12455,
+      9600
+    ],
+    "coarse_cells_mapped": 1194431,
+    "native_tile_area_deg2": [
+      0.03316958416666667,
+      0.03316358222222222,
+      0.0324432686111111
+    ],
+    "gridded_tile_area_deg2": [
+      0.032852432487364906,
+      0.0328476401992484,
+      0.032189813915681965
+    ],
+    "grid_area_conservation_error_fraction": [
+      -0.009561521112479899,
+      -0.009526776114134945,
+      -0.007812242917544027
+    ],
+    "trimmed_native_edge_pixels": [
+      5,
+      0
+    ]
+  },
+  {
+    "tile": "A5",
+    "url": "https://cosmos2025.iap.fr/data/nircam/extensions/mosaic_nircam_f444w_COSMOS-Web_60mas_A5_v1.0_wht.fits.gz",
+    "gz_sha256": "7b9fe341754302d302ffc4369c857fbfffa025381da1279327a8f54f37346dee",
+    "wcs_source": "ORIGINAL_DR1_i2d_SCI_header_prefix",
+    "wcs_i2d_url": "https://cosmos2025.iap.fr/data/nircam/mosaic_nircam_f444w_COSMOS-Web_60mas_A5_v1.0_i2d.fits.gz",
+    "wcs_vs_published_corners_arcsec_max": 0.06910182519360919,
+    "wcs_corner_fit": {
+      "wcs_source": "reconstructed_from_official_DR1_tile_corners_NOT_original_header",
+      "wcs_corner_residual_arcsec_max": 3.789563438164667e-05,
+      "wcs_pixel_scales_arcsec": [
+        0.06000309626442044,
+        0.06000241153602911
+      ],
+      "wcs_reference": "https://cosmos2025.iap.fr/nircam.html",
+      "wcs_independent_i2d_validation": "PENDING"
+    },
+    "wcs_prefix_http_status": 206,
+    "wcs_prefix_bytes": 4194304,
+    "median_positive_wht_sample": 57633.951171875,
+    "fits_shape": [
+      12455,
+      9600
+    ],
+    "coarse_cells_mapped": 900764,
+    "native_tile_area_deg2": [
+      0.02499884388888889,
+      0.024992707222222223,
+      0.024337190277777775
+    ],
+    "gridded_tile_area_deg2": [
+      0.024759597929825527,
+      0.02475461132726719,
+      0.02414586520677382
+    ],
+    "grid_area_conservation_error_fraction": [
+      -0.00957028093485951,
+      -0.009526614817594942,
+      -0.00786142807860009
+    ],
+    "trimmed_native_edge_pixels": [
+      5,
+      0
+    ]
+  },
+  {
+    "tile": "A6",
+    "url": "https://cosmos2025.iap.fr/data/nircam/extensions/mosaic_nircam_f444w_COSMOS-Web_60mas_A6_v1.0_wht.fits.gz",
+    "gz_sha256": "e3d8108872aacfae3061312ba8326e551aa6d64e30474d44dcbd023d3c57cd72",
+    "wcs_source": "ORIGINAL_DR1_i2d_SCI_header_prefix",
+    "wcs_i2d_url": "https://cosmos2025.iap.fr/data/nircam/mosaic_nircam_f444w_COSMOS-Web_60mas_A6_v1.0_i2d.fits.gz",
+    "wcs_vs_published_corners_arcsec_max": 0.4033598711343623,
+    "wcs_corner_fit": {
+      "wcs_source": "reconstructed_from_official_DR1_tile_corners_NOT_original_header",
+      "wcs_corner_residual_arcsec_max": 0.00010588653710990031,
+      "wcs_pixel_scales_arcsec": [
+        0.06000312946387878,
+        0.06000241958353202
+      ],
+      "wcs_reference": "https://cosmos2025.iap.fr/nircam.html",
+      "wcs_independent_i2d_validation": "PENDING"
+    },
+    "wcs_prefix_http_status": 206,
+    "wcs_prefix_bytes": 4194304,
+    "median_positive_wht_sample": 58173.67578125,
+    "fits_shape": [
+      12455,
+      9600
+    ],
+    "coarse_cells_mapped": 1114642,
+    "native_tile_area_deg2": [
+      0.030924894999999994,
+      0.030915444166666663,
+      0.03008856222222222
+    ],
+    "gridded_tile_area_deg2": [
+      0.030628426973387374,
+      0.03062033770064581,
+      0.02985805532549122
+    ],
+    "grid_area_conservation_error_fraction": [
+      -0.009586710855853173,
+      -0.009545600070628789,
+      -0.007660947539751736
+    ],
+    "trimmed_native_edge_pixels": [
+      5,
+      0
+    ]
+  },
+  {
+    "tile": "A7",
+    "url": "https://cosmos2025.iap.fr/data/nircam/extensions/mosaic_nircam_f444w_COSMOS-Web_60mas_A7_v1.0_wht.fits.gz",
+    "gz_sha256": "14aceaa2fc85fea07fa4bc8333b2c28ed3e7460827c86c2e4bae00fb215077ac",
+    "wcs_source": "ORIGINAL_DR1_i2d_SCI_header_prefix",
+    "wcs_i2d_url": "https://cosmos2025.iap.fr/data/nircam/mosaic_nircam_f444w_COSMOS-Web_60mas_A7_v1.0_i2d.fits.gz",
+    "wcs_vs_published_corners_arcsec_max": 0.4030967821679574,
+    "wcs_corner_fit": {
+      "wcs_source": "reconstructed_from_official_DR1_tile_corners_NOT_original_header",
+      "wcs_corner_residual_arcsec_max": 7.198880220041608e-05,
+      "wcs_pixel_scales_arcsec": [
+        0.060003131283429594,
+        0.06000241209902455
+      ],
+      "wcs_reference": "https://cosmos2025.iap.fr/nircam.html",
+      "wcs_independent_i2d_validation": "PENDING"
+    },
+    "wcs_prefix_http_status": 206,
+    "wcs_prefix_bytes": 4194304,
+    "median_positive_wht_sample": 58384.322265625,
+    "fits_shape": [
+      12455,
+      9600
+    ],
+    "coarse_cells_mapped": 1156900,
+    "native_tile_area_deg2": [
+      0.03211479249999999,
+      0.032107786666666666,
+      0.03132025027777777
+    ],
+    "gridded_tile_area_deg2": [
+      0.03180726246245771,
+      0.031801493287628,
+      0.031081955186070927
+    ],
+    "grid_area_conservation_error_fraction": [
+      -0.00957596215333735,
+      -0.009539535758677884,
+      -0.00760833932019738
+    ],
+    "trimmed_native_edge_pixels": [
+      5,
+      0
+    ]
+  },
+  {
+    "tile": "A8",
+    "url": "https://cosmos2025.iap.fr/data/nircam/extensions/mosaic_nircam_f444w_COSMOS-Web_60mas_A8_v1.0_wht.fits.gz",
+    "gz_sha256": "e4efbe59189106168535317b7f2ceaf14f00f42c6e3978e4d0502babc7c71e01",
+    "wcs_source": "ORIGINAL_DR1_i2d_SCI_header_prefix",
+    "wcs_i2d_url": "https://cosmos2025.iap.fr/data/nircam/mosaic_nircam_f444w_COSMOS-Web_60mas_A8_v1.0_i2d.fits.gz",
+    "wcs_vs_published_corners_arcsec_max": 0.4030058127506829,
+    "wcs_corner_fit": {
+      "wcs_source": "reconstructed_from_official_DR1_tile_corners_NOT_original_header",
+      "wcs_corner_residual_arcsec_max": 9.44176346614865e-05,
+      "wcs_pixel_scales_arcsec": [
+        0.06000311601586897,
+        0.06000239348101632
+      ],
+      "wcs_reference": "https://cosmos2025.iap.fr/nircam.html",
+      "wcs_independent_i2d_validation": "PENDING"
+    },
+    "wcs_prefix_http_status": 206,
+    "wcs_prefix_bytes": 4194304,
+    "median_positive_wht_sample": 58427.1484375,
+    "fits_shape": [
+      12455,
+      9600
+    ],
+    "coarse_cells_mapped": 1156931,
+    "native_tile_area_deg2": [
+      0.032115748888888886,
+      0.03210896888888888,
+      0.0313184461111111
+    ],
+    "gridded_tile_area_deg2": [
+      0.031808372523429114,
+      0.03180278842766141,
+      0.031080476062011947
+    ],
+    "grid_area_conservation_error_fraction": [
+      -0.009570892041882757,
+      -0.00953566781564951,
+      -0.007598398983617703
+    ],
+    "trimmed_native_edge_pixels": [
+      5,
+      0
+    ]
+  },
+  {
+    "tile": "A9",
+    "url": "https://cosmos2025.iap.fr/data/nircam/extensions/mosaic_nircam_f444w_COSMOS-Web_60mas_A9_v1.0_wht.fits.gz",
+    "gz_sha256": "f93ed5f3d913642e73ffbf2f1197ddd514b69cf0ba8daa58ccf4f40494299781",
+    "wcs_source": "ORIGINAL_DR1_i2d_SCI_header_prefix",
+    "wcs_i2d_url": "https://cosmos2025.iap.fr/data/nircam/mosaic_nircam_f444w_COSMOS-Web_60mas_A9_v1.0_i2d.fits.gz",
+    "wcs_vs_published_corners_arcsec_max": 0.4029339524441192,
+    "wcs_corner_fit": {
+      "wcs_source": "reconstructed_from_official_DR1_tile_corners_NOT_original_header",
+      "wcs_corner_residual_arcsec_max": 8.277979734210615e-05,
+      "wcs_pixel_scales_arcsec": [
+        0.060003129980949706,
+        0.06000239949029738
+      ],
+      "wcs_reference": "https://cosmos2025.iap.fr/nircam.html",
+      "wcs_independent_i2d_validation": "PENDING"
+    },
+    "wcs_prefix_http_status": 206,
+    "wcs_prefix_bytes": 4194304,
+    "median_positive_wht_sample": 58387.09375,
+    "fits_shape": [
+      12455,
+      9600
+    ],
+    "coarse_cells_mapped": 1156657,
+    "native_tile_area_deg2": [
+      0.03210432999999999,
+      0.03209650555555556,
+      0.03128281583333334
+    ],
+    "gridded_tile_area_deg2": [
+      0.03179693399118312,
+      0.03179037808759087,
+      0.03104472049062797
+    ],
+    "grid_area_conservation_error_fraction": [
+      -0.009574908083017846,
+      -0.009537719532576866,
+      -0.007611058543255119
+    ],
+    "trimmed_native_edge_pixels": [
+      5,
+      0
+    ]
+  },
+  {
+    "tile": "A10",
+    "url": "https://cosmos2025.iap.fr/data/nircam/extensions/mosaic_nircam_f444w_COSMOS-Web_60mas_A10_v1.0_wht.fits.gz",
+    "gz_sha256": "8843aedd09b740ec90dff8a5b700514d6d55bf4845b3d71bbfb0d58a98e063b4",
+    "wcs_source": "ORIGINAL_DR1_i2d_SCI_header_prefix",
+    "wcs_i2d_url": "https://cosmos2025.iap.fr/data/nircam/mosaic_nircam_f444w_COSMOS-Web_60mas_A10_v1.0_i2d.fits.gz",
+    "wcs_vs_published_corners_arcsec_max": 0.40300284525427227,
+    "wcs_corner_fit": {
+      "wcs_source": "reconstructed_from_official_DR1_tile_corners_NOT_original_header",
+      "wcs_corner_residual_arcsec_max": 3.8608033927949744e-05,
+      "wcs_pixel_scales_arcsec": [
+        0.060003120182543626,
+        0.06000240784141542
+      ],
+      "wcs_reference": "https://cosmos2025.iap.fr/nircam.html",
+      "wcs_independent_i2d_validation": "PENDING"
+    },
+    "wcs_prefix_http_status": 206,
+    "wcs_prefix_bytes": 4194304,
+    "median_positive_wht_sample": 57883.265625,
+    "fits_shape": [
+      12455,
+      9600
+    ],
+    "coarse_cells_mapped": 873346,
+    "native_tile_area_deg2": [
+      0.024229282777777774,
+      0.024222561666666663,
+      0.02350754972222222
+    ],
+    "gridded_tile_area_deg2": [
+      0.023996979172164947,
+      0.023991416529010233,
+      0.023327304437828083
+    ],
+    "grid_area_conservation_error_fraction": [
+      -0.00958772109531395,
+      -0.009542555442206394,
+      -0.0076675487885385935
+    ],
+    "trimmed_native_edge_pixels": [
+      5,
+      0
+    ]
+  },
+  {
+    "tile": "B1",
+    "url": "https://cosmos2025.iap.fr/data/nircam/extensions/mosaic_nircam_f444w_COSMOS-Web_60mas_B1_v1.0_wht.fits.gz",
+    "gz_sha256": "380078bbf7ac21396c552a4b4ca0e8e51e08753371261a5181d6209d8e3fd3ad",
+    "wcs_source": "ORIGINAL_DR1_i2d_SCI_header_prefix",
+    "wcs_i2d_url": "https://cosmos2025.iap.fr/data/nircam/mosaic_nircam_f444w_COSMOS-Web_60mas_B1_v1.0_i2d.fits.gz",
+    "wcs_vs_published_corners_arcsec_max": 0.7128600001411811,
+    "wcs_corner_fit": {
+      "wcs_source": "reconstructed_from_official_DR1_tile_corners_NOT_original_header",
+      "wcs_corner_residual_arcsec_max": 5.486853138716418e-05,
+      "wcs_pixel_scales_arcsec": [
+        0.060003122105875,
+        0.060002403574971185
+      ],
+      "wcs_reference": "https://cosmos2025.iap.fr/nircam.html",
+      "wcs_independent_i2d_validation": "PENDING"
+    },
+    "wcs_prefix_http_status": 206,
+    "wcs_prefix_bytes": 4194304,
+    "median_positive_wht_sample": 57933.41015625,
+    "fits_shape": [
+      12455,
+      9600
+    ],
+    "coarse_cells_mapped": 1122352,
+    "native_tile_area_deg2": [
+      0.03113666555555555,
+      0.03112992277777778,
+      0.030320461944444436
+    ],
+    "gridded_tile_area_deg2": [
+      0.030838122598587092,
+      0.03083258036967177,
+      0.030083852466673146
+    ],
+    "grid_area_conservation_error_fraction": [
+      -0.009588147980578825,
+      -0.009551659033290917,
+      -0.007803623777395765
+    ],
+    "trimmed_native_edge_pixels": [
+      5,
+      0
+    ]
+  },
+  {
+    "tile": "B2",
+    "url": "https://cosmos2025.iap.fr/data/nircam/extensions/mosaic_nircam_f444w_COSMOS-Web_60mas_B2_v1.0_wht.fits.gz",
+    "gz_sha256": "7d9b0363f8fe96b944bca15cc05487840353db0809b2830425bcf0be7181c593",
+    "wcs_source": "ORIGINAL_DR1_i2d_SCI_header_prefix",
+    "wcs_i2d_url": "https://cosmos2025.iap.fr/data/nircam/mosaic_nircam_f444w_COSMOS-Web_60mas_B2_v1.0_i2d.fits.gz",
+    "wcs_vs_published_corners_arcsec_max": 0.7133164030521777,
+    "wcs_corner_fit": {
+      "wcs_source": "reconstructed_from_official_DR1_tile_corners_NOT_original_header",
+      "wcs_corner_residual_arcsec_max": 2.5816335780995238e-05,
+      "wcs_pixel_scales_arcsec": [
+        0.060003118627638095,
+        0.060002421562452175
+      ],
+      "wcs_reference": "https://cosmos2025.iap.fr/nircam.html",
+      "wcs_independent_i2d_validation": "PENDING"
+    },
+    "wcs_prefix_http_status": 206,
+    "wcs_prefix_bytes": 4194304,
+    "median_positive_wht_sample": 58760.208984375,
+    "fits_shape": [
+      12455,
+      9600
+    ],
+    "coarse_cells_mapped": 1167563,
+    "native_tile_area_deg2": [
+      0.032409451111111105,
+      0.03240291416666666,
+      0.03166828638888888
+    ],
+    "gridded_tile_area_deg2": [
+      0.032099111865520336,
+      0.032093639441062735,
+      0.031423523267145
+    ],
+    "grid_area_conservation_error_fraction": [
+      -0.009575578572028776,
+      -0.009544657743224768,
+      -0.007728966409428403
+    ],
+    "trimmed_native_edge_pixels": [
+      5,
+      0
+    ]
+  },
+  {
+    "tile": "B3",
+    "url": "https://cosmos2025.iap.fr/data/nircam/extensions/mosaic_nircam_f444w_COSMOS-Web_60mas_B3_v1.0_wht.fits.gz",
+    "gz_sha256": "4b1e1528c96a3dcbd0d3d7cd6ead0f6d8b9574719d58654d09390c47fbf9bf06",
+    "wcs_source": "ORIGINAL_DR1_i2d_SCI_header_prefix",
+    "wcs_i2d_url": "https://cosmos2025.iap.fr/data/nircam/mosaic_nircam_f444w_COSMOS-Web_60mas_B3_v1.0_i2d.fits.gz",
+    "wcs_vs_published_corners_arcsec_max": 0.7130772852476756,
+    "wcs_corner_fit": {
+      "wcs_source": "reconstructed_from_official_DR1_tile_corners_NOT_original_header",
+      "wcs_corner_residual_arcsec_max": 2.302787243437952e-05,
+      "wcs_pixel_scales_arcsec": [
+        0.06000314188670719,
+        0.060002406208113854
+      ],
+      "wcs_reference": "https://cosmos2025.iap.fr/nircam.html",
+      "wcs_independent_i2d_validation": "PENDING"
+    },
+    "wcs_prefix_http_status": 206,
+    "wcs_prefix_bytes": 4194304,
+    "median_positive_wht_sample": 72348.46875,
+    "fits_shape": [
+      12455,
+      9600
+    ],
+    "coarse_cells_mapped": 1160183,
+    "native_tile_area_deg2": [
+      0.032190033333333326,
+      0.03217899055555555,
+      0.030525298055555556
+    ],
+    "gridded_tile_area_deg2": [
+      0.03188216226951736,
+      0.03187276302347791,
+      0.030320720390939124
+    ],
+    "grid_area_conservation_error_fraction": [
+      -0.009564173501403676,
+      -0.00951638093025169,
+      -0.006701905555323462
+    ],
+    "trimmed_native_edge_pixels": [
+      5,
+      0
+    ]
+  },
+  {
+    "tile": "B4",
+    "url": "https://cosmos2025.iap.fr/data/nircam/extensions/mosaic_nircam_f444w_COSMOS-Web_60mas_B4_v1.0_wht.fits.gz",
+    "gz_sha256": "0180bba126da54bc3fca41687358d8ee8462229141a64e83fab3200f8d14dc5e",
+    "wcs_source": "ORIGINAL_DR1_i2d_SCI_header_prefix",
+    "wcs_i2d_url": "https://cosmos2025.iap.fr/data/nircam/mosaic_nircam_f444w_COSMOS-Web_60mas_B4_v1.0_i2d.fits.gz",
+    "wcs_vs_published_corners_arcsec_max": 0.7131144956319811,
+    "wcs_corner_fit": {
+      "wcs_source": "reconstructed_from_official_DR1_tile_corners_NOT_original_header",
+      "wcs_corner_residual_arcsec_max": 0.00011952973189762367,
+      "wcs_pixel_scales_arcsec": [
+        0.060003129239994034,
+        0.06000241055997057
+      ],
+      "wcs_reference": "https://cosmos2025.iap.fr/nircam.html",
+      "wcs_independent_i2d_validation": "PENDING"
+    },
+    "wcs_prefix_http_status": 206,
+    "wcs_prefix_bytes": 4194304,
+    "median_positive_wht_sample": 58276.8046875,
+    "fits_shape": [
+      12455,
+      9600
+    ],
+    "coarse_cells_mapped": 1167642,
+    "native_tile_area_deg2": [
+      0.03241155027777777,
+      0.032405273055555545,
+      0.03156109499999999
+    ],
+    "gridded_tile_area_deg2": [
+      0.032101046132692254,
+      0.03209584574673498,
+      0.031318482282055575
+    ],
+    "grid_area_conservation_error_fraction": [
+      -0.009580046076919873,
+      -0.00954867154768564,
+      -0.007687081767740171
+    ],
+    "trimmed_native_edge_pixels": [
+      5,
+      0
+    ]
+  },
+  {
+    "tile": "B5",
+    "url": "https://cosmos2025.iap.fr/data/nircam/extensions/mosaic_nircam_f444w_COSMOS-Web_60mas_B5_v1.0_wht.fits.gz",
+    "gz_sha256": "7ae3cc934dd2993650b5ab7f1b0bc7b67c3ae1732d00a9bb115beb49a622f65b",
+    "wcs_source": "ORIGINAL_DR1_i2d_SCI_header_prefix",
+    "wcs_i2d_url": "https://cosmos2025.iap.fr/data/nircam/mosaic_nircam_f444w_COSMOS-Web_60mas_B5_v1.0_i2d.fits.gz",
+    "wcs_vs_published_corners_arcsec_max": 0.7131548945392471,
+    "wcs_corner_fit": {
+      "wcs_source": "reconstructed_from_official_DR1_tile_corners_NOT_original_header",
+      "wcs_corner_residual_arcsec_max": 4.1666404790221515e-05,
+      "wcs_pixel_scales_arcsec": [
+        0.06000309808202733,
+        0.06000241232817327
+      ],
+      "wcs_reference": "https://cosmos2025.iap.fr/nircam.html",
+      "wcs_independent_i2d_validation": "PENDING"
+    },
+    "wcs_prefix_http_status": 206,
+    "wcs_prefix_bytes": 4194304,
+    "median_positive_wht_sample": 58126.84375,
+    "fits_shape": [
+      12455,
+      9600
+    ],
+    "coarse_cells_mapped": 880942,
+    "native_tile_area_deg2": [
+      0.02443035416666666,
+      0.0244219275,
+      0.023805461944444446
+    ],
+    "gridded_tile_area_deg2": [
+      0.02419626683409856,
+      0.02418879878507295,
+      0.02361760935993993
+    ],
+    "grid_area_conservation_error_fraction": [
+      -0.00958182312753765,
+      -0.009545876955332485,
+      -0.007891154767041024
+    ],
+    "trimmed_native_edge_pixels": [
+      5,
+      0
+    ]
+  },
+  {
+    "tile": "B6",
+    "url": "https://cosmos2025.iap.fr/data/nircam/extensions/mosaic_nircam_f444w_COSMOS-Web_60mas_B6_v1.0_wht.fits.gz",
+    "gz_sha256": "83169bc8df993cd81e12360b60459ea42d24975330628306207b2c16a30bc1f9",
+    "wcs_source": "ORIGINAL_DR1_i2d_SCI_header_prefix",
+    "wcs_i2d_url": "https://cosmos2025.iap.fr/data/nircam/mosaic_nircam_f444w_COSMOS-Web_60mas_B6_v1.0_i2d.fits.gz",
+    "wcs_vs_published_corners_arcsec_max": 0.35533582578111045,
+    "wcs_corner_fit": {
+      "wcs_source": "reconstructed_from_official_DR1_tile_corners_NOT_original_header",
+      "wcs_corner_residual_arcsec_max": 9.522188886993359e-05,
+      "wcs_pixel_scales_arcsec": [
+        0.06000312210036636,
+        0.06000240376254097
+      ],
+      "wcs_reference": "https://cosmos2025.iap.fr/nircam.html",
+      "wcs_independent_i2d_validation": "PENDING"
+    },
+    "wcs_prefix_http_status": 206,
+    "wcs_prefix_bytes": 4194304,
+    "median_positive_wht_sample": 58471.515625,
+    "fits_shape": [
+      12455,
+      9600
+    ],
+    "coarse_cells_mapped": 1151202,
+    "native_tile_area_deg2": [
+      0.031959213333333326,
+      0.03195251472222222,
+      0.03118727861111111
+    ],
+    "gridded_tile_area_deg2": [
+      0.03165318155225356,
+      0.03164767538222159,
+      0.030942715920667795
+    ],
+    "grid_area_conservation_error_fraction": [
+      -0.009575698184053195,
+      -0.00954038649698593,
+      -0.007841745138871571
+    ],
+    "trimmed_native_edge_pixels": [
+      5,
+      0
+    ]
+  },
+  {
+    "tile": "B7",
+    "url": "https://cosmos2025.iap.fr/data/nircam/extensions/mosaic_nircam_f444w_COSMOS-Web_60mas_B7_v1.0_wht.fits.gz",
+    "gz_sha256": "532068fa039713ee3e3e071fba1132a5d7e5ffb24d5197717c654d08fa52458c",
+    "wcs_source": "ORIGINAL_DR1_i2d_SCI_header_prefix",
+    "wcs_i2d_url": "https://cosmos2025.iap.fr/data/nircam/mosaic_nircam_f444w_COSMOS-Web_60mas_B7_v1.0_i2d.fits.gz",
+    "wcs_vs_published_corners_arcsec_max": 0.3555147595555966,
+    "wcs_corner_fit": {
+      "wcs_source": "reconstructed_from_official_DR1_tile_corners_NOT_original_header",
+      "wcs_corner_residual_arcsec_max": 0.00012644331636436316,
+      "wcs_pixel_scales_arcsec": [
+        0.06000312071521354,
+        0.060002401269485986
+      ],
+      "wcs_reference": "https://cosmos2025.iap.fr/nircam.html",
+      "wcs_independent_i2d_validation": "PENDING"
+    },
+    "wcs_prefix_http_status": 206,
+    "wcs_prefix_bytes": 4194304,
+    "median_positive_wht_sample": 58137.6796875,
+    "fits_shape": [
+      12455,
+      9600
+    ],
+    "coarse_cells_mapped": 1190747,
+    "native_tile_area_deg2": [
+      0.03305483861111111,
+      0.03304771416666666,
+      0.03233942611111111
+    ],
+    "gridded_tile_area_deg2": [
+      0.03273913986180279,
+      0.03273317635645966,
+      0.03208374954526768
+    ],
+    "grid_area_conservation_error_fraction": [
+      -0.009550757546346041,
+      -0.009517687323871002,
+      -0.007906032870372618
+    ],
+    "trimmed_native_edge_pixels": [
+      5,
+      0
+    ]
+  },
+  {
+    "tile": "B8",
+    "url": "https://cosmos2025.iap.fr/data/nircam/extensions/mosaic_nircam_f444w_COSMOS-Web_60mas_B8_v1.0_wht.fits.gz",
+    "gz_sha256": "e0ef017ea61dd0b4537b7df473ebedec49b64f3d023b6be160e3747023a62b73",
+    "wcs_source": "ORIGINAL_DR1_i2d_SCI_header_prefix",
+    "wcs_i2d_url": "https://cosmos2025.iap.fr/data/nircam/mosaic_nircam_f444w_COSMOS-Web_60mas_B8_v1.0_i2d.fits.gz",
+    "wcs_vs_published_corners_arcsec_max": 0.355315533913947,
+    "wcs_corner_fit": {
+      "wcs_source": "reconstructed_from_official_DR1_tile_corners_NOT_original_header",
+      "wcs_corner_residual_arcsec_max": 6.140716797152347e-05,
+      "wcs_pixel_scales_arcsec": [
+        0.060003126647172556,
+        0.06000239632409937
+      ],
+      "wcs_reference": "https://cosmos2025.iap.fr/nircam.html",
+      "wcs_independent_i2d_validation": "PENDING"
+    },
+    "wcs_prefix_http_status": 206,
+    "wcs_prefix_bytes": 4194304,
+    "median_positive_wht_sample": 58765.380859375,
+    "fits_shape": [
+      12455,
+      9600
+    ],
+    "coarse_cells_mapped": 1190028,
+    "native_tile_area_deg2": [
+      0.03303442583333333,
+      0.03302852444444444,
+      0.03229106166666666
+    ],
+    "gridded_tile_area_deg2": [
+      0.032719044063425164,
+      0.03271426961153899,
+      0.03203721983558972
+    ],
+    "grid_area_conservation_error_fraction": [
+      -0.009547063766125246,
+      -0.009514649479241633,
+      -0.007861055597901765
+    ],
+    "trimmed_native_edge_pixels": [
+      5,
+      0
+    ]
+  },
+  {
+    "tile": "B9",
+    "url": "https://cosmos2025.iap.fr/data/nircam/extensions/mosaic_nircam_f444w_COSMOS-Web_60mas_B9_v1.0_wht.fits.gz",
+    "gz_sha256": "c0bd0effef5cb590197f428292f90b1b516e8c352ae023f64555e1d43cdef805",
+    "wcs_source": "ORIGINAL_DR1_i2d_SCI_header_prefix",
+    "wcs_i2d_url": "https://cosmos2025.iap.fr/data/nircam/mosaic_nircam_f444w_COSMOS-Web_60mas_B9_v1.0_i2d.fits.gz",
+    "wcs_vs_published_corners_arcsec_max": 0.35561145222774393,
+    "wcs_corner_fit": {
+      "wcs_source": "reconstructed_from_official_DR1_tile_corners_NOT_original_header",
+      "wcs_corner_residual_arcsec_max": 0.00012929527913813538,
+      "wcs_pixel_scales_arcsec": [
+        0.06000313171902453,
+        0.06000239381815614
+      ],
+      "wcs_reference": "https://cosmos2025.iap.fr/nircam.html",
+      "wcs_independent_i2d_validation": "PENDING"
+    },
+    "wcs_prefix_http_status": 206,
+    "wcs_prefix_bytes": 4194304,
+    "median_positive_wht_sample": 58364.078125,
+    "fits_shape": [
+      12455,
+      9600
+    ],
+    "coarse_cells_mapped": 1186336,
+    "native_tile_area_deg2": [
+      0.03292177805555555,
+      0.032915773055555556,
+      0.03215986083333333
+    ],
+    "gridded_tile_area_deg2": [
+      0.03260740585542942,
+      0.0326025502664878,
+      0.031903842767334566
+    ],
+    "grid_area_conservation_error_fraction": [
+      -0.009549065047326048,
+      -0.009515887369228638,
+      -0.007960795207590136
+    ],
+    "trimmed_native_edge_pixels": [
+      5,
+      0
+    ]
+  },
+  {
+    "tile": "B10",
+    "url": "https://cosmos2025.iap.fr/data/nircam/extensions/mosaic_nircam_f444w_COSMOS-Web_60mas_B10_v1.0_wht.fits.gz",
+    "gz_sha256": "3761c224ef550771c6f64aaaced6429ced2e1f1d92a1c26328fbb12985f9c435",
+    "wcs_source": "ORIGINAL_DR1_i2d_SCI_header_prefix",
+    "wcs_i2d_url": "https://cosmos2025.iap.fr/data/nircam/mosaic_nircam_f444w_COSMOS-Web_60mas_B10_v1.0_i2d.fits.gz",
+    "wcs_vs_published_corners_arcsec_max": 0.35559294612183207,
+    "wcs_corner_fit": {
+      "wcs_source": "reconstructed_from_official_DR1_tile_corners_NOT_original_header",
+      "wcs_corner_residual_arcsec_max": 9.835751431261441e-05,
+      "wcs_pixel_scales_arcsec": [
+        0.06000311977810745,
+        0.060002397383419115
+      ],
+      "wcs_reference": "https://cosmos2025.iap.fr/nircam.html",
+      "wcs_independent_i2d_validation": "PENDING"
+    },
+    "wcs_prefix_http_status": 206,
+    "wcs_prefix_bytes": 4194304,
+    "median_positive_wht_sample": 57999.95703125,
+    "fits_shape": [
+      12455,
+      9600
+    ],
+    "coarse_cells_mapped": 896234,
+    "native_tile_area_deg2": [
+      0.02485006805555555,
+      0.024842412222222214,
+      0.02420562972222222
+    ],
+    "gridded_tile_area_deg2": [
+      0.02461272705681824,
+      0.02460605868748389,
+      0.024012692412424767
+    ],
+    "grid_area_conservation_error_fraction": [
+      -0.009550919466566615,
+      -0.009514113711022799,
+      -0.007970761843899655
+    ],
+    "trimmed_native_edge_pixels": [
+      5,
+      0
+    ]
+  }
+]
