@@ -30,12 +30,14 @@ def filter_epoch_masks(raw, roster, baselines=BASELINES):
     required = {"obs_collection", "instrument_name", "dataproduct_type",
                 "intentType", "dataRights", "proposal_id", "filters",
                 "t_min", "t_max", "s_region"}
-    if required - set(raw.columns):
-        raise ValueError("Missing PUBLIC MAST columns: " + repr(sorted(required - set(raw.columns))))
+    # Validate the frozen science sample independently of input metadata,
+    # so a malformed roster cannot be hidden by an unrelated missing-column error.
     if len(roster) != 125 or roster.candidate_id.nunique() != 125:
         raise ValueError("Expected frozen 125 unique Dave candidate IDs")
     if not {387132, 1651050}.issubset(set(roster.candidate_id)):
         raise ValueError("Missing confirmed movers")
+    if required - set(raw.columns):
+        raise ValueError("Missing PUBLIC MAST columns: " + repr(sorted(required - set(raw.columns))))
     frame = raw.loc[
         raw.obs_collection.astype(str).str.upper().eq("JWST")
         & raw.instrument_name.astype(str).str.upper().eq("NIRCAM/IMAGE")
