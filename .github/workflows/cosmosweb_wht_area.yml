@@ -14,7 +14,7 @@ permissions:
 
 concurrency:
   group: cosmosweb-dr1-wht-audit
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   dr1-wht:
