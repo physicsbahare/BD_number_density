@@ -183,6 +183,14 @@ def wht_tile(tile, grid, step, lo, block, work):
                 raise ValueError(f"No positive WHT pixels in {tile}")
             median = float(np.median(positive))
             n = grid.shape[1]
+            # A rotated native 0.6-arcsec block cannot be assigned to a
+            # single 0.6-arcsec sky cell by nearest-neighbour sampling:
+            # that creates artificial holes and underestimates area.
+            # Accumulate each block's fractional area bilinearly into its
+            # four surrounding equal-area grid centres, *within this tile*.
+            # The final cross-tile maximum then approximates the union.
+            tile_grid = np.zeros(grid.shape, dtype=np.float32)
+            native_fraction_sums = np.zeros(len(THRESHOLDS), dtype=float)
             lost = 0
             used = 0
             for by0 in range(0, by, 64):
@@ -199,27 +207,60 @@ def wht_tile(tile, grid, step, lo, block, work):
                 xx, yy = np.meshgrid(xpix, ypix)
                 ra, dec = wcs.all_pix2world(xx, yy, 0)
                 xx_sky, yy_sky = lambert(ra, dec)
-                ix = np.floor((xx_sky - lo) / step).astype(np.int64)
-                iy = np.floor((yy_sky - lo) / step).astype(np.int64)
-                in_grid = ((ix >= 0) & (ix < n)
-                           & (iy >= 0) & (iy < n))
-                if np.any((block_fractions[0] > 0) & ~in_grid):
-                    lost += int(np.count_nonzero((block_fractions[0] > 0) & ~in_grid))
-                good = in_grid & (block_fractions[0] > 0)
-                if not np.any(good):
-                    continue
-                flat_idx = (iy[good] * n + ix[good]).ravel()
-                used += int(len(flat_idx))
-                for k, fractions in enumerate(block_fractions):
-                    occupancy = np.rint(100 * fractions[good]).astype(np.uint8)
-                    np.maximum.at(grid[k].ravel(), flat_idx, occupancy)
+                xfloat = (xx_sky - lo) / step - 0.5
+                yfloat = (yy_sky - lo) / step - 0.5
+                ix0 = np.floor(xfloat).astype(np.int64)
+                iy0 = np.floor(yfloat).astype(np.int64)
+                fx, fy = xfloat - ix0, yfloat - iy0
+                active = block_fractions[0] > 0
+                used += int(np.count_nonzero(active))
+                for k, frac in enumerate(block_fractions):
+                    native_fraction_sums[k] += float(frac.sum())
+                # Detect positive-WHT blocks outside the *entire* grid.
+                if np.any(active & ((ix0 + 1 < 0) | (ix0 >= n)
+                                    | (iy0 + 1 < 0) | (iy0 >= n))):
+                    lost += int(np.count_nonzero(
+                        active & ((ix0 + 1 < 0) | (ix0 >= n)
+                                  | (iy0 + 1 < 0) | (iy0 >= n))))
+                for dx in (0, 1):
+                    for dy in (0, 1):
+                        ix, iy = ix0 + dx, iy0 + dy
+                        good = (active & (ix >= 0) & (ix < n)
+                                & (iy >= 0) & (iy < n))
+                        if not np.any(good):
+                            continue
+                        wx = fx if dx else 1 - fx
+                        wy = fy if dy else 1 - fy
+                        weights = (wx * wy)[good]
+                        flat_idx = (iy[good] * n + ix[good]).ravel()
+                        for k, fractions in enumerate(block_fractions):
+                            np.add.at(tile_grid[k].ravel(), flat_idx,
+                                      (fractions[good] * weights).astype(np.float32))
             if lost:
-                raise RuntimeError(f"{tile}: {lost} valid WHT coarse cells outside grid")
+                raise RuntimeError(f"{tile}: {lost} valid WHT coarse blocks outside grid")
+            cell_area = step * step * DEG2_PER_SR
+            native_area = native_fraction_sums * cell_area
+            # Clipping at 1 represents fractional occupancy of a sky cell;
+            # area should remain close to the native positive-pixel area.
+            np.minimum(tile_grid, 1.0, out=tile_grid)
+            gridded_area = tile_grid.sum(axis=(1, 2), dtype=np.float64) * cell_area
+            area_error = np.divide(gridded_area - native_area, native_area,
+                                   out=np.zeros_like(native_area),
+                                   where=native_area > 0)
+            if np.any(np.abs(area_error) > 0.03):
+                raise RuntimeError(
+                    f"{tile}: fractional-grid area conservation failed "
+                    f"(native={native_area}, gridded={gridded_area}, "
+                    f"fractional_error={area_error}); do not quote area")
+            np.maximum(grid, np.rint(tile_grid * 100).astype(np.uint8), out=grid)
             return {
                 "tile": tile, "url": url, "gz_sha256": digest,
                 **wcs_meta,
                 "median_positive_wht_sample": median,
                 "fits_shape": [ny, nx], "coarse_cells_mapped": used,
+                "native_tile_area_deg2": [float(v) for v in native_area],
+                "gridded_tile_area_deg2": [float(v) for v in gridded_area],
+                "grid_area_conservation_error_fraction": [float(v) for v in area_error],
                 "trimmed_native_edge_pixels": [ny % block, nx % block],
             }
     finally:
