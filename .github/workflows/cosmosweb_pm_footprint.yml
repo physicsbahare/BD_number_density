@@ -31,9 +31,19 @@ jobs:
         id: state
         shell: bash
         run: |
-          if [ -f pm_footprint/results/summary.json ] && [ -f pm_footprint/results/resolution_qc.json ]; then
+          code_sha=$(sha256sum pm_footprint/compute.py | cut -d' ' -f1)
+          if [ -f pm_footprint/results/mast_observations.csv ]; then
+            meta_sha=$(sha256sum pm_footprint/results/mast_observations.csv | cut -d' ' -f1)
+          else
+            meta_sha=NOT_AVAILABLE
+          fi
+          if [ -f pm_footprint/results/summary.json ] &&
+             [ -f pm_footprint/results/resolution_qc.json ] &&
+             grep -q "$code_sha" pm_footprint/results/summary.json &&
+             grep -q "$code_sha" pm_footprint/results/resolution_qc.json &&
+             grep -q "$meta_sha" pm_footprint/results/summary.json; then
             echo "needed=false" >> "$GITHUB_OUTPUT"
-            echo "Successful geometric output already exists."
+            echo "Matching code and MAST snapshot already audited."
           else
             echo "needed=true" >> "$GITHUB_OUTPUT"
           fi
@@ -55,8 +65,18 @@ jobs:
         id: calculate
         continue-on-error: true
         run: |
-          if [ -f pm_footprint/results/summary.json ]; then
-            echo "Numeric result already saved; no redundant MAST query."
+          code_sha=$(sha256sum pm_footprint/compute.py | cut -d' ' -f1)
+          if [ -f pm_footprint/results/mast_observations.csv ]; then
+            meta_sha=$(sha256sum pm_footprint/results/mast_observations.csv | cut -d' ' -f1)
+          else
+            meta_sha=NOT_AVAILABLE
+          fi
+          if [ -f pm_footprint/results/summary.json ] &&
+             grep -q "$code_sha" pm_footprint/results/summary.json &&
+             grep -q "$meta_sha" pm_footprint/results/summary.json; then
+            echo "Current source and metadata snapshot already computed."
+          elif [ -f pm_footprint/results/mast_observations.csv ]; then
+            python -m pm_footprint.compute --metadata-csv pm_footprint/results/mast_observations.csv
           else
             python -m pm_footprint.compute
           fi
@@ -65,7 +85,9 @@ jobs:
         if: steps.calculate.outcome == 'success' && steps.state.outputs.needed == 'true'
         continue-on-error: true
         run: |
-          if [ ! -f pm_footprint/results/depth15/summary.json ]; then
+          code_sha=$(sha256sum pm_footprint/compute.py | cut -d' ' -f1)
+          if [ ! -f pm_footprint/results/depth15/summary.json ] ||
+             ! grep -q "$code_sha" pm_footprint/results/depth15/summary.json; then
             python -m pm_footprint.compute --metadata-csv pm_footprint/results/mast_observations.csv --depth 15 --out pm_footprint/results/depth15
           fi
           python -m pm_footprint.compare_depths
