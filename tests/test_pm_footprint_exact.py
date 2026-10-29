@@ -22,7 +22,7 @@ def roster():
 def row(t1, t2, band, region, pid=1727):
     return dict(
         obs_collection="JWST", instrument_name="NIRCAM/IMAGE",
-        dataproduct_type="image", intentType="science",
+        dataproduct_type="image", intentType="science", dataRights="PUBLIC",
         proposal_id=pid, filters=band,
         t_min=t1, t_max=t2, s_region=region,
     )
