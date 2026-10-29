@@ -49,6 +49,9 @@ def test_filter_specific_red_opportunities_and_epoch_baseline():
     assert n["red_without_f277w"] == 125
     assert n["F277W"] == 124
     assert n["F356W"] == 125
+    assert result["365"]["only_f277w_candidate_count"] == 0
+    assert result["365"]["only_f277w_candidate_ids"] == []
+    assert result["365"]["confirmed_movers_only_f277w"] == []
     assert result["730"]["area_deg2"]["red_union"] == 0
     assert membership["in_red_union_365d"].all()
 
@@ -63,6 +66,10 @@ def test_blue_only_overlap_not_redder_detectability():
     assert n["F277W"] == 125
     assert n["red_without_f277w"] == 0
     assert n["red_union"] == 125
+    assert result["365"]["only_f277w_candidate_count"] == 125
+    assert set(result["365"]["only_f277w_candidate_ids"]) == set(roster().candidate_id)
+    assert result["365"]["confirmed_movers_only_f277w"] == [387132, 1651050]
+    assert result["365"]["only_f277w_area_deg2"] > 0
 
 
 def test_exclusive_access_does_not_count():
