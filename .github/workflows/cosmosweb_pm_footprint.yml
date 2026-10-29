@@ -41,6 +41,7 @@ jobs:
           if [ -f pm_footprint/results/summary.json ] &&
              [ -f pm_footprint/results/resolution_qc.json ] &&
              [ -f pm_footprint/results/exact/summary.json ] &&
+             [ -f pm_footprint/results/exact/neighbour_qc.json ] &&
              grep -q "$exact_sha" pm_footprint/results/exact/summary.json &&
              grep -q "$code_sha" pm_footprint/results/summary.json &&
              grep -q "$code_sha" pm_footprint/results/resolution_qc.json &&
@@ -99,6 +100,11 @@ jobs:
         if: steps.refine.outcome == 'success' && steps.state.outputs.needed == 'true'
         continue-on-error: true
         run: python -m pm_footprint.exact_geometry
+      - name: Audit close positional pairs among Dave125 candidates
+        id: neighbour
+        if: steps.exact.outcome == 'success' && steps.state.outputs.needed == 'true'
+        continue-on-error: true
+        run: python -m pm_footprint.candidate_neighbour_qc
       - name: Keep reproducibility products from every attempt
         if: always() && steps.state.outputs.needed == 'true'
         uses: actions/upload-artifact@v4
@@ -108,9 +114,9 @@ jobs:
           if-no-files-found: warn
           retention-days: 30
       - name: Commit successful computed data
-        if: steps.calculate.outcome == 'success' && steps.refine.outcome == 'success' && steps.exact.outcome == 'success'
+        if: steps.calculate.outcome == 'success' && steps.refine.outcome == 'success' && steps.exact.outcome == 'success' && steps.neighbour.outcome == 'success'
         run: |
-          if [ ! -f pm_footprint/results/summary.json ] || [ ! -f pm_footprint/results/resolution_qc.json ] || [ ! -f pm_footprint/results/exact/summary.json ]; then
+          if [ ! -f pm_footprint/results/summary.json ] || [ ! -f pm_footprint/results/resolution_qc.json ] || [ ! -f pm_footprint/results/exact/summary.json ] || [ ! -f pm_footprint/results/exact/neighbour_qc.json ]; then
             echo "No completed resolution-audited computation found (no area claims permitted)"
             exit 1
           fi
@@ -125,7 +131,7 @@ jobs:
             git push origin HEAD:main
           fi
       - name: Preserve failure status to enable hourly retries
-        if: steps.calculate.outcome == 'failure' || steps.refine.outcome == 'failure' || steps.exact.outcome == 'failure'
+        if: steps.calculate.outcome == 'failure' || steps.refine.outcome == 'failure' || steps.exact.outcome == 'failure' || steps.neighbour.outcome == 'failure'
         run: |
           echo "MAST/footprint calculation failed. Inspect logs and uploaded artifact; retries continue hourly."
           exit 1
