@@ -78,7 +78,8 @@ def compute(raw, roster, baselines=BASELINES):
     if not {387132, 1651050}.issubset(set(roster.candidate_id)):
         raise ValueError("Both known moving-source IDs must be present")
     required = {"obs_collection", "instrument_name", "dataproduct_type",
-                "intentType", "proposal_id", "filters", "t_min", "t_max", "s_region"}
+                "intentType", "proposal_id", "filters", "t_min", "t_max", "s_region",
+                "dataRights"}
     if required - set(raw.columns):
         raise ValueError("Missing MAST columns: " + str(required - set(raw.columns)))
     frame = raw.loc[
@@ -86,6 +87,7 @@ def compute(raw, roster, baselines=BASELINES):
         & raw.instrument_name.astype(str).str.upper().eq("NIRCAM/IMAGE")
         & raw.dataproduct_type.astype(str).str.lower().eq("image")
         & raw.intentType.astype(str).str.lower().eq("science")
+        & raw.dataRights.astype(str).str.upper().eq("PUBLIC")
     ].copy()
     frame["t_min"] = pd.to_numeric(frame.t_min, errors="coerce")
     frame["t_max"] = pd.to_numeric(frame.t_max, errors="coerce")
@@ -134,6 +136,7 @@ def compute(raw, roster, baselines=BASELINES):
         "warnings": [
             "MAST observation polygons approximate geometric coverage, not calibrated detection completeness.",
             "NIRCAM/GRISM spectra excluded from imaging coverage.",
+            "Only PUBLIC JWST observations are used; EAP proprietary data excluded.",
             "Conservative temporal gap uses nonoverlapping [t_min,t_max] intervals.",
             "F444W+red and any-NIRCam do not guarantee detection of F444W-only dropout sources.",
             "A real COSMOS-Web F444W usable-depth/masking footprint is needed for selection-matched fractions.",
