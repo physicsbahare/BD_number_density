@@ -17,7 +17,7 @@ permissions:
 
 concurrency:
   group: cosmosweb-pm-footprint
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   footprint:
@@ -31,7 +31,7 @@ jobs:
         id: state
         shell: bash
         run: |
-          if [ -f pm_footprint/results/summary.json ]; then
+          if [ -f pm_footprint/results/summary.json ] && [ -f pm_footprint/results/resolution_qc.json ]; then
             echo "needed=false" >> "$GITHUB_OUTPUT"
             echo "Successful geometric output already exists."
           else
@@ -60,6 +60,15 @@ jobs:
           else
             python -m pm_footprint.compute
           fi
+      - name: Repeat footprint computation at finer HEALPix order 15
+        id: refine
+        if: steps.calculate.outcome == 'success' && steps.state.outputs.needed == 'true'
+        continue-on-error: true
+        run: |
+          if [ ! -f pm_footprint/results/depth15/summary.json ]; then
+            python -m pm_footprint.compute --metadata-csv pm_footprint/results/mast_observations.csv --depth 15 --out pm_footprint/results/depth15
+          fi
+          python -m pm_footprint.compare_depths
       - name: Keep reproducibility products from every attempt
         if: always() && steps.state.outputs.needed == 'true'
         uses: actions/upload-artifact@v4
@@ -69,10 +78,10 @@ jobs:
           if-no-files-found: warn
           retention-days: 30
       - name: Commit successful computed data
-        if: steps.calculate.outcome == 'success'
+        if: steps.calculate.outcome == 'success' && steps.refine.outcome == 'success'
         run: |
-          if [ ! -f pm_footprint/results/summary.json ]; then
-            echo "No validated computation result found (no area claims permitted)"
+          if [ ! -f pm_footprint/results/summary.json ] || [ ! -f pm_footprint/results/resolution_qc.json ]; then
+            echo "No completed resolution-audited computation found (no area claims permitted)"
             exit 1
           fi
           git config user.name 'github-actions[bot]'
@@ -86,7 +95,7 @@ jobs:
             git push origin HEAD:main
           fi
       - name: Preserve failure status to enable hourly retries
-        if: steps.calculate.outcome == 'failure'
+        if: steps.calculate.outcome == 'failure' || steps.refine.outcome == 'failure'
         run: |
           echo "MAST/footprint calculation failed. Inspect logs and uploaded artifact; retries continue hourly."
           exit 1
