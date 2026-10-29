@@ -63,4 +63,4 @@ def test_single_epoch_has_no_overlap():
 def test_filters_parser_and_incomplete_roster():
     assert filters("F444W;F277W") == {"F444W", "F277W"}
     with pytest.raises(ValueError, match="125"):
-        calculate(pd.DataFrame([]), sample().iloc[:5])
+        calculate(pd.DataFrame([row(60000, "F444W", rectangle(149.8, 1.9, 150.4, 2.4))]), sample().iloc[:5])
