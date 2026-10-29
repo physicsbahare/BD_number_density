@@ -171,11 +171,40 @@ def wht_tile(tile, grid, step, lo, block, work):
                 wcs, wcs_source = select_celestial_wcs(hdul, hdu, tile)
                 wcs_meta = {"wcs_source": wcs_source}
             except ValueError as err:
-                # DR1 extracted A1 WHT has no WCS keywords in any HDU.
-                # Use the independently published sky corners, with fit QC.
-                print(f"{tile}: {err}; attempting published-corner TAN fit",
+                # Standalone DR1 WHT has no celestial WCS cards. The
+                # authoritative original i2d SCI header *does* have WCS.
+                # Read only 4 MiB of its gzip prefix, never the 2-GB image.
+                from .probe_i2d_wcs import find_i2d_url, i2d_sci_header
+                print(f"{tile}: {err}; reading original i2d SCI WCS prefix",
                       flush=True)
-                wcs, wcs_meta = official_corner_wcs(tile, nx, ny)
+                i2d_url = find_i2d_url(tile)
+                sci, wcs, prefix_meta = i2d_sci_header(i2d_url)
+                if (int(sci.get("NAXIS1", -1)) != nx
+                        or int(sci.get("NAXIS2", -1)) != ny):
+                    raise RuntimeError(
+                        f"{tile}: original SCI and extracted WHT dimensions differ")
+                corner_wcs, corner_meta = official_corner_wcs(tile, nx, ny)
+                pts = np.array([[0., 0.], [nx - 1., 0.],
+                                [nx - 1., ny - 1.], [0., ny - 1.],
+                                [(nx - 1.) / 2, (ny - 1.) / 2]])
+                ra0, dec0 = wcs.all_pix2world(pts[:, 0], pts[:, 1], 0)
+                ra1, dec1 = corner_wcs.all_pix2world(pts[:, 0], pts[:, 1], 0)
+                diff_arcsec = np.hypot(
+                    (ra0 - ra1) * np.cos(np.deg2rad(dec0)),
+                    dec0 - dec1) * 3600
+                if not np.all(np.isfinite(diff_arcsec)) or diff_arcsec.max() > 2.0:
+                    raise RuntimeError(
+                        f"{tile}: original SCI WCS disagrees with published "
+                        f"tile corners by {diff_arcsec} arcsec")
+                wcs_meta = {
+                    "wcs_source": "ORIGINAL_DR1_i2d_SCI_header_prefix",
+                    "wcs_i2d_url": i2d_url,
+                    "wcs_vs_published_corners_arcsec_max":
+                        float(diff_arcsec.max()),
+                    "wcs_corner_fit": corner_meta,
+                    "wcs_prefix_http_status": prefix_meta["http_status"],
+                    "wcs_prefix_bytes": prefix_meta["compressed_prefix_bytes"],
+                }
             by, bx = ny // block, nx // block
             sample = np.asarray(data[::48, ::48], dtype=float)
             positive = sample[np.isfinite(sample) & (sample > 0)]
