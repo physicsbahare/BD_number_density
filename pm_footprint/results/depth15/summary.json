@@ -1,0 +1,41 @@
+{
+  "generated_utc": "2026-10-29T11:27:19.251443+00:00",
+  "status": "GEOMETRIC_PRELIMINARY_REQUIRES_QC",
+  "baseline_days": 30.0,
+  "moc_max_depth": 15,
+  "cosmosweb_program": "1727",
+  "mast_rows": 3264,
+  "valid_time_imaging_rows": 3072,
+  "multi_day_observation_rows_retained": 62,
+  "excluded_invalid_time_rows": 8,
+  "converted_footprints": 3072,
+  "cosmosweb_f444w_rows": 155,
+  "dave_candidates": 125,
+  "area_deg2": {
+    "cweb_f444w": 0.5382455870234503,
+    "same_f444w": 0.08883621510953617,
+    "f444w_plus_red": 0.3739208405464637,
+    "any_nircam": 0.3840028400916372
+  },
+  "fraction_of_archive_f444w_area": {
+    "cweb_f444w": 1.0,
+    "same_f444w": 0.1650477351812747,
+    "f444w_plus_red": 0.6947030306635338,
+    "any_nircam": 0.713434256312643
+  },
+  "candidates_with_geometric_coverage": {
+    "cweb_f444w": 125,
+    "same_f444w": 7,
+    "f444w_plus_red": 80,
+    "any_nircam": 81
+  },
+  "warnings": [
+    "CAOM observation polygons approximate geometric coverage only.",
+    "NIRCAM/GRISM spectral products are excluded from imaging opportunity.",
+    "Time baselines are evaluated conservatively using CAOM t_min/t_max intervals.",
+    "Actual F444W usable depth/masking denominator may differ from archive area.",
+    "Other-filter overlap does NOT imply a red F444W-only candidate is detectable.",
+    "No proper-motion detection/completeness efficiency is modeled.",
+    "Compare HEALPix depth 14 to depth 15 and inspect visit-level metadata before quoting."
+  ]
+}

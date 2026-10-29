@@ -1,0 +1,67 @@
+{
+  "status": "BOUNDARY_OR_RASTERIZATION_REVIEW_NEEDED",
+  "area_comparison": {
+    "cweb_f444w": {
+      "order14_deg2": 0.5418602511982678,
+      "order15_deg2": 0.5382455870234503,
+      "absolute_delta_deg2": -0.0036146641748174835,
+      "relative_delta": -0.0066708420977992545
+    },
+    "same_f444w": {
+      "order14_deg2": 0.09065795462722549,
+      "order15_deg2": 0.08883621510953617,
+      "absolute_delta_deg2": -0.0018217395176893247,
+      "relative_delta": -0.020094646136459803
+    },
+    "f444w_plus_red": {
+      "order14_deg2": 0.30721763999894225,
+      "order15_deg2": 0.3739208405464637,
+      "absolute_delta_deg2": 0.06670320054752144,
+      "relative_delta": 0.21712034682562856
+    },
+    "any_nircam": {
+      "order14_deg2": 0.31997301827394115,
+      "order15_deg2": 0.3840028400916372,
+      "absolute_delta_deg2": 0.06402982181769606,
+      "relative_delta": 0.20011006603962364
+    }
+  },
+  "candidate_membership_comparison": {
+    "cweb_f444w": {
+      "order14": 125,
+      "order15": 125,
+      "difference": 0
+    },
+    "same_f444w": {
+      "order14": 10,
+      "order15": 7,
+      "difference": -3
+    },
+    "f444w_plus_red": {
+      "order14": 56,
+      "order15": 80,
+      "difference": 24
+    },
+    "any_nircam": {
+      "order14": 57,
+      "order15": 81,
+      "difference": 24
+    }
+  },
+  "unstable_area_masks": [
+    "same_f444w",
+    "f444w_plus_red",
+    "any_nircam"
+  ],
+  "unstable_membership_masks": [
+    "same_f444w",
+    "f444w_plus_red",
+    "any_nircam"
+  ],
+  "notes": [
+    "Stable HEALPix resolution does not establish survey usable-depth coverage.",
+    "Same-filter F444W is the primary conservative imaging opportunity.",
+    "Cross-filter geometrical coverage does not imply PM sensitivity.",
+    "Check detector-level footprints and 30-day baseline before quoting."
+  ]
+}
