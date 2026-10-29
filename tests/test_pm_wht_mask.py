@@ -50,3 +50,41 @@ def test_wht_fractional_grid_no_network(tmp_path, monkeypatch):
     assert 5000 <= int(grid[0].sum()) <= 7500
     assert np.array_equal(grid[0], grid[1])
     assert np.array_equal(grid[1], grid[2])
+
+
+def test_extracted_image_uses_primary_header_wcs(tmp_path, monkeypatch):
+    """An extracted extension can have image data but only primary WCS."""
+    hdr = WCS(naxis=2)
+    hdr.wcs.crpix = [50.0, 50.0]
+    hdr.wcs.crval = [150.12, 2.20]
+    hdr.wcs.cdelt = [-0.06 / 3600, 0.06 / 3600]
+    hdr.wcs.ctype = ["RA---TAN", "DEC--TAN"]
+    raw = tmp_path / "primary_wcs.fits"
+    fits.HDUList([
+        fits.PrimaryHDU(header=hdr.to_header()),
+        fits.ImageHDU(np.ones((100, 100), dtype=np.float32), name="WHT"),
+    ]).writeto(raw)
+    gz = tmp_path / "primary_wcs.fits.gz"
+    with open(raw, "rb") as fin, gzip.open(gz, "wb") as fout:
+        shutil.copyfileobj(fin, fout)
+    monkeypatch.setattr(wht, "download",
+                        lambda url, dest: shutil.copyfile(gz, dest))
+    grid = np.zeros((3, 960, 960), dtype=np.uint8)
+    rec = wht.wht_tile("A1", grid, math.radians(0.6 / 3600),
+                       math.radians(-0.08), 10, tmp_path)
+    assert rec["wcs_source"] == "primary"
+    assert rec["coarse_cells_mapped"] == 100
+
+
+def test_missing_celestial_wcs_fails_with_diagnostics(tmp_path, monkeypatch):
+    raw = tmp_path / "no_wcs.fits"
+    fits.PrimaryHDU(np.ones((100, 100), dtype=np.float32)).writeto(raw)
+    gz = tmp_path / "no_wcs.fits.gz"
+    with open(raw, "rb") as fin, gzip.open(gz, "wb") as fout:
+        shutil.copyfileobj(fin, fout)
+    monkeypatch.setattr(wht, "download",
+                        lambda url, dest: shutil.copyfile(gz, dest))
+    grid = np.zeros((3, 960, 960), dtype=np.uint8)
+    with pytest.raises(ValueError, match="HDU header diagnostics"):
+        wht.wht_tile("A1", grid, math.radians(0.6 / 3600),
+                     math.radians(-0.08), 10, tmp_path)
