@@ -1,44 +1,45 @@
 {
-  "generated_utc": "2026-10-29T11:31:05.668093+00:00",
+  "generated_utc": "2026-10-29T11:37:29.459502+00:00",
   "status": "GEOMETRIC_PRELIMINARY_REQUIRES_QC",
   "baseline_days": 30.0,
   "moc_max_depth": 14,
   "cosmosweb_program": "1727",
-  "mast_rows": 3264,
-  "valid_time_imaging_rows": 3072,
+  "mast_rows": 3168,
+  "valid_time_imaging_rows": 2976,
   "multi_day_observation_rows_retained": 62,
   "excluded_invalid_time_rows": 8,
-  "converted_footprints": 3072,
+  "converted_footprints": 2976,
   "cosmosweb_f444w_rows": 155,
   "dave_candidates": 125,
   "area_deg2": {
     "cweb_f444w": 0.5418602511982678,
-    "same_f444w": 0.10098007801040729,
-    "f444w_plus_red": 0.38139349438528075,
-    "any_nircam": 0.39190771683886916
+    "same_f444w": 0.09775281362757625,
+    "f444w_plus_red": 0.3662304744278525,
+    "any_nircam": 0.3770648619987852
   },
   "fraction_of_archive_f444w_area": {
     "cweb_f444w": 1.0,
-    "same_f444w": 0.18635815745314463,
-    "f444w_plus_red": 0.7038595164378059,
-    "any_nircam": 0.7232634539481461
+    "same_f444w": 0.180402259459715,
+    "f444w_plus_red": 0.6758762496750256,
+    "any_nircam": 0.6958710500815392
   },
   "candidates_with_geometric_coverage": {
     "cweb_f444w": 125,
-    "same_f444w": 11,
-    "f444w_plus_red": 80,
-    "any_nircam": 81
+    "same_f444w": 9,
+    "f444w_plus_red": 74,
+    "any_nircam": 75
   },
   "warnings": [
     "CAOM observation polygons approximate geometric coverage only.",
     "NIRCAM/GRISM spectral products are excluded from imaging opportunity.",
+    "Only public-release JWST observations are included; exclusive-access data are excluded.",
     "Time baselines are evaluated conservatively using CAOM t_min/t_max intervals.",
     "Actual F444W usable depth/masking denominator may differ from archive area.",
     "Other-filter overlap does NOT imply a red F444W-only candidate is detectable.",
     "No proper-motion detection/completeness efficiency is modeled.",
     "Compare HEALPix depth 14 to depth 15 and inspect visit-level metadata before quoting."
   ],
-  "compute_source_sha256": "3f970f8a81ae60adc3dcac41357041e2e6c7fd44d914c4c5f800df7555bf34a0",
-  "mast_metadata_sha256": "621688e3a4a457760c92a19a43e5955a6d01245ea3bb0b52332c5a01e679e9de",
+  "compute_source_sha256": "08e922bde619373af0231edc4ba24f2e096f606f4de4163d044279764b3da6c1",
+  "mast_metadata_sha256": "2e03857153777bddf6f0a0ad19c5bc289829d1c8d0da42a628ae4695e45e62db",
   "candidate_catalog_sha256": "d43ce32e33b898f6bf57551affe41f209e0b455a4e4e63b4e99a8eea03236bbd"
 }

@@ -1,6 +1,6 @@
 {
-  "compute_source_sha256": "3f970f8a81ae60adc3dcac41357041e2e6c7fd44d914c4c5f800df7555bf34a0",
-  "mast_metadata_sha256": "621688e3a4a457760c92a19a43e5955a6d01245ea3bb0b52332c5a01e679e9de",
+  "compute_source_sha256": "08e922bde619373af0231edc4ba24f2e096f606f4de4163d044279764b3da6c1",
+  "mast_metadata_sha256": "2e03857153777bddf6f0a0ad19c5bc289829d1c8d0da42a628ae4695e45e62db",
   "candidate_catalog_sha256": "d43ce32e33b898f6bf57551affe41f209e0b455a4e4e63b4e99a8eea03236bbd",
   "baseline_days": 30.0,
   "status": "BOUNDARY_OR_RASTERIZATION_REVIEW_NEEDED",
@@ -12,22 +12,22 @@
       "relative_delta": -0.0066708420977992545
     },
     "same_f444w": {
-      "order14_deg2": 0.10098007801040729,
-      "order15_deg2": 0.08883621510953617,
-      "absolute_delta_deg2": -0.012143862900871119,
-      "relative_delta": -0.1202599873176919
+      "order14_deg2": 0.09775281362757625,
+      "order15_deg2": 0.08590670428583538,
+      "absolute_delta_deg2": -0.011846109341740865,
+      "relative_delta": -0.12118433119350189
     },
     "f444w_plus_red": {
-      "order14_deg2": 0.38139349438528075,
-      "order15_deg2": 0.3739208405464637,
-      "absolute_delta_deg2": -0.007472653838817067,
-      "relative_delta": -0.019593029112521386
+      "order14_deg2": 0.3662304744278525,
+      "order15_deg2": 0.35939815082372406,
+      "absolute_delta_deg2": -0.006832323604128443,
+      "relative_delta": -0.01865580305626481
     },
     "any_nircam": {
-      "order14_deg2": 0.39190771683886916,
-      "order15_deg2": 0.3840028400916372,
-      "absolute_delta_deg2": -0.007904876747231948,
-      "relative_delta": -0.020170250310437232
+      "order14_deg2": 0.3770648619987852,
+      "order15_deg2": 0.36980992043976224,
+      "absolute_delta_deg2": -0.007254941559022954,
+      "relative_delta": -0.019240566518357597
     }
   },
   "candidate_membership_comparison": {
@@ -37,24 +37,23 @@
       "difference": 0
     },
     "same_f444w": {
-      "order14": 11,
-      "order15": 7,
+      "order14": 9,
+      "order15": 5,
       "difference": -4
     },
     "f444w_plus_red": {
-      "order14": 80,
-      "order15": 80,
+      "order14": 74,
+      "order15": 74,
       "difference": 0
     },
     "any_nircam": {
-      "order14": 81,
-      "order15": 81,
+      "order14": 75,
+      "order15": 75,
       "difference": 0
     }
   },
   "unstable_area_masks": [
-    "same_f444w",
-    "any_nircam"
+    "same_f444w"
   ],
   "unstable_membership_masks": [
     "same_f444w"
