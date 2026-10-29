@@ -49,16 +49,16 @@ def polygon(region, depth):
     if region is None or pd.isna(region) or not str(region).strip():
         raise ValueError("missing CAOM s_region")
     source = str(region).strip()
-    if not re.match(r"^POLYGON\\b", source, flags=re.I):
+    if not re.match(r"^POLYGON\b", source, flags=re.I):
         return MOC.from_stcs(source, max_depth=depth)
 
-    pieces = re.split(r"\\bPOLYGON\\b", source, flags=re.I)
+    pieces = re.split(r"\bPOLYGON\b", source, flags=re.I)
     if pieces[0].strip() or len(pieces) < 2:
         raise ValueError("malformed multi-polygon CAOM region")
     combined = empty(depth)
     for body in pieces[1:]:
-        body = re.sub(r"^\\s*ICRS\\s+", "", body, flags=re.I).strip()
-        if not re.fullmatch(r"[+\\-\\d.eE\\s]+", body):
+        body = re.sub(r"^\s*ICRS\s+", "", body, flags=re.I).strip()
+        if not re.fullmatch(r"[+\-\d.eE\s]+", body):
             raise ValueError("non-numeric polygon vertices: " + body[:90])
         v = [float(z) for z in body.split()]
         if len(v) < 6 or len(v) % 2:
