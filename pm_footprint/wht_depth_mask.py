@@ -329,6 +329,64 @@ def evaluate(grid, lo, step, summary, roster, survey, masks):
     return output, membership
 
 
+def grid_resolution_qc(grid, lo, step, reference, roster, survey, masks):
+    """Compare WHT-polygon integration under coarsening and grid translation.
+
+    This tests *integration* sensitivity without downloading the 7GB FITS
+    again; it is not an independent 60mas resampling of the native images.
+    """
+    n = grid.shape[1]
+    if n % 2:
+        raise ValueError("Resolution-QC grid requires even dimensions")
+    coarse = np.rint(grid.reshape(len(THRESHOLDS), n // 2, 2,
+                                  n // 2, 2).mean(axis=(2, 4))).astype(np.uint8)
+    coarse_result, _ = evaluate(coarse, lo, step * 2, {}, roster, survey, masks)
+    del coarse
+    # Half-cell shift: interpolate occupancy rather than shifting the sky.
+    shifted = np.rint(
+        (grid[:, :-1, :-1].astype(np.float32)
+         + grid[:, 1:, :-1].astype(np.float32)
+         + grid[:, :-1, 1:].astype(np.float32)
+         + grid[:, 1:, 1:].astype(np.float32)) / 4
+    ).astype(np.uint8)
+    shifted_result, _ = evaluate(shifted, lo + step / 2, step,
+                                 {}, roster, survey, masks)
+    del shifted
+    output = {"method": "post_rasterization_occupancy_grid_sensitivity",
+              "limitations": [
+                  "1.2arcsec grid is a 2x2 mean of the 0.6arcsec grid, not an independent 60mas FITS resample.",
+                  "Half-cell translation uses bilinear occupancy interpolation.",
+                  "Grid convergence does not establish photometric depth or astrometric completeness."
+              ],
+              "comparisons": {}}
+    max_delta = 0.0
+    max_count_delta = 0
+    for label in reference["area_deg2"]:
+        output["comparisons"][label] = {}
+        for name, base in reference["area_deg2"][label].items():
+            row = {}
+            for key, alt in (("coarsened_1p2arcsec", coarse_result),
+                             ("shifted_0p3arcsec", shifted_result)):
+                new = alt["area_deg2"][label][name]
+                delta = float((new - base) / base) if base > 0 else 0.0
+                count_delta = (alt["candidate_counts"][label][name]
+                               - reference["candidate_counts"][label][name])
+                row[key] = {
+                    "area_deg2": float(new),
+                    "relative_area_delta": delta,
+                    "candidate_count_delta": int(count_delta),
+                }
+                max_delta = max(max_delta, abs(delta))
+                max_count_delta = max(max_count_delta, abs(count_delta))
+            output["comparisons"][label][name] = row
+    output["max_abs_relative_area_delta"] = max_delta
+    output["max_abs_candidate_count_delta"] = max_count_delta
+    output["status"] = ("GRID_INTEGRATION_STABLE_WITHIN_2PCT_AND_2_CANDIDATES"
+                        if max_delta <= 0.02 and max_count_delta <= 2
+                        else "GRID_INTEGRATION_REVIEW_REQUIRED")
+    return output
+
+
 def main():
     p = argparse.ArgumentParser()
     p.add_argument("--metadata", default="pm_footprint/results/mast_observations.csv")
@@ -363,7 +421,13 @@ def main():
                 print(f"WHT {tile}: {record['fits_shape']} median={record['median_positive_wht_sample']:.4g}", flush=True)
                 (out / "tile_progress.json").write_text(json.dumps(tiles, indent=2) + "\n")
         result, membership = evaluate(grid, lo, step, exact, roster, survey, masks)
+        grid_qc = grid_resolution_qc(grid, lo, step, result, roster, survey, masks)
+        (out / "grid_resolution_qc.json").write_text(
+            json.dumps(grid_qc, indent=2) + "\n")
         result.update({
+            "grid_resolution_qc_status": grid_qc["status"],
+            "grid_resolution_qc_max_relative_area_delta":
+                grid_qc["max_abs_relative_area_delta"],
             "status": "WHT_GEOMETRIC_INTERSECTION_PROVISIONAL_REQUIRES_DEPTH_AND_RESOLUTION_QC",
             "generated_utc": datetime.now(timezone.utc).isoformat(),
             "official_release": "https://cosmos2025.iap.fr/nircam.html",
