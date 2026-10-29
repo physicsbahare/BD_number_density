@@ -57,7 +57,7 @@ def test_separate_filter_regimes_are_nested():
 
 def test_single_epoch_has_no_overlap():
     region = polygon(rectangle(149.8, 1.9, 150.4, 2.4), depth=11)
-    x = overlap([(60000, region), (60001, region)], depth=11, gap=30)
+    x = overlap([(60000, 60000.1, region), (60001, 60001.1, region)], depth=11, gap=30)
     assert x.empty()
     assert deg2(region) > 0
 
@@ -89,3 +89,24 @@ def test_grism_not_counted_as_imaging_epoch():
     summary, _, _ = calculate(raw, sample(), depth=11)
     assert summary["area_deg2"]["same_f444w"] == 0
     assert summary["converted_footprints"] == 1
+
+def test_epoch_intervals_prevent_false_30_day_baseline():
+    region = polygon(rectangle(149.8, 1.9, 150.4, 2.4), depth=11)
+    # 34 days between t_min values but only 28 days between intervals.
+    no = overlap([(60000, 60006, region), (60034, 60040, region)],
+                 depth=11, gap=30)
+    yes = overlap([(60000, 60006, region), (60036, 60042, region)],
+                  depth=11, gap=30)
+    assert no.empty()
+    assert not yes.empty()
+
+
+def test_multiday_second_epoch_is_retained():
+    base = rectangle(149.8, 1.9, 150.4, 2.4)
+    second = row(60100, "F356W", base, program="5893")
+    second["t_max"] = 60106
+    raw = pd.DataFrame([row(60000, "F444W", base), second])
+    summary, _, _ = calculate(raw, sample(), depth=11)
+    assert summary["multi_day_observation_rows_retained"] == 1
+    assert summary["area_deg2"]["f444w_plus_red"] > 0
+    assert summary["area_deg2"]["same_f444w"] == 0
