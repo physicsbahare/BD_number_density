@@ -1,0 +1,52 @@
+name: COSMOS-Web cached WHT redder-filter set bounds
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'pm_footprint/wht_redder_bounds.py'
+      - 'tests/test_pm_wht_redder_bounds.py'
+      - '.github/workflows/cosmosweb_wht_redder_bounds.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: cosmosweb-cached-redder-bounds
+  cancel-in-progress: true
+
+jobs:
+  bound-from-committed-small-products:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Offline set-theory and membership tests
+        run: |
+          python -m pip install pytest
+          python -m pytest -q tests/test_pm_wht_redder_bounds.py
+      - name: Require four already-committed tiny input files
+        run: |
+          test -s pm_footprint/results/wht60/summary.json
+          test -s pm_footprint/results/filter_epoch_qc/summary.json
+          test -s pm_footprint/results/wht60/dave125_wht_membership.csv
+          test -s pm_footprint/results/filter_epoch_qc/candidate_filter_membership.csv
+      - name: Derive conditional WHT redder-filter bounds without downloading WHT
+        run: python -m pm_footprint.wht_redder_bounds
+      - name: Commit only small derived JSON
+        run: |
+          test -s pm_footprint/results/wht60/redder_filter_set_bounds.json
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add pm_footprint/results/wht60/redder_filter_set_bounds.json
+          if ! git diff --cached --quiet; then
+            git commit -m 'Save reproducible WHT redder-filter conditional area bounds'
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
