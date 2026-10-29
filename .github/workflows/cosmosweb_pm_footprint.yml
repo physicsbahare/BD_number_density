@@ -27,17 +27,31 @@ jobs:
       - uses: actions/checkout@v4
         with:
           ref: main
+      - name: Determine whether archival calculation is still pending
+        id: state
+        shell: bash
+        run: |
+          if [ -f pm_footprint/results/summary.json ]; then
+            echo "needed=false" >> "$GITHUB_OUTPUT"
+            echo "Successful geometric output already exists."
+          else
+            echo "needed=true" >> "$GITHUB_OUTPUT"
+          fi
       - uses: actions/setup-python@v5
+        if: steps.state.outputs.needed == 'true'
         with:
           python-version: '3.11'
           cache: pip
       - name: Install metadata and MOC dependencies
+        if: steps.state.outputs.needed == 'true'
         run: |
           python -m pip install --upgrade pip
           python -m pip install "astroquery>=0.4.11,<0.5" "mocpy>=0.20,<0.22" "astropy>=6" numpy pandas pytest
       - name: Validate epoch and footprint logic on synthetic data
+        if: steps.state.outputs.needed == 'true'
         run: python -m pytest -q tests/test_pm_footprint.py
       - name: Query MAST and compute area + candidate membership
+        if: steps.state.outputs.needed == 'true'
         id: calculate
         continue-on-error: true
         run: |
@@ -47,7 +61,7 @@ jobs:
             python -m pm_footprint.compute
           fi
       - name: Keep reproducibility products from every attempt
-        if: always()
+        if: always() && steps.state.outputs.needed == 'true'
         uses: actions/upload-artifact@v4
         with:
           name: cosmosweb-multi-epoch-footprint
