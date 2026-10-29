@@ -1,7 +1,7 @@
 {
   "method": "unit_sphere_lambert_equal_area_shapely_polygon_intersections",
   "status": "EXACT_GEOMETRY_PRELIMINARY_REQUIRES_USABLE_MASK_AND_ASTROMETRY_QC",
-  "generated_utc": "2026-10-29T11:31:07.952690+00:00",
+  "generated_utc": "2026-10-29T11:34:09.786549+00:00",
   "mast_rows": 3264,
   "imaging_rows_with_valid_time": 3072,
   "cweb_f444w_rows": 155,

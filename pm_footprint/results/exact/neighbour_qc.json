@@ -1,0 +1,990 @@
+{
+  "status": "POSITIONAL_QC_ONLY_NOT_DEDUPLICATED",
+  "thresholds_arcsec": [
+    0.5,
+    1.0
+  ],
+  "samples": {
+    "all_125": {
+      "0.5": {
+        "raw_catalog_entries": 125,
+        "positional_clusters": 115,
+        "close_pairs": [
+          {
+            "id1": 204643,
+            "id2": 204646,
+            "separation_arcsec": 0.4097
+          },
+          {
+            "id1": 280656,
+            "id2": 280657,
+            "separation_arcsec": 0.3814
+          },
+          {
+            "id1": 293229,
+            "id2": 293230,
+            "separation_arcsec": 0.2586
+          },
+          {
+            "id1": 575105,
+            "id2": 575106,
+            "separation_arcsec": 0.3624
+          },
+          {
+            "id1": 2117792,
+            "id2": 2117793,
+            "separation_arcsec": 0.2345
+          },
+          {
+            "id1": 2878691,
+            "id2": 2878692,
+            "separation_arcsec": 0.3199
+          },
+          {
+            "id1": 2952479,
+            "id2": 2952480,
+            "separation_arcsec": 0.3232
+          },
+          {
+            "id1": 2952480,
+            "id2": 2952481,
+            "separation_arcsec": 0.3688
+          },
+          {
+            "id1": 3106872,
+            "id2": 3106873,
+            "separation_arcsec": 0.2236
+          },
+          {
+            "id1": 3190946,
+            "id2": 3190947,
+            "separation_arcsec": 0.1694
+          }
+        ],
+        "multi_entry_clusters": [
+          [
+            204643,
+            204646
+          ],
+          [
+            280656,
+            280657
+          ],
+          [
+            293229,
+            293230
+          ],
+          [
+            575105,
+            575106
+          ],
+          [
+            2117792,
+            2117793
+          ],
+          [
+            2878691,
+            2878692
+          ],
+          [
+            2952479,
+            2952480,
+            2952481
+          ],
+          [
+            3106872,
+            3106873
+          ],
+          [
+            3190946,
+            3190947
+          ]
+        ],
+        "warning": "Angular proximity is not evidence that sources are duplicates; inspect deblending and imaging."
+      },
+      "1.0": {
+        "raw_catalog_entries": 125,
+        "positional_clusters": 114,
+        "close_pairs": [
+          {
+            "id1": 204643,
+            "id2": 204646,
+            "separation_arcsec": 0.4097
+          },
+          {
+            "id1": 280656,
+            "id2": 280657,
+            "separation_arcsec": 0.3814
+          },
+          {
+            "id1": 293229,
+            "id2": 293230,
+            "separation_arcsec": 0.2586
+          },
+          {
+            "id1": 293230,
+            "id2": 293232,
+            "separation_arcsec": 0.8879
+          },
+          {
+            "id1": 575105,
+            "id2": 575106,
+            "separation_arcsec": 0.3624
+          },
+          {
+            "id1": 2117792,
+            "id2": 2117793,
+            "separation_arcsec": 0.2345
+          },
+          {
+            "id1": 2878691,
+            "id2": 2878692,
+            "separation_arcsec": 0.3199
+          },
+          {
+            "id1": 2952479,
+            "id2": 2952480,
+            "separation_arcsec": 0.3232
+          },
+          {
+            "id1": 2952479,
+            "id2": 2952481,
+            "separation_arcsec": 0.6916
+          },
+          {
+            "id1": 2952480,
+            "id2": 2952481,
+            "separation_arcsec": 0.3688
+          },
+          {
+            "id1": 3106872,
+            "id2": 3106873,
+            "separation_arcsec": 0.2236
+          },
+          {
+            "id1": 3190946,
+            "id2": 3190947,
+            "separation_arcsec": 0.1694
+          }
+        ],
+        "multi_entry_clusters": [
+          [
+            204643,
+            204646
+          ],
+          [
+            280656,
+            280657
+          ],
+          [
+            293229,
+            293230,
+            293232
+          ],
+          [
+            575105,
+            575106
+          ],
+          [
+            2117792,
+            2117793
+          ],
+          [
+            2878691,
+            2878692
+          ],
+          [
+            2952479,
+            2952480,
+            2952481
+          ],
+          [
+            3106872,
+            3106873
+          ],
+          [
+            3190946,
+            3190947
+          ]
+        ],
+        "warning": "Angular proximity is not evidence that sources are duplicates; inspect deblending and imaging."
+      }
+    },
+    "in_same_f444w_30d": {
+      "0.5": {
+        "raw_catalog_entries": 3,
+        "positional_clusters": 2,
+        "close_pairs": [
+          {
+            "id1": 575105,
+            "id2": 575106,
+            "separation_arcsec": 0.3624
+          }
+        ],
+        "multi_entry_clusters": [
+          [
+            575105,
+            575106
+          ]
+        ],
+        "warning": "Angular proximity is not evidence that sources are duplicates; inspect deblending and imaging."
+      },
+      "1.0": {
+        "raw_catalog_entries": 3,
+        "positional_clusters": 2,
+        "close_pairs": [
+          {
+            "id1": 575105,
+            "id2": 575106,
+            "separation_arcsec": 0.3624
+          }
+        ],
+        "multi_entry_clusters": [
+          [
+            575105,
+            575106
+          ]
+        ],
+        "warning": "Angular proximity is not evidence that sources are duplicates; inspect deblending and imaging."
+      }
+    },
+    "in_f444w_plus_red_30d": {
+      "0.5": {
+        "raw_catalog_entries": 77,
+        "positional_clusters": 72,
+        "close_pairs": [
+          {
+            "id1": 575105,
+            "id2": 575106,
+            "separation_arcsec": 0.3624
+          },
+          {
+            "id1": 2117792,
+            "id2": 2117793,
+            "separation_arcsec": 0.2345
+          },
+          {
+            "id1": 2952479,
+            "id2": 2952480,
+            "separation_arcsec": 0.3232
+          },
+          {
+            "id1": 2952480,
+            "id2": 2952481,
+            "separation_arcsec": 0.3688
+          },
+          {
+            "id1": 3106872,
+            "id2": 3106873,
+            "separation_arcsec": 0.2236
+          }
+        ],
+        "multi_entry_clusters": [
+          [
+            575105,
+            575106
+          ],
+          [
+            2117792,
+            2117793
+          ],
+          [
+            2952479,
+            2952480,
+            2952481
+          ],
+          [
+            3106872,
+            3106873
+          ]
+        ],
+        "warning": "Angular proximity is not evidence that sources are duplicates; inspect deblending and imaging."
+      },
+      "1.0": {
+        "raw_catalog_entries": 77,
+        "positional_clusters": 72,
+        "close_pairs": [
+          {
+            "id1": 575105,
+            "id2": 575106,
+            "separation_arcsec": 0.3624
+          },
+          {
+            "id1": 2117792,
+            "id2": 2117793,
+            "separation_arcsec": 0.2345
+          },
+          {
+            "id1": 2952479,
+            "id2": 2952480,
+            "separation_arcsec": 0.3232
+          },
+          {
+            "id1": 2952479,
+            "id2": 2952481,
+            "separation_arcsec": 0.6916
+          },
+          {
+            "id1": 2952480,
+            "id2": 2952481,
+            "separation_arcsec": 0.3688
+          },
+          {
+            "id1": 3106872,
+            "id2": 3106873,
+            "separation_arcsec": 0.2236
+          }
+        ],
+        "multi_entry_clusters": [
+          [
+            575105,
+            575106
+          ],
+          [
+            2117792,
+            2117793
+          ],
+          [
+            2952479,
+            2952480,
+            2952481
+          ],
+          [
+            3106872,
+            3106873
+          ]
+        ],
+        "warning": "Angular proximity is not evidence that sources are duplicates; inspect deblending and imaging."
+      }
+    },
+    "in_any_nircam_30d": {
+      "0.5": {
+        "raw_catalog_entries": 80,
+        "positional_clusters": 75,
+        "close_pairs": [
+          {
+            "id1": 575105,
+            "id2": 575106,
+            "separation_arcsec": 0.3624
+          },
+          {
+            "id1": 2117792,
+            "id2": 2117793,
+            "separation_arcsec": 0.2345
+          },
+          {
+            "id1": 2952479,
+            "id2": 2952480,
+            "separation_arcsec": 0.3232
+          },
+          {
+            "id1": 2952480,
+            "id2": 2952481,
+            "separation_arcsec": 0.3688
+          },
+          {
+            "id1": 3106872,
+            "id2": 3106873,
+            "separation_arcsec": 0.2236
+          }
+        ],
+        "multi_entry_clusters": [
+          [
+            575105,
+            575106
+          ],
+          [
+            2117792,
+            2117793
+          ],
+          [
+            2952479,
+            2952480,
+            2952481
+          ],
+          [
+            3106872,
+            3106873
+          ]
+        ],
+        "warning": "Angular proximity is not evidence that sources are duplicates; inspect deblending and imaging."
+      },
+      "1.0": {
+        "raw_catalog_entries": 80,
+        "positional_clusters": 75,
+        "close_pairs": [
+          {
+            "id1": 575105,
+            "id2": 575106,
+            "separation_arcsec": 0.3624
+          },
+          {
+            "id1": 2117792,
+            "id2": 2117793,
+            "separation_arcsec": 0.2345
+          },
+          {
+            "id1": 2952479,
+            "id2": 2952480,
+            "separation_arcsec": 0.3232
+          },
+          {
+            "id1": 2952479,
+            "id2": 2952481,
+            "separation_arcsec": 0.6916
+          },
+          {
+            "id1": 2952480,
+            "id2": 2952481,
+            "separation_arcsec": 0.3688
+          },
+          {
+            "id1": 3106872,
+            "id2": 3106873,
+            "separation_arcsec": 0.2236
+          }
+        ],
+        "multi_entry_clusters": [
+          [
+            575105,
+            575106
+          ],
+          [
+            2117792,
+            2117793
+          ],
+          [
+            2952479,
+            2952480,
+            2952481
+          ],
+          [
+            3106872,
+            3106873
+          ]
+        ],
+        "warning": "Angular proximity is not evidence that sources are duplicates; inspect deblending and imaging."
+      }
+    },
+    "in_same_f444w_180d": {
+      "0.5": {
+        "raw_catalog_entries": 3,
+        "positional_clusters": 2,
+        "close_pairs": [
+          {
+            "id1": 575105,
+            "id2": 575106,
+            "separation_arcsec": 0.3624
+          }
+        ],
+        "multi_entry_clusters": [
+          [
+            575105,
+            575106
+          ]
+        ],
+        "warning": "Angular proximity is not evidence that sources are duplicates; inspect deblending and imaging."
+      },
+      "1.0": {
+        "raw_catalog_entries": 3,
+        "positional_clusters": 2,
+        "close_pairs": [
+          {
+            "id1": 575105,
+            "id2": 575106,
+            "separation_arcsec": 0.3624
+          }
+        ],
+        "multi_entry_clusters": [
+          [
+            575105,
+            575106
+          ]
+        ],
+        "warning": "Angular proximity is not evidence that sources are duplicates; inspect deblending and imaging."
+      }
+    },
+    "in_f444w_plus_red_180d": {
+      "0.5": {
+        "raw_catalog_entries": 77,
+        "positional_clusters": 72,
+        "close_pairs": [
+          {
+            "id1": 575105,
+            "id2": 575106,
+            "separation_arcsec": 0.3624
+          },
+          {
+            "id1": 2117792,
+            "id2": 2117793,
+            "separation_arcsec": 0.2345
+          },
+          {
+            "id1": 2952479,
+            "id2": 2952480,
+            "separation_arcsec": 0.3232
+          },
+          {
+            "id1": 2952480,
+            "id2": 2952481,
+            "separation_arcsec": 0.3688
+          },
+          {
+            "id1": 3106872,
+            "id2": 3106873,
+            "separation_arcsec": 0.2236
+          }
+        ],
+        "multi_entry_clusters": [
+          [
+            575105,
+            575106
+          ],
+          [
+            2117792,
+            2117793
+          ],
+          [
+            2952479,
+            2952480,
+            2952481
+          ],
+          [
+            3106872,
+            3106873
+          ]
+        ],
+        "warning": "Angular proximity is not evidence that sources are duplicates; inspect deblending and imaging."
+      },
+      "1.0": {
+        "raw_catalog_entries": 77,
+        "positional_clusters": 72,
+        "close_pairs": [
+          {
+            "id1": 575105,
+            "id2": 575106,
+            "separation_arcsec": 0.3624
+          },
+          {
+            "id1": 2117792,
+            "id2": 2117793,
+            "separation_arcsec": 0.2345
+          },
+          {
+            "id1": 2952479,
+            "id2": 2952480,
+            "separation_arcsec": 0.3232
+          },
+          {
+            "id1": 2952479,
+            "id2": 2952481,
+            "separation_arcsec": 0.6916
+          },
+          {
+            "id1": 2952480,
+            "id2": 2952481,
+            "separation_arcsec": 0.3688
+          },
+          {
+            "id1": 3106872,
+            "id2": 3106873,
+            "separation_arcsec": 0.2236
+          }
+        ],
+        "multi_entry_clusters": [
+          [
+            575105,
+            575106
+          ],
+          [
+            2117792,
+            2117793
+          ],
+          [
+            2952479,
+            2952480,
+            2952481
+          ],
+          [
+            3106872,
+            3106873
+          ]
+        ],
+        "warning": "Angular proximity is not evidence that sources are duplicates; inspect deblending and imaging."
+      }
+    },
+    "in_any_nircam_180d": {
+      "0.5": {
+        "raw_catalog_entries": 80,
+        "positional_clusters": 75,
+        "close_pairs": [
+          {
+            "id1": 575105,
+            "id2": 575106,
+            "separation_arcsec": 0.3624
+          },
+          {
+            "id1": 2117792,
+            "id2": 2117793,
+            "separation_arcsec": 0.2345
+          },
+          {
+            "id1": 2952479,
+            "id2": 2952480,
+            "separation_arcsec": 0.3232
+          },
+          {
+            "id1": 2952480,
+            "id2": 2952481,
+            "separation_arcsec": 0.3688
+          },
+          {
+            "id1": 3106872,
+            "id2": 3106873,
+            "separation_arcsec": 0.2236
+          }
+        ],
+        "multi_entry_clusters": [
+          [
+            575105,
+            575106
+          ],
+          [
+            2117792,
+            2117793
+          ],
+          [
+            2952479,
+            2952480,
+            2952481
+          ],
+          [
+            3106872,
+            3106873
+          ]
+        ],
+        "warning": "Angular proximity is not evidence that sources are duplicates; inspect deblending and imaging."
+      },
+      "1.0": {
+        "raw_catalog_entries": 80,
+        "positional_clusters": 75,
+        "close_pairs": [
+          {
+            "id1": 575105,
+            "id2": 575106,
+            "separation_arcsec": 0.3624
+          },
+          {
+            "id1": 2117792,
+            "id2": 2117793,
+            "separation_arcsec": 0.2345
+          },
+          {
+            "id1": 2952479,
+            "id2": 2952480,
+            "separation_arcsec": 0.3232
+          },
+          {
+            "id1": 2952479,
+            "id2": 2952481,
+            "separation_arcsec": 0.6916
+          },
+          {
+            "id1": 2952480,
+            "id2": 2952481,
+            "separation_arcsec": 0.3688
+          },
+          {
+            "id1": 3106872,
+            "id2": 3106873,
+            "separation_arcsec": 0.2236
+          }
+        ],
+        "multi_entry_clusters": [
+          [
+            575105,
+            575106
+          ],
+          [
+            2117792,
+            2117793
+          ],
+          [
+            2952479,
+            2952480,
+            2952481
+          ],
+          [
+            3106872,
+            3106873
+          ]
+        ],
+        "warning": "Angular proximity is not evidence that sources are duplicates; inspect deblending and imaging."
+      }
+    },
+    "in_same_f444w_365d": {
+      "0.5": {
+        "raw_catalog_entries": 2,
+        "positional_clusters": 1,
+        "close_pairs": [
+          {
+            "id1": 575105,
+            "id2": 575106,
+            "separation_arcsec": 0.3624
+          }
+        ],
+        "multi_entry_clusters": [
+          [
+            575105,
+            575106
+          ]
+        ],
+        "warning": "Angular proximity is not evidence that sources are duplicates; inspect deblending and imaging."
+      },
+      "1.0": {
+        "raw_catalog_entries": 2,
+        "positional_clusters": 1,
+        "close_pairs": [
+          {
+            "id1": 575105,
+            "id2": 575106,
+            "separation_arcsec": 0.3624
+          }
+        ],
+        "multi_entry_clusters": [
+          [
+            575105,
+            575106
+          ]
+        ],
+        "warning": "Angular proximity is not evidence that sources are duplicates; inspect deblending and imaging."
+      }
+    },
+    "in_f444w_plus_red_365d": {
+      "0.5": {
+        "raw_catalog_entries": 67,
+        "positional_clusters": 65,
+        "close_pairs": [
+          {
+            "id1": 575105,
+            "id2": 575106,
+            "separation_arcsec": 0.3624
+          },
+          {
+            "id1": 2117792,
+            "id2": 2117793,
+            "separation_arcsec": 0.2345
+          }
+        ],
+        "multi_entry_clusters": [
+          [
+            575105,
+            575106
+          ],
+          [
+            2117792,
+            2117793
+          ]
+        ],
+        "warning": "Angular proximity is not evidence that sources are duplicates; inspect deblending and imaging."
+      },
+      "1.0": {
+        "raw_catalog_entries": 67,
+        "positional_clusters": 65,
+        "close_pairs": [
+          {
+            "id1": 575105,
+            "id2": 575106,
+            "separation_arcsec": 0.3624
+          },
+          {
+            "id1": 2117792,
+            "id2": 2117793,
+            "separation_arcsec": 0.2345
+          }
+        ],
+        "multi_entry_clusters": [
+          [
+            575105,
+            575106
+          ],
+          [
+            2117792,
+            2117793
+          ]
+        ],
+        "warning": "Angular proximity is not evidence that sources are duplicates; inspect deblending and imaging."
+      }
+    },
+    "in_any_nircam_365d": {
+      "0.5": {
+        "raw_catalog_entries": 69,
+        "positional_clusters": 67,
+        "close_pairs": [
+          {
+            "id1": 575105,
+            "id2": 575106,
+            "separation_arcsec": 0.3624
+          },
+          {
+            "id1": 2117792,
+            "id2": 2117793,
+            "separation_arcsec": 0.2345
+          }
+        ],
+        "multi_entry_clusters": [
+          [
+            575105,
+            575106
+          ],
+          [
+            2117792,
+            2117793
+          ]
+        ],
+        "warning": "Angular proximity is not evidence that sources are duplicates; inspect deblending and imaging."
+      },
+      "1.0": {
+        "raw_catalog_entries": 69,
+        "positional_clusters": 67,
+        "close_pairs": [
+          {
+            "id1": 575105,
+            "id2": 575106,
+            "separation_arcsec": 0.3624
+          },
+          {
+            "id1": 2117792,
+            "id2": 2117793,
+            "separation_arcsec": 0.2345
+          }
+        ],
+        "multi_entry_clusters": [
+          [
+            575105,
+            575106
+          ],
+          [
+            2117792,
+            2117793
+          ]
+        ],
+        "warning": "Angular proximity is not evidence that sources are duplicates; inspect deblending and imaging."
+      }
+    },
+    "in_same_f444w_730d": {
+      "0.5": {
+        "raw_catalog_entries": 2,
+        "positional_clusters": 1,
+        "close_pairs": [
+          {
+            "id1": 575105,
+            "id2": 575106,
+            "separation_arcsec": 0.3624
+          }
+        ],
+        "multi_entry_clusters": [
+          [
+            575105,
+            575106
+          ]
+        ],
+        "warning": "Angular proximity is not evidence that sources are duplicates; inspect deblending and imaging."
+      },
+      "1.0": {
+        "raw_catalog_entries": 2,
+        "positional_clusters": 1,
+        "close_pairs": [
+          {
+            "id1": 575105,
+            "id2": 575106,
+            "separation_arcsec": 0.3624
+          }
+        ],
+        "multi_entry_clusters": [
+          [
+            575105,
+            575106
+          ]
+        ],
+        "warning": "Angular proximity is not evidence that sources are duplicates; inspect deblending and imaging."
+      }
+    },
+    "in_f444w_plus_red_730d": {
+      "0.5": {
+        "raw_catalog_entries": 48,
+        "positional_clusters": 47,
+        "close_pairs": [
+          {
+            "id1": 575105,
+            "id2": 575106,
+            "separation_arcsec": 0.3624
+          }
+        ],
+        "multi_entry_clusters": [
+          [
+            575105,
+            575106
+          ]
+        ],
+        "warning": "Angular proximity is not evidence that sources are duplicates; inspect deblending and imaging."
+      },
+      "1.0": {
+        "raw_catalog_entries": 48,
+        "positional_clusters": 47,
+        "close_pairs": [
+          {
+            "id1": 575105,
+            "id2": 575106,
+            "separation_arcsec": 0.3624
+          }
+        ],
+        "multi_entry_clusters": [
+          [
+            575105,
+            575106
+          ]
+        ],
+        "warning": "Angular proximity is not evidence that sources are duplicates; inspect deblending and imaging."
+      }
+    },
+    "in_any_nircam_730d": {
+      "0.5": {
+        "raw_catalog_entries": 50,
+        "positional_clusters": 49,
+        "close_pairs": [
+          {
+            "id1": 575105,
+            "id2": 575106,
+            "separation_arcsec": 0.3624
+          }
+        ],
+        "multi_entry_clusters": [
+          [
+            575105,
+            575106
+          ]
+        ],
+        "warning": "Angular proximity is not evidence that sources are duplicates; inspect deblending and imaging."
+      },
+      "1.0": {
+        "raw_catalog_entries": 50,
+        "positional_clusters": 49,
+        "close_pairs": [
+          {
+            "id1": 575105,
+            "id2": 575106,
+            "separation_arcsec": 0.3624
+          }
+        ],
+        "multi_entry_clusters": [
+          [
+            575105,
+            575106
+          ]
+        ],
+        "warning": "Angular proximity is not evidence that sources are duplicates; inspect deblending and imaging."
+      }
+    }
+  }
+}
