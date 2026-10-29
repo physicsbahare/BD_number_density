@@ -89,9 +89,8 @@ def test_missing_celestial_wcs_fails_with_diagnostics(tmp_path, monkeypatch):
     with fits.open(raw) as hdul:
         with pytest.raises(ValueError, match="HDU header diagnostics"):
             wht.select_celestial_wcs(hdul, hdul[0], "A1")
-    with pytest.raises(ValueError, match="pixel scales"):
-        wht.wht_tile("A1", grid, math.radians(0.6 / 3600),
-                     math.radians(-0.08), 10, tmp_path)
+    # Do not call the production i2d header-prefix network fallback here;
+    # its gzip/header parser is separately mocked in test_pm_wcs_probe.py.
 
 
 def test_official_dr1_a1_corners_reconstruct_missing_wht_wcs():
