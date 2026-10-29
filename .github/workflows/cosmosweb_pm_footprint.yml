@@ -32,6 +32,7 @@ jobs:
         shell: bash
         run: |
           code_sha=$(sha256sum pm_footprint/compute.py | cut -d' ' -f1)
+          exact_sha=$(sha256sum pm_footprint/exact_geometry.py | cut -d' ' -f1)
           if [ -f pm_footprint/results/mast_observations.csv ]; then
             meta_sha=$(sha256sum pm_footprint/results/mast_observations.csv | cut -d' ' -f1)
           else
@@ -39,6 +40,8 @@ jobs:
           fi
           if [ -f pm_footprint/results/summary.json ] &&
              [ -f pm_footprint/results/resolution_qc.json ] &&
+             [ -f pm_footprint/results/exact/summary.json ] &&
+             grep -q "$exact_sha" pm_footprint/results/exact/summary.json &&
              grep -q "$code_sha" pm_footprint/results/summary.json &&
              grep -q "$code_sha" pm_footprint/results/resolution_qc.json &&
              grep -q "$meta_sha" pm_footprint/results/summary.json; then
@@ -56,10 +59,10 @@ jobs:
         if: steps.state.outputs.needed == 'true'
         run: |
           python -m pip install --upgrade pip
-          python -m pip install "astroquery>=0.4.11,<0.5" "mocpy>=0.20,<0.22" "astropy>=6" numpy pandas pytest
+          python -m pip install "astroquery>=0.4.11,<0.5" "mocpy>=0.20,<0.22" "astropy>=6" "shapely>=2,<3" numpy pandas pytest
       - name: Validate epoch and footprint logic on synthetic data
         if: steps.state.outputs.needed == 'true'
-        run: python -m pytest -q tests/test_pm_footprint.py
+        run: python -m pytest -q tests/test_pm_footprint.py tests/test_pm_footprint_exact.py
       - name: Query MAST and compute area + candidate membership
         if: steps.state.outputs.needed == 'true'
         id: calculate
@@ -91,6 +94,11 @@ jobs:
             python -m pm_footprint.compute --metadata-csv pm_footprint/results/mast_observations.csv --depth 15 --out pm_footprint/results/depth15
           fi
           python -m pm_footprint.compare_depths
+      - name: Independent spherical equal-area polygon audit (30/180/365/730d)
+        id: exact
+        if: steps.refine.outcome == 'success' && steps.state.outputs.needed == 'true'
+        continue-on-error: true
+        run: python -m pm_footprint.exact_geometry
       - name: Keep reproducibility products from every attempt
         if: always() && steps.state.outputs.needed == 'true'
         uses: actions/upload-artifact@v4
@@ -100,9 +108,9 @@ jobs:
           if-no-files-found: warn
           retention-days: 30
       - name: Commit successful computed data
-        if: steps.calculate.outcome == 'success' && steps.refine.outcome == 'success'
+        if: steps.calculate.outcome == 'success' && steps.refine.outcome == 'success' && steps.exact.outcome == 'success'
         run: |
-          if [ ! -f pm_footprint/results/summary.json ] || [ ! -f pm_footprint/results/resolution_qc.json ]; then
+          if [ ! -f pm_footprint/results/summary.json ] || [ ! -f pm_footprint/results/resolution_qc.json ] || [ ! -f pm_footprint/results/exact/summary.json ]; then
             echo "No completed resolution-audited computation found (no area claims permitted)"
             exit 1
           fi
@@ -117,7 +125,7 @@ jobs:
             git push origin HEAD:main
           fi
       - name: Preserve failure status to enable hourly retries
-        if: steps.calculate.outcome == 'failure' || steps.refine.outcome == 'failure'
+        if: steps.calculate.outcome == 'failure' || steps.refine.outcome == 'failure' || steps.exact.outcome == 'failure'
         run: |
           echo "MAST/footprint calculation failed. Inspect logs and uploaded artifact; retries continue hourly."
           exit 1
