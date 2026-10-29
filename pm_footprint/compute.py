@@ -40,27 +40,36 @@ def filters(value):
 
 
 def polygon(region, depth):
+    """Parse MAST CAOM s_region, including adjacent disjoint POLYGON groups.
+
+    JWST CAOM observation footprints frequently encode multiple detector
+    polygons as 'POLYGON <coords> POLYGON <coords>' without STC-S UNION.
+    Treating that as a single polygon or discarding it biases sky coverage.
+    """
     if region is None or pd.isna(region) or not str(region).strip():
         raise ValueError("missing CAOM s_region")
     source = str(region).strip()
-    try:
+    if not re.match(r"^POLYGON\\b", source, flags=re.I):
         return MOC.from_stcs(source, max_depth=depth)
-    except Exception:
-        # Some CAOM records supply plain 'POLYGON <ra> <dec> ...'
-        pieces = source.split()
-        if not pieces or pieces[0].upper() != "POLYGON":
-            raise ValueError("unsupported footprint: " + source[:90])
-        body = " ".join(pieces[1:]).replace("ICRS", "").strip()
-        if not re.fullmatch(r"[+\-\d.eE\s]+", body):
-            raise ValueError("ambiguous CAOM polygon: " + source[:90])
+
+    pieces = re.split(r"\\bPOLYGON\\b", source, flags=re.I)
+    if pieces[0].strip() or len(pieces) < 2:
+        raise ValueError("malformed multi-polygon CAOM region")
+    combined = empty(depth)
+    for body in pieces[1:]:
+        body = re.sub(r"^\\s*ICRS\\s+", "", body, flags=re.I).strip()
+        if not re.fullmatch(r"[+\\-\\d.eE\\s]+", body):
+            raise ValueError("non-numeric polygon vertices: " + body[:90])
         v = [float(z) for z in body.split()]
         if len(v) < 6 or len(v) % 2:
             raise ValueError("bad CAOM polygon vertices")
-        return MOC.from_polygon(
+        poly = MOC.from_polygon(
             lon=np.array(v[0::2]) * u.deg,
             lat=np.array(v[1::2]) * u.deg,
             max_depth=depth,
         )
+        combined = combined.union(poly)
+    return combined
 
 
 def overlap(rows, depth, gap):
@@ -126,7 +135,7 @@ def calculate(raw, candidate_df, depth=DEPTH, gap=GAP_DAYS):
     frame = raw.copy()
     frame = frame[
         frame.obs_collection.astype(str).str.upper().eq("JWST")
-        & frame.instrument_name.astype(str).str.upper().str.contains("NIRCAM", regex=False)
+        & frame.instrument_name.astype(str).str.upper().eq("NIRCAM/IMAGE")
     ].copy()
     if "intentType" in frame:
         frame = frame[frame.intentType.astype(str).str.lower().eq("science")]
@@ -214,6 +223,7 @@ def calculate(raw, candidate_df, depth=DEPTH, gap=GAP_DAYS):
         },
         "warnings": [
             "CAOM observation polygons approximate geometric coverage only.",
+            "NIRCAM/GRISM spectral products are excluded from imaging opportunity.",
             "Actual F444W usable depth/masking denominator may differ from archive area.",
             "Other-filter overlap does NOT imply a red F444W-only candidate is detectable.",
             "No proper-motion detection/completeness efficiency is modeled.",
