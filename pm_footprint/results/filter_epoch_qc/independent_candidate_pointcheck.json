@@ -1,0 +1,141 @@
+{
+  "status": "INDEPENDENT_CANDIDATE_POINT_IN_POLYGON_QC_ONLY",
+  "metadata_blob_sha": "90d5e01d6b5a8682c6d6a7cb3f8ec339fb6d9dd7",
+  "mast_records": 3168,
+  "valid_records": 2976,
+  "candidate_entries": 125,
+  "baselines": {
+    "30": {
+      "red_union_exact_id_match": true,
+      "counts": {
+        "F277W": 3,
+        "F356W": 71,
+        "F410M": 9,
+        "F444W": 1,
+        "red_union": 72,
+        "red_without_f277w": 72,
+        "only_f277w": 0
+      },
+      "confirmed_movers": {
+        "F277W": [],
+        "F356W": [
+          387132,
+          1651050
+        ],
+        "F410M": [
+          387132
+        ],
+        "F444W": [],
+        "red_union": [
+          387132,
+          1651050
+        ],
+        "red_without_f277w": [
+          387132,
+          1651050
+        ],
+        "only_f277w": []
+      },
+      "only_f277w_ids": []
+    },
+    "180": {
+      "red_union_exact_id_match": true,
+      "counts": {
+        "F277W": 3,
+        "F356W": 71,
+        "F410M": 9,
+        "F444W": 1,
+        "red_union": 72,
+        "red_without_f277w": 72,
+        "only_f277w": 0
+      },
+      "confirmed_movers": {
+        "F277W": [],
+        "F356W": [
+          387132,
+          1651050
+        ],
+        "F410M": [
+          387132
+        ],
+        "F444W": [],
+        "red_union": [
+          387132,
+          1651050
+        ],
+        "red_without_f277w": [
+          387132,
+          1651050
+        ],
+        "only_f277w": []
+      },
+      "only_f277w_ids": []
+    },
+    "365": {
+      "red_union_exact_id_match": true,
+      "counts": {
+        "F277W": 0,
+        "F356W": 62,
+        "F410M": 9,
+        "F444W": 0,
+        "red_union": 62,
+        "red_without_f277w": 62,
+        "only_f277w": 0
+      },
+      "confirmed_movers": {
+        "F277W": [],
+        "F356W": [
+          387132,
+          1651050
+        ],
+        "F410M": [
+          387132
+        ],
+        "F444W": [],
+        "red_union": [
+          387132,
+          1651050
+        ],
+        "red_without_f277w": [
+          387132,
+          1651050
+        ],
+        "only_f277w": []
+      },
+      "only_f277w_ids": []
+    },
+    "730": {
+      "red_union_exact_id_match": true,
+      "counts": {
+        "F277W": 0,
+        "F356W": 42,
+        "F410M": 6,
+        "F444W": 0,
+        "red_union": 42,
+        "red_without_f277w": 42,
+        "only_f277w": 0
+      },
+      "confirmed_movers": {
+        "F277W": [],
+        "F356W": [
+          387132
+        ],
+        "F410M": [],
+        "F444W": [],
+        "red_union": [
+          387132
+        ],
+        "red_without_f277w": [
+          387132
+        ],
+        "only_f277w": []
+      },
+      "only_f277w_ids": []
+    }
+  },
+  "limitations": [
+    "Point-in-polygon membership only; no union areas or SNR",
+    "Does not establish astrometric PM measurability",
+    "Exact-geometry 30/180/365/730d red-union candidate IDs independently matched"
+  ]
+}
