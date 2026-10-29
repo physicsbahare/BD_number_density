@@ -5,3 +5,5 @@ pandas
 matplotlib
 pyyaml
 pytest
+requests
+shapely>=2.1,<3
