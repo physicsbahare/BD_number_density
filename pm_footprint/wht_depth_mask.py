@@ -91,6 +91,65 @@ def select_celestial_wcs(hdul, image_hdu, tile):
     )
 
 
+def official_corner_wcs(tile, nx, ny):
+    """Reconstruct a TAN transform from the official DR1 tile-corner table.
+
+    The extracted standalone WHT FITS has no WCS cards (confirmed for A1).
+    This transform is *derived*, not the original SCI header: require
+    independent full-i2d SCI WCS comparison before a final paper claim.
+    """
+    corners_file = Path(__file__).with_name("dr1_tile_corners.csv")
+    table = pd.read_csv(corners_file).set_index("tile")
+    if tile not in table.index:
+        raise ValueError(f"No official DR1 tile corners for {tile}")
+    row = table.loc[tile]
+    ra = np.array([row[f"ra{i}"] for i in range(1, 5)], dtype=float)
+    dec = np.array([row[f"dec{i}"] for i in range(1, 5)], dtype=float)
+    ra0, dec0 = np.deg2rad([150.1163213, 2.200973097])
+    lon, lat = np.deg2rad(ra), np.deg2rad(dec)
+    delta = lon - ra0
+    denominator = (np.sin(dec0) * np.sin(lat)
+                   + np.cos(dec0) * np.cos(lat) * np.cos(delta))
+    if np.any(denominator <= 0):
+        raise ValueError(f"{tile}: tile corners outside TAN hemisphere")
+    xi = np.cos(lat) * np.sin(delta) / denominator
+    eta = (np.cos(dec0) * np.sin(lat)
+           - np.sin(dec0) * np.cos(lat) * np.cos(delta)) / denominator
+    plane = np.rad2deg(np.column_stack((xi, eta)))
+    # Published corner order is bottom-left, bottom-right, top-right, top-left
+    # in FITS array pixel (x,y) coordinates; infer both axes from actual shape.
+    pixels = np.array([[0., 0.], [nx - 1., 0.],
+                       [nx - 1., ny - 1.], [0., ny - 1.]])
+    design = np.column_stack((np.ones(4), pixels))
+    coeff, _, _, _ = np.linalg.lstsq(design, plane, rcond=None)
+    cd = coeff[1:].T
+    scale = np.linalg.norm(cd, axis=0) * 3600
+    if not np.all((scale > 0.055) & (scale < 0.065)):
+        raise ValueError(f"{tile}: inferred WCS pixel scales {scale} not ~60 mas")
+    if np.linalg.det(cd) >= 0:
+        raise ValueError(f"{tile}: unexpected sky orientation / WCS parity")
+    fit_resid = np.linalg.norm(design @ coeff - plane, axis=1) * 3600
+    if float(fit_resid.max()) > 1.0:
+        raise ValueError(f"{tile}: official-corner TAN fit residual {fit_resid} arcsec")
+    wcs = WCS(naxis=2)
+    wcs.wcs.ctype = ["RA---TAN", "DEC--TAN"]
+    wcs.wcs.crval = [150.1163213, 2.200973097]
+    wcs.wcs.cd = cd
+    wcs.wcs.crpix = np.ones(2) - np.linalg.solve(cd, coeff[0])
+    ra_fit, dec_fit = wcs.all_pix2world(pixels[:, 0], pixels[:, 1], 0)
+    residual = np.hypot((ra_fit - ra) * np.cos(np.deg2rad(dec)),
+                        dec_fit - dec) * 3600
+    if float(residual.max()) > 1.0:
+        raise ValueError(f"{tile}: WCS does not reproduce official corners: {residual}")
+    return wcs, {
+        "wcs_source": "reconstructed_from_official_DR1_tile_corners_NOT_original_header",
+        "wcs_corner_residual_arcsec_max": float(residual.max()),
+        "wcs_pixel_scales_arcsec": [float(v) for v in scale],
+        "wcs_reference": "https://cosmos2025.iap.fr/nircam.html",
+        "wcs_independent_i2d_validation": "PENDING",
+    }
+
+
 def wht_tile(tile, grid, step, lo, block, work):
     gz = work / f"{tile}.fits.gz"
     fits_path = work / f"{tile}.fits"
@@ -107,8 +166,16 @@ def wht_tile(tile, grid, step, lo, block, work):
             if hdu is None:
                 raise ValueError(f"No 2D image in WHT tile {tile}")
             data = hdu.data
-            wcs, wcs_source = select_celestial_wcs(hdul, hdu, tile)
             ny, nx = data.shape
+            try:
+                wcs, wcs_source = select_celestial_wcs(hdul, hdu, tile)
+                wcs_meta = {"wcs_source": wcs_source}
+            except ValueError as err:
+                # DR1 extracted A1 WHT has no WCS keywords in any HDU.
+                # Use the independently published sky corners, with fit QC.
+                print(f"{tile}: {err}; attempting published-corner TAN fit",
+                      flush=True)
+                wcs, wcs_meta = official_corner_wcs(tile, nx, ny)
             by, bx = ny // block, nx // block
             sample = np.asarray(data[::48, ::48], dtype=float)
             positive = sample[np.isfinite(sample) & (sample > 0)]
@@ -150,7 +217,7 @@ def wht_tile(tile, grid, step, lo, block, work):
                 raise RuntimeError(f"{tile}: {lost} valid WHT coarse cells outside grid")
             return {
                 "tile": tile, "url": url, "gz_sha256": digest,
-                "wcs_source": wcs_source,
+                **wcs_meta,
                 "median_positive_wht_sample": median,
                 "fits_shape": [ny, nx], "coarse_cells_mapped": used,
                 "trimmed_native_edge_pixels": [ny % block, nx % block],
