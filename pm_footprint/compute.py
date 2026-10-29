@@ -73,14 +73,20 @@ def polygon(region, depth):
 
 
 def overlap(rows, depth, gap):
-    """Union of regions imaged at least twice, separated by >= gap days."""
-    rows = sorted(rows, key=lambda row: row[0])
+    """Area with two non-overlapping observation TIME INTERVALS >= gap apart.
+
+    rows: (start_mjd, end_mjd, spatial_moc). CAOM aggregate observations
+    sometimes span 3-29 days, so comparing t_min alone or dropping them
+    would respectively create false baselines or discard real second epochs.
+    """
+    starts = sorted(rows, key=lambda row: row[0])
+    ends = sorted(rows, key=lambda row: row[1])
     old = empty(depth)
     found = empty(depth)
     j = 0
-    for t, region in rows:
-        while j < len(rows) and rows[j][0] <= t - gap:
-            old = old.union(rows[j][1])
+    for start, stop, region in starts:
+        while j < len(ends) and ends[j][1] <= start - gap:
+            old = old.union(ends[j][2])
             j += 1
         if not old.empty():
             found = found.union(region.intersection(old))
@@ -88,19 +94,28 @@ def overlap(rows, depth, gap):
 
 
 def f444_red_overlap(reds, f444s, depth, gap):
-    """F444W at one epoch and a red NIRCam filter at another."""
+    """F444W and red NIRCam imaging with interval-separated epochs."""
     result = empty(depth)
-    for direction in (1, -1):
-        a = sorted(f444s, key=lambda r: direction * r["t"])
-        b = sorted(reds, key=lambda r: direction * r["t"])
-        older = empty(depth)
-        j = 0
-        for item in a:
-            while j < len(b) and direction * (item["t"] - b[j]["t"]) >= gap:
-                older = older.union(b[j]["moc"])
-                j += 1
-            if not older.empty():
-                result = result.union(item["moc"].intersection(older))
+    # Red observations strictly before F444W observations.
+    prior = sorted(reds, key=lambda r: r["end"])
+    earlier = empty(depth)
+    j = 0
+    for item in sorted(f444s, key=lambda r: r["start"]):
+        while j < len(prior) and prior[j]["end"] <= item["start"] - gap:
+            earlier = earlier.union(prior[j]["moc"])
+            j += 1
+        if not earlier.empty():
+            result = result.union(item["moc"].intersection(earlier))
+    # Red observations strictly after F444W observations.
+    later = sorted(reds, key=lambda r: r["start"], reverse=True)
+    future = empty(depth)
+    j = 0
+    for item in sorted(f444s, key=lambda r: r["end"], reverse=True):
+        while j < len(later) and later[j]["start"] >= item["end"] + gap:
+            future = future.union(later[j]["moc"])
+            j += 1
+        if not future.empty():
+            result = result.union(item["moc"].intersection(future))
     return result
 
 
@@ -146,13 +161,13 @@ def calculate(raw, candidate_df, depth=DEPTH, gap=GAP_DAYS):
         frame["t_max"] = pd.to_numeric(frame["t_max"], errors="coerce")
     else:
         frame["t_max"] = frame.t_min
-    frame = frame[np.isfinite(frame.t_min)].copy()
-    # A multi-date stacked mosaic is not one independent imaging epoch.
-    multi_date = frame.t_max - frame.t_min > 2.0
-    skipped_long = int(multi_date.sum())
-    frame = frame[~multi_date]
+    good_time = (np.isfinite(frame.t_min) & np.isfinite(frame.t_max)
+                 & (frame.t_max >= frame.t_min))
+    invalid_times = int((~good_time).sum())
+    frame = frame[good_time].copy()
+    multi_day = int(((frame.t_max - frame.t_min) > 2.0).sum())
     if frame.empty:
-        raise RuntimeError("No usable timestamped single-visit image metadata")
+        raise RuntimeError("No usable timestamped imaging metadata")
     records = []
     errors = []
     for i, r in frame.iterrows():
@@ -166,7 +181,7 @@ def calculate(raw, candidate_df, depth=DEPTH, gap=GAP_DAYS):
                            "reason": str(ex)})
             continue
         records.append({
-            "t": float(r["t_min"]), "bands": bands,
+            "start": float(r["t_min"]), "end": float(r["t_max"]), "bands": bands,
             "pid": str(r["proposal_id"]).removesuffix(".0"),
             "moc": footprint,
         })
@@ -187,9 +202,9 @@ def calculate(raw, candidate_df, depth=DEPTH, gap=GAP_DAYS):
     reds = [r for r in records if r["bands"] & RED]
     masks = {
         "cweb_f444w": survey,
-        "same_f444w": overlap([(r["t"], r["moc"]) for r in f444], depth, gap).intersection(survey),
+        "same_f444w": overlap([(r["start"], r["end"], r["moc"]) for r in f444], depth, gap).intersection(survey),
         "f444w_plus_red": f444_red_overlap(reds, f444, depth, gap).intersection(survey),
-        "any_nircam": overlap([(r["t"], r["moc"]) for r in records], depth, gap).intersection(survey),
+        "any_nircam": overlap([(r["start"], r["end"], r["moc"]) for r in records], depth, gap).intersection(survey),
     }
     coords = SkyCoord(candidate_df.ra_deg.to_numpy() * u.deg,
                       candidate_df.dec_deg.to_numpy() * u.deg)
@@ -211,8 +226,9 @@ def calculate(raw, candidate_df, depth=DEPTH, gap=GAP_DAYS):
         "moc_max_depth": depth,
         "cosmosweb_program": PROGRAM,
         "mast_rows": len(raw),
-        "single_visit_rows": len(frame),
-        "excluded_multi_date_rows": skipped_long,
+        "valid_time_imaging_rows": len(frame),
+        "multi_day_observation_rows_retained": multi_day,
+        "excluded_invalid_time_rows": invalid_times,
         "converted_footprints": len(records),
         "cosmosweb_f444w_rows": len(primary),
         "dave_candidates": len(candidate_df),
@@ -224,6 +240,7 @@ def calculate(raw, candidate_df, depth=DEPTH, gap=GAP_DAYS):
         "warnings": [
             "CAOM observation polygons approximate geometric coverage only.",
             "NIRCAM/GRISM spectral products are excluded from imaging opportunity.",
+            "Time baselines are evaluated conservatively using CAOM t_min/t_max intervals.",
             "Actual F444W usable depth/masking denominator may differ from archive area.",
             "Other-filter overlap does NOT imply a red F444W-only candidate is detectable.",
             "No proper-motion detection/completeness efficiency is modeled.",
