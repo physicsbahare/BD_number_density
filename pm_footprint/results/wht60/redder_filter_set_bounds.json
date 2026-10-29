@@ -1,0 +1,765 @@
+{
+  "status": "SET_THEORY_BOUNDS_CONDITIONAL_ON_EXISTING_RASTER_WHT_NOT_EXACT_INTERSECTION",
+  "method": "Set-inclusion area bounds; exact 125-source CSV membership join",
+  "inputs_sha256": {
+    "wht_summary": "4783e64db6a6191de1eb465ad02059ae9ef2910bdadf90ba22407202007f5013",
+    "filter_summary": "e6ef155341b79a4dd59c4432eac5b943c58f3a01a9130149f1cfd06ced1f993b",
+    "wht_candidates": "664c2672bc40e2214cd733b2de0073ed2f122dab5002f6ab0ead5ca86f8da5bf",
+    "filter_candidates": "26dd85fa76692b896cb285e84639d36dcc05d0850e582ec867886e02669c745c"
+  },
+  "results": {
+    "0": {
+      "30": {
+        "all_red_wht_intersection_deg2": 0.3487767274996122,
+        "all_red_wht_candidate_count": 72,
+        "filter_intersection_bounds": {
+          "F277W": {
+            "wht_intersection_area_bounds_deg2": [
+              0.08782846872816741,
+              0.09101619295297564
+            ],
+            "fraction_of_wht_area_bounds": [
+              0.16608270623953875,
+              0.17211065906244497
+            ],
+            "candidate_count_from_existing_memberships": 3
+          },
+          "F356W": {
+            "wht_intersection_area_bounds_deg2": [
+              0.3365376807950027,
+              0.3397254050198109
+            ],
+            "fraction_of_wht_area_bounds": [
+              0.6363891980287555,
+              0.6424171508516617
+            ],
+            "candidate_count_from_existing_memberships": 71
+          },
+          "F410M": {
+            "wht_intersection_area_bounds_deg2": [
+              0.07282263417406576,
+              0.07601035839887399
+            ],
+            "fraction_of_wht_area_bounds": [
+              0.13770683167156156,
+              0.14373478449446778
+            ],
+            "candidate_count_from_existing_memberships": 9
+          },
+          "F444W": {
+            "wht_intersection_area_bounds_deg2": [
+              0.07084346123966344,
+              0.07403118546447167
+            ],
+            "fraction_of_wht_area_bounds": [
+              0.13396423656747355,
+              0.13999218939037977
+            ],
+            "candidate_count_from_existing_memberships": 1
+          },
+          "red_without_f277w": {
+            "wht_intersection_area_bounds_deg2": [
+              0.34627227807184807,
+              0.3487767274996122
+            ],
+            "fraction_of_wht_area_bounds": [
+              0.654797218609126,
+              0.6595331060113132
+            ],
+            "candidate_count_from_existing_memberships": 72
+          }
+        }
+      },
+      "180": {
+        "all_red_wht_intersection_deg2": 0.34263385999962664,
+        "all_red_wht_candidate_count": 72,
+        "filter_intersection_bounds": {
+          "F277W": {
+            "wht_intersection_area_bounds_deg2": [
+              0.06757097235778296,
+              0.07069589282743803
+            ],
+            "fraction_of_wht_area_bounds": [
+              0.1277759946737924,
+              0.13368518625938128
+            ],
+            "candidate_count_from_existing_memberships": 3
+          },
+          "F356W": {
+            "wht_intersection_area_bounds_deg2": [
+              0.33546768187000287,
+              0.33859260233965793
+            ],
+            "fraction_of_wht_area_bounds": [
+              0.6343658413687712,
+              0.6402750329543601
+            ],
+            "candidate_count_from_existing_memberships": 71
+          },
+          "F410M": {
+            "wht_intersection_area_bounds_deg2": [
+              0.07210687092130037,
+              0.07523179139095544
+            ],
+            "fraction_of_wht_area_bounds": [
+              0.13635333092439478,
+              0.14226252250998367
+            ],
+            "candidate_count_from_existing_memberships": 9
+          },
+          "F444W": {
+            "wht_intersection_area_bounds_deg2": [
+              0.06105880932647874,
+              0.0641837297961338
+            ],
+            "fraction_of_wht_area_bounds": [
+              0.11546156319873677,
+              0.12137075478432566
+            ],
+            "candidate_count_from_existing_memberships": 1
+          },
+          "red_without_f277w": {
+            "wht_intersection_area_bounds_deg2": [
+              0.34257556771969644,
+              0.34263385999962664
+            ],
+            "fraction_of_wht_area_bounds": [
+              0.6478067783981132,
+              0.6479170084834588
+            ],
+            "candidate_count_from_existing_memberships": 72
+          }
+        }
+      },
+      "365": {
+        "all_red_wht_intersection_deg2": 0.31462445722188803,
+        "all_red_wht_candidate_count": 62,
+        "filter_intersection_bounds": {
+          "F277W": {
+            "wht_intersection_area_bounds_deg2": [
+              0.042357869120694294,
+              0.045220020797343455
+            ],
+            "fraction_of_wht_area_bounds": [
+              0.08009828289137573,
+              0.08551058146619393
+            ],
+            "candidate_count_from_existing_memberships": 0
+          },
+          "F356W": {
+            "wht_intersection_area_bounds_deg2": [
+              0.30960219847129894,
+              0.3124643501479481
+            ],
+            "fraction_of_wht_area_bounds": [
+              0.5854544855947531,
+              0.5908667841695714
+            ],
+            "candidate_count_from_existing_memberships": 62
+          },
+          "F410M": {
+            "wht_intersection_area_bounds_deg2": [
+              0.06029436672597792,
+              0.06315651840262708
+            ],
+            "fraction_of_wht_area_bounds": [
+              0.1140160103194202,
+              0.11942830889423842
+            ],
+            "candidate_count_from_existing_memberships": 9
+          },
+          "F444W": {
+            "wht_intersection_area_bounds_deg2": [
+              0.035835841040575356,
+              0.038697992717224516
+            ],
+            "fraction_of_wht_area_bounds": [
+              0.06776519671326016,
+              0.07317749528807838
+            ],
+            "candidate_count_from_existing_memberships": 0
+          },
+          "red_without_f277w": {
+            "wht_intersection_area_bounds_deg2": [
+              0.31210181612516763,
+              0.31462445722188803
+            ],
+            "fraction_of_wht_area_bounds": [
+              0.5901812361635639,
+              0.5949515238195074
+            ],
+            "candidate_count_from_existing_memberships": 62
+          }
+        },
+        "conditional_external_usable_area": {
+          "assumed_area_deg2": 0.49672,
+          "assumption": "External usable area is an unknown spatial subset of gridded WHT>0",
+          "redder_fraction_bounds": [
+            0.5636940955193259,
+            0.6334040449788373
+          ]
+        }
+      },
+      "730": {
+        "all_red_wht_intersection_deg2": 0.21297346305548384,
+        "all_red_wht_candidate_count": 42,
+        "filter_intersection_bounds": {
+          "F277W": {
+            "wht_intersection_area_bounds_deg2": [
+              0.011052340066166412,
+              0.012959154394535806
+            ],
+            "fraction_of_wht_area_bounds": [
+              0.020899858269758327,
+              0.024505624014486065
+            ],
+            "candidate_count_from_existing_memberships": 0
+          },
+          "F356W": {
+            "wht_intersection_area_bounds_deg2": [
+              0.20982778390081508,
+              0.21173459822918447
+            ],
+            "fraction_of_wht_area_bounds": [
+              0.3967821220059159,
+              0.4003878877506436
+            ],
+            "candidate_count_from_existing_memberships": 42
+          },
+          "F410M": {
+            "wht_intersection_area_bounds_deg2": [
+              0.02356126193421507,
+              0.025468076262584464
+            ],
+            "fraction_of_wht_area_bounds": [
+              0.04455409733447959,
+              0.04815986307920733
+            ],
+            "candidate_count_from_existing_memberships": 6
+          },
+          "F444W": {
+            "wht_intersection_area_bounds_deg2": [
+              0.01017176042782268,
+              0.012078574756192074
+            ],
+            "fraction_of_wht_area_bounds": [
+              0.019234691479156435,
+              0.022840457223884173
+            ],
+            "candidate_count_from_existing_memberships": 0
+          },
+          "red_without_f277w": {
+            "wht_intersection_area_bounds_deg2": [
+              0.2126041203837852,
+              0.21297346305548384
+            ],
+            "fraction_of_wht_area_bounds": [
+              0.4020321449563372,
+              0.4027305680454987
+            ],
+            "candidate_count_from_existing_memberships": 42
+          }
+        }
+      }
+    },
+    "0.1": {
+      "30": {
+        "all_red_wht_intersection_deg2": 0.34873539583294777,
+        "all_red_wht_candidate_count": 72,
+        "filter_intersection_bounds": {
+          "F277W": {
+            "wht_intersection_area_bounds_deg2": [
+              0.08778713706150298,
+              0.09101619295297564
+            ],
+            "fraction_of_wht_area_bounds": [
+              0.1660297445218488,
+              0.17213678186984174
+            ],
+            "candidate_count_from_existing_memberships": 3
+          },
+          "F356W": {
+            "wht_intersection_area_bounds_deg2": [
+              0.33649634912833826,
+              0.3397254050198109
+            ],
+            "fraction_of_wht_area_bounds": [
+              0.6364076190247766,
+              0.6425146563727695
+            ],
+            "candidate_count_from_existing_memberships": 71
+          },
+          "F410M": {
+            "wht_intersection_area_bounds_deg2": [
+              0.07278130250740134,
+              0.07601035839887399
+            ],
+            "fraction_of_wht_area_bounds": [
+              0.13764956308810228,
+              0.14375660043609523
+            ],
+            "candidate_count_from_existing_memberships": 9
+          },
+          "F444W": {
+            "wht_intersection_area_bounds_deg2": [
+              0.07080212957299901,
+              0.07403118546447167
+            ],
+            "fraction_of_wht_area_bounds": [
+              0.13390639993615713,
+              0.14001343728415008
+            ],
+            "candidate_count_from_existing_memberships": 1
+          },
+          "red_without_f277w": {
+            "wht_intersection_area_bounds_deg2": [
+              0.34623094640518365,
+              0.34873539583294777
+            ],
+            "fraction_of_wht_area_bounds": [
+              0.6548184335586348,
+              0.6595550397697276
+            ],
+            "candidate_count_from_existing_memberships": 72
+          }
+        }
+      },
+      "180": {
+        "all_red_wht_intersection_deg2": 0.3425938652774066,
+        "all_red_wht_candidate_count": 72,
+        "filter_intersection_bounds": {
+          "F277W": {
+            "wht_intersection_area_bounds_deg2": [
+              0.06753097763556291,
+              0.07069589282743803
+            ],
+            "fraction_of_wht_area_bounds": [
+              0.12771974732799463,
+              0.13370547688165582
+            ],
+            "candidate_count_from_existing_memberships": 3
+          },
+          "F356W": {
+            "wht_intersection_area_bounds_deg2": [
+              0.3354276871477828,
+              0.33859260233965793
+            ],
+            "fraction_of_wht_area_bounds": [
+              0.6343864837929997,
+              0.6403722133466608
+            ],
+            "candidate_count_from_existing_memberships": 71
+          },
+          "F410M": {
+            "wht_intersection_area_bounds_deg2": [
+              0.07206687619908032,
+              0.07523179139095544
+            ],
+            "fraction_of_wht_area_bounds": [
+              0.13629838543929565,
+              0.14228411499295684
+            ],
+            "candidate_count_from_existing_memberships": 9
+          },
+          "F444W": {
+            "wht_intersection_area_bounds_deg2": [
+              0.06101881460425869,
+              0.0641837297961338
+            ],
+            "fraction_of_wht_area_bounds": [
+              0.11540344677915022,
+              0.1213891763328114
+            ],
+            "candidate_count_from_existing_memberships": 1
+          },
+          "red_without_f277w": {
+            "wht_intersection_area_bounds_deg2": [
+              0.3425355729974764,
+              0.3425938652774066
+            ],
+            "fraction_of_wht_area_bounds": [
+              0.6478294608761719,
+              0.6479397076921448
+            ],
+            "candidate_count_from_existing_memberships": 72
+          }
+        }
+      },
+      "365": {
+        "all_red_wht_intersection_deg2": 0.31458792805522323,
+        "all_red_wht_candidate_count": 62,
+        "filter_intersection_bounds": {
+          "F277W": {
+            "wht_intersection_area_bounds_deg2": [
+              0.042321339954029494,
+              0.045220020797343455
+            ],
+            "fraction_of_wht_area_bounds": [
+              0.08004135338719437,
+              0.08552356018850084
+            ],
+            "candidate_count_from_existing_memberships": 0
+          },
+          "F356W": {
+            "wht_intersection_area_bounds_deg2": [
+              0.30956566930463414,
+              0.3124643501479481
+            ],
+            "fraction_of_wht_area_bounds": [
+              0.585474258619177,
+              0.5909564654204834
+            ],
+            "candidate_count_from_existing_memberships": 62
+          },
+          "F410M": {
+            "wht_intersection_area_bounds_deg2": [
+              0.06025783755931312,
+              0.06315651840262708
+            ],
+            "fraction_of_wht_area_bounds": [
+              0.11396422881865576,
+              0.11944643561996221
+            ],
+            "candidate_count_from_existing_memberships": 9
+          },
+          "F444W": {
+            "wht_intersection_area_bounds_deg2": [
+              0.035799311873910555,
+              0.038697992717224516
+            ],
+            "fraction_of_wht_area_bounds": [
+              0.06770639530389529,
+              0.07318860210520174
+            ],
+            "candidate_count_from_existing_memberships": 0
+          },
+          "red_without_f277w": {
+            "wht_intersection_area_bounds_deg2": [
+              0.31206528695850283,
+              0.31458792805522323
+            ],
+            "fraction_of_wht_area_bounds": [
+              0.5902017266101125,
+              0.5949727382962023
+            ],
+            "candidate_count_from_existing_memberships": 62
+          }
+        }
+      },
+      "730": {
+        "all_red_wht_intersection_deg2": 0.2129477897221511,
+        "all_red_wht_candidate_count": 42,
+        "filter_intersection_bounds": {
+          "F277W": {
+            "wht_intersection_area_bounds_deg2": [
+              0.011026666732833658,
+              0.012959154394535806
+            ],
+            "fraction_of_wht_area_bounds": [
+              0.02085447506161784,
+              0.02450934345696427
+            ],
+            "candidate_count_from_existing_memberships": 0
+          },
+          "F356W": {
+            "wht_intersection_area_bounds_deg2": [
+              0.20980211056748233,
+              0.21173459822918447
+            ],
+            "fraction_of_wht_area_bounds": [
+              0.39679378988358804,
+              0.4004486582789345
+            ],
+            "candidate_count_from_existing_memberships": 42
+          },
+          "F410M": {
+            "wht_intersection_area_bounds_deg2": [
+              0.023535588600882316,
+              0.025468076262584464
+            ],
+            "fraction_of_wht_area_bounds": [
+              0.04451230434634391,
+              0.048167172741690335
+            ],
+            "candidate_count_from_existing_memberships": 6
+          },
+          "F444W": {
+            "wht_intersection_area_bounds_deg2": [
+              0.010146087094489926,
+              0.012078574756192074
+            ],
+            "fraction_of_wht_area_bounds": [
+              0.019189055533436583,
+              0.02284392392878301
+            ],
+            "candidate_count_from_existing_memberships": 0
+          },
+          "red_without_f277w": {
+            "wht_intersection_area_bounds_deg2": [
+              0.21257844705045245,
+              0.2129477897221511
+            ],
+            "fraction_of_wht_area_bounds": [
+              0.40204460967796496,
+              0.4027431387731806
+            ],
+            "candidate_count_from_existing_memberships": 42
+          }
+        }
+      }
+    },
+    "0.5": {
+      "30": {
+        "all_red_wht_intersection_deg2": 0.34222896055529184,
+        "all_red_wht_candidate_count": 72,
+        "filter_intersection_bounds": {
+          "F277W": {
+            "wht_intersection_area_bounds_deg2": [
+              0.08128070178384705,
+              0.09101619295297564
+            ],
+            "fraction_of_wht_area_bounds": [
+              0.15705538645540684,
+              0.17586687915101434
+            ],
+            "candidate_count_from_existing_memberships": 3
+          },
+          "F356W": {
+            "wht_intersection_area_bounds_deg2": [
+              0.3299899138506823,
+              0.3397254050198109
+            ],
+            "fraction_of_wht_area_bounds": [
+              0.6376260577083854,
+              0.6564375504039929
+            ],
+            "candidate_count_from_existing_memberships": 71
+          },
+          "F410M": {
+            "wht_intersection_area_bounds_deg2": [
+              0.0662748672297454,
+              0.07601035839887399
+            ],
+            "fraction_of_wht_area_bounds": [
+              0.12806022409512455,
+              0.14687171679073205
+            ],
+            "candidate_count_from_existing_memberships": 9
+          },
+          "F444W": {
+            "wht_intersection_area_bounds_deg2": [
+              0.06429569429534308,
+              0.07403118546447167
+            ],
+            "fraction_of_wht_area_bounds": [
+              0.12423594891968048,
+              0.14304744161528798
+            ],
+            "candidate_count_from_existing_memberships": 1
+          },
+          "red_without_f277w": {
+            "wht_intersection_area_bounds_deg2": [
+              0.3397245111275277,
+              0.34222896055529184
+            ],
+            "fraction_of_wht_area_bounds": [
+              0.6564358231723757,
+              0.6612750687017946
+            ],
+            "candidate_count_from_existing_memberships": 72
+          }
+        }
+      },
+      "180": {
+        "all_red_wht_intersection_deg2": 0.3362037458330811,
+        "all_red_wht_candidate_count": 72,
+        "filter_intersection_bounds": {
+          "F277W": {
+            "wht_intersection_area_bounds_deg2": [
+              0.06114085819123742,
+              0.07069589282743803
+            ],
+            "fraction_of_wht_area_bounds": [
+              0.11813998773012968,
+              0.1366027916239011
+            ],
+            "candidate_count_from_existing_memberships": 3
+          },
+          "F356W": {
+            "wht_intersection_area_bounds_deg2": [
+              0.3290375677034573,
+              0.3362037458330811
+            ],
+            "fraction_of_wht_area_bounds": [
+              0.6357858780727629,
+              0.6496327919263046
+            ],
+            "candidate_count_from_existing_memberships": 71
+          },
+          "F410M": {
+            "wht_intersection_area_bounds_deg2": [
+              0.06567675675475483,
+              0.07523179139095544
+            ],
+            "fraction_of_wht_area_bounds": [
+              0.12690451960769922,
+              0.14536732350147064
+            ],
+            "candidate_count_from_existing_memberships": 9
+          },
+          "F444W": {
+            "wht_intersection_area_bounds_deg2": [
+              0.0546286951599332,
+              0.0641837297961338
+            ],
+            "fraction_of_wht_area_bounds": [
+              0.10555680058858664,
+              0.12401960448235805
+            ],
+            "candidate_count_from_existing_memberships": 1
+          },
+          "red_without_f277w": {
+            "wht_intersection_area_bounds_deg2": [
+              0.3361454535531509,
+              0.3362037458330811
+            ],
+            "fraction_of_wht_area_bounds": [
+              0.6495201561302192,
+              0.6496327919263046
+            ],
+            "candidate_count_from_existing_memberships": 72
+          }
+        }
+      },
+      "365": {
+        "all_red_wht_intersection_deg2": 0.30869238416644124,
+        "all_red_wht_candidate_count": 62,
+        "filter_intersection_bounds": {
+          "F277W": {
+            "wht_intersection_area_bounds_deg2": [
+              0.0364257960652475,
+              0.045220020797343455
+            ],
+            "fraction_of_wht_area_bounds": [
+              0.0703840807524892,
+              0.08737680268478813
+            ],
+            "candidate_count_from_existing_memberships": 0
+          },
+          "F356W": {
+            "wht_intersection_area_bounds_deg2": [
+              0.30367012541585214,
+              0.30869238416644124
+            ],
+            "fraction_of_wht_area_bounds": [
+              0.5867694035046653,
+              0.5964737093440814
+            ],
+            "candidate_count_from_existing_memberships": 62
+          },
+          "F410M": {
+            "wht_intersection_area_bounds_deg2": [
+              0.05436229367053112,
+              0.06315651840262708
+            ],
+            "fraction_of_wht_area_bounds": [
+              0.10504204385110663,
+              0.12203476578340557
+            ],
+            "candidate_count_from_existing_memberships": 9
+          },
+          "F444W": {
+            "wht_intersection_area_bounds_deg2": [
+              0.02990376798512856,
+              0.038697992717224516
+            ],
+            "fraction_of_wht_area_bounds": [
+              0.05778183177929371,
+              0.07477455371159265
+            ],
+            "candidate_count_from_existing_memberships": 0
+          },
+          "red_without_f277w": {
+            "wht_intersection_area_bounds_deg2": [
+              0.30616974306972083,
+              0.30869238416644124
+            ],
+            "fraction_of_wht_area_bounds": [
+              0.591599312794365,
+              0.5964737093440814
+            ],
+            "candidate_count_from_existing_memberships": 62
+          }
+        }
+      },
+      "730": {
+        "all_red_wht_intersection_deg2": 0.20889328583329603,
+        "all_red_wht_candidate_count": 42,
+        "filter_intersection_bounds": {
+          "F277W": {
+            "wht_intersection_area_bounds_deg2": [
+              0.006972162843978598,
+              0.012959154394535806
+            ],
+            "fraction_of_wht_area_bounds": [
+              0.01347202602658507,
+              0.025040445725747682
+            ],
+            "candidate_count_from_existing_memberships": 0
+          },
+          "F356W": {
+            "wht_intersection_area_bounds_deg2": [
+              0.20574760667862727,
+              0.20889328583329603
+            ],
+            "fraction_of_wht_area_bounds": [
+              0.3975577125935763,
+              0.40363598018303504
+            ],
+            "candidate_count_from_existing_memberships": 42
+          },
+          "F410M": {
+            "wht_intersection_area_bounds_deg2": [
+              0.019481084712027256,
+              0.025468076262584464
+            ],
+            "fraction_of_wht_area_bounds": [
+              0.037642505796203596,
+              0.04921092549536621
+            ],
+            "candidate_count_from_existing_memberships": 6
+          },
+          "F444W": {
+            "wht_intersection_area_bounds_deg2": [
+              0.006091583205634866,
+              0.012078574756192074
+            ],
+            "fraction_of_wht_area_bounds": [
+              0.011770517890341082,
+              0.02333893758950369
+            ],
+            "candidate_count_from_existing_memberships": 0
+          },
+          "red_without_f277w": {
+            "wht_intersection_area_bounds_deg2": [
+              0.2085239431615974,
+              0.20889328583329603
+            ],
+            "fraction_of_wht_area_bounds": [
+              0.402922314395646,
+              0.40363598018303504
+            ],
+            "candidate_count_from_existing_memberships": 42
+          }
+        }
+      }
+    }
+  },
+  "limitations": [
+    "No filter-specific WHT spatial intersection was computed; report intervals, not point estimates.",
+    "The 0.6arcsec WHT gridding loses about 0.96% native tile area; bounds are conditional on stored rasterized areas.",
+    "External 0.49672deg2 usable area is not a validated spatial mask; its bounds require a subset assumption.",
+    "WHT>0 and cross-filter imaging are not F444W=26.2 dropout completeness or PM measurement completeness.",
+    "Candidate counts refer to catalog entries, not deblended independent objects."
+  ]
+}
