@@ -79,9 +79,11 @@ jobs:
              grep -q "$code_sha" pm_footprint/results/summary.json &&
              grep -q "$meta_sha" pm_footprint/results/summary.json; then
             echo "Current source and metadata snapshot already computed."
-          elif [ -f pm_footprint/results/mast_observations.csv ]; then
+          elif [ -f pm_footprint/results/mast_observations.csv ] &&
+               head -n 1 pm_footprint/results/mast_observations.csv | grep -q 'dataRights'; then
             python -m pm_footprint.compute --metadata-csv pm_footprint/results/mast_observations.csv
           else
+            echo "Refresh MAST snapshot to include public data rights."
             python -m pm_footprint.compute
           fi
       - name: Repeat footprint computation at finer HEALPix order 15
