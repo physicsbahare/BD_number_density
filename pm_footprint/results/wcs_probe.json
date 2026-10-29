@@ -1,5 +1,5 @@
 {
-  "generated_utc": "2026-10-29T13:52:31.517556+00:00",
+  "generated_utc": "2026-10-29T13:53:48.991856+00:00",
   "source": "https://cosmos2025.iap.fr/nircam.html",
   "status": "PASS",
   "results": [
@@ -26,8 +26,8 @@
         "wcs_source": "reconstructed_from_official_DR1_tile_corners_NOT_original_header",
         "wcs_corner_residual_arcsec_max": 3.753614506081724e-05,
         "wcs_pixel_scales_arcsec": [
-          0.060003128876161806,
-          0.060002418155837574
+          0.06000312887616179,
+          0.060002418155837595
         ],
         "wcs_reference": "https://cosmos2025.iap.fr/nircam.html",
         "wcs_independent_i2d_validation": "PENDING"
@@ -52,16 +52,16 @@
         0.3262028567746911,
         0.3222055459392824,
         0.3519420455444816,
-        0.35559294612183207,
-        0.3386557131178245
+        0.35559294612322745,
+        0.338655713072622
       ],
-      "max_wcs_difference_arcsec": 0.35559294612183207,
+      "max_wcs_difference_arcsec": 0.35559294612322745,
       "corner_fit": {
         "wcs_source": "reconstructed_from_official_DR1_tile_corners_NOT_original_header",
         "wcs_corner_residual_arcsec_max": 9.835751431261441e-05,
         "wcs_pixel_scales_arcsec": [
           0.06000311977810745,
-          0.060002397383419115
+          0.06000239738341911
         ],
         "wcs_reference": "https://cosmos2025.iap.fr/nircam.html",
         "wcs_independent_i2d_validation": "PENDING"
