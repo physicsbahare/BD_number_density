@@ -72,7 +72,7 @@ def bands(value):
     return set(re.findall(r"F\d{3,4}[A-Z]", str(value).upper()))
 
 
-def compute(raw, roster, baselines=BASELINES):
+def compute(raw, roster, baselines=BASELINES, return_masks=False):
     if len(roster) != 125 or roster.candidate_id.nunique() != 125:
         raise ValueError("Expected 125 distinct Dave candidate IDs")
     if not {387132, 1651050}.issubset(set(roster.candidate_id)):
@@ -143,7 +143,10 @@ def compute(raw, roster, baselines=BASELINES):
             "Candidate deblending and source-level astrometric S/N require independent checks.",
         ],
     }
+    masks_by_gap = {} if return_masks else None
     for gap in baselines:
+        if return_masks:
+            masks_by_gap[str(gap)] = {}
         enough = separation >= gap
         selections = {
             "same_f444w": enough & f444[i] & f444[j],
@@ -157,6 +160,8 @@ def compute(raw, roster, baselines=BASELINES):
             parts = [polygons[int(ii)].intersection(polygons[int(jj)])
                      for ii, jj in zip(i[sel], j[sel])]
             mask = unary_union(parts).intersection(survey) if parts else Polygon()
+            if return_masks:
+                masks_by_gap[str(gap)][key] = mask
             area[key] = float(mask.area * DEG2_PER_SR)
             contained = np.array([mask.covers(p) for p in pts], dtype=bool)
             members[key] = int(contained.sum())
@@ -173,6 +178,8 @@ def compute(raw, roster, baselines=BASELINES):
                 x for x in (387132, 1651050) if x in ids["f444w_plus_red"]
             ],
         }
+    if return_masks:
+        return summary, membership, survey, masks_by_gap
     return summary, membership
 
 
