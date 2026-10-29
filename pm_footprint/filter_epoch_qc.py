@@ -96,7 +96,17 @@ def filter_epoch_masks(raw, roster, baselines=BASELINES):
             raise AssertionError("Red nonblue union exceeds red union")
         if counts["red_without_f277w"] > counts["red_union"]:
             raise AssertionError("Nonblue candidate count exceeds red union")
+        # The all-red set includes F277W, a *non-detection* band in Dave125.
+        # Count catalogue entries that have NO redder second-epoch option.
+        only_f277w = sorted(set(ids["red_union"]) - set(ids["red_without_f277w"]))
+        f277w_only_area = max(0.0, area["red_union"] - area["red_without_f277w"])
         result[str(gap)] = {
+            "only_f277w_area_deg2": f277w_only_area,
+            "only_f277w_candidate_count": len(only_f277w),
+            "only_f277w_candidate_ids": only_f277w,
+            "confirmed_movers_only_f277w": [
+                x for x in (387132, 1651050) if x in only_f277w
+            ],
             "area_deg2": area,
             "fraction_of_archive_f444w": {f: a / (survey.area * DEG2_PER_SR)
                                            for f, a in area.items()},
@@ -125,6 +135,12 @@ def main():
         roster = pd.read_csv(cand_path)
         result, members, base_area = filter_epoch_masks(meta, roster)
         previous = json.loads(exact_path.read_text())
+        # A matching area alone is insufficient if the public CAOM or Dave
+        # roster snapshot changed since the reference exact-geometry run.
+        if hashlib.sha256(meta_path.read_bytes()).hexdigest() != previous["mast_metadata_sha256"]:
+            raise RuntimeError("PUBLIC MAST snapshot differs from frozen exact run")
+        if hashlib.sha256(cand_path.read_bytes()).hexdigest() != previous["candidate_catalog_sha256"]:
+            raise RuntimeError("Dave125 roster differs from frozen exact run")
         if abs(base_area - previous["archive_f444w_area_deg2"]) > 1e-8:
             raise RuntimeError("Archival footprint changed: source/metadata mismatch")
         for gap, entry in result.items():
@@ -133,9 +149,13 @@ def main():
             expected = earlier["area_deg2"]["f444w_plus_red"]
             n = entry["candidate_counts"]["red_union"]
             n_expected = earlier["candidate_counts"]["f444w_plus_red"]
-            if abs(area - expected) > 1e-8 or n != n_expected:
+            expected_ids = set(earlier["candidate_ids"]["f444w_plus_red"])
+            actual_ids = set(entry["candidate_ids"]["red_union"])
+            if abs(area - expected) > 1e-8 or n != n_expected or actual_ids != expected_ids:
                 raise RuntimeError(f"{gap}d filter union mismatch with frozen exact mask: "
-                                   f"area={area}, expected={expected}; counts={n},{n_expected}")
+                                   f"area={area}, expected={expected}; counts={n},{n_expected}; "
+                                   f"IDs only new={sorted(actual_ids - expected_ids)}, "
+                                   f"only old={sorted(expected_ids - actual_ids)}")
         report = {
             "status": "PUBLIC_FILTER_RESOLVED_GEOMETRIC_OPPORTUNITY_ONLY",
             "generated_utc": datetime.now(timezone.utc).isoformat(),
