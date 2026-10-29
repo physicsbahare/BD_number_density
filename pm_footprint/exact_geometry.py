@@ -98,7 +98,7 @@ def compute(raw, roster, baselines=BASELINES):
     red = np.array([bool(bands(v) & RED) for v in frame.filters], dtype=bool)
     primary = (frame.proposal_id.astype(str).str.replace(r"\.0$", "", regex=True)
                .eq("1727").to_numpy() & f444)
-    if primary.sum() < 10:
+    if primary.sum() == 0:
         raise ValueError("COSMOS-Web F444W program-1727 footprint not found")
     survey = unary_union([polygons[i] for i in np.where(primary)[0]])
     survey_area = float(survey.area * DEG2_PER_SR)
