@@ -30,7 +30,7 @@ def test_stream_original_sci_header_only(monkeypatch):
     wcs.wcs.ctype = ["RA---TAN", "DEC--TAN"]
     hdus = fits.HDUList([
         fits.PrimaryHDU(),
-        fits.ImageHDU(np.ones((10, 10), dtype=np.float32),
+        fits.ImageHDU(np.arange(10000, dtype=np.float32).reshape(100, 100),
                       header=wcs.to_header(), name="SCI"),
     ])
     output = io.BytesIO()
@@ -43,7 +43,7 @@ def test_stream_original_sci_header_only(monkeypatch):
     monkeypatch.setattr(probe, "urlopen",
                         lambda *args, **kwargs: Response(prefix))
     header, recovered, metadata = probe.i2d_sci_header("https://example.test/test.gz")
-    assert header["NAXIS1"] == 10
-    assert header["NAXIS2"] == 10
+    assert header["NAXIS1"] == 100
+    assert header["NAXIS2"] == 100
     assert recovered.has_celestial
     assert metadata["compressed_prefix_bytes"] == len(prefix)
