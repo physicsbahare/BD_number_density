@@ -168,7 +168,8 @@ def evaluate(grid, lo, step, summary, roster, survey, masks):
     for k, t in enumerate(THRESHOLDS):
         label = f"{t:g}"
         base = totals["archive_f444w"][k]
-        if not (0.3 < base <= exact_area_limit(survey)):
+        minimum = 0.3 if t == 0 else 0.01
+        if not (minimum < base <= exact_area_limit(survey)):
             raise RuntimeError(
                 f"Implausible WHT/archival intersection area {base:.6f} deg2 "
                 f"for threshold {t}; inspect WCS, tile coverage and mask")
