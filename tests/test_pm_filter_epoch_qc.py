@@ -34,7 +34,7 @@ def test_filter_specific_red_opportunities_and_epoch_baseline():
         row(60000, "F444W", base),
         row(60400, "F277W", left, 2000),
         row(60400, "F356W", right, 2001),
-        row(60010, "F410M", base, 2002),  # too close in time
+        row(60200, "F410M", base, 2002),  # <365d from either F444W epoch
         row(60400, "F444W", left, 2003),
         row(60400, "F356W", left, 2004, )  # separate redder coverage
     ])
@@ -54,6 +54,19 @@ def test_filter_specific_red_opportunities_and_epoch_baseline():
     assert result["365"]["confirmed_movers_only_f277w"] == []
     assert result["730"]["area_deg2"]["red_union"] == 0
     assert membership["in_red_union_365d"].all()
+
+
+def test_reverse_order_f410m_before_later_f444w_is_valid():
+    # A later F444W epoch can form an independent pair with an earlier
+    # F410M observation even when another F444W visit is earlier still.
+    base = rect(149.9, 1.9, 150.3, 2.2)
+    obs = pd.DataFrame([
+        row(60010, "F410M", base, 2002),
+        row(60400, "F444W", base),
+    ])
+    result, _, _ = filter_epoch_masks(obs, roster(), baselines=(365,))
+    assert result["365"]["area_deg2"]["F410M"] > 0
+    assert result["365"]["candidate_counts"]["F410M"] == 125
 
 
 def test_blue_only_overlap_not_redder_detectability():
