@@ -100,7 +100,9 @@ def summarize(membership, source, columns):
     good = membership.cds_coordinate_consistent
     report = {
         "generated_utc": datetime.now(timezone.utc).isoformat(),
-        "status": "CDS_CANDIDATE_FLAG_AUDIT_NOT_AREA_COMPLETENESS",
+        "status": ("CDS_CANDIDATE_FLAG_AUDIT_ALL_POSITIONS_VALID_NOT_AREA_COMPLETENESS"
+                   if int(good.sum()) == len(membership)
+                   else "CDS_CANDIDATE_FLAG_AUDIT_PARTIAL_VERSION_QC"),
         "cds_table": TABLE,
         "tap_endpoint": source,
         "roster_entries": len(membership),
@@ -150,6 +152,8 @@ def main():
         adql = f'SELECT * FROM {TABLE} WHERE "Id" IN ({ids})'
         rows, endpoint = tap_query(adql)
         membership, columns = validate_matches(roster, rows)
+        if not membership.cds_coordinate_consistent.any():
+            raise RuntimeError("CDS table yielded zero position-consistent Dave IDs; do not use a catalog-version-mismatched join")
         wht = pd.read_csv(args.membership)
         if len(wht) != 125 or wht.candidate_id.nunique() != 125:
             raise ValueError("Existing WHT candidate membership roster is invalid")
