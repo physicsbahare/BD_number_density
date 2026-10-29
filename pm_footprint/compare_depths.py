@@ -15,7 +15,11 @@ def main():
     if coarse["moc_max_depth"] != 14 or fine["moc_max_depth"] != 15:
         raise ValueError("Expected order-14 and order-15 summaries")
     if coarse["mast_rows"] != fine["mast_rows"]:
-        raise ValueError("Different MAST snapshots; comparison invalid")
+        raise ValueError("Different MAST row counts; comparison invalid")
+    for field in ("compute_source_sha256", "mast_metadata_sha256",
+                  "candidate_catalog_sha256", "baseline_days"):
+        if field not in coarse or coarse[field] != fine.get(field):
+            raise ValueError(f"Different run provenance: {field}")
     deltas = {}
     membership = {}
     for key in coarse["area_deg2"]:
@@ -38,6 +42,10 @@ def main():
         key for key, v in membership.items() if v["difference"] != 0
     ]
     report = {
+        "compute_source_sha256": coarse["compute_source_sha256"],
+        "mast_metadata_sha256": coarse["mast_metadata_sha256"],
+        "candidate_catalog_sha256": coarse["candidate_catalog_sha256"],
+        "baseline_days": coarse["baseline_days"],
         "status": ("RASTERIZATION_STABLE_REQUIRES_SCIENCE_QC"
                    if not unstable_area and not unstable_membership
                    else "BOUNDARY_OR_RASTERIZATION_REVIEW_NEEDED"),
