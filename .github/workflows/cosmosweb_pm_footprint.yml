@@ -1,0 +1,78 @@
+name: COSMOS-Web multi-epoch PM footprint (metadata only)
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'pm_footprint/**'
+      - 'tests/test_pm_footprint.py'
+      - '.github/workflows/cosmosweb_pm_footprint.yml'
+  schedule:
+    # Retry archive computation on the default branch; ChatGPT audits hourly.
+    - cron: '17 * * * *'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: cosmosweb-pm-footprint
+  cancel-in-progress: false
+
+jobs:
+  footprint:
+    runs-on: ubuntu-latest
+    timeout-minutes: 150
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+      - name: Install metadata and MOC dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install "astroquery>=0.4.11,<0.5" "mocpy>=0.20,<0.22" "astropy>=6" numpy pandas pytest
+      - name: Validate epoch and footprint logic on synthetic data
+        run: python -m pytest -q tests/test_pm_footprint.py
+      - name: Query MAST and compute area + candidate membership
+        id: calculate
+        continue-on-error: true
+        run: |
+          if [ -f pm_footprint/results/summary.json ]; then
+            echo "Numeric result already saved; no redundant MAST query."
+          else
+            python -m pm_footprint.compute
+          fi
+      - name: Keep reproducibility products from every attempt
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cosmosweb-multi-epoch-footprint
+          path: pm_footprint/results/
+          if-no-files-found: warn
+          retention-days: 30
+      - name: Commit successful computed data
+        if: steps.calculate.outcome == 'success'
+        run: |
+          if [ ! -f pm_footprint/results/summary.json ]; then
+            echo "No validated computation result found (no area claims permitted)"
+            exit 1
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add pm_footprint/results/
+          if git diff --cached --quiet; then
+            echo "No changes in footprint output"
+          else
+            git commit -m 'Save preliminary JWST multi-epoch geometric footprint evidence'
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
+      - name: Preserve failure status to enable hourly retries
+        if: steps.calculate.outcome == 'failure'
+        run: |
+          echo "MAST/footprint calculation failed. Inspect logs and uploaded artifact; retries continue hourly."
+          exit 1
