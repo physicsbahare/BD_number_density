@@ -1,5 +1,7 @@
 import pandas as pd
 import pytest
+
+pytest.importorskip("mocpy", reason="Footprint geometry is tested in its dedicated workflow")
 from pm_footprint.compute import calculate, filters, overlap, polygon, deg2
 
 
@@ -64,3 +66,26 @@ def test_filters_parser_and_incomplete_roster():
     assert filters("F444W;F277W") == {"F444W", "F277W"}
     with pytest.raises(ValueError, match="125"):
         calculate(pd.DataFrame([row(60000, "F444W", rectangle(149.8, 1.9, 150.4, 2.4))]), sample().iloc[:5])
+
+def test_mast_multi_polygon_is_union_not_bridged():
+    a = rectangle(150.00, 2.00, 150.05, 2.05)
+    b = rectangle(150.15, 2.15, 150.20, 2.20)
+    m = polygon(a + " " + b, depth=13)
+    from astropy.coordinates import SkyCoord
+    import astropy.units as u
+    pts = SkyCoord([150.025, 150.175, 150.100] * u.deg,
+                    [2.025, 2.175, 2.100] * u.deg)
+    inside = m.contains_skycoords(pts)
+    assert inside.tolist() == [True, True, False]
+
+
+def test_grism_not_counted_as_imaging_epoch():
+    base = rectangle(149.8, 1.9, 150.4, 2.4)
+    raw = pd.DataFrame([
+        row(60000, "F444W", base),
+        dict(row(60100, "F444W;GRISMR", base, program="5398"),
+             instrument_name="NIRCAM/GRISM"),
+    ])
+    summary, _, _ = calculate(raw, sample(), depth=11)
+    assert summary["area_deg2"]["same_f444w"] == 0
+    assert summary["converted_footprints"] == 1
