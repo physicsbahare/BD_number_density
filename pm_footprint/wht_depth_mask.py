@@ -123,6 +123,11 @@ def wht_tile(tile, grid, step, lo, block, work):
             f.unlink(missing_ok=True)
 
 
+def exact_area_limit(survey):
+    # Rasterization may differ from exact polygon area by a small edge term.
+    return survey.area * DEG2_PER_SR + 0.003
+
+
 def evaluate(grid, lo, step, summary, roster, survey, masks):
     # A cell contains a 0..100 occupancy fraction from the WHT 60mas tile.
     # Fractional pixel coverage reduces boundary bias vs any-positive binning.
@@ -163,8 +168,10 @@ def evaluate(grid, lo, step, summary, roster, survey, masks):
     for k, t in enumerate(THRESHOLDS):
         label = f"{t:g}"
         base = totals["archive_f444w"][k]
-        if base <= 0:
-            raise RuntimeError(f"Zero usable WHT area for threshold {t}")
+        if not (0.3 < base <= exact_area_limit(survey)):
+            raise RuntimeError(
+                f"Implausible WHT/archival intersection area {base:.6f} deg2 "
+                f"for threshold {t}; inspect WCS, tile coverage and mask")
         output["area_deg2"][label] = {name: float(val[k]) for name, val in totals.items()}
         output["fractions"][label] = {name: float(val[k] / base) for name, val in totals.items()}
         wht_good = grid[k, iy, ix] > 0
