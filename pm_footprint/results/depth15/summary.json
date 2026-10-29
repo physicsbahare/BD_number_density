@@ -1,5 +1,5 @@
 {
-  "generated_utc": "2026-10-29T11:27:19.251443+00:00",
+  "generated_utc": "2026-10-29T11:31:07.079456+00:00",
   "status": "GEOMETRIC_PRELIMINARY_REQUIRES_QC",
   "baseline_days": 30.0,
   "moc_max_depth": 15,
@@ -37,5 +37,8 @@
     "Other-filter overlap does NOT imply a red F444W-only candidate is detectable.",
     "No proper-motion detection/completeness efficiency is modeled.",
     "Compare HEALPix depth 14 to depth 15 and inspect visit-level metadata before quoting."
-  ]
+  ],
+  "compute_source_sha256": "3f970f8a81ae60adc3dcac41357041e2e6c7fd44d914c4c5f800df7555bf34a0",
+  "mast_metadata_sha256": "621688e3a4a457760c92a19a43e5955a6d01245ea3bb0b52332c5a01e679e9de",
+  "candidate_catalog_sha256": "d43ce32e33b898f6bf57551affe41f209e0b455a4e4e63b4e99a8eea03236bbd"
 }

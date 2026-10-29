@@ -1,4 +1,8 @@
 {
+  "compute_source_sha256": "3f970f8a81ae60adc3dcac41357041e2e6c7fd44d914c4c5f800df7555bf34a0",
+  "mast_metadata_sha256": "621688e3a4a457760c92a19a43e5955a6d01245ea3bb0b52332c5a01e679e9de",
+  "candidate_catalog_sha256": "d43ce32e33b898f6bf57551affe41f209e0b455a4e4e63b4e99a8eea03236bbd",
+  "baseline_days": 30.0,
   "status": "BOUNDARY_OR_RASTERIZATION_REVIEW_NEEDED",
   "area_comparison": {
     "cweb_f444w": {
@@ -8,22 +12,22 @@
       "relative_delta": -0.0066708420977992545
     },
     "same_f444w": {
-      "order14_deg2": 0.09065795462722549,
+      "order14_deg2": 0.10098007801040729,
       "order15_deg2": 0.08883621510953617,
-      "absolute_delta_deg2": -0.0018217395176893247,
-      "relative_delta": -0.020094646136459803
+      "absolute_delta_deg2": -0.012143862900871119,
+      "relative_delta": -0.1202599873176919
     },
     "f444w_plus_red": {
-      "order14_deg2": 0.30721763999894225,
+      "order14_deg2": 0.38139349438528075,
       "order15_deg2": 0.3739208405464637,
-      "absolute_delta_deg2": 0.06670320054752144,
-      "relative_delta": 0.21712034682562856
+      "absolute_delta_deg2": -0.007472653838817067,
+      "relative_delta": -0.019593029112521386
     },
     "any_nircam": {
-      "order14_deg2": 0.31997301827394115,
+      "order14_deg2": 0.39190771683886916,
       "order15_deg2": 0.3840028400916372,
-      "absolute_delta_deg2": 0.06402982181769606,
-      "relative_delta": 0.20011006603962364
+      "absolute_delta_deg2": -0.007904876747231948,
+      "relative_delta": -0.020170250310437232
     }
   },
   "candidate_membership_comparison": {
@@ -33,30 +37,27 @@
       "difference": 0
     },
     "same_f444w": {
-      "order14": 10,
+      "order14": 11,
       "order15": 7,
-      "difference": -3
+      "difference": -4
     },
     "f444w_plus_red": {
-      "order14": 56,
+      "order14": 80,
       "order15": 80,
-      "difference": 24
+      "difference": 0
     },
     "any_nircam": {
-      "order14": 57,
+      "order14": 81,
       "order15": 81,
-      "difference": 24
+      "difference": 0
     }
   },
   "unstable_area_masks": [
     "same_f444w",
-    "f444w_plus_red",
     "any_nircam"
   ],
   "unstable_membership_masks": [
-    "same_f444w",
-    "f444w_plus_red",
-    "any_nircam"
+    "same_f444w"
   ],
   "notes": [
     "Stable HEALPix resolution does not establish survey usable-depth coverage.",

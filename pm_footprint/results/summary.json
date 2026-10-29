@@ -1,39 +1,44 @@
 {
-  "generated_utc": "2026-10-29T11:26:16.599468+00:00",
+  "generated_utc": "2026-10-29T11:31:05.668093+00:00",
   "status": "GEOMETRIC_PRELIMINARY_REQUIRES_QC",
   "baseline_days": 30.0,
   "moc_max_depth": 14,
   "cosmosweb_program": "1727",
   "mast_rows": 3264,
-  "single_visit_rows": 3010,
-  "excluded_multi_date_rows": 62,
-  "converted_footprints": 3010,
+  "valid_time_imaging_rows": 3072,
+  "multi_day_observation_rows_retained": 62,
+  "excluded_invalid_time_rows": 8,
+  "converted_footprints": 3072,
   "cosmosweb_f444w_rows": 155,
   "dave_candidates": 125,
   "area_deg2": {
     "cweb_f444w": 0.5418602511982678,
-    "same_f444w": 0.09065795462722549,
-    "f444w_plus_red": 0.30721763999894225,
-    "any_nircam": 0.31997301827394115
+    "same_f444w": 0.10098007801040729,
+    "f444w_plus_red": 0.38139349438528075,
+    "any_nircam": 0.39190771683886916
   },
   "fraction_of_archive_f444w_area": {
     "cweb_f444w": 1.0,
-    "same_f444w": 0.16730873768050863,
-    "f444w_plus_red": 0.5669684006523127,
-    "any_nircam": 0.5905083784358679
+    "same_f444w": 0.18635815745314463,
+    "f444w_plus_red": 0.7038595164378059,
+    "any_nircam": 0.7232634539481461
   },
   "candidates_with_geometric_coverage": {
     "cweb_f444w": 125,
-    "same_f444w": 10,
-    "f444w_plus_red": 56,
-    "any_nircam": 57
+    "same_f444w": 11,
+    "f444w_plus_red": 80,
+    "any_nircam": 81
   },
   "warnings": [
     "CAOM observation polygons approximate geometric coverage only.",
     "NIRCAM/GRISM spectral products are excluded from imaging opportunity.",
+    "Time baselines are evaluated conservatively using CAOM t_min/t_max intervals.",
     "Actual F444W usable depth/masking denominator may differ from archive area.",
     "Other-filter overlap does NOT imply a red F444W-only candidate is detectable.",
     "No proper-motion detection/completeness efficiency is modeled.",
     "Compare HEALPix depth 14 to depth 15 and inspect visit-level metadata before quoting."
-  ]
+  ],
+  "compute_source_sha256": "3f970f8a81ae60adc3dcac41357041e2e6c7fd44d914c4c5f800df7555bf34a0",
+  "mast_metadata_sha256": "621688e3a4a457760c92a19a43e5955a6d01245ea3bb0b52332c5a01e679e9de",
+  "candidate_catalog_sha256": "d43ce32e33b898f6bf57551affe41f209e0b455a4e4e63b4e99a8eea03236bbd"
 }
