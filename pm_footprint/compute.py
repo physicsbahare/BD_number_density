@@ -129,6 +129,7 @@ def retrieve():
         instrument_name="NIRCAM*",
         dataproduct_type="image",
         intentType="science",
+        dataRights="PUBLIC",
     )
     if len(obs) == 0:
         raise RuntimeError("MAST returned no JWST/NIRCam observations")
@@ -137,7 +138,7 @@ def retrieve():
 
 def calculate(raw, candidate_df, depth=DEPTH, gap=GAP_DAYS):
     expected = {"obs_collection", "instrument_name", "filters", "proposal_id",
-                "s_region", "t_min"}
+                "s_region", "t_min", "dataRights"}
     missing = expected - set(raw.columns)
     if missing:
         raise ValueError("Missing MAST CAOM columns: " + repr(sorted(missing)))
@@ -152,6 +153,7 @@ def calculate(raw, candidate_df, depth=DEPTH, gap=GAP_DAYS):
     frame = frame[
         frame.obs_collection.astype(str).str.upper().eq("JWST")
         & frame.instrument_name.astype(str).str.upper().eq("NIRCAM/IMAGE")
+        & frame.dataRights.astype(str).str.upper().eq("PUBLIC")
     ].copy()
     if "intentType" in frame:
         frame = frame[frame.intentType.astype(str).str.lower().eq("science")]
@@ -241,6 +243,7 @@ def calculate(raw, candidate_df, depth=DEPTH, gap=GAP_DAYS):
         "warnings": [
             "CAOM observation polygons approximate geometric coverage only.",
             "NIRCAM/GRISM spectral products are excluded from imaging opportunity.",
+            "Only public-release JWST observations are included; exclusive-access data are excluded.",
             "Time baselines are evaluated conservatively using CAOM t_min/t_max intervals.",
             "Actual F444W usable depth/masking denominator may differ from archive area.",
             "Other-filter overlap does NOT imply a red F444W-only candidate is detectable.",
@@ -270,7 +273,7 @@ def main():
         else:
             table = retrieve()
             cols = [c for c in ("obs_id", "obsid", "obs_collection", "instrument_name",
-                                "dataproduct_type", "intentType", "filters", "proposal_id",
+                                "dataproduct_type", "intentType", "dataRights", "filters", "proposal_id",
                                 "t_min", "t_max", "s_region") if c in table]
             meta_path = out / "mast_observations.csv"
             table[cols].to_csv(meta_path, index=False)
