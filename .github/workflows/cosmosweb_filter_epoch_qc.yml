@@ -14,7 +14,7 @@ permissions:
 
 concurrency:
   group: cosmosweb-filter-epoch-qc
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   filter-epoch-qc:
@@ -39,13 +39,11 @@ jobs:
           test -s pm_footprint/results/mast_observations.csv
           test -s pm_footprint/results/exact/summary.json
           test -s pm_footprint/dave125_positions.csv
-      - name: Compute filter-resolved masks only if not already saved
+      - name: Recompute lightweight filter masks from frozen local metadata
         run: |
-          if [ -s pm_footprint/results/filter_epoch_qc/summary.json ]; then
-            echo "Cached filter-resolved result already exists. Skipping."
-          else
-            python -m pm_footprint.filter_epoch_qc
-          fi
+          # Never reuse an older summary after filter logic changes.
+          # No network queries or FITS/WHT downloads are performed.
+          python -m pm_footprint.filter_epoch_qc
       - name: Save tiny reproducible filter-specific products
         uses: actions/upload-artifact@v4
         if: always()
