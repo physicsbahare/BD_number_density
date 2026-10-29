@@ -25,6 +25,7 @@ def row(mjd, band, region, program="1727"):
         "obs_collection": "JWST",
         "instrument_name": "NIRCAM/IMAGE",
         "intentType": "science",
+        "dataRights": "PUBLIC",
         "dataproduct_type": "image",
         "proposal_id": program,
         "filters": band,
