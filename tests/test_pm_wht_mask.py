@@ -85,7 +85,10 @@ def test_missing_celestial_wcs_fails_with_diagnostics(tmp_path, monkeypatch):
     monkeypatch.setattr(wht, "download",
                         lambda url, dest: shutil.copyfile(gz, dest))
     grid = np.zeros((3, 960, 960), dtype=np.uint8)
-    with pytest.raises(ValueError, match="HDU header diagnostics"):
+    with fits.open(raw) as hdul:
+        with pytest.raises(ValueError, match="HDU header diagnostics"):
+            wht.select_celestial_wcs(hdul, hdul[0], "A1")
+    with pytest.raises(ValueError, match="pixel scales"):
         wht.wht_tile("A1", grid, math.radians(0.6 / 3600),
                      math.radians(-0.08), 10, tmp_path)
 
