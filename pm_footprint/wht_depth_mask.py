@@ -53,6 +53,44 @@ def download(url, path):
         raise RuntimeError(f"Suspiciously small FITS tile: {url}")
 
 
+def select_celestial_wcs(hdul, image_hdu, tile):
+    """Find WCS in the image, primary, or a combined header.
+
+    Official extracted FITS extensions need not copy the SCI WCS into
+    their own image header. Fail closed with header diagnostics if neither
+    header provides a usable celestial transform.
+    """
+    headers = [("image", image_hdu.header), ("primary", hdul[0].header)]
+    merged = hdul[0].header.copy()
+    merged.extend(image_hdu.header, update=True, strip=False)
+    headers.append(("primary_plus_image", merged))
+    for label, header in headers:
+        try:
+            candidate = WCS(header, relax=True)
+            if candidate.has_celestial and candidate.pixel_n_dim >= 2:
+                return candidate.celestial, label
+        except Exception:
+            continue
+    diagnostic = []
+    for i, hdu in enumerate(hdul):
+        header = hdu.header
+        diagnostic.append({
+            "hdu": i, "name": hdu.name,
+            "naxis": header.get("NAXIS"),
+            "naxis1": header.get("NAXIS1"),
+            "naxis2": header.get("NAXIS2"),
+            "wcs_keys": {k: str(header[k]) for k in
+                         ("WCSAXES", "CTYPE1", "CTYPE2", "CRVAL1", "CRVAL2",
+                          "CRPIX1", "CRPIX2", "CD1_1", "CDELT1", "PC1_1")
+                         if k in header},
+        })
+    raise ValueError(
+        f"No celestial WCS in extracted WHT {tile}; "
+        f"HDU header diagnostics: {json.dumps(diagnostic)}. "
+        "Do not infer coordinates from pixel indices."
+    )
+
+
 def wht_tile(tile, grid, step, lo, block, work):
     gz = work / f"{tile}.fits.gz"
     fits_path = work / f"{tile}.fits"
@@ -69,9 +107,7 @@ def wht_tile(tile, grid, step, lo, block, work):
             if hdu is None:
                 raise ValueError(f"No 2D image in WHT tile {tile}")
             data = hdu.data
-            wcs = WCS(hdu.header).celestial
-            if not wcs.has_celestial:
-                raise ValueError(f"No celestial WCS for {tile}")
+            wcs, wcs_source = select_celestial_wcs(hdul, hdu, tile)
             ny, nx = data.shape
             by, bx = ny // block, nx // block
             sample = np.asarray(data[::48, ::48], dtype=float)
@@ -114,6 +150,7 @@ def wht_tile(tile, grid, step, lo, block, work):
                 raise RuntimeError(f"{tile}: {lost} valid WHT coarse cells outside grid")
             return {
                 "tile": tile, "url": url, "gz_sha256": digest,
+                "wcs_source": wcs_source,
                 "median_positive_wht_sample": median,
                 "fits_shape": [ny, nx], "coarse_cells_mapped": used,
                 "trimmed_native_edge_pixels": [ny % block, nx % block],
