@@ -1,0 +1,78 @@
+{
+  "status": "USER_ARCHIVE_PROCESSED_AND_CANDIDATE_CHECK_VALIDATED__FULL_MASK_UNION_PENDING",
+  "archive_filename": "cosmos_web_starmask_jwst.tar.gz",
+  "archive_size_bytes": 19370234,
+  "archive_sha256": "a06107b1c654387bf3ab5284792201cb299b7942f52dc95e41089b0e2967cd52",
+  "candidate_csv_sha256": "d43ce32e33b898f6bf57551affe41f209e0b455a4e4e63b4e99a8eea03236bbd",
+  "n_mask_fits": 20,
+  "all_tile_dimensions": [
+    19200,
+    24910
+  ],
+  "pixel_scale_arcsec": 0.03,
+  "unique_codes": [
+    0,
+    1
+  ],
+  "mask_code1_counts_by_tile": {
+    "A1": 6888288,
+    "A2": 8928280,
+    "A3": 12203191,
+    "A4": 9823690,
+    "A5": 9076026,
+    "A6": 13148039,
+    "A7": 12380706,
+    "A8": 10187468,
+    "A9": 8674713,
+    "A10": 3995724,
+    "B1": 8083717,
+    "B2": 8965876,
+    "B3": 13724438,
+    "B4": 6420443,
+    "B5": 13482306,
+    "B6": 9470388,
+    "B7": 13471350,
+    "B8": 10924116,
+    "B9": 7491755,
+    "B10": 17128246
+  },
+  "total_per_tile_nominal_area_deg2_NOT_UNION": 0.6642666666666668,
+  "sum_per_tile_mask_code1_area_deg2_NOT_UNION": 0.0141992195,
+  "tile_count_per_candidate": {
+    "one": 107,
+    "two": 15,
+    "three": 0,
+    "four": 3
+  },
+  "n_candidates": 125,
+  "candidates_outside_all_mask_tiles": [],
+  "candidate_centers_in_code1": [],
+  "candidate_within_0p3_arcsec_of_code1": [],
+  "candidate_within_0p6_arcsec_of_code1": [],
+  "candidate_within_1p0_arcsec_of_code1": [
+    3153521
+  ],
+  "sampled_min_distances_for_candidates_near_mask_arcsec": {
+    "203707": 1.421442928857856,
+    "387132": 1.1947384651043926,
+    "3153521": 0.6661080993352355
+  },
+  "confirmed_pm_sources": {
+    "387132": {
+      "center_code1": false,
+      "nearest_code1_in_1p02arcsec_square_arcsec": 1.1947384651043926
+    },
+    "1651050": {
+      "center_code1": false,
+      "nearest_code1_in_1p02arcsec_square_arcsec": null
+    }
+  },
+  "caveats": [
+    "This is based directly on the user-provided JWST FITS archive, independently streamed in a local analysis environment. The binary archive itself has not been uploaded to the GitHub repository.",
+    "Value=1 is interpreted as a masked pixel; official mask-value semantics should be cross-checked before publication.",
+    "Masked per-tile sum double counts overlapping tile regions; it is not unique-sky, WHT-intersection, or dropout-selection-matched area.",
+    "The 125-source results are center-pixel and limited-neighborhood tests. They are not PSF or segmentation aperture overlap flags.",
+    "A 1.02 arcsec square per-axis search was used to safely enclose a 1.0 arcsec radius. Only candidates with Euclidean distance <=1.0 arcsec are listed in the 1.0-arcsec set.",
+    "No 7GB WHT redownload and no MAST requery performed. Existing >=365d archive-red opportunity remains approx. 59.5 percent, not astrometric completeness."
+  ]
+}
