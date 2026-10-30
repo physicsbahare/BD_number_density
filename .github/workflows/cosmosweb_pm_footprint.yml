@@ -8,9 +8,6 @@ on:
       - 'pm_footprint/**'
       - 'tests/test_pm_footprint.py'
       - '.github/workflows/cosmosweb_pm_footprint.yml'
-  schedule:
-    # Retry archive computation on the default branch; ChatGPT audits hourly.
-    - cron: '17 * * * *'
 
 permissions:
   contents: write
@@ -132,8 +129,8 @@ jobs:
             git pull --rebase origin main
             git push origin HEAD:main
           fi
-      - name: Preserve failure status to enable hourly retries
+      - name: Preserve failure status for manual diagnosis
         if: steps.calculate.outcome == 'failure' || steps.refine.outcome == 'failure' || steps.exact.outcome == 'failure' || steps.neighbour.outcome == 'failure'
         run: |
-          echo "MAST/footprint calculation failed. Inspect logs and uploaded artifact; retries continue hourly."
+          echo "Footprint calculation failed. Inspect logs and uploaded artifact; rerun manually only after diagnosing the cause."
           exit 1
