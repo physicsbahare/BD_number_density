@@ -1,0 +1,101 @@
+{
+  "status": "F356W_EPOCH_BASELINES_VERIFIED_GEOMETRIC_ONLY",
+  "analysis_date": "2026-10-31",
+  "method": "Independent JavaScript point-in-CAOM-POLYGON membership, cross-checked against committed 125-source WHT exact-red membership at 365/730 days. Conservative maximum nonoverlapping observation-interval gap between any F444W and F356W observation at each candidate. Python reproduction and unit tests committed.",
+  "provenance": {
+    "mast_metadata_sha256": "2e03857153777bddf6f0a0ad19c5bc289829d1c8d0da42a628ae4695e45e62db",
+    "mast_metadata_blob_sha": "90d5e01d6b5a8682c6d6a7cb3f8ec339fb6d9dd7",
+    "candidate_sha256": "d43ce32e33b898f6bf57551affe41f209e0b455a4e4e63b4e99a8eea03236bbd",
+    "no_mast_or_wht_redownload": true
+  },
+  "n_frozen_candidates": 125,
+  "n_valid_public_nircam_imaging_rows": 2976,
+  "n_with_primary_f444w": 125,
+  "counts_by_conservative_gap_days": {
+    "30": {
+      "F277W": 3,
+      "F356W": 71,
+      "F410M": 9,
+      "F444W": 1,
+      "red_union": 72
+    },
+    "180": {
+      "F277W": 3,
+      "F356W": 71,
+      "F410M": 9,
+      "F444W": 1,
+      "red_union": 72
+    },
+    "365": {
+      "F277W": 0,
+      "F356W": 62,
+      "F410M": 9,
+      "F444W": 0,
+      "red_union": 62
+    },
+    "730": {
+      "F277W": 0,
+      "F356W": 42,
+      "F410M": 6,
+      "F444W": 0,
+      "red_union": 42
+    },
+    "1000": {
+      "F277W": 0,
+      "F356W": 1,
+      "F410M": 0,
+      "F444W": 0,
+      "red_union": 1
+    }
+  },
+  "f356w_365d_gap_days_quantiles": {
+    "min": 405.8873728009348,
+    "q25": 537.6126373553252,
+    "median": 752.1011143171309,
+    "q75": 762.9575948032434,
+    "max": 1139.4442720370498
+  },
+  "f356w_365d_other_proposal_counts": {
+    "5893": 60,
+    "6434": 2
+  },
+  "confirmed_movers_f356w": {
+    "387132": {
+      "gap": 749.4080975347242,
+      "midgap": 750.210443512733,
+      "f444obs": "126654352",
+      "otherobs": "262854744",
+      "f444prop": "1727",
+      "otherprop": "5893"
+    },
+    "1651050": {
+      "gap": 497.62302289352374,
+      "midgap": 500.6298429745366,
+      "f444obs": "200632764",
+      "otherobs": "266452905",
+      "f444prop": "1727",
+      "otherprop": "5893"
+    }
+  },
+  "candidate_id_3153521_f356w_ge365": false,
+  "crosschecks": {
+    "wht_365d_mismatch_ids": [],
+    "wht_730d_mismatch_ids": [],
+    "existing_starmask_center_masked_125": 0,
+    "existing_starmask_within_1arcsec_id": 3153521
+  },
+  "illustrative_3sigma_pm_threshold_mas_per_year_for_20mas_independent_per_epoch_error": {
+    "median_baseline": 41.20787701205039,
+    "mover_387132": 41.35595855096872,
+    "mover_1651050": 62.28106175472881,
+    "min_gap_worst_case": 76.35736486586015,
+    "max_gap_best_case": 27.19965423495379
+  },
+  "limitations": [
+    "Geometric imaging coverage only, no F356W source detection, local depth, centroid uncertainty, PSF/chromatic offset calibration, or PM completeness measured.",
+    "Maximum available baseline is not necessarily the highest-quality epoch pair.",
+    "3sigma thresholds are illustrations assuming independent 20mas per-epoch positional errors and zero systematics.",
+    "Existing JWST starmask result for all 125 source centers is reused; binary archive is not hosted in GitHub.",
+    "No direct spatial WHT and star-mask intersection computed in this run."
+  ]
+}
