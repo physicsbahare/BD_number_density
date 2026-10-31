@@ -1,0 +1,197 @@
+{
+  "status": "SOURCE_DERIVED_V13_PHOTOMETRY_QC__NO_SELECTION_AREA",
+  "analysis_date": "2026-10-31",
+  "provenance": {
+    "local_probe_json_sha256": "1504a6f6409623448d98f2d25cf1461a9ee8d5abdc61de1d7a72a1beaa09feee",
+    "candidate_ERR_csv_sha256": "5375254090b3ca9e3dd22be1e136d428b9db7d848b379bbd7219f913f63fad8d",
+    "original_notebook_sha256": "1047f875cd5476804ab9c71e639468eb4abe3d067ffc87ad9cd75cd3b0a97733",
+    "encircled_energy_txt_sha256": "9f7138d0e362920f84314a0c67598b50b78583d02438b5085eef2b7ae0d7a81d",
+    "F444W_psf_sha256": "15295b441c7fb8b6ac63667cad816c2c6117e771d6401b928fa3f3cb4be9f7a9",
+    "frozen_candidate_roster_sha256": "d43ce32e33b898f6bf57551affe41f209e0b455a4e4e63b4e99a8eea03236bbd",
+    "note": "Original user-supplied notebook, PSF FITS and CSV bytes are not hosted in GitHub; audit summaries only."
+  },
+  "catalog": {
+    "file": "cosmos_F444W_v13_catalog_v1.fits",
+    "bytes": 6569974080,
+    "rows": 3280023,
+    "columns": 285,
+    "row_bytes": 2003,
+    "units_of_final_flux_and_flux_errors": "nJy",
+    "observed_groups": [
+      "f_F115W/e_F115W through f_F444W/e_F444W",
+      "new_e_F115W through new_e_F444W",
+      "use_phot and adaptive use_aper",
+      "FLUX_APER_032 through 140 per filter",
+      "FLAG_AUTO_LW and FLAG_BAD_KRON_LW",
+      "low_snr_flag, bad_pixel_lw_flag, artifacts_near_badpixels_flag, combined_artifact_flag"
+    ],
+    "missing_named_fields": [
+      "flag_star",
+      "flag_blend"
+    ],
+    "note": "Missing names are only for this v13 285-column header, not evidence that equivalent flags do not exist."
+  },
+  "notebook": {
+    "n_cells": 68,
+    "code_cells": 65,
+    "extraction_procedure": [
+      "F444W S/N detection map computed using optavg=where(wht<=0,0,SCI) and opterr=where(wht<=0,inf,sqrt(1/WHT)).",
+      "SEP F444W detection threshold 1.2 on smoothed optcom; segmentation and photometry tied to F444W WCS/pixel coordinates.",
+      "PSF-matched SCI and ERR maps processed through circular apertures with diameters 0.32,0.48,0.70,1.00,1.40 arcsec; var=ERR**2.",
+      "PSF/encircled-energy-based correction to total flux, followed by an adaptive aperture.",
+      "Final corrected new_e_<band> = e_<band> multiplied by empirical factor indexed by use_aper (not additive), while the nominal e_<band> remains in catalog.",
+      "use_phot constructed BEFORE the later new_e correction and includes low_snr_flag from F444W detection 0.32arcsec aperture S/N<3, bad_pixel_lw_flag and artifacts_near_badpixels_flag."
+    ],
+    "correction_factor_by_aper_diameter_arcsec": {
+      "apertures": [
+        0.32,
+        0.48,
+        0.7,
+        1,
+        1.4
+      ],
+      "F115W": [
+        1.48,
+        1.71,
+        2,
+        2.37,
+        2.72
+      ],
+      "F150W": [
+        1.49,
+        1.75,
+        2.06,
+        2.45,
+        2.91
+      ],
+      "F277W": [
+        2.74,
+        3.15,
+        3.58,
+        4.08,
+        4.62
+      ],
+      "F444W": [
+        2.42,
+        2.68,
+        3,
+        3.37,
+        3.63
+      ]
+    },
+    "reference_notebook_cells": [
+      6,
+      7,
+      9,
+      20,
+      29,
+      42,
+      45,
+      46,
+      47,
+      50,
+      51,
+      62,
+      63
+    ],
+    "warning": "The notebook is supplied by the user, but its execution provenance and exact consistency with the catalog reduction have not been independently established. Dave's actual 125-source selection script has not been supplied."
+  },
+  "imaging_metadata": {
+    "filters": [
+      "F115W",
+      "F150W",
+      "F277W",
+      "F444W"
+    ],
+    "all_native_shape": [
+      115593,
+      109890
+    ],
+    "reported_pixel_scale_arcsec": 0.03,
+    "pixel_surface_brightness_unit_for_blue_ERR": "MJy/sr",
+    "reference_pixel_sr": 2.11539874851881e-14,
+    "conversion_nJy_per_pixel_per_MJy_per_sr": 21.1539874851881,
+    "F444W_ERR_BUNIT": null,
+    "F444W_WHT_BUNIT": null,
+    "blue_ERR_header_WCS_offset_from_F444W_WHT_pixels": 67565.47758081416,
+    "blue_ERR_header_WCS_offset_arcmin_approx": 33.78273879040708,
+    "F444W_ERR_header_WCS_offset_pixels": 0,
+    "F444W_SCI_header_offset_pixels": 0.0718385959392946,
+    "consequence": "Original sky-WCS ERR samples outside image for 78 candidates in each blue filter; this is a WCS alignment diagnostic, NOT proof of no blue-band imaging. Notebook aperture photometry uses common F444W segmentation pixel coordinates; data-grid registration must be independently checked."
+  },
+  "candidate_err_samples": {
+    "sample_size": 125,
+    "F115W": {
+      "WCS_position_inside_3x3": 47,
+      "positive_ERR_center": 33,
+      "zero_ERR_center": 14
+    },
+    "F150W": {
+      "WCS_position_inside_3x3": 47,
+      "positive_ERR_center": 33,
+      "zero_ERR_center": 14
+    },
+    "F277W": {
+      "WCS_position_inside_3x3": 47,
+      "positive_ERR_center": 33,
+      "zero_ERR_center": 14
+    },
+    "F444W": {
+      "WCS_position_inside_3x3": 125,
+      "positive_ERR_center": 125,
+      "zero_ERR_center": 0,
+      "median_native_ERR": 0.0177145209163427,
+      "unit_unverified": "ERR primary BUNIT missing"
+    },
+    "F444W_ERR_times_sqrt_WHT": {
+      "median": 1.3886547585319193,
+      "quantile_05": 1.0569000335456191,
+      "quantile_95": 1.6567968518029639,
+      "outliers": [
+        {
+          "id": 3142987,
+          "ratio": 34.79981110604871,
+          "WHT": 305.8277282714844,
+          "ERR": 1.989933013916016
+        },
+        {
+          "id": 1060646,
+          "ratio": 13.69396834337496,
+          "WHT": 337.000793,
+          "ERR": 0.745957
+        }
+      ],
+      "warning": "No calibrated physical interpretation of this dimensionless-looking numeric ratio without confirming weight/ERR conventions. Outliers merit investigation."
+    }
+  },
+  "encircled_energy": {
+    "table_radius_units": "arcsec, as named by notebook",
+    "at_aperture_diameter_0p32_arcsec_radius_0p16": {
+      "F115W": 0.8168,
+      "F150W": 0.8034,
+      "F277W": 0.7646,
+      "F444W": 0.6446
+    },
+    "F444W_psf_shape": [
+      201,
+      201
+    ],
+    "F444W_psf_integrated_sum": 0.9999998211860657,
+    "note": "Raw table fractions are not automatically identical to notebook PSF normalized curve-of-growth; validate native PSF normalization and aperture correction."
+  },
+  "f277_limiting_color": {
+    "m444_AB": 26.2,
+    "f444_nJy": 120.22644346174118,
+    "f277_max_from_ratio30_nJy": 4.007548115391373,
+    "if_2sigma_zero_flux_upper_limit_then_sigma277_max_nJy": 2.0037740576956864,
+    "corresponding_5sigma_F277_AB_depth": 28.897953115119062,
+    "note": "Only a conditional zero-measured-flux upper-limit requirement; not a measured local depth or universal completeness criterion."
+  },
+  "science_blockers": [
+    "Verify whether blue SCI/ERR FITS WCS headers are wrong or real image pixel grids misaligned. Do not use the old 33/125 blue positive-center number for coverage.",
+    "Crossmatch frozen Dave125 to v13 3.28M-row catalogue by BOTH ID and celestial position before attributing photometry.",
+    "Recover actual Dave selection code to distinguish e_* from new_e_* and treatment of negative F277W flux.",
+    "Calibrate spatially dependent F277W and F444W aperture noise using aligned data and correlated-noise factors, and model quality/masking and crowding.",
+    "F356W epoch imaging and source-level SNR/centroid errors remain absent from these files; only geometric multi-epoch area known."
+  ]
+}
