@@ -1,0 +1,284 @@
+{
+  "status": "DETERMINISTIC_MASK_INSUFFICIENCY_FOR_UNIFORM_COUNT_RECONCILIATION",
+  "mask_code_interpretation": "1=excluded, conditional; confirm official binary semantics",
+  "mask_native_tile_sum_area_deg2_UPPER_BOUND": 0.0141992195,
+  "candidate_centers_in_mask_code1": 0,
+  "wht_threshold_baseline_days": {
+    "0": {
+      "30": {
+        "n_red": 72,
+        "n_nonred": 53,
+        "observed_red_count_fraction": 0.576,
+        "red_area_deg2": 0.3487767274996122,
+        "nonred_area_deg2": 0.18004695749919586,
+        "unmasked_density_ratio_red_over_nonred": 0.7012855902397521,
+        "masked_density_ratio_absolute_bounds": [
+          0.6459794180816041,
+          0.7310476268080108
+        ],
+        "red_area_fraction_absolute_bounds": [
+          0.6501391411217062,
+          0.6777305605973373
+        ],
+        "red_only_mask_area_required_to_equalize_densities_deg2": 0.10418463429315747,
+        "required_red_only_mask_over_available_upper_bound": 7.337349372841054,
+        "can_star_mask_alone_equalize_densities": false,
+        "minimum_uniform_expected_red_count_after_mask": 81.26739264021327
+      },
+      "180": {
+        "n_red": 72,
+        "n_nonred": 53,
+        "observed_red_count_fraction": 0.576,
+        "red_area_deg2": 0.34263385999962664,
+        "nonred_area_deg2": 0.1861898249991814,
+        "unmasked_density_ratio_red_over_nonred": 0.7382140245972203,
+        "masked_density_ratio_absolute_bounds": [
+          0.6819163027787459,
+          0.7701292420581088
+        ],
+        "red_area_fraction_absolute_bounds": [
+          0.6382025389742908,
+          0.6657939584499218
+        ],
+        "red_only_mask_area_required_to_equalize_densities_deg2": 0.08969673924602173,
+        "required_red_only_mask_over_available_upper_bound": 6.31701899150314,
+        "can_star_mask_alone_equalize_densities": false,
+        "minimum_uniform_expected_red_count_after_mask": 79.77531737178634
+      },
+      "365": {
+        "n_red": 62,
+        "n_nonred": 63,
+        "observed_red_count_fraction": 0.496,
+        "red_area_deg2": 0.31462445722188803,
+        "nonred_area_deg2": 0.21419922777692002,
+        "unmasked_density_ratio_red_over_nonred": 0.6700027133801731,
+        "masked_density_ratio_absolute_bounds": [
+          0.6255883814910377,
+          0.7016695455844889
+        ],
+        "red_area_fraction_absolute_bounds": [
+          0.5837756614052463,
+          0.6113670808808773
+        ],
+        "red_only_mask_area_required_to_equalize_densities_deg2": 0.10382521718745882,
+        "required_red_only_mask_over_available_upper_bound": 7.312036917765714,
+        "can_star_mask_alone_equalize_densities": false,
+        "minimum_uniform_expected_red_count_after_mask": 72.97195767565579
+      },
+      "730": {
+        "n_red": 42,
+        "n_nonred": 83,
+        "observed_red_count_fraction": 0.336,
+        "red_area_deg2": 0.21297346305548384,
+        "nonred_area_deg2": 0.31585022194332424,
+        "unmasked_density_ratio_red_over_nonred": 0.7504588640247881,
+        "masked_density_ratio_absolute_bounds": [
+          0.7167215752856948,
+          0.804067067710565
+        ],
+        "red_area_fraction_absolute_bounds": [
+          0.38625105660847026,
+          0.41384247608410124
+        ],
+        "red_only_mask_area_required_to_equalize_densities_deg2": 0.05314563990344026,
+        "required_red_only_mask_over_available_upper_bound": 3.7428564227379018,
+        "can_star_mask_alone_equalize_densities": false,
+        "minimum_uniform_expected_red_count_after_mask": 48.28138207605878
+      }
+    },
+    "0.1": {
+      "30": {
+        "n_red": 72,
+        "n_nonred": 53,
+        "observed_red_count_fraction": 0.576,
+        "red_area_deg2": 0.34873539583294777,
+        "nonred_area_deg2": 0.18000803694364476,
+        "unmasked_density_ratio_red_over_nonred": 0.7012170915855456,
+        "masked_density_ratio_absolute_bounds": [
+          0.6459043646116276,
+          0.7309798978378216
+        ],
+        "red_area_fraction_absolute_bounds": [
+          0.6501602150039502,
+          0.6777559378468524
+        ],
+        "red_only_mask_area_required_to_equalize_densities_deg2": 0.10419617583403415,
+        "required_red_only_mask_over_available_upper_bound": 7.3381622020868225,
+        "can_star_mask_alone_equalize_densities": false,
+        "minimum_uniform_expected_red_count_after_mask": 81.27002687549376
+      },
+      "180": {
+        "n_red": 72,
+        "n_nonred": 53,
+        "observed_red_count_fraction": 0.576,
+        "red_area_deg2": 0.3425938652774066,
+        "nonred_area_deg2": 0.18614956749918593,
+        "unmasked_density_ratio_red_over_nonred": 0.7381405709494644,
+        "masked_density_ratio_absolute_bounds": [
+          0.6818362768832824,
+          0.7700564993104616
+        ],
+        "red_area_fraction_absolute_bounds": [
+          0.6382243494416261,
+          0.6658200722845283
+        ],
+        "red_only_mask_area_required_to_equalize_densities_deg2": 0.08971143395775782,
+        "required_red_only_mask_over_available_upper_bound": 6.3180538872406204,
+        "can_star_mask_alone_equalize_densities": false,
+        "minimum_uniform_expected_red_count_after_mask": 79.77804368020327
+      },
+      "365": {
+        "n_red": 62,
+        "n_nonred": 63,
+        "observed_red_count_fraction": 0.496,
+        "red_area_deg2": 0.31458792805522323,
+        "nonred_area_deg2": 0.2141555047213693,
+        "unmasked_density_ratio_red_over_nonred": 0.6699437333737638,
+        "masked_density_ratio_absolute_bounds": [
+          0.6255242442030317,
+          0.7016116285106236
+        ],
+        "red_area_fraction_absolute_bounds": [
+          0.5837957182384047,
+          0.6113914410813069
+        ],
+        "red_only_mask_area_required_to_equalize_densities_deg2": 0.10383171705958996,
+        "required_red_only_mask_over_available_upper_bound": 7.312494680400564,
+        "can_star_mask_alone_equalize_densities": false,
+        "minimum_uniform_expected_red_count_after_mask": 72.97446477980058
+      },
+      "730": {
+        "n_red": 42,
+        "n_nonred": 83,
+        "observed_red_count_fraction": 0.336,
+        "red_area_deg2": 0.2129477897221511,
+        "nonred_area_deg2": 0.3157956430544414,
+        "unmasked_density_ratio_red_over_nonred": 0.750419645715122,
+        "masked_density_ratio_absolute_bounds": [
+          0.7166782895533957,
+          0.8040319723583337
+        ],
+        "red_area_fraction_absolute_bounds": [
+          0.3862614039647436,
+          0.4138571268076458
+        ],
+        "red_only_mask_area_required_to_equalize_densities_deg2": 0.05314758480303616,
+        "required_red_only_mask_over_available_upper_bound": 3.7429933950268297,
+        "can_star_mask_alone_equalize_densities": false,
+        "minimum_uniform_expected_red_count_after_mask": 48.282675495592954
+      }
+    },
+    "0.5": {
+      "30": {
+        "n_red": 72,
+        "n_nonred": 53,
+        "observed_red_count_fraction": 0.576,
+        "red_area_deg2": 0.34222896055529184,
+        "nonred_area_deg2": 0.17529994194386123,
+        "unmasked_density_ratio_red_over_nonred": 0.6958596285109626,
+        "masked_density_ratio_absolute_bounds": [
+          0.6394952994823777,
+          0.7259808717086951
+        ],
+        "red_area_fraction_absolute_bounds": [
+          0.6517194438060666,
+          0.6799300182657173
+        ],
+        "red_only_mask_area_required_to_equalize_densities_deg2": 0.10408564319759359,
+        "required_red_only_mask_over_available_upper_bound": 7.330377785736292,
+        "can_star_mask_alone_equalize_densities": false,
+        "minimum_uniform_expected_red_count_after_mask": 81.46493047575832
+      },
+      "180": {
+        "n_red": 72,
+        "n_nonred": 53,
+        "observed_red_count_fraction": 0.576,
+        "red_area_deg2": 0.3362037458330811,
+        "nonred_area_deg2": 0.18132515666607196,
+        "unmasked_density_ratio_red_over_nonred": 0.7326762945659467,
+        "masked_density_ratio_absolute_bounds": [
+          0.6753018423924545,
+          0.764984633978006
+        ],
+        "red_area_fraction_absolute_bounds": [
+          0.6397487317147217,
+          0.6679593061743725
+        ],
+        "red_only_mask_area_required_to_equalize_densities_deg2": 0.08987523111690787,
+        "required_red_only_mask_over_available_upper_bound": 6.329589532502675,
+        "can_star_mask_alone_equalize_densities": false,
+        "minimum_uniform_expected_red_count_after_mask": 79.96859146434021
+      },
+      "365": {
+        "n_red": 62,
+        "n_nonred": 63,
+        "observed_red_count_fraction": 0.496,
+        "red_area_deg2": 0.30869238416644124,
+        "nonred_area_deg2": 0.20883651833271183,
+        "unmasked_density_ratio_red_over_nonred": 0.6657814170482995,
+        "masked_density_ratio_absolute_bounds": [
+          0.6205135847976742,
+          0.6978825915879446
+        ],
+        "red_area_fraction_absolute_bounds": [
+          0.5850900008751059,
+          0.6133005753347567
+        ],
+        "red_only_mask_area_required_to_equalize_densities_deg2": 0.10317073120408993,
+        "required_red_only_mask_over_available_upper_bound": 7.265943822059369,
+        "can_star_mask_alone_equalize_densities": false,
+        "minimum_uniform_expected_red_count_after_mask": 73.13625010938823
+      },
+      "730": {
+        "n_red": 42,
+        "n_nonred": 83,
+        "observed_red_count_fraction": 0.336,
+        "red_area_deg2": 0.20889328583329603,
+        "nonred_area_deg2": 0.30863561666585704,
+        "unmasked_density_ratio_red_over_nonred": 0.7476403964480194,
+        "masked_density_ratio_absolute_bounds": [
+          0.7132441391044422,
+          0.8021665065455871
+        ],
+        "red_area_fraction_absolute_bounds": [
+          0.386812208596932,
+          0.4150227830565827
+        ],
+        "red_only_mask_area_required_to_equalize_densities_deg2": 0.05271622679756116,
+        "required_red_only_mask_over_available_upper_bound": 3.7126144009226114,
+        "can_star_mask_alone_equalize_densities": false,
+        "minimum_uniform_expected_red_count_after_mask": 48.3515260746165
+      }
+    }
+  },
+  "positional_groups_0p5arcsec_365d_at_wht0": {
+    "n_red": 60,
+    "n_nonred": 55,
+    "observed_red_count_fraction": 0.5217391304347826,
+    "red_area_deg2": 0.31462445722188803,
+    "nonred_area_deg2": 0.21419922777692002,
+    "unmasked_density_ratio_red_over_nonred": 0.7427009550079339,
+    "masked_density_ratio_absolute_bounds": [
+      0.6934674727378658,
+      0.7778037778033337
+    ],
+    "red_area_fraction_absolute_bounds": [
+      0.5837756614052463,
+      0.6113670808808773
+    ],
+    "red_only_mask_area_required_to_equalize_densities_deg2": 0.08095257237433895,
+    "required_red_only_mask_over_available_upper_bound": 5.70119874365904,
+    "can_star_mask_alone_equalize_densities": false,
+    "minimum_uniform_expected_red_count_after_mask": 67.13420106160332
+  },
+  "interpretation": "Even if all native code-1 mask area were unique, inside WHT and allocated adversarially, masking alone cannot reconcile observed source counts with uniform surface density. This is NOT evidence of an astrophysical underdensity; depth, source selection, clustering and deblending remain unmodeled.",
+  "limitations": [
+    "Conditional on 60mas WHT gridded areas (~0.96% per-tile deposition loss).",
+    "Mask M is a per-tile native-pixel SUM, not a direct unique-sky or WHT overlap.",
+    "Source-center unmasked does not establish unmasked PSF/aperture.",
+    "Preselected F444W-only candidates are not a spatially complete population.",
+    "0.5arcsec proximity groups are not verified distinct astrophysical objects.",
+    "No 26.2AB selection-matched area, F356W SNR, or astrometric completeness."
+  ],
+  "reproduce": "python -m pm_footprint.mask_count_reconciliation --out pm_footprint/results/mask_count_reconciliation_20261101.json"
+}
