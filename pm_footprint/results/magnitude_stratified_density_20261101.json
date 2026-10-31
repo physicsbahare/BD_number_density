@@ -139,8 +139,67 @@
     "25 AB is a descriptive exploratory threshold, not preregistered; Fisher p is not confirmatory.",
     "Poisson Wald CIs assume independent counts and fixed area, neglect spatial correlation and depth.",
     "Close-pair groups are proximity components, not confirmed distinct astrophysical sources.",
+    "FLAG_BAD_KRON_LW is a diagnostic, not an adopted source-rejection criterion or proven artifact label.",
     "F444W magnitude stratification does not control F277W local noise, flags, crowding or F356W SNR.",
     "Public 60mas WHT grid loses about 0.96% per-tile native area; geometric, not selection matched.",
     "No claim of intrinsic underdensity or PM recovery completeness."
-  ]
+  ],
+  "quality_flag_strata": {
+    "bright_m444_lt25": {
+      "FLAG_BAD_KRON_LW_0": {
+        "red": 16,
+        "nonred": 13,
+        "density_ratio": {
+          "ratio": 0.8379190261627972,
+          "poisson_wald_95pct": [
+            0.40305347054285645,
+            1.7419730773189204
+          ]
+        }
+      },
+      "FLAG_BAD_KRON_LW_1": {
+        "red": 11,
+        "nonred": 26,
+        "density_ratio": {
+          "ratio": 0.28803466524346155,
+          "poisson_wald_95pct": [
+            0.1423239094849205,
+            0.5829236189630046
+          ]
+        }
+      },
+      "nonpositive_F277W": {
+        "red": 12,
+        "nonred": 14
+      }
+    },
+    "faint_m444_ge25": {
+      "FLAG_BAD_KRON_LW_0": {
+        "red": 22,
+        "nonred": 14,
+        "density_ratio": {
+          "ratio": 1.0698430423328573,
+          "poisson_wald_95pct": [
+            0.54739958457732,
+            2.090911589039313
+          ]
+        }
+      },
+      "FLAG_BAD_KRON_LW_1": {
+        "red": 13,
+        "nonred": 10,
+        "density_ratio": {
+          "ratio": 0.8850519713844547,
+          "poisson_wald_95pct": [
+            0.3880859200924799,
+            2.018411262807079
+          ]
+        }
+      },
+      "nonpositive_F277W": {
+        "red": 0,
+        "nonred": 0
+      }
+    }
+  }
 }
