@@ -1,0 +1,37 @@
+{
+  "area_total_deg2": 0.528823684998808,
+  "area_red_deg2": 0.31462445722188803,
+  "geometric_red_area_fraction": 0.5949515238195074,
+  "entries": {
+    "red": 62,
+    "outside_red": 63,
+    "total": 125,
+    "red_fraction": 0.496,
+    "red_density_deg2": 197.06033201441383,
+    "outside_density_deg2": 294.1187074008128,
+    "red_to_outside_density_ratio": 0.6700027133801733,
+    "uniform_independent_binomial_two_sided_p": 0.02844524875452938
+  },
+  "proximity_groups_0p5arcsec": {
+    "red": 60,
+    "outside_red": 55,
+    "total": 115,
+    "red_fraction": 0.5217391304347826,
+    "red_density_deg2": 190.70354711072306,
+    "outside_density_deg2": 256.77030011182075,
+    "red_to_outside_density_ratio": 0.7427009550079339,
+    "uniform_independent_binomial_two_sided_p": 0.12819957148595626
+  },
+  "mixed_coverage_groups": [],
+  "status": "EXPLORATORY_NOT_SELECTION_COMPLETENESS",
+  "caveats": [
+    "Uniform independent binomial null is not established: spatial selection depth and clustering vary.",
+    "0.5 arcsec proximity groups are not verified unique astrophysical objects.",
+    "Area estimates inherit ~0.96% WHT raster deposition loss.",
+    "Cross-filter F356W coverage is geometric only; no detection/PM completeness."
+  ],
+  "provenance": {
+    "wht_summary_blob_sha": "947aa90cb92bbd45c3286a465707220e254397cd",
+    "candidate_membership_blob_sha": "05da4ff38677ce6b3494a7670a85648caaabc176"
+  }
+}
