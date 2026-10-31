@@ -1,0 +1,19 @@
+{
+  "status": "DETERMINISTIC_WORST_CASE_STAR_MASK_GEOMETRIC_BOUNDS",
+  "date": "2026-10-31",
+  "wht_positive_archive_area_deg2": 0.528823684998808,
+  "wht_positive_red365_area_deg2": 0.31462445722188803,
+  "code1_native_per_tile_area_sum_deg2_UPPER_BOUND_unique_sky": 0.014199219444444447,
+  "mathematical_fraction_bounds_if_code1_excluded": {
+    "lower": 0.5837756614501792,
+    "upper": 0.611367080814878,
+    "uncorrected": 0.5949515238195074
+  },
+  "method": "With red masked area x and nonred masked area y, 0<=x+y<=M. f=(WR-x)/(W-x-y). Minimum at x=M,y=0; maximum at x=0,y=M. M is an upper bound because native TAN spherical pixel areas are no larger than nominal 0.03arcsec squared and tile overlaps double count.",
+  "caveats": [
+    "Conditional on existing WHT-positive raster areas (about 0.96% area deposition loss).",
+    "Requires 1=excluded mask semantics.",
+    "Does not measure WHT-mask spatial overlap or F444W=26.2 selection completeness or PM detectability."
+  ],
+  "reproduce": "python -m pm_footprint.mask_robust_bounds --output pm_footprint/results/jwst_starmask/mask_robust_bounds_20261031.json"
+}
