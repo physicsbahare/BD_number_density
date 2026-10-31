@@ -1,0 +1,88 @@
+{
+  "status": "USER_UPLOADS_AUDITED_V13_POSITIVE_WHT_SAMPLED_NOT_SELECTION_AREA",
+  "date_utc": "2026-10-31",
+  "source": "User ran pm_footprint/local_v13_wht_sample.py locally against mounted F444W_psf_matched_F444W_WHT_v13.fits; user uploaded its JSON/CSV/NPZ.",
+  "source_sha256": {
+    "sample_json": "81f845bf69aee743615353a7d3dcc3551443e03cc9ab4fa8f61c12d443fdf6ab",
+    "candidate_csv": "1316fd9d40867627997439f45b0916f487b04f05150ce894614b5f39b24ee328",
+    "grid_npz": "17c149d5d9392ab50f63fe490fe0afc695b4031d2182a10f3f2854a93b607a60",
+    "v13_fits_primary_header": "dfb55dc9d2685bd4f3239753b918cc4c51e74ca355a65d743b745b9594c9df3a",
+    "frozen_roster": "d43ce32e33b898f6bf57551affe41f209e0b455a4e4e63b4e99a8eea03236bbd"
+  },
+  "v13": {
+    "file_bytes": 50810063040,
+    "shape_yx": [
+      115593,
+      109890
+    ],
+    "sample_stride_native_pixels": 120,
+    "nominal_sample_cell_arcsec": 3.6,
+    "sample_phase_weights_positive_area_deg2": [
+      0.5336091152070653,
+      0.5336291131805836
+    ],
+    "mean_positive_area_deg2": 0.5336191141938245,
+    "phase_area_difference_deg2": 0.000019997973518259826,
+    "image_rectangle_tan_area_deg2": 0.8820597160130899
+  },
+  "cell_phase_qc": {
+    "grid_shape_yx": [
+      964,
+      916
+    ],
+    "phase_positive_cells": [
+      533631,
+      533651
+    ],
+    "classification_xor_cells": 2038,
+    "classification_agree_both_positive": 532622,
+    "classification_either_positive": 534660,
+    "jaccard": 0.9961882317734635,
+    "xor_fraction_all_cells": 0.002307978039101995,
+    "nominal_area_of_disagreeing_cells_deg2_approx": 0.002038,
+    "interpretation": "The near-canceling total-area difference does not imply perfect edge alignment. Two phases are not an uncertainty interval."
+  },
+  "candidate_centers": {
+    "n": 125,
+    "n_inside_rect": 125,
+    "n_wht_positive": 125,
+    "wht_min": 305.8277282714844,
+    "wht_median": 6310.31396484375,
+    "wht_max": 27035.837890625,
+    "confirmed_pm": [
+      {
+        "id": 387132,
+        "wht": 27035.837890625,
+        "rank_descending": 1,
+        "ratio_to_sample_median": 4.284388707320751
+      },
+      {
+        "id": 1651050,
+        "wht": 21581.341796875,
+        "rank_descending": 2,
+        "ratio_to_sample_median": 3.420010781889737
+      }
+    ],
+    "n_in_365day_geometric_red_epoch": 62,
+    "median_wht_365d_red": 6497.869873046875,
+    "median_wht_no_365d_red": 5991.0732421875
+  },
+  "comparison": {
+    "cosmosweb_DR1_F444W_60mas_gridded_WHTpositive_area_deg2": 0.528823684998808,
+    "exact_archive_geometry_area_deg2": 0.5338989551843558,
+    "v13_minus_60mas_wht_deg2": 0.00479542919501641,
+    "v13_minus_60mas_relative_percent": 0.9068105932182657,
+    "v13_minus_archive_deg2": -0.0002798409905313548,
+    "v13_minus_archive_relative_percent": -0.052414597896099924,
+    "note": "Different resolutions, grid deposition losses (~0.96% per tile in earlier COSMOS-Web run) and reductions mean these differences are not a measured true area discrepancy."
+  },
+  "limits": [
+    "v13 WHT>0 is geometrical sampled area not empirically calibrated F444W 26.2 AB dropout effective area.",
+    "Source-center WHT positive is not equivalent to unmasked or isolated PSF/aperture.",
+    "Both confirmed movers having high WHT is descriptive, not proof of causal PM sensitivity bias.",
+    "Second-epoch F356W depth and positions not available in the uploaded files.",
+    "User-supplied JWST star-mask archive was processed previously and is NOT required again; exact mask-v13-WHT sky intersection still outstanding.",
+    "Two phase shifts with 3.6-arcsec sample spacing do not establish sub-percent area precision.",
+    "v13 epoch and archive intersections need spatial overlay, not ratios from unmatched area totals."
+  ]
+}
