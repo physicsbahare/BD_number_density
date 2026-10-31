@@ -13,6 +13,8 @@ parser.add_argument('--output',default='jwst_mask_union_conservative.json')
 parser.add_argument('--sample-out',default=None,help='Optional output CSV of weighted masked-sky Lambert points (radians)')
 parser.add_argument('--samples',type=int,default=10000)
 parser.add_argument('--seed',type=int,default=20261031)
+parser.add_argument('--shift-x-cells',type=float,default=0.0,help='Shift grid origin in x by this fraction of one cell')
+parser.add_argument('--shift-y-cells',type=float,default=0.0,help='Shift grid origin in y by this fraction of one cell')
 args=parser.parse_args()
 F=args.archive;R=np.pi/180
 r0=150.12*R; d0=2.2*R; s0=np.sin(d0);c0=np.cos(d0)
@@ -45,7 +47,7 @@ def sky(x,y,h):
 
 def depos(xe,ye,frac,g):
  gs=g/3600.;N=round(SIZE/gs)
- fx=(xe-ORIGIN)/gs-0.5;fy=(ye-ORIGIN)/gs-0.5
+ fx=(xe-ORIGIN)/gs-0.5-args.shift_x_cells;fy=(ye-ORIGIN)/gs-0.5-args.shift_y_cells
  x=np.floor(fx).astype(np.int32);y=np.floor(fy).astype(np.int32)
  a=fx-x;b=fy-y
  assert (x>=0).all() and (x+1<N).all() and (y>=0).all() and (y+1<N).all()
@@ -86,7 +88,7 @@ with tarfile.open(F,'r|gz') as tar:
    t[f'grid_{g}_clipped_excess_deg2']=excess
   tiles.append(t)
   print(f'{n+1}/20 {m.name} native={native:.9f} grid0.3/native={t["grid_0.3_area_ratio_to_native"]:.5f} grid0.6/native={t["grid_0.6_area_ratio_to_native"]:.5f} elapsed={time.time()-T:.1f}s',flush=True)
-res={'source':'user supplied JWST binary starmask archive; no WHT or MAST used','method':'native 30mas binary mask aggregated in 10x10 blocks, bilinear mass-conserving fractional deposition onto Lambert equal-area grid; per sky cell max occupancy is an APPROXIMATE union lower bound; sum clipped at 1 an APPROXIMATE upper bound; grid resolution sensitivity 0.3/0.6 arcsec','tiles':tiles,'sum_tile_native_masked_area_deg2_NOT_UNION':sum(q['native_area_deg2'] for q in tiles),'grid_results':{}}
+res={'grid_origin_shift_in_cells':[args.shift_x_cells,args.shift_y_cells], 'source':'user supplied JWST binary starmask archive; no WHT or MAST used','method':'native 30mas binary mask aggregated in 10x10 blocks, bilinear mass-conserving fractional deposition onto Lambert equal-area grid; per sky cell max occupancy is an APPROXIMATE union lower bound; sum clipped at 1 an APPROXIMATE upper bound; grid resolution sensitivity 0.3/0.6 arcsec','tiles':tiles,'sum_tile_native_masked_area_deg2_NOT_UNION':sum(q['native_area_deg2'] for q in tiles),'grid_results':{}}
 for g in GRIDS:
  keys=np.concatenate([kv[0] for kv in out[str(g)]]);values=np.concatenate([kv[1] for kv in out[str(g)]])
  uniq,inv=np.unique(keys,return_inverse=True)
