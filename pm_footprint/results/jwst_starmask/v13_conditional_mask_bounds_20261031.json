@@ -1,0 +1,70 @@
+{
+  "status": "CONDITIONAL_BOUNDS_ON_SAMPLED_V13_WHT_AND_PROVISIONAL_MC_STARMASK",
+  "provenance": {
+    "user_uploaded_epoch_overlay_sha256": "0e53849130a19c2777191ec3aed2439b8b443a6a5eb1ff858344e6f70367b990",
+    "wht_sample_grid_sha256": "17c149d5d9392ab50f63fe490fe0afc695b4031d2182a10f3f2854a93b607a60",
+    "starmask_archive_sha256": "a06107b1c654387bf3ab5284792201cb299b7942f52dc95e41089b0e2967cd52",
+    "mast_metadata_sha256": "2e03857153777bddf6f0a0ad19c5bc289829d1c8d0da42a628ae4695e45e62db",
+    "candidate_roster_sha256": "d43ce32e33b898f6bf57551affe41f209e0b455a4e4e63b4e99a8eea03236bbd",
+    "test_workflow": "https://github.com/physicsbahare/BD_number_density/actions/runs/41211086794"
+  },
+  "area_deg2": {
+    "survey_exact": 0.5338989551843558,
+    "red365_exact": 0.31748660889853736,
+    "v13_wht_positive_sampled_mean": 0.5336191141938245,
+    "v13_wht_red365_spatial_intersection_mean": 0.31740120807317784,
+    "v13_wht_red365_spatial_intersection_phase_range": [
+      0.31739670814846693,
+      0.31740570799788875
+    ],
+    "mask_within_archive_survey_mc_nominal": 0.013005827189953518,
+    "mask_within_archive_red365_mc_nominal": 0.007515930285651531
+  },
+  "candidate_centers": {
+    "wht_positive": 125,
+    "roster": 125,
+    "red_365d_geometry": 62
+  },
+  "v13_geometric_red_fraction_of_full_positive_wht_phase_range": [
+    0.5947889654233655,
+    0.594828122219614
+  ],
+  "v13_geometric_red_fraction_of_wht_clipped_to_archive_phase_range": [
+    0.5949115961082292,
+    0.5949496505921533
+  ],
+  "starmask_corrected_red_fraction": {
+    "conditional_set_bounds_across_phases_nominal_mc_areas": [
+      0.5950054870098503,
+      0.5954388229527626
+    ],
+    "illustrative_mc_marginal95_halfwidth_corner_sensitivity": [
+      0.594171294477368,
+      0.5962736116731004
+    ],
+    "label": "Set-theoretic bounds conditional on previous MC mask areas, NOT a direct spatial mask-WHT intersection, confidence interval, or dropout completeness."
+  },
+  "corrected_areas_bounds_across_phases_deg2": {
+    "wht_and_archive_after_code1_mask": [
+      0.5204942894702964,
+      0.5208931279944022
+    ],
+    "red365_and_wht_after_code1_mask": [
+      0.3098807778628154,
+      0.30997067861288585
+    ]
+  },
+  "reference_60mas": {
+    "wht_positive_archive": 0.528823684998808,
+    "red365_and_wht": 0.31462445722188803,
+    "fraction": 0.5949515238195074
+  },
+  "caveats": [
+    "v13 is a two-phase 3.6arcsec sampled WHT>0 footprint, not native-pixel exact. Almost-equal phase totals are not proof of convergence.",
+    "All provisional masked-sky estimates use code 1 as excluded, a 0.6arcsec mask raster and a 1000-draw Monte Carlo. Marginal halfwidth corner envelope is not a joint 95% CI and ignores raster/WCS systematics.",
+    "Neither input provides actual 26.2 AB dropout-selection completeness, source crowding/flags/segmentation, or F356W source detectability and proper-motion measurement precision.",
+    "Previous binary COSMOS2025 starmask tar is already processed and is not stored in GitHub; never claim the tar itself is committed.",
+    "No repeated 7GB COSMOS-Web WHT download or fresh MAST query performed."
+  ],
+  "reproduce": "python -m pm_footprint.v13_starmask_bounds"
+}
