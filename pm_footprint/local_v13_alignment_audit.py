@@ -50,8 +50,8 @@ def audit(root,roster,out):
                 vals_header.append(summarize_patch(b)["center_err"])
         finally:
             os.close(fd)
-        positive=lambda v: sum(z is not None and z>0 for z in v)
-        finite=lambda v: sum(z is not None and np.isfinite(z) for z in v)
+        positive=lambda v: int(sum(bool(z is not None and z>0) for z in v))
+        finite=lambda v: int(sum(bool(z is not None and np.isfinite(z)) for z in v))
         report["per_filter"][filt]={
             "header_to_reference_max_offset_pixels":float(mismatch.max()),
             "header_to_reference_median_offset_pixels":float(np.median(mismatch)),
