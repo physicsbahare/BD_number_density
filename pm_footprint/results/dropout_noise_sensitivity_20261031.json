@@ -1,0 +1,42 @@
+{
+  "status": "CONDITIONAL_F277W_GAUSSIAN_NOISE_SELECTION_DIAGNOSTIC_NOT_EFFECTIVE_AREA",
+  "date": "2026-10-31",
+  "m444_ab": 26.2,
+  "f444_ujy": 0.12022644346174122,
+  "f277_measured_upper_threshold_ujy": 0.004007548115391374,
+  "m277_2sigma_limit_required_to_prove_ratio_gt30_ab": 29.892803136799156,
+  "m277_5sigma_depth_required_ab": 28.897953115119062,
+  "scenarios": [
+    {
+      "m277_5sigma_depth_ab": 27.71,
+      "ratio_threshold_in_sigma": 0.6696513514149008,
+      "zero_true_f277": {
+        "p_signed_ratio_positive_measured_flux": 0.2484599646742226,
+        "p_allow_negative_flux_below_threshold": 0.7484599646742226
+      },
+      "true_ratio_100": {
+        "p_signed_ratio_positive_measured_flux": 0.2599877735765723,
+        "p_allow_negative_flux_below_threshold": 0.6803779537848764
+      }
+    },
+    {
+      "m277_5sigma_depth_ab": 28.28,
+      "ratio_threshold_in_sigma": 1.1320060543619765,
+      "zero_true_f277": {
+        "p_signed_ratio_positive_measured_flux": 0.37118405547232713,
+        "p_allow_negative_flux_below_threshold": 0.8711840554723271
+      },
+      "true_ratio_100": {
+        "p_signed_ratio_positive_measured_flux": 0.4188592903994106,
+        "p_allow_negative_flux_below_threshold": 0.7859374954659395
+      }
+    }
+  ],
+  "interpretation": "With noisy measured F277W, signed flux ratio F444W/F277W>30 rejects negative F277W measurements, whereas a flux-upper-threshold rule accepts them. Nominal F277W depths 27.71-28.28 cannot independently certify >30 color at F444W=26.2 using 2sigma upper limits. These are conditional Gaussian illustrations, not observed completeness.",
+  "limitations": [
+    "F444W treated as noiseless and local empirical noise not known.",
+    "Actual Dave negative-flux and upper-limit selection implementation unverified.",
+    "No source extraction, crowding, SED distribution, or sky-area integration."
+  ],
+  "reproduce": "python -m pm_footprint.dropout_noise_sensitivity --output /tmp/dropout_noise.json"
+}
