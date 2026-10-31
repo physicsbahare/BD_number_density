@@ -21,6 +21,12 @@ class Tests(unittest.TestCase):
     def test_groups(self):
         r=analyze([row(1,24,1,150),row(2,24.4,1,150+.1/3600),row(3,25,0,151)])
         self.assertEqual(r["proximity_groups_0p5arcsec"]["n_groups"],2)
+    def test_quality_strata(self):
+        a=row(1,24,1);a["FLAG_BAD_KRON_LW"]=1;a["f_F277W"]=-1
+        b=row(2,24,0);b["FLAG_BAD_KRON_LW"]=0;b["f_F277W"]=1
+        r=analyze([a,b])
+        self.assertEqual(r["quality_flag_strata"]["bright_m444_lt25"]["FLAG_BAD_KRON_LW_1"]["red"],1)
+        self.assertEqual(r["quality_flag_strata"]["bright_m444_lt25"]["nonpositive_F277W"]["red"],1)
     def test_bad_red(self):
         with self.assertRaises(ValueError):analyze([row(1,24,2)])
 if __name__=="__main__":unittest.main()
