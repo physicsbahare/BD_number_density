@@ -7,8 +7,8 @@ For compressed COSMOS-Web tiles this reads headers only; do not mistake them
 for calibrated depth maps. No image bytes or coordinates leave the machine.
 """
 import argparse
+import gzip
 import json
-import hashlib
 from pathlib import Path
 import numpy as np
 from astropy.io import fits
@@ -20,7 +20,30 @@ FILTERS = ("f115w", "f150w", "f277w", "f444w")
 def probe(path, sample=True):
     item = {"file": path.name, "bytes": path.stat().st_size,
             "compressed": path.name.endswith(".gz"), "hdus": []}
-    with fits.open(path, memmap=not item["compressed"], lazy_load_hdus=True) as hdul:
+    # Iterating FITS HDUs inside a gzip file can force full decompression
+    # merely to seek the next header. Read ONLY the first compressed header.
+    if item["compressed"]:
+        with gzip.open(path, "rb") as stream:
+            hdr = fits.Header.fromfile(stream, endcard=True, padding=True)
+        shape = [int(hdr.get("NAXIS"+str(j), 0))
+                 for j in range(int(hdr.get("NAXIS", 0)), 0, -1)]
+        d = {"index": 0, "extname": hdr.get("EXTNAME"), "shape": shape,
+             "bitpix": hdr.get("BITPIX"), "bunit": hdr.get("BUNIT"),
+             "wht_type": hdr.get("WHTTYPE"), "photmjsr": hdr.get("PHOTMJSR"),
+             "has_celestial_wcs": False}
+        try:
+            w = WCS(hdr)
+            d["has_celestial_wcs"] = bool(w.has_celestial)
+            if w.has_celestial:
+                d["pixel_scale_matrix_deg"] = w.celestial.pixel_scale_matrix.tolist()
+                d["crval"] = [float(x) for x in w.celestial.wcs.crval]
+        except Exception as exc:
+            d["wcs_error"] = str(exc)[:150]
+        item["hdus"].append(d)
+        item["note"] = ("Compressed file: first FITS header only, no full gzip "
+                        "scan; extensions, if any, are not inventoried.")
+        return item
+    with fits.open(path, memmap=True, lazy_load_hdus=True) as hdul:
         for i, hdu in enumerate(hdul):
             hdr = hdu.header
             shape = [int(hdr.get("NAXIS"+str(j), 0))
