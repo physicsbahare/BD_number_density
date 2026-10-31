@@ -1,0 +1,65 @@
+{
+  "status": "CONDITIONAL_V13_NEAR_CONTAINMENT_BOUNDS_NOT_DIRECT_WHT_MASK_MEASUREMENT",
+  "source_files": [
+    "pm_footprint/results/local_v13_epoch_overlay_20261031.json",
+    "pm_footprint/results/jwst_starmask/epoch_mc_20261031.json",
+    "pm_footprint/results/jwst_starmask/union_area_grid_qc.json"
+  ],
+  "phase_bounds": [
+    {
+      "phase": 0.25,
+      "archive_not_in_wht_deg2": 0.00039883852410582676,
+      "wht_outside_archive_deg2": 0.00010899854681600818,
+      "max_mask_wht_outside_archive_deg2": 0.0000653559155274052,
+      "conditional_mask_wht_red_intersection_deg2": [
+        0.007117091761545704,
+        0.007515930285651531
+      ],
+      "conditional_mask_wht_intersection_deg2": [
+        0.01260698866584769,
+        0.013071183105480923
+      ],
+      "conditional_corrected_red_fraction": [
+        0.5947956100860958,
+        0.5956358501314067
+      ],
+      "uncorrected_red_fraction": 0.594828122219614
+    },
+    {
+      "phase": 0.75,
+      "archive_not_in_wht_deg2": 0.00037984036998495174,
+      "wht_outside_archive_deg2": 0.00010999836621206072,
+      "max_mask_wht_outside_archive_deg2": 0.0000653559155274052,
+      "conditional_mask_wht_red_intersection_deg2": [
+        0.007136089915666579,
+        0.007515930285651531
+      ],
+      "conditional_mask_wht_intersection_deg2": [
+        0.012625986819968566,
+        0.013071183105480923
+      ],
+      "conditional_corrected_red_fraction": [
+        0.5947771945773895,
+        0.5955809615565311
+      ],
+      "uncorrected_red_fraction": 0.5947889654233655
+    }
+  ],
+  "nominal_corrected_red_fraction_envelope": [
+    0.5947771945773895,
+    0.5956358501314067
+  ],
+  "separate_MC_halfwidth_corner_sensitivity_envelope_NOT_95CI": [
+    0.5939433471101699,
+    0.5964046518468683
+  ],
+  "mask_archive_MC_95_halfwidth_deg2": 0.00005714358884635357,
+  "mask_red_MC_95_halfwidth_deg2": 0.00040049708290399187,
+  "limitations": [
+    "Not a direct spatial mask-WHT intersection; assumes mask code 1 means excluded.",
+    "0.6arcsec union upper raster approximation is not a rigorous geometric bound.",
+    "Mask MC 1000 draws and WHT 3.6arcsec phase sampling have unmodeled systematics.",
+    "MC endpoint perturbations are NOT a joint 95pct confidence interval.",
+    "Not 26.2AB dropout selection area, F356W detection or PM completeness."
+  ]
+}
