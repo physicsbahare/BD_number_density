@@ -1,0 +1,133 @@
+{
+  "status": "INDEPENDENT_SMALL_FILE_PSF_AND_EMPIRICAL_ERROR_FACTOR_QC_NOT_COMPLETENESS",
+  "date": "2026-10-31",
+  "sources": {
+    "PSF_F444W_SHA256": "15295b441c7fb8b6ac63667cad816c2c6117e771d6401b928fa3f3cb4be9f7a9",
+    "encircled_energy_table_SHA256": "9f7138d0e362920f84314a0c67598b50b78583d02438b5085eef2b7ae0d7a81d",
+    "original_notebook_SHA256": "1047f875cd5476804ab9c71e639468eb4abe3d067ffc87ad9cd75cd3b0a97733",
+    "note": "Uploaded small source binaries not stored in GitHub. Original notebook cell 66 writes cosmos_F444W_v13_catalog_v1.fits."
+  },
+  "psf": {
+    "shape_yx": [
+      201,
+      201
+    ],
+    "pixel_scale_arcsec": 0.03,
+    "total_integrated": 0.9999998211860657,
+    "peak_yx": [
+      100,
+      100
+    ],
+    "normalized_at_radius_arcsec": 1,
+    "curve_of_growth": [
+      {
+        "radius_arcsec": 0.16,
+        "PSF_over_1arcsec": 0.7156180031842688,
+        "EE_table_over_1arcsec": 0.7006521739130434,
+        "relative_difference_percent": 2.1359855615152634
+      },
+      {
+        "radius_arcsec": 0.24,
+        "PSF_over_1arcsec": 0.8076809845010364,
+        "EE_table_over_1arcsec": 0.8158695652173912,
+        "relative_difference_percent": -1.003662970829522
+      },
+      {
+        "radius_arcsec": 0.35,
+        "PSF_over_1arcsec": 0.9087141887330872,
+        "EE_table_over_1arcsec": 0.9097826086956521,
+        "relative_difference_percent": -0.11743684176340752
+      },
+      {
+        "radius_arcsec": 0.5,
+        "PSF_over_1arcsec": 0.9367149596818286,
+        "EE_table_over_1arcsec": 0.9391304347826086,
+        "relative_difference_percent": -0.2572033672126883
+      },
+      {
+        "radius_arcsec": 0.7,
+        "PSF_over_1arcsec": 0.9780239286966274,
+        "EE_table_over_1arcsec": 0.9782608695652174,
+        "relative_difference_percent": -0.024220622122539393
+      }
+    ],
+    "note": "8x8 subpixel disk integration of native 0.03arcsec PSF, normalized by 1arcsec enclosed PSF; agrees within 2.14% relative with EE table over these radii; does not prove notebook's exact correction algorithm."
+  },
+  "noise_corrections": {
+    "aperture_diameters_arcsec": [
+      0.32,
+      0.48,
+      0.7,
+      1,
+      1.4
+    ],
+    "F115W_factors": [
+      1.48,
+      1.71,
+      2,
+      2.37,
+      2.72
+    ],
+    "F150W_factors": [
+      1.49,
+      1.75,
+      2.06,
+      2.45,
+      2.91
+    ],
+    "F277W_factors": [
+      2.74,
+      3.15,
+      3.58,
+      4.08,
+      4.62
+    ],
+    "F444W_factors": [
+      2.42,
+      2.68,
+      3,
+      3.37,
+      3.63
+    ],
+    "F277W_5sigma_depth_overstatement_mag_if_using_e_instead_of_new_e": [
+      1.094,
+      1.246,
+      1.385,
+      1.527,
+      1.662
+    ],
+    "F444W_5sigma_depth_overstatement_mag_if_using_e_instead_of_new_e": [
+      0.96,
+      1.07,
+      1.193,
+      1.319,
+      1.4
+    ],
+    "equation": "new_e_band=e_band*factor(use_aper); from notebook cells 61-63; use_phot set earlier in cell 47."
+  },
+  "at_F444W_AB_26p2": {
+    "flux_F444W_nJy": 120.22644346174118,
+    "flux_F277W_upper_nJy_for_ratio30": 4.007548115391373,
+    "corrected_sigma_F277W_max_nJy_if_zero_measured_flux_2sigma_limit": 2.0037740576956864,
+    "max_raw_e_F444W_nJy_for_corrected_SNR5_by_aperture": [
+      9.936670265316424,
+      8.972664941069308,
+      8.015580680688581,
+      7.1355317632242565,
+      6.624446843544282
+    ],
+    "max_raw_e_F277W_nJy_for_2sigma_zero_flux_ratio30_by_aperture": [
+      0.7313486022526077,
+      0.6361571968800461,
+      0.5597472542380294,
+      0.49115077700297677,
+      0.43374354332730414
+    ]
+  },
+  "interpretation": "The uncorrected e_* and corrected new_e_* imply substantially different F444W detection and F277W dropout probabilities. Cannot use WHT>0, native ERR pixel or uncorrected e_* to claim a 26.2 AB selection area. Which error definition Dave used remains unverified.",
+  "limitations": [
+    "Original Dave selection code unavailable; his 125 objects may be from a different catalog and need ID+sky crossmatch.",
+    "Corrected-error thresholds are conditional on specific selection and 2sigma upper-limit semantics, not empirical depth measurements.",
+    "F356W detection/centroid uncertainty and mask×WHT direct intersection remain unmeasured."
+  ]
+}
