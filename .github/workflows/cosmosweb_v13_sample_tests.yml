@@ -9,6 +9,8 @@ on:
       - 'pm_footprint/local_v13_photometry_probe.py'
       - 'pm_footprint/local_v13_alignment_audit.py'
       - 'pm_footprint/local_v13_catalog_idcheck.py'
+      - 'pm_footprint/validate_dave_paper_selection.py'
+      - 'pm_footprint/test_validate_dave_paper_selection.py'
       - 'pm_footprint/test_local_v13_selection_probes.py'
       - 'pm_footprint/jwst_mask_wht_sparse_intersection.py'
       - 'pm_footprint/test_jwst_mask_wht_sparse_intersection.py'
