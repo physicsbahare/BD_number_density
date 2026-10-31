@@ -1,0 +1,235 @@
+{
+  "status": "EXPLORATORY_SOURCE_PROXIMITY_KRON_ASSOCIATION_NOT_DUPLICATE_CLASSIFICATION",
+  "source": "frozen 125-row independently ID-verified v13 photometry fixture",
+  "source_original_125_rows_sha256": "93400baee3daccfc5020b01f93d05e9b65ef238afa62b5b691f4aa90728e2a40",
+  "radius_sweep": [
+    {
+      "radius_arcsec": 0.2,
+      "n_components": 124,
+      "n_multi_member_components": 1,
+      "n_close_members": 2,
+      "red_close_members": 0,
+      "nonred_close_members": 2,
+      "bad_kron_close_members": 2
+    },
+    {
+      "radius_arcsec": 0.3,
+      "n_components": 121,
+      "n_multi_member_components": 4,
+      "n_close_members": 8,
+      "red_close_members": 2,
+      "nonred_close_members": 6,
+      "bad_kron_close_members": 7
+    },
+    {
+      "radius_arcsec": 0.4,
+      "n_components": 116,
+      "n_multi_member_components": 8,
+      "n_close_members": 17,
+      "red_close_members": 4,
+      "nonred_close_members": 13,
+      "bad_kron_close_members": 15
+    },
+    {
+      "radius_arcsec": 0.5,
+      "n_components": 115,
+      "n_multi_member_components": 9,
+      "n_close_members": 19,
+      "red_close_members": 4,
+      "nonred_close_members": 15,
+      "bad_kron_close_members": 17
+    },
+    {
+      "radius_arcsec": 0.6,
+      "n_components": 115,
+      "n_multi_member_components": 9,
+      "n_close_members": 19,
+      "red_close_members": 4,
+      "nonred_close_members": 15,
+      "bad_kron_close_members": 17
+    },
+    {
+      "radius_arcsec": 1,
+      "n_components": 114,
+      "n_multi_member_components": 9,
+      "n_close_members": 20,
+      "red_close_members": 4,
+      "nonred_close_members": 16,
+      "bad_kron_close_members": 18
+    }
+  ],
+  "close_0p5arcsec": {
+    "n_multi_components": 9,
+    "n_close_members": 19,
+    "n_isolated": 106,
+    "bad_kron_close": 17,
+    "bad_kron_isolated": 43,
+    "bad_kron_odds_ratio_close_vs_isolated": 12.453488372093023,
+    "bad_kron_fisher_two_sided_exploratory_p": 0.0000873055162152808,
+    "red_close": 4,
+    "nonred_close": 15,
+    "red_isolated": 58,
+    "nonred_isolated": 48,
+    "red_nonred_close_membership_fisher_exploratory_p": 0.011251724402726494,
+    "groups": [
+      {
+        "candidate_ids": [
+          204643,
+          204646
+        ],
+        "n": 2,
+        "red365": 0,
+        "bad_kron_count": 2,
+        "mag_min": 25.492829571723128,
+        "mag_max": 25.602487043302744,
+        "link_separations_arcsec": [
+          0.409729
+        ]
+      },
+      {
+        "candidate_ids": [
+          280656,
+          280657
+        ],
+        "n": 2,
+        "red365": 0,
+        "bad_kron_count": 2,
+        "mag_min": 21.65617360720769,
+        "mag_max": 22.89442203042706,
+        "link_separations_arcsec": [
+          0.381416
+        ]
+      },
+      {
+        "candidate_ids": [
+          293229,
+          293230
+        ],
+        "n": 2,
+        "red365": 0,
+        "bad_kron_count": 2,
+        "mag_min": 23.821858797686517,
+        "mag_max": 24.178186885756737,
+        "link_separations_arcsec": [
+          0.258641
+        ]
+      },
+      {
+        "candidate_ids": [
+          575105,
+          575106
+        ],
+        "n": 2,
+        "red365": 1,
+        "bad_kron_count": 2,
+        "mag_min": 22.337693846764836,
+        "mag_max": 23.208074895866698,
+        "link_separations_arcsec": [
+          0.362364
+        ]
+      },
+      {
+        "candidate_ids": [
+          2117792,
+          2117793
+        ],
+        "n": 2,
+        "red365": 1,
+        "bad_kron_count": 1,
+        "mag_min": 20.393422364828034,
+        "mag_max": 20.93161110205297,
+        "link_separations_arcsec": [
+          0.234504
+        ]
+      },
+      {
+        "candidate_ids": [
+          2878691,
+          2878692
+        ],
+        "n": 2,
+        "red365": 0,
+        "bad_kron_count": 1,
+        "mag_min": 20.513585632239597,
+        "mag_max": 21.96475452764216,
+        "link_separations_arcsec": [
+          0.319884
+        ]
+      },
+      {
+        "candidate_ids": [
+          2952479,
+          2952480,
+          2952481
+        ],
+        "n": 3,
+        "red365": 0,
+        "bad_kron_count": 3,
+        "mag_min": 21.785083318141922,
+        "mag_max": 23.73986812443896,
+        "link_separations_arcsec": [
+          0.323166,
+          0.368833
+        ]
+      },
+      {
+        "candidate_ids": [
+          3106872,
+          3106873
+        ],
+        "n": 2,
+        "red365": 0,
+        "bad_kron_count": 2,
+        "mag_min": 21.09939751393639,
+        "mag_max": 21.273493001134227,
+        "link_separations_arcsec": [
+          0.223633
+        ]
+      },
+      {
+        "candidate_ids": [
+          3190946,
+          3190947
+        ],
+        "n": 2,
+        "red365": 0,
+        "bad_kron_count": 2,
+        "mag_min": 22.626767059811133,
+        "mag_max": 23.478775338810742,
+        "link_separations_arcsec": [
+          0.169436
+        ]
+      }
+    ]
+  },
+  "density_sensitivity": {
+    "all_sources": {
+      "red": 62,
+      "nonred": 63,
+      "red_nonred_area_normalized_density_ratio": 0.6700027133801733
+    },
+    "isolated_only": {
+      "red": 58,
+      "nonred": 48,
+      "red_nonred_area_normalized_density_ratio": 0.8226444605817046
+    },
+    "bright_m444_lt25_all": {
+      "red": 27,
+      "nonred": 39,
+      "red_nonred_area_normalized_density_ratio": 0.4713294522165735
+    },
+    "bright_m444_lt25_isolated_only": {
+      "red": 23,
+      "nonred": 26,
+      "red_nonred_area_normalized_density_ratio": 0.6022543000545105
+    }
+  },
+  "limitations": [
+    "<=0.5 arcsec is an exploratory proximity threshold, not a duplicate or blend criterion.",
+    "Kron flags may reflect photometry failures, not necessarily spurious objects; no automatic exclusion justified.",
+    "Fisher tests ignore spatial dependence, threshold selection and multiple comparisons; p-values are descriptive.",
+    "Removing all close-group members is an illustrative sensitivity extreme, not a recommended catalog cut.",
+    "No source segmentation, F444W PSF fitting, F356W SNR or measured PM completeness.",
+    "WHT areas are public 60mas gridded WHT>0 geometric areas, not dropout selection-effective area."
+  ]
+}
