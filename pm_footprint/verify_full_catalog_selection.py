@@ -59,6 +59,7 @@ def summarize(data):
             "manuscript":EXPECTED,"new_e_with_use_phot":valid["stage_counts"]},
         "corrected_error_with_gate_matches_all_125_IDs":reproduced,
         "catalog_rows":data["catalog_rows"],
+        "source_uploaded_full_scan_json_sha256":data.get("user_uploaded_original_json_sha256"),
         "complete_numeric_rows_new_e_without_gate":sc["new_e_all"]["complete_numeric_rows"],
         "complete_numeric_rows_new_e_with_gate":valid["complete_numeric_rows"],
         "numeric_rows_excluded_by_use_phot_gate":(
