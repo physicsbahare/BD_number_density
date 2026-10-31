@@ -1,0 +1,66 @@
+{
+  "status": "FULL_LOCAL_V13_CATALOG_PAPER_SELECTION_STAGE_AUDIT",
+  "input_catalog_basename": "cosmos_F444W_v13_catalog_v1.fits",
+  "catalog_bytes": 6569974080,
+  "catalog_rows": 3280023,
+  "FITS_row_bytes": 2003,
+  "paper_reported_stage_counts": [
+    2997,
+    335,
+    125
+  ],
+  "user_uploaded_original_json_sha256": "aeccb1db9da42fb6b16ac48df84cd773c7d1281bcaf024e5736c5ac94098c944",
+  "frozen_roster_sha256": "d43ce32e33b898f6bf57551affe41f209e0b455a4e4e63b4e99a8eea03236bbd",
+  "compact_transcription": true,
+  "scenarios": {
+    "new_e_all": {
+      "complete_numeric_rows": 3270370,
+      "stage_counts": [
+        4164,
+        1382,
+        1164
+      ],
+      "final_ID_count": 1164,
+      "frozen_125_IDs_recovered": 125,
+      "not_in_frozen_125_count": 1039,
+      "missing_frozen_125_count": 0
+    },
+    "new_e_use_phot": {
+      "complete_numeric_rows": 3200748,
+      "stage_counts": [
+        2997,
+        335,
+        125
+      ],
+      "final_ID_count": 125,
+      "frozen_125_IDs_recovered": 125,
+      "not_in_frozen_125_count": 0,
+      "missing_frozen_125_count": 0
+    },
+    "e_all": {
+      "complete_numeric_rows": 3270370,
+      "stage_counts": [
+        451252,
+        31282,
+        923
+      ],
+      "final_ID_count": 923,
+      "frozen_125_IDs_recovered": 87,
+      "not_in_frozen_125_count": 836,
+      "missing_frozen_125_count": 38
+    },
+    "e_use_phot": {
+      "complete_numeric_rows": 3200748,
+      "stage_counts": [
+        446055,
+        30176,
+        119
+      ],
+      "final_ID_count": 119,
+      "frozen_125_IDs_recovered": 87,
+      "not_in_frozen_125_count": 32,
+      "missing_frozen_125_count": 38
+    }
+  },
+  "note": "Compact evidence transcribed from user-uploaded v13_full_catalog_paper_stages.json. This is not the original raw user file; its original SHA256 is recorded above. No giant FITS material is included."
+}
