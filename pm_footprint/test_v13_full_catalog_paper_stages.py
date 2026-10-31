@@ -30,6 +30,7 @@ class TestFullCatalogStages(unittest.TestCase):
         values["new_e_F444W"]=np.ones(n,dtype=np.float64)*5
         values["e_F444W"]=np.ones(n,dtype=np.float64)*5
         values["f_F277W"]=np.array([2,-1,5,2],dtype=np.float64)
+        values["new_e_F277W"]=np.array([2,2,4,2],dtype=np.float64)
         with tempfile.TemporaryDirectory() as temp:
             path=Path(temp)/"tiny.fits"
             columns=[]
