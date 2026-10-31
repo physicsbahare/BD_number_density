@@ -118,6 +118,7 @@ def audit(rows):
     return {
         "status":"EXPLORATORY_SOURCE_PROXIMITY_KRON_ASSOCIATION_NOT_DUPLICATE_CLASSIFICATION",
         "source":"frozen 125-row independently ID-verified v13 photometry fixture",
+        "source_original_125_rows_sha256":"93400baee3daccfc5020b01f93d05e9b65ef238afa62b5b691f4aa90728e2a40",
         "radius_sweep":sweeps,
         "close_0p5arcsec":{
             "n_multi_components":len(details),
