@@ -1,0 +1,147 @@
+{
+  "status": "SOURCE_CONDITIONED_DIAGNOSTIC_NOT_COMPLETENESS",
+  "catalog_sources": 125,
+  "positional_groups_0p5arcsec": 115,
+  "red_epoch_groups": 60,
+  "source_mag": {
+    "red_n": 62,
+    "other_n": 63,
+    "red_median": 25.121933624705598,
+    "other_median": 24.178186885756737,
+    "delta_median": 0.9437467389488603,
+    "delta_mean": 0.8328849851029467,
+    "permutation_p_median": 0.008749562521873906,
+    "permutation_p_mean": 0.011049447527623619,
+    "permutations": 20000,
+    "seed": 20261031
+  },
+  "group_mag": {
+    "red_n": 60,
+    "other_n": 55,
+    "red_median": 25.243367536334674,
+    "other_median": 24.408695868514133,
+    "delta_median": 0.8346716678205404,
+    "delta_mean": 0.7740972539687334,
+    "permutation_p_median": 0.012299385030748462,
+    "permutation_p_mean": 0.01814909254537273,
+    "permutations": 20000,
+    "seed": 20261031
+  },
+  "group_f444w_snr": {
+    "red_n": 60,
+    "other_n": 55,
+    "red_median": 23.147982391269586,
+    "other_median": 52.081858218011284,
+    "delta_median": -28.933875826741698,
+    "delta_mean": -83.04137490651222,
+    "permutation_p_median": 0.0019499025048747563,
+    "permutation_p_mean": 0.16979151042447876,
+    "permutations": 20000,
+    "seed": 20261031
+  },
+  "selection_sensitivity": {
+    "nominal": {
+      "passing": 125,
+      "failing_ids": []
+    },
+    "new_e_plus_2percent": {
+      "passing": 124,
+      "failing_ids": [
+        592641
+      ]
+    },
+    "new_e_plus_5percent": {
+      "passing": 124,
+      "failing_ids": [
+        592641
+      ]
+    },
+    "F444W_flux_minus_2percent": {
+      "passing": 118,
+      "failing_ids": [
+        54666,
+        387132,
+        592641,
+        777681,
+        1038406,
+        2031339,
+        2704216
+      ]
+    },
+    "F444W_flux_minus_5percent": {
+      "passing": 114,
+      "failing_ids": [
+        54666,
+        204643,
+        379073,
+        387132,
+        592641,
+        777681,
+        1038406,
+        1910402,
+        2031339,
+        2704216,
+        2708503
+      ]
+    },
+    "F277W_flux_plus_1nJy": {
+      "passing": 109,
+      "failing_ids": [
+        437,
+        8926,
+        54666,
+        204643,
+        387132,
+        432637,
+        777681,
+        1038406,
+        1251470,
+        1303375,
+        1651050,
+        1793642,
+        2031339,
+        2352371,
+        2836975,
+        3153521
+      ]
+    },
+    "F277W_flux_plus_2nJy": {
+      "passing": 101,
+      "failing_ids": [
+        437,
+        8926,
+        9095,
+        54666,
+        204643,
+        387132,
+        432637,
+        513217,
+        777681,
+        1038406,
+        1108588,
+        1251470,
+        1303375,
+        1421504,
+        1651050,
+        1793642,
+        1865193,
+        2031339,
+        2150648,
+        2169015,
+        2352371,
+        2836975,
+        2919926,
+        3153521
+      ]
+    }
+  },
+  "input_origin": "User-supplied sky-verified 125 Zhen-Kai v13 rows joined to frozen F356W epoch list",
+  "input_original_125_rows_sha256": "93400baee3daccfc5020b01f93d05e9b65ef238afa62b5b691f4aa90728e2a40",
+  "caveats": [
+    "125 sources were selected on F444W; this is not an independent depth measurement.",
+    "Permutation assumes exchangeable locations; depth gradients and spatial clustering violate this null.",
+    "0.5arcsec proximity groups are not verified unique astrophysical objects.",
+    "Flux/error perturbations test stability of already-selected rows, not injection-recovery completeness.",
+    "F356W coverage is geometric; neither F356W SNR nor PM precision has been measured."
+  ]
+}
