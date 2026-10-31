@@ -1,0 +1,24 @@
+{
+  "status": "OFFICIAL_COSMOS2025_QUALITY_FLAG_SEMANTICS__DROPOUT_CONFLICT",
+  "date": "2026-10-31",
+  "source": "https://cosmos2025.iap.fr/catalog.html",
+  "catalog": "COSMOSWeb_mastercatalog_v1.1.fits, not Zhen-Kai v13 F444W-detection catalog",
+  "flags": {
+    "warn_flag_0": "Most secure COSMOS2025 sources; not necessarily appropriate for deliberately one-band dropout selection.",
+    "warn_flag_4": "Single NIRCam detection: significant detection in one NIRCam band, other NIRCam+HST+MIRI bands have magnitude errors >0.5 mag or are not detected; explicitly classified as potential imaging artifact.",
+    "warn_flag_1": "Hot pixel; potentially relevant independent quality check.",
+    "warn_flag_5": "Unrealistically small source radius; potentially relevant.",
+    "warn_flag_6": "Small aperture flux ratio, below stated PSF consistency threshold; potentially relevant.",
+    "flag_star": "Official catalog describes source-pixel overlap with JWST/NIRCam starmask; center-pixel outside mask does not imply source-pixel overlap zero. Official wording about '0-80 percent' is ambiguous, do not invent precise threshold.",
+    "flag_blend": "Kron aperture correction >3; indicates F444W blending, source-level rather than sky-area flag."
+  },
+  "calculation": {
+    "magnitude_error_first_order": "sigma_m ≈ (2.5/ln10)/SNR = 1.0857362047581294/SNR",
+    "mag_error_threshold_for_warn_flag_4": 0.2,
+    "SNR_equivalent_threshold": 5.428681023790647,
+    "note": "F444W-only selection with SNR>5 overlaps this flag regime when F444W SNR>~5.43 and the required non-detections in other bands are met. Other catalog-specific conditions still apply."
+  },
+  "science_implication": "Do not impose COSMOS2025 warn_flag==0 indiscriminately on F444W-only brown-dwarf candidates; it can remove the exact population being sought. Investigate artifact contamination via independent pixel/PSF morphology, bad-pixel, source overlap and multi-epoch consistency instead. Do not assume Zhen-Kai v13 use_phot or Dave selection is equivalent to COSMOS2025 warn_flag.",
+  "code1_semantics": "The official webpage confirms JWST starmask use in flag_star but does not explicitly document FITS binary value 1=masked; retain code1 interpretation as conditional.",
+  "no_binary_downloads": true
+}
