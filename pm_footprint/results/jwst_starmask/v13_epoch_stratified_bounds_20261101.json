@@ -1,0 +1,104 @@
+{
+  "status": "EPOCH_STRATIFIED_CONDITIONAL_SET_BOUNDS_NOT_DIRECT_MASK_WHT",
+  "source_files": [
+    "pm_footprint/results/local_v13_epoch_overlay_20261031.json",
+    "pm_footprint/results/jwst_starmask/epoch_mc_20261031.json",
+    "pm_footprint/results/jwst_starmask/summary.json",
+    "pm_footprint/results/jwst_starmask/union_area_grid_qc.json"
+  ],
+  "correction_to_prior": "Prior v13_mask_near_containment_bounds.py used total archive-minus-WHT area independently as a red and nonred allocation cap. Exact red archive geometry allows separate, strictly smaller epoch-stratified caps.",
+  "mask_total_nominal_native_tile_sum_cap_deg2": 0.0141992195,
+  "mask_total_0p6arcsec_raster_upper_approx_deg2": 0.013071183105480923,
+  "cases": [
+    {
+      "phase": 0.25,
+      "nominal_native_tile_sum_cap": {
+        "archive_red_not_in_wht_deg2": 0.00008090090064860611,
+        "archive_nonred_not_in_wht_deg2": 0.00031793762345722065,
+        "wht_outside_archive_deg2": 0.00010899854681600818,
+        "max_mask_red_outside_wht_deg2": 0.00008090090064860611,
+        "max_mask_nonred_outside_wht_deg2": 0.00031793762345722065,
+        "max_mask_outside_archive_in_wht_deg2": 0.00010899854681600818,
+        "conditional_mask_in_wht_red_deg2": [
+          0.007435029385002925,
+          0.007515930285651531
+        ],
+        "conditional_corrected_red_fraction": [
+          0.5948879839387807,
+          0.5954388229527625
+        ],
+        "uncorrected_fraction": 0.594828122219614
+      },
+      "raster_union_cap_sensitivity": {
+        "archive_red_not_in_wht_deg2": 0.00008090090064860611,
+        "archive_nonred_not_in_wht_deg2": 0.00031793762345722065,
+        "wht_outside_archive_deg2": 0.00010899854681600818,
+        "max_mask_red_outside_wht_deg2": 0.00008090090064860611,
+        "max_mask_nonred_outside_wht_deg2": 0.00031793762345722065,
+        "max_mask_outside_archive_in_wht_deg2": 0.0000653559155274052,
+        "conditional_mask_in_wht_red_deg2": [
+          0.007435029385002925,
+          0.007515930285651531
+        ],
+        "conditional_corrected_red_fraction": [
+          0.5948879839387807,
+          0.5953889082832236
+        ],
+        "uncorrected_fraction": 0.594828122219614
+      }
+    },
+    {
+      "phase": 0.75,
+      "nominal_native_tile_sum_cap": {
+        "archive_red_not_in_wht_deg2": 0.0000899007500704263,
+        "archive_nonred_not_in_wht_deg2": 0.00028993961991452544,
+        "wht_outside_archive_deg2": 0.00010999836621206072,
+        "max_mask_red_outside_wht_deg2": 0.0000899007500704263,
+        "max_mask_nonred_outside_wht_deg2": 0.00028993961991452544,
+        "max_mask_outside_archive_in_wht_deg2": 0.00010999836621206072,
+        "conditional_mask_in_wht_red_deg2": [
+          0.007426029535581104,
+          0.007515930285651531
+        ],
+        "conditional_corrected_red_fraction": [
+          0.594879842990385,
+          0.5954068002939568
+        ],
+        "uncorrected_fraction": 0.5947889654233655
+      },
+      "raster_union_cap_sensitivity": {
+        "archive_red_not_in_wht_deg2": 0.0000899007500704263,
+        "archive_nonred_not_in_wht_deg2": 0.00028993961991452544,
+        "wht_outside_archive_deg2": 0.00010999836621206072,
+        "max_mask_red_outside_wht_deg2": 0.0000899007500704263,
+        "max_mask_nonred_outside_wht_deg2": 0.00028993961991452544,
+        "max_mask_outside_archive_in_wht_deg2": 0.0000653559155274052,
+        "conditional_mask_in_wht_red_deg2": [
+          0.007426029535581104,
+          0.007515930285651531
+        ],
+        "conditional_corrected_red_fraction": [
+          0.594879842990385,
+          0.5953557477068802
+        ],
+        "uncorrected_fraction": 0.5947889654233655
+      }
+    }
+  ],
+  "nominal_native_sum_cap_fraction_envelope": [
+    0.594879842990385,
+    0.5954388229527625
+  ],
+  "raster_cap_sensitivity_fraction_envelope": [
+    0.594879842990385,
+    0.5953889082832236
+  ],
+  "limitations": [
+    "Mask/archive areas use 1000 weighted MC draws; neither envelope is a statistical confidence interval.",
+    "Mask code 1 interpreted as excluded; official semantics not independently verified.",
+    "Native pixel tile-sum cap uses nominal 30mas pixel area and overlaps are double-counted; this is a conservative area cap, not unique-sky union.",
+    "0.6arcsec raster union upper is only an approximation, not a guaranteed cap.",
+    "WHT is a two-phase 3.6arcsec sampled occupancy map with boundary aliasing.",
+    "Not a direct spatial mask-WHT intersection, not F444W=26.2 selection area, and not F356W astrometric completeness."
+  ]
+}
