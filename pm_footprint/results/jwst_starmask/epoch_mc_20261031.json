@@ -1,0 +1,93 @@
+{
+  "status": "PROVISIONAL_MC_ARCHIVE_STAR_MASK_INTERSECTION__NOT_SELECTION_MATCHED",
+  "analysis_date": "2026-10-31",
+  "method": "User JWST 20 FITS starmask -> 0.6arcsec Lambert equal-area clipped-sum union raster -> iid weighted mask-cell centers (1000 draws) -> full exact CAOM polygon point membership for 717 PUBLIC red NIRCam image records with >=365d disjoint observation time intervals. Independent implementation in JS, with Python reproduction committed.",
+  "provenance": {
+    "mask_archive": "cosmos_web_starmask_jwst.tar.gz",
+    "mask_sha256": "a06107b1c654387bf3ab5284792201cb299b7942f52dc95e41089b0e2967cd52",
+    "mast_metadata_repo_path": "pm_footprint/results/mast_observations.csv",
+    "mast_metadata_sha256": "2e03857153777bddf6f0a0ad19c5bc289829d1c8d0da42a628ae4695e45e62db",
+    "n_mask_tiles": 20,
+    "n_valid_public_red_imaging_rows": 717,
+    "sample_seed": 20261031,
+    "sample_draws_used": 1000,
+    "full_draws_generated": 3000,
+    "sample_first_1000_encoded_sha256": "82beb85ebb7196f0a2bbe312e353d7b80f747f9bf104de7411d559a18409fd1b",
+    "sample_encoding": "5-character base64url for each pair (x_cell_index << 14)|y_cell_index, 0.6arcsec Lambert grid origin -0.7 deg, width 1.4 deg",
+    "original_mask_binary_is_not_in_github": true
+  },
+  "grid_union_masked_area_deg2": {
+    "lower_raster_approx": 0.012859847813542347,
+    "upper_raster_approx": 0.013071183105480923
+  },
+  "sample_membership_counts": {
+    "survey": 995,
+    "red365": 575,
+    "sameF444365": 70
+  },
+  "measured_mask_intersections_deg2": {
+    "mask_within_archive_f444w": 0.013005827189953518,
+    "mask_within_archive_red_365d": 0.007515930285651531,
+    "mask_within_archive_same_f444w_365d": 0.0009149828173836646,
+    "red_365d_mc_95pct_halfwidth_deg2": 0.00040049708290399187,
+    "survey_mc_95pct_halfwidth_deg2": 0.00005714358884635357
+  },
+  "exact_archive_area_deg2": {
+    "survey": 0.5338989551843558,
+    "red_365d": 0.31748660889853736
+  },
+  "archive_only_star_mask_corrected": {
+    "survey_deg2": 0.5208931279944023,
+    "red_365d_deg2": 0.30997067861288585,
+    "red_fraction": 0.5950753848613201,
+    "is_WHT_intersection": false,
+    "is_dropout_selection_area": false
+  },
+  "WHT_positive_previously_measured": {
+    "survey_deg2": 0.528823684998808,
+    "red_365d_deg2": 0.31462445722188803,
+    "red_fraction": 0.5949515238195074
+  },
+  "WHT_star_mask_conditional_set_bounds": {
+    "WHT_excluded_star_mask_in_red_365d_deg2": [
+      0.004653778609002204,
+      0.007515930285651531
+    ],
+    "WHT_excluded_star_mask_outside_red_365d_deg2": [
+      0.0032767783954035495,
+      0.005489896904301987
+    ],
+    "star_mask_corrected_red_fraction": [
+      0.5928381524966191,
+      0.5976144693148213
+    ],
+    "nesting_assumption": "WHT>0 grid area and WHT red subset are within exact archival F444W survey and red polygons respectively, as in wht_depth_mask.evaluate()",
+    "are_not_direct_spatial_WHT_intersections": true
+  },
+  "independent_geometry_validation": {
+    "uniform_equal_area_200_by_200_lattice_deg2": {
+      "survey": 0.533855,
+      "red_365d": 0.317863,
+      "same_f444w_365d": 0.038955
+    },
+    "exact_shapely_reference_deg2": {
+      "survey": 0.5338989551843558,
+      "red_365d": 0.31748660889853736,
+      "same_f444w_365d": 0.038697992717224516
+    },
+    "red_area_relative_difference": 0.001185533786034254,
+    "note": "Checks independent JS polygon parsing, Lambert inverse and epoch pair membership; not a substitute for native WHT raster or exact JWST-mask union."
+  },
+  "limitations": [
+    "This is a 1000-sample weighted Monte Carlo intersection, not exact masked-pixel/polygon intersection. Red-area sampling 95% half-width is ~0.00040 deg²; raster and WCS systematics are additional.",
+    "0.6arcsec mask union raster upper vs lower approximation differs by ~0.00021 deg²; 0.3arcsec union spans 0.0127956-0.0128986 deg².",
+    "WHT 60mas occupancy grid was not saved in the prior run, so no exact WHT∩star-mask area is available without its spatial cells. The 59.28-59.76% bound is conditional on nesting and MC estimates.",
+    "The ~0.96% WHT deposition clipping bias persists; do not claim subpercent physical-area accuracy.",
+    "Mask code 1 interpreted as excluded, pending explicit official semantics confirmation.",
+    "Not F444W=26.2 AB dropout selection, no blue-band local noise, no source flags/segmentation, no F356W SNR, no PM astrometric completeness."
+  ],
+  "reproduction": [
+    "python -m pm_footprint.jwst_mask_union_repro --archive /path/to/cosmos_web_starmask_jwst.tar.gz --output mask_union.json --sample-out mask_points.csv --samples 10000",
+    "python -m pm_footprint.jwst_mask_epoch_from_sample --points mask_points.csv --mask-summary mask_union.json --output epoch_mask_intersection.json"
+  ]
+}
