@@ -55,7 +55,7 @@ def sample_raw(fd, offset, nx, row, columns):
 
 def tan_cell_areas(x, y, widths, height, matrix, crpix):
     """Solid-angle corrected pixel areas in deg^2 for undistorted TAN WCS."""
-    dx, dy = np.asarray(x, dtype=float) + 1 - crpix[0], float(y) + 1 - crpix[1]
+    dx, dy = np.asarray(x, dtype=float) + 1 - crpix[0], np.asarray(y, dtype=float) + 1 - crpix[1]
     xi = np.deg2rad(matrix[0, 0] * dx + matrix[0, 1] * dy)
     eta = np.deg2rad(matrix[1, 0] * dx + matrix[1, 1] * dy)
     return (abs(np.linalg.det(matrix)) * widths * height
@@ -168,6 +168,7 @@ def run(v13, candidates_csv, stride, prefix):
         "candidate_centers_wht_positive": result["candidate_centers_wht_positive"]
     }))
     print("Saved JSON, candidate CSV and compressed grid under:", prefix)
+    return result
 
 
 def main():
