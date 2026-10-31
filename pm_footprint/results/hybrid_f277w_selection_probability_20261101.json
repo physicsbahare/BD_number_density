@@ -1,0 +1,93 @@
+{
+  "date": "2026-11-01",
+  "status": "SOURCE_VERIFIED_125_AND_ANALYTIC_GAUSSIAN_NOT_COMPLETENESS",
+  "fixture": "pm_footprint/results/v13_epoch_candidate_photometry_fixture_20261031.csv",
+  "original_125_source_rows_sha256": "93400baee3daccfc5020b01f93d05e9b65ef238afa62b5b691f4aa90728e2a40",
+  "f444_at_26p2_brighter_side_limit_njy": 120.226443462,
+  "sigma277_critical_njy": 2.003774058,
+  "zero_true_f277_gaussian_discontinuity": {
+    "p_approaching_from_below": 0.97725,
+    "p_at_or_approaching_from_above": 0.47725,
+    "jump_percentage_points": 50
+  },
+  "all_candidates": {
+    "n": 125,
+    "negative_branch_allowed": 57,
+    "negative_branch_forbidden": 68,
+    "observed_nonpositive": 26,
+    "conditional_gaussian_zero_flux_probability_median": 0.451681
+  },
+  "red365": {
+    "n": 62,
+    "negative_branch_allowed": 20,
+    "negative_branch_forbidden": 42,
+    "observed_nonpositive": 12,
+    "conditional_gaussian_zero_flux_probability_median": 0.385442
+  },
+  "no_red365": {
+    "n": 63,
+    "negative_branch_allowed": 37,
+    "negative_branch_forbidden": 26,
+    "observed_nonpositive": 14,
+    "conditional_gaussian_zero_flux_probability_median": 0.97725
+  },
+  "near_critical_10percent": [
+    {
+      "id": 311339,
+      "red365": 1,
+      "sigma_over_critical": 0.990012,
+      "sigma277_njy": 8.225125,
+      "critical_sigma277_njy": 8.308105,
+      "observed_nonpositive": false
+    },
+    {
+      "id": 592641,
+      "red365": 0,
+      "sigma_over_critical": 0.981134,
+      "sigma277_njy": 9.090896,
+      "critical_sigma277_njy": 9.265699,
+      "observed_nonpositive": true
+    },
+    {
+      "id": 1687583,
+      "red365": 1,
+      "sigma_over_critical": 0.943032,
+      "sigma277_njy": 6.32924,
+      "critical_sigma277_njy": 6.711588,
+      "observed_nonpositive": true
+    },
+    {
+      "id": 1651050,
+      "red365": 1,
+      "sigma_over_critical": 1.096951,
+      "sigma277_njy": 5.623454,
+      "critical_sigma277_njy": 5.126442,
+      "observed_nonpositive": false
+    }
+  ],
+  "pm_signature_candidates": [
+    {
+      "id": 387132,
+      "sigma_over_critical": 2.70944,
+      "sigma277_njy": 5.438993,
+      "critical_sigma277_njy": 2.007423,
+      "zero_true_flux_gaussian_probability": 0.269791
+    },
+    {
+      "id": 1651050,
+      "sigma_over_critical": 1.096951,
+      "sigma277_njy": 5.623454,
+      "critical_sigma277_njy": 5.126442,
+      "zero_true_flux_gaussian_probability": 0.465866
+    }
+  ],
+  "selection_logic": "signed f277/sigma<2 and f444/(f277 if f277>0 else 2*sigma)>30; negative flux accepted only when 2*sigma<f444/30",
+  "interpretation": [
+    "57/125 source positions permit negative F277W measurements; 68/125 categorically reject negative measured F277W under the published hybrid rule.",
+    "Of 26 actually negative/nonpositive F277W selected rows, all are in the permitted regime (necessary consequence of selection).",
+    "Among red365 covered sources, only 20/62 permit negative branch versus 37/63 outside, illustrating strong source-conditioned photometric heterogeneity, not area completeness.",
+    "Probability medians use hypothetical true zero F277W flux, Gaussian noise and fixed measured F444W; they are NOT actual source selection probabilities, PM detectability or an unbiased sky-area estimate.",
+    "The m444<26.2 cut is strict; the critical value at 26.2 is a brighter-side limiting reference.",
+    "No local four-band depth map, aperture masking, WHT-star mask direct intersection or F356W SNR is measured here."
+  ]
+}
