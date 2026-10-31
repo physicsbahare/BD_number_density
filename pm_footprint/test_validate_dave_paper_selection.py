@@ -37,10 +37,10 @@ class TestDaveSelection(unittest.TestCase):
         self.assertEqual(a["negative_blue_SNR_at_most_minus2"]["F115W"],[1])
 
     def test_corrected_vs_raw_snr(self):
-        a=analyze([row(source_id=i, f277=2,e277=2,f444=36) for i in range(1,126)])
+        a=analyze([row(source_id=i, f277=2,e277=2,f444=150) for i in range(1,126)])
         self.assertEqual(a["corrected_new_e"]["all_cuts_passed"],125)
-        self.assertEqual(a["uncorrected_e"]["all_cuts_passed"],125) # both at SNR=7.2 and 14.4
-        b=evaluate([row(f277=2,e277=2,f444=28)])
+        self.assertEqual(a["uncorrected_e"]["all_cuts_passed"],0)  # raw F277 SNR=2, fails strict <2
+        b=evaluate([row(f277=0.4,e277=2,f444=28)])
         self.assertEqual(b["all_cuts_passed"],1)  # corrected SNR=5.6
 
     def test_invalid_sky_match_rejected(self):
