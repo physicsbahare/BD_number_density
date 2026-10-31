@@ -1,0 +1,35 @@
+{
+  "status": "PROVISIONAL_MASK_UNION_AREA_RASTER_QC__NOT_SELECTION_MATCHED",
+  "source": "User-supplied cosmos_web_starmask_jwst.tar.gz, 20 FITS tiles, 30mas native pixel; no WHT download and no MAST requery.",
+  "source_sha256": "a06107b1c654387bf3ab5284792201cb299b7942f52dc95e41089b0e2967cd52",
+  "method": "For each FITS tile, aggregate native 30mas binary mask into 10x10 pixel blocks, transform sky position with FITS PC/TAN WCS into Lambert equal-area coordinates, then deposit masked fractional area by bilinear area weights onto 0.3arcsec and 0.6arcsec grids. In overlapping sky cells, max(per-tile fractional mask) and min(1,sum(per-tile fractional mask)) form approximate lower/upper union-mask area estimates. Rasterization and fractional cell assumptions mean these are not rigorous exact-sky bounds.",
+  "n_tiles": 20,
+  "mask_code_interpreted_as_excluded": 1,
+  "native_per_tile_masked_area_sum_deg2_NOT_UNION": 0.014199219444444447,
+  "grids": {
+    "0.3arcsec": {
+      "union_masked_area_approx_lower_deg2": 0.012795603151184437,
+      "union_masked_area_approx_upper_deg2": 0.012898633561683434,
+      "occupied_cells": 2748260,
+      "mean_native_to_grid_area_ratio": 0.9937459970910172,
+      "worst_native_to_grid_area_ratio": 0.9920597698914448
+    },
+    "0.6arcsec": {
+      "union_masked_area_approx_lower_deg2": 0.012859847813542347,
+      "union_masked_area_approx_upper_deg2": 0.013071183105480923,
+      "occupied_cells": 913332,
+      "mean_native_to_grid_area_ratio": 0.9991320345257652,
+      "worst_native_to_grid_area_ratio": 0.9985820287341146
+    }
+  },
+  "conservative_report_as": "approximately 0.013 square degrees of unique masked sky (rough raster sensitivity range 0.0128 to 0.0131 square degrees); not the overlap with F444W WHT or multi-epoch geometry",
+  "limitations": [
+    "Masked pixels outside the usable WHT footprint have not been excluded.",
+    "Sky-cell overlap max/sum bounds are approximate because grid deposition and WCS resampling are not an exact native-pixel geometric union.",
+    "A 30mas native-pixel exact conservation or offset sensitivity test should precede subpercent scientific claims.",
+    "Confirm mask pixel 1 means excluded in COSMOS2025 documentation.",
+    "The mask data are not a completeness function: F444W=26.2, blue-filter non-detections, F356W SNR, and near-neighbor deblending are separate.",
+    "The 0/125 source-center-in-mask result remains unchanged; a source PSF/aperture can overlap the mask even when its center is unmasked.",
+    "Source binary tar.gz is a conversation attachment, not hosted in GitHub."
+  ]
+}
