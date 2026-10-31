@@ -1,0 +1,146 @@
+{
+  "status": "EXPLORATORY_MAGNITUDE_STRATIFIED_COUNTS_NOT_COMPLETENESS",
+  "source": "frozen 125-row Zhen-Kai v13 candidate photometry fixture",
+  "areas_deg2": {
+    "red365_WHT_positive": 0.31462445722188803,
+    "nonred_WHT_positive": 0.21419922777692002
+  },
+  "n_rows": 125,
+  "n_unique_ids": 125,
+  "mag_bins": [
+    {
+      "lower_mag_inclusive": null,
+      "upper_mag_exclusive": 23,
+      "red365_count": 8,
+      "nonred_count": 19,
+      "density_ratio": {
+        "ratio": 0.28665650895043066,
+        "poisson_wald_95pct": [
+          0.1254887333254583,
+          0.6548153921558298
+        ]
+      }
+    },
+    {
+      "lower_mag_inclusive": 23,
+      "upper_mag_exclusive": 24,
+      "red365_count": 1,
+      "nonred_count": 8,
+      "density_ratio": {
+        "ratio": 0.0851011510946591,
+        "poisson_wald_95pct": [
+          0.010643470708974248,
+          0.6804364962952915
+        ]
+      }
+    },
+    {
+      "lower_mag_inclusive": 24,
+      "upper_mag_exclusive": 25,
+      "red365_count": 18,
+      "nonred_count": 12,
+      "density_ratio": {
+        "ratio": 1.0212138131359092,
+        "poisson_wald_95pct": [
+          0.4919112622784674,
+          2.1200523999168337
+        ]
+      }
+    },
+    {
+      "lower_mag_inclusive": 25,
+      "upper_mag_exclusive": 26,
+      "red365_count": 25,
+      "nonred_count": 21,
+      "density_ratio": {
+        "ratio": 0.8104871532824677,
+        "poisson_wald_95pct": [
+          0.4537132545930845,
+          1.4478074400207983
+        ]
+      }
+    },
+    {
+      "lower_mag_inclusive": 26,
+      "upper_mag_exclusive": 26.2,
+      "red365_count": 10,
+      "nonred_count": 3,
+      "density_ratio": {
+        "ratio": 2.269364029190909,
+        "poisson_wald_95pct": [
+          0.6245459802803741,
+          8.246011117826152
+        ]
+      }
+    },
+    {
+      "lower_mag_inclusive": 26.2,
+      "upper_mag_exclusive": null,
+      "red365_count": 0,
+      "nonred_count": 0,
+      "density_ratio": {
+        "ratio": null,
+        "poisson_wald_95pct": null
+      }
+    }
+  ],
+  "bright_m444_lt25": {
+    "red": 27,
+    "nonred": 39,
+    "density_ratio": {
+      "ratio": 0.4713294522165735,
+      "poisson_wald_95pct": [
+        0.28854752800626604,
+        0.7698955318097581
+      ]
+    }
+  },
+  "faint_m444_ge25": {
+    "red": 35,
+    "nonred": 24,
+    "density_ratio": {
+      "ratio": 0.9928467627710229,
+      "poisson_wald_95pct": [
+        0.5905934679768107,
+        1.6690748336952563
+      ]
+    }
+  },
+  "red_bright_vs_faint_odds_ratio_relative_to_nonred": 0.4747252747252747,
+  "fisher_two_sided_exploratory_p": 0.049316844888542495,
+  "proximity_groups_0p5arcsec": {
+    "n_groups": 115,
+    "bright_m444_lt25": {
+      "red": 25,
+      "nonred": 32,
+      "density_ratio": {
+        "ratio": 0.5318821943416194,
+        "poisson_wald_95pct": [
+          0.3152119252753217,
+          0.8974872013822399
+        ]
+      }
+    },
+    "faint_m444_ge25": {
+      "red": 35,
+      "nonred": 23,
+      "density_ratio": {
+        "ratio": 1.0360140133262847,
+        "poisson_wald_95pct": [
+          0.612183034706689,
+          1.753274715171893
+        ]
+      }
+    },
+    "red_bright_vs_faint_odds_ratio_relative_to_nonred": 0.5133928571428571,
+    "fisher_two_sided_exploratory_p": 0.0940588513817593
+  },
+  "limitations": [
+    "25 AB is a descriptive exploratory threshold, not preregistered; Fisher p is not confirmatory.",
+    "Poisson Wald CIs assume independent counts and fixed area, neglect spatial correlation and depth.",
+    "Close-pair groups are proximity components, not confirmed distinct astrophysical sources.",
+    "F444W magnitude stratification does not control F277W local noise, flags, crowding or F356W SNR.",
+    "Public 60mas WHT grid loses about 0.96% per-tile native area; geometric, not selection matched.",
+    "No claim of intrinsic underdensity or PM recovery completeness."
+  ]
+}
