@@ -1,0 +1,113 @@
+{
+  "date": "2026-10-31",
+  "status": "DAVE_PAPER_SELECTION_REPRODUCED_ON_ALL_125_PRESELECTED_V13_SOURCE_ROWS_NOT_YET_FULL_CATALOG",
+  "sources": {
+    "paper_pdf_sha256": "5760a53a617a2cbc9eb7fd90bec748ec6a4b7e5a95117e12198b04fb405a5084",
+    "matched_catalog_rows_csv_sha256": "93400baee3daccfc5020b01f93d05e9b65ef238afa62b5b691f4aa90728e2a40",
+    "id_check_json_sha256": "b02507707779d6cfaee1250f40979fd0d7929069478507c51ad09241199f1de9",
+    "pixel_alignment_json_sha256": "18f52405819c5f1afda03d65266750ef76edd27f75149e66193906960b6a57e4",
+    "frozen_roster_sha256": "d43ce32e33b898f6bf57551affe41f209e0b455a4e4e63b4e99a8eea03236bbd"
+  },
+  "paper": {
+    "draft_date": "2026-10-29",
+    "paper_selection_sec_2_2": {
+      "F444W_snr": ">5",
+      "F115W_F150W_F277W_signed_snr": "<2",
+      "ratio": "F444W / (F277W if measured F277W>0, else 2*F277W uncertainty) >30",
+      "m_F444W_AB": "<26.2"
+    },
+    "reported_full_catalog_stage_counts": {
+      "SNR_step": 2997,
+      "flux_ratio_step": 335,
+      "magnitude_step": 125
+    },
+    "reported_catalog_derived_fourband_depth_zone_area_deg2": 0.5304,
+    "expected_selected_galactic_UCD_count": 2,
+    "important": "Paper explicitly says this predicted number concerns sources passing photometric selection, NOT sources with sufficient multi-epoch imaging for proper-motion confirmation.",
+    "pm_candidate_cautions": "387132: multi-exposure F444W/F410M 1.992yr robust; 1651050: one usable F356W exposure 1.362yr and parallax-sensitive, independent epoch required."
+  },
+  "matched_rows": {
+    "total": 125,
+    "id_match": 125,
+    "max_coordinate_separation_arcsec": 1.840677693008503e-9
+  },
+  "selection_reproduction": {
+    "new_e_corrected_all_cuts": 125,
+    "raw_e_all_cuts": 87,
+    "new_e_each_cut": {
+      "F444W_snr_gt5": 125,
+      "F115W_snr_lt2": 125,
+      "F150W_snr_lt2": 125,
+      "F277W_snr_lt2": 125,
+      "hybrid_F444W_F277W_ratio_gt30": 125,
+      "m444_lt26p2": 125
+    },
+    "raw_e_blue_non_detections": {
+      "F115W_snr_lt2": 120,
+      "F150W_snr_lt2": 120,
+      "F277W_snr_lt2": 95
+    },
+    "F277W_positive_flux_count": 99,
+    "F277W_zero_or_negative_count": 26,
+    "min_corrected_F444W_SNR": 5.359261907284411,
+    "max_corrected_F277W_SNR": 1.973350115341597,
+    "min_hybrid_ratio": 30.1916320209306,
+    "max_m444_AB": 26.19802459123042,
+    "signed_negative_snr_outliers": {
+      "F115W": [
+        142367
+      ],
+      "F150W": [
+        203707
+      ],
+      "F277W": []
+    },
+    "note": "Signed <2 criterion includes extreme negative noise values, not equivalent to |SNR|<2."
+  },
+  "quality_flags": {
+    "use_phot_true": 125,
+    "artifact_flagged": 0,
+    "use_aper_diameter_arcsec_counts": {
+      "0.32": 112,
+      "0.48": 6,
+      "0.70": 7
+    },
+    "FLAG_AUTO_LW_counts": {
+      "0": 40,
+      "32": 81,
+      "128": 4
+    },
+    "FLAG_BAD_KRON_LW_counts": {
+      "0": 65,
+      "1": 60
+    },
+    "note": "Do not automatically drop 85 sources with nonzero FLAG_AUTO_LW or 60 with bad-Kron flag; photometry uses adaptive aperture and Dave source selection did not impose those blanket exclusions."
+  },
+  "wcs": {
+    "blue_header_to_F444W_median_offset_pixels": 67565.45836798355,
+    "blue_filters": [
+      "F115W",
+      "F150W",
+      "F277W"
+    ],
+    "blue_ERR_centers_positive_via_same_F444W_native_pixel": 125,
+    "blue_ERR_centers_positive_via_incorrect_header_WCS": 33,
+    "header_WCS_centers_inside_map": 47,
+    "statement": "All four ERR maps have positive values at common F444W native-pixel coordinates for all 125. This distinguishes sparse/no-SNR detection from no coverage, but does not itself prove blue SCI mosaics physically aligned."
+  },
+  "geometric_comparison": {
+    "v13_WHT_positive_sampled_deg2": 0.5336191141938245,
+    "paper_catalog_derived_depth_zone_area_deg2": 0.5304,
+    "absolute_difference_deg2": 0.0032191141938245,
+    "relative_difference_percent_of_v13_WHT": 0.603260660684507,
+    "note": "Different footprint definitions, not yet a measured source-selection loss or completeness."
+  },
+  "limitations": [
+    "Real paper recipe is verified on preselected 125 rows, not yet independently run on 3.28 million source catalog to reproduce 2997/335/125 discovery stages.",
+    "Source original David selection Python is not yet supplied; consistency with published recipe is strong but pipeline provenance cannot be proven.",
+    "Paper's 0.5304deg2 is catalog-derived four-band depth-zone area, NOT a published explicit 26.2AB recovery fraction or PM-effective area.",
+    "Blue SCI WCS header discrepancy needs independent image registration before spatial depth map integration.",
+    "New_e noise correction and F277W positive/nonpositive flux branches must be preserved; universal 28.9AB F277W threshold is NOT equivalent to Dave hybrid selection.",
+    "F356W second-epoch detectability/astrometric precision and injection-recovery completeness remain unmeasured."
+  ]
+}
