@@ -12,6 +12,9 @@ on:
       - 'pm_footprint/validate_dave_paper_selection.py'
       - 'pm_footprint/test_validate_dave_paper_selection.py'
       - 'pm_footprint/v13_full_catalog_paper_stages.py'
+      - 'pm_footprint/verify_full_catalog_selection.py'
+      - 'pm_footprint/test_verify_full_catalog_selection.py'
+      - 'pm_footprint/results/v13_full_catalog_paper_stages_20261031.json'
       - 'pm_footprint/test_v13_full_catalog_paper_stages.py'
       - 'pm_footprint/test_local_v13_selection_probes.py'
       - 'pm_footprint/jwst_mask_wht_sparse_intersection.py'
@@ -52,6 +55,17 @@ jobs:
           lo,hi=d['nominal_mc_mask_fraction_bounds_across_phases']
           assert 0.59<lo<=hi<0.60
           print('Conditional range verified:',lo,hi)
+          PY
+      - name: Verify independent full-v13 paper counts from user's compact source evidence
+        run: |
+          python -m pm_footprint.verify_full_catalog_selection \
+            --input pm_footprint/results/v13_full_catalog_paper_stages_20261031.json \
+            --out /tmp/verified_v13_full_selection.json
+          python - <<'PY'
+          import json
+          d=json.load(open('/tmp/verified_v13_full_selection.json'))
+          assert d['corrected_error_with_gate_matches_all_125_IDs']
+          assert d['numeric_rows_excluded_by_use_phot_gate']==69622
           PY
       - name: Verify reference metadata exist (no archive or WHT download)
         run: |
