@@ -20,6 +20,18 @@ class F277WDepthThresholdTests(unittest.TestCase):
             with self.assertRaises(ValueError):
                 m5_from_sigma(sigma)
 
+    def test_committed_125_source_fixture(self):
+        import csv
+        from pathlib import Path
+        fixture = Path("pm_footprint/results/v13_epoch_candidate_photometry_fixture_20261031.csv")
+        with fixture.open(newline="") as f:
+            result = summarize(list(csv.DictReader(f)))
+        self.assertEqual(result["all"]["n_conservative_ratio_pass"], 57)
+        self.assertEqual(result["red365"]["n_conservative_ratio_pass"], 20)
+        self.assertEqual(result["no_red365"]["n_conservative_ratio_pass"], 37)
+        self.assertEqual(result["all"]["n_m5_at_least_28p9"], 0)
+        self.assertAlmostEqual(result["all"]["median_m5_F277W_aperture_equivalent"], 27.30603492114213)
+
     def test_frozen_roster_guard(self):
         with self.assertRaises(ValueError):
             summarize([])
