@@ -1,5 +1,7 @@
 """Estimate JWST star-mask sky union from user-supplied COSMOS2025 30mas FITS.
 No WHT download or MAST queries. Requires only numpy.
+Use --sample-out points.csv --samples 10000 to generate reproducible weighted
+sky positions for the epoch-geometry intersection script.
 Usage: python -m pm_footprint.jwst_mask_union_repro --archive FILE.tar.gz
 0.3"/0.6" results are raster approximations, not a calibrated dropout effective area.
 """
@@ -8,6 +10,9 @@ from pathlib import Path
 parser=argparse.ArgumentParser()
 parser.add_argument('--archive',required=True)
 parser.add_argument('--output',default='jwst_mask_union_conservative.json')
+parser.add_argument('--sample-out',default=None,help='Optional output CSV of weighted masked-sky Lambert points (radians)')
+parser.add_argument('--samples',type=int,default=10000)
+parser.add_argument('--seed',type=int,default=20261031)
 args=parser.parse_args()
 F=args.archive;R=np.pi/180
 r0=150.12*R; d0=2.2*R; s0=np.sin(d0);c0=np.cos(d0)
@@ -90,6 +95,22 @@ for g in GRIDS:
  lo=lower.sum(dtype=np.float64)*(g/3600)**2
  hi=np.minimum(upper,1).sum()*(g/3600)**2
  res['grid_results'][str(g)]={'union_lower_bound_deg2':lo,'union_upper_bound_deg2':hi,'occupied_cells':len(uniq)}
+ if g == 0.6 and args.sample_out:
+  if args.samples < 100:
+   raise ValueError('At least 100 Monte Carlo samples required')
+  weights=np.minimum(upper,1)
+  rng=np.random.default_rng(args.seed)
+  picked=uniq[rng.choice(len(uniq),size=args.samples,replace=True,p=weights/weights.sum())]
+  gs=g/3600.
+  x=(ORIGIN+(picked%round(SIZE/gs)+0.5)*gs)*R
+  y=(ORIGIN+(picked//round(SIZE/gs)+0.5)*gs)*R
+  np.savetxt(args.sample_out,np.column_stack((x,y)),delimiter=',',
+             header='x_lambert_rad,y_lambert_rad',comments='',fmt='%.13g')
+  res['weighted_mc_sample']={'file':str(args.sample_out),'n':args.samples,
+                              'seed':args.seed,'source_grid_arcsec':g,
+                              'sampling_area_deg2':hi,
+                              'weight':'clipped sum across tiles (upper raster approximation)'}
+
  print('UNION',g,'lo',lo,'hi',hi,'elapsed',time.time()-T,flush=True)
 Path(args.output).write_text(json.dumps(res,indent=2)+'\n')
 print('DONE',time.time()-T,flush=True)
