@@ -104,8 +104,8 @@ for g in GRIDS:
   rng=np.random.default_rng(args.seed)
   picked=uniq[rng.choice(len(uniq),size=args.samples,replace=True,p=weights/weights.sum())]
   gs=g/3600.
-  x=(ORIGIN+(picked%round(SIZE/gs)+0.5)*gs)*R
-  y=(ORIGIN+(picked//round(SIZE/gs)+0.5)*gs)*R
+  x=(ORIGIN+(picked%round(SIZE/gs)+0.5+args.shift_x_cells)*gs)*R
+  y=(ORIGIN+(picked//round(SIZE/gs)+0.5+args.shift_y_cells)*gs)*R
   np.savetxt(args.sample_out,np.column_stack((x,y)),delimiter=',',
              header='x_lambert_rad,y_lambert_rad',comments='',fmt='%.13g')
   res['weighted_mc_sample']={'file':str(args.sample_out),'n':args.samples,
