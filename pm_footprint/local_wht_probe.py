@@ -79,6 +79,7 @@ def main():
                    if any(f in x.name.lower() for f in FILTERS))
     if not tiles:
         p.error("No COSMOS-Web WHT tiles found; check --cosmos-dir")
+    print("Reading primary headers only; no pixel samples", flush=True)
     result = {"purpose": "primary FITS header QC only, NOT effective area",
               "v13": probe(args.v13), "cosmos_web": [probe(t, sample=False) for t in tiles],
               "tile_count": len(tiles),
