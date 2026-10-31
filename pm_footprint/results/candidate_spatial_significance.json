@@ -1,0 +1,49 @@
+{
+  "status": "CONDITIONAL_UNIFORM_SURFACE_DENSITY_DIAGNOSTIC_NOT_COMPLETENESS",
+  "area_total_deg2": 0.528823684998808,
+  "red365_area_deg2": 0.31462445722188803,
+  "individual_catalog_entries": {
+    "n_inside": 62,
+    "n_outside": 63,
+    "n_total": 125,
+    "null_inside_probability": 0.5949515238195074,
+    "observed_inside_fraction": 0.496,
+    "density_inside_per_deg2": 197.06033201441383,
+    "density_outside_per_deg2": 294.1187074008128,
+    "inside_outside_density_ratio": 0.6700027133801733,
+    "conditional_exact_two_sided_pvalue": 0.02844524875452935,
+    "conditional_exact_95pct_inside_fraction_ci": [
+      0.4053823122788233,
+      0.5868115447309302
+    ],
+    "transformed_95pct_density_ratio_ci": [
+      0.4641436286976943,
+      0.9668873812017266
+    ]
+  },
+  "positional_groups_0p5arcsec": {
+    "n_inside": 60,
+    "n_outside": 55,
+    "n_total": 115,
+    "null_inside_probability": 0.5949515238195074,
+    "observed_inside_fraction": 0.5217391304347826,
+    "density_inside_per_deg2": 190.70354711072306,
+    "density_outside_per_deg2": 256.77030011182075,
+    "inside_outside_density_ratio": 0.7427009550079339,
+    "conditional_exact_two_sided_pvalue": 0.12819957148595643,
+    "conditional_exact_95pct_inside_fraction_ci": [
+      0.42658194229707797,
+      0.6157496371497936
+    ],
+    "transformed_95pct_density_ratio_ci": [
+      0.5064732627514781,
+      1.0909762586846277
+    ]
+  },
+  "assumptions": [
+    "Independent uniform source positions conditional on N and fixed areas.",
+    "0.5arcsec positional grouping is NOT validated deblending.",
+    "No correction for spatial clustering, selection, depth or WHT rasterization.",
+    "Exploratory conditional null test, not PM detection probability or completeness."
+  ]
+}
