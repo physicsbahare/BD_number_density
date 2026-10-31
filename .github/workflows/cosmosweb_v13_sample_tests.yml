@@ -27,6 +27,9 @@ on:
       - 'pm_footprint/test_v13_epoch_overlay.py'
       - 'pm_footprint/f277w_depth_threshold.py'
       - 'pm_footprint/test_f277w_depth_threshold.py'
+      - 'pm_footprint/brightness_stratified_density.py'
+      - 'pm_footprint/test_brightness_stratified_density.py'
+      - 'pm_footprint/results/magnitude_stratified_density_20261101.json'
       - 'pm_footprint/mask_count_reconciliation.py'
       - 'pm_footprint/test_mask_count_reconciliation.py'
       - 'pm_footprint/results/mask_count_reconciliation_20261101.json'
@@ -54,7 +57,7 @@ jobs:
         run: python -m pip install 'astropy>=6' 'shapely>=2.1,<3' numpy pandas
       - name: Run offline synthetic FITS and exact-polygon tests
         run: |
-          python -m unittest -v pm_footprint.test_local_v13_wht_sample pm_footprint.test_v13_epoch_overlay pm_footprint.test_v13_starmask_bounds pm_footprint.test_local_v13_photometry_probe pm_footprint.test_local_v13_selection_probes pm_footprint.test_jwst_mask_wht_sparse_intersection pm_footprint.test_v13_psf_noise_qc pm_footprint.test_validate_dave_paper_selection pm_footprint.test_v13_full_catalog_paper_stages pm_footprint.test_verify_full_catalog_selection pm_footprint.test_hybrid_f277w_selection_probability pm_footprint.test_f277w_depth_threshold pm_footprint.test_mask_count_reconciliation
+          python -m unittest -v pm_footprint.test_local_v13_wht_sample pm_footprint.test_v13_epoch_overlay pm_footprint.test_v13_starmask_bounds pm_footprint.test_local_v13_photometry_probe pm_footprint.test_local_v13_selection_probes pm_footprint.test_jwst_mask_wht_sparse_intersection pm_footprint.test_v13_psf_noise_qc pm_footprint.test_validate_dave_paper_selection pm_footprint.test_v13_full_catalog_paper_stages pm_footprint.test_verify_full_catalog_selection pm_footprint.test_hybrid_f277w_selection_probability pm_footprint.test_f277w_depth_threshold pm_footprint.test_mask_count_reconciliation pm_footprint.test_brightness_stratified_density
       - name: Reproduce provisional conditional v13+JWST star-mask set bounds (offline)
         run: |
           python -m pm_footprint.v13_starmask_bounds --out /tmp/v13_starmask_bounds_qc.json
@@ -87,6 +90,17 @@ jobs:
           assert all(not s['can_star_mask_alone_equalize_densities'] for s in scenarios)
           assert d['wht_threshold_baseline_days']['0']['365']['required_red_only_mask_over_available_upper_bound']>7
           print('All 12 conservative mask-area scenarios cannot equalize densities')
+          PY
+      - name: Reproduce F444W brightness-stratified source and group counts
+        run: |
+          python -m pm_footprint.brightness_stratified_density --out /tmp/magnitude_stratified_density_qc.json
+          python - <<'PY'
+          import json
+          d=json.load(open('/tmp/magnitude_stratified_density_qc.json'))
+          assert d['n_rows']==125 and d['proximity_groups_0p5arcsec']['n_groups']==115
+          assert (d['bright_m444_lt25']['red'],d['bright_m444_lt25']['nonred'])==(27,39)
+          assert (d['faint_m444_ge25']['red'],d['faint_m444_ge25']['nonred'])==(35,24)
+          print('Magnitude stratification and close-pair groups verified')
           PY
       - name: Verify reference metadata exist (no archive or WHT download)
         run: |
