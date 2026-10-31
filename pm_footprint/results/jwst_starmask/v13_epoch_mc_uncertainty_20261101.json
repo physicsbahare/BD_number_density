@@ -1,0 +1,77 @@
+{
+  "status": "MC_UNCERTAINTY_AUDIT_NOT_DIRECT_WHT_MASK_INTERSECTION",
+  "date": "2026-11-01",
+  "method": "Frozen 1000 iid weighted-mask-grid point draws; 97.5% marginal Wilson intervals for red and survey membership; Bonferroni approximate >=95% simultaneous sampling coverage; evaluate four feasible rectangle corners with epoch-stratified set bounds.",
+  "inputs": {
+    "overlay": "pm_footprint/results/local_v13_epoch_overlay_20261031.json",
+    "mc": "pm_footprint/results/jwst_starmask/epoch_mc_20261031.json",
+    "mask": "pm_footprint/results/jwst_starmask/summary.json",
+    "raster": "pm_footprint/results/jwst_starmask/union_area_grid_qc.json",
+    "n": 1000,
+    "red_count": 575,
+    "survey_count": 995,
+    "raster_area_deg2": 0.013071183105480923,
+    "native_tile_sum_cap_deg2": 0.0141992195
+  },
+  "wilson_marginal_confidence": 0.975,
+  "bonferroni_joint_confidence_approx_at_least": 0.95,
+  "red_probability_interval": [
+    0.5396720422558995,
+    0.609578141805938
+  ],
+  "survey_probability_interval": [
+    0.9869586051585808,
+    0.9980926096495468
+  ],
+  "phase_results": [
+    {
+      "phase": 0.25,
+      "unmasked_fraction": 0.594828122219614,
+      "nominal_conditional_fraction": [
+        0.5948879839387807,
+        0.5954388229527625
+      ],
+      "mc_wilson_bonferroni_fraction_envelope": [
+        0.593900497919156,
+        0.5963721866678143
+      ],
+      "all_mask_placement_cap_fraction_envelope": [
+        0.5837518518686242,
+        0.6110890659212576
+      ]
+    },
+    {
+      "phase": 0.75,
+      "unmasked_fraction": 0.5947889654233655,
+      "nominal_conditional_fraction": [
+        0.594879842990385,
+        0.5954068002939568
+      ],
+      "mc_wilson_bonferroni_fraction_envelope": [
+        0.5938923434506636,
+        0.5963401113221694
+      ],
+      "all_mask_placement_cap_fraction_envelope": [
+        0.583712051110625,
+        0.6110482126845903
+      ]
+    }
+  ],
+  "mc_fraction_envelope_all_phases": [
+    0.5938923434506636,
+    0.5963721866678143
+  ],
+  "placement_cap_fraction_envelope_all_phases": [
+    0.583712051110625,
+    0.6110890659212576
+  ],
+  "scientific_interpretation": "Previously quoted 59.488%-59.544% conditional nominal interval is too precise to be treated as a final uncertainty range. Even under fixed raster and iid sample assumptions, approximate 95% simultaneous sample uncertainty widens it to 59.389%-59.637%. Without MC spatial allocation, nominal 30mas tile-sum mask cap alone permits 58.371%-61.109%. Both still exclude systematic errors.",
+  "limitations": [
+    "Sampling confidence is conditional on fixed raster mask and assumed iid weighted draws; not a full 95% scientific CI.",
+    "0.6arcsec raster union upper is approximate, not a strict sky bound.",
+    "30mas native tile-sum area is nominal, not independently validated with per-pixel TAN WCS determinant.",
+    "3.6arcsec WHT phase sampling and ~0.96% raster deposition losses are not propagated.",
+    "No direct WHT-star-mask spatial intersection, calibrated F444W=26.2 selection area, or F356W astrometric completeness.",
+    "No re-download of large WHT or user-supplied star mask was attempted."
+  ]
+}
