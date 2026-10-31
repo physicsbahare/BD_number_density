@@ -5,8 +5,14 @@ on:
   push:
     branches: [main]
     paths:
-      - 'pm_footprint/**'
+      - 'pm_footprint/compute.py'
+      - 'pm_footprint/exact_geometry.py'
+      - 'pm_footprint/compare_depths.py'
+      - 'pm_footprint/candidate_neighbour_qc.py'
+      - 'pm_footprint/dave125_positions.csv'
+      - 'pm_footprint/results/mast_observations.csv'
       - 'tests/test_pm_footprint.py'
+      - 'tests/test_pm_footprint_exact.py'
       - '.github/workflows/cosmosweb_pm_footprint.yml'
 
 permissions:
