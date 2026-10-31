@@ -1,0 +1,69 @@
+{
+  "status": "HEADER_QC_ONLY_NO_MEASURED_WHT_AREA",
+  "source": "User-provided local_wht_probe.json; local 50GB WHT and 121GB gzip mosaics were not uploaded",
+  "probe_json_sha256": "cb63424bb3886eb71718c9ab51d3b1ae6bb9cbaf5860ae9b04b6d06ce9b162c6",
+  "v13": {
+    "filename": "F444W_psf_matched_F444W_WHT_v13.fits",
+    "bytes": 50810063040,
+    "shape_yx": [
+      115593,
+      109890
+    ],
+    "pixel_scale_arcsec_approx": 0.029999999391971524,
+    "rectangular_tangent_plane_area_deg2": 0.882119045493099,
+    "has_celestial_wcs": true,
+    "wcs_crval_deg": [
+      150.12131667867,
+      2.208960588561
+    ],
+    "bunit": null,
+    "wht_type": null
+  },
+  "cosmos_web": {
+    "n_tiles": 80,
+    "filters": {
+      "F115W": 20,
+      "F150W": 20,
+      "F277W": 20,
+      "F444W": 20
+    },
+    "unique_tiles_per_filter": 20,
+    "tile_ids": [
+      "A1",
+      "A2",
+      "A3",
+      "A4",
+      "A5",
+      "A6",
+      "A7",
+      "A8",
+      "A9",
+      "A10",
+      "B1",
+      "B2",
+      "B3",
+      "B4",
+      "B5",
+      "B6",
+      "B7",
+      "B8",
+      "B9",
+      "B10"
+    ],
+    "shape_yx": [
+      24910,
+      19200
+    ],
+    "celestial_wcs_in_first_header": 0,
+    "total_gzip_bytes": 121180948775,
+    "all_first_hdu_extname": "WHT",
+    "all_first_hdu_bunit": null
+  },
+  "interpretation": [
+    "v13 0.882119 deg2 is entire image rectangle, NOT survey footprint; positive WHT must be sampled/integrated.",
+    "COSMOS-Web 30mas WHT tiles do not carry celestial WCS in first header. Use verified SCI WCS/corner metadata, not arbitrary alignment.",
+    "Neither file collection exposes WHT units/calibration in first header. WHT>0 cannot be relabeled as F444W 26.2 AB selection area.",
+    "The 80 files do not include F356W observations for astrometric detectability.",
+    "Follow-up script samples v13 WHT directly in bounded memory, saves compact spatial grids and 125 candidate-center WHT values. No WHT recompression or redownload."
+  ]
+}
