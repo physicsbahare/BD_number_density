@@ -1,0 +1,433 @@
+{
+  "status": "CONDITIONAL_BASELINE_ONLY_FEASIBILITY_NOT_MEASURED_PM_COMPLETENESS",
+  "source": "pm_footprint/results/f356w_baselines/candidate_f356w_baselines.csv",
+  "n_candidates": 125,
+  "n_geometric_f356w_ge365": 62,
+  "significance_sigma": 3,
+  "assumed_independent_equal_epoch_positional_errors_mas": [
+    10,
+    15,
+    20,
+    30
+  ],
+  "assumed_true_proper_motions_mas_per_year": [
+    20,
+    30,
+    50,
+    80,
+    100
+  ],
+  "conditional_baseline_sufficient_counts_by_sigma_then_mu": {
+    "10": {
+      "20": 4,
+      "30": 46,
+      "50": 62,
+      "80": 62,
+      "100": 62
+    },
+    "15": {
+      "20": 0,
+      "30": 4,
+      "50": 61,
+      "80": 62,
+      "100": 62
+    },
+    "20": {
+      "20": 0,
+      "30": 1,
+      "50": 45,
+      "80": 62,
+      "100": 62
+    },
+    "30": {
+      "20": 0,
+      "30": 0,
+      "50": 1,
+      "80": 46,
+      "100": 61
+    }
+  },
+  "example_median_gap_days": 752.1011143171309,
+  "example_median_gap_required_equal_sigma_per_epoch_for_mu50_3sigma_mas": 24.267205022660367,
+  "candidate_priority_by_longest_baseline": [
+    {
+      "candidate_id": 751857,
+      "max_available_conservative_gap_days": 1139.444272,
+      "min_mu_3sigma_if_sigma20_masyr": 27.2,
+      "max_sigma_per_epoch_3sigma_if_mu50_mas": 36.765
+    },
+    {
+      "candidate_id": 2729586,
+      "max_available_conservative_gap_days": 869.773914,
+      "min_mu_3sigma_if_sigma20_masyr": 35.633,
+      "max_sigma_per_epoch_3sigma_if_mu50_mas": 28.064
+    },
+    {
+      "candidate_id": 2031339,
+      "max_available_conservative_gap_days": 869.720192,
+      "min_mu_3sigma_if_sigma20_masyr": 35.635,
+      "max_sigma_per_epoch_3sigma_if_mu50_mas": 28.062
+    },
+    {
+      "candidate_id": 2605623,
+      "max_available_conservative_gap_days": 869.606171,
+      "min_mu_3sigma_if_sigma20_masyr": 35.64,
+      "max_sigma_per_epoch_3sigma_if_mu50_mas": 28.059
+    },
+    {
+      "candidate_id": 1421504,
+      "max_available_conservative_gap_days": 771.657814,
+      "min_mu_3sigma_if_sigma20_masyr": 40.164,
+      "max_sigma_per_epoch_3sigma_if_mu50_mas": 24.898
+    },
+    {
+      "candidate_id": 1793642,
+      "max_available_conservative_gap_days": 771.479491,
+      "min_mu_3sigma_if_sigma20_masyr": 40.173,
+      "max_sigma_per_epoch_3sigma_if_mu50_mas": 24.892
+    },
+    {
+      "candidate_id": 1813942,
+      "max_available_conservative_gap_days": 768.622758,
+      "min_mu_3sigma_if_sigma20_masyr": 40.322,
+      "max_sigma_per_epoch_3sigma_if_mu50_mas": 24.8
+    },
+    {
+      "candidate_id": 777681,
+      "max_available_conservative_gap_days": 767.820199,
+      "min_mu_3sigma_if_sigma20_masyr": 40.364,
+      "max_sigma_per_epoch_3sigma_if_mu50_mas": 24.774
+    },
+    {
+      "candidate_id": 804155,
+      "max_available_conservative_gap_days": 767.820199,
+      "min_mu_3sigma_if_sigma20_masyr": 40.364,
+      "max_sigma_per_epoch_3sigma_if_mu50_mas": 24.774
+    },
+    {
+      "candidate_id": 815689,
+      "max_available_conservative_gap_days": 767.820199,
+      "min_mu_3sigma_if_sigma20_masyr": 40.364,
+      "max_sigma_per_epoch_3sigma_if_mu50_mas": 24.774
+    },
+    {
+      "candidate_id": 816665,
+      "max_available_conservative_gap_days": 767.820199,
+      "min_mu_3sigma_if_sigma20_masyr": 40.364,
+      "max_sigma_per_epoch_3sigma_if_mu50_mas": 24.774
+    },
+    {
+      "candidate_id": 689692,
+      "max_available_conservative_gap_days": 763.221977,
+      "min_mu_3sigma_if_sigma20_masyr": 40.607,
+      "max_sigma_per_epoch_3sigma_if_mu50_mas": 24.626
+    },
+    {
+      "candidate_id": 520043,
+      "max_available_conservative_gap_days": 763.065007,
+      "min_mu_3sigma_if_sigma20_masyr": 40.616,
+      "max_sigma_per_epoch_3sigma_if_mu50_mas": 24.621
+    },
+    {
+      "candidate_id": 525095,
+      "max_available_conservative_gap_days": 763.065007,
+      "min_mu_3sigma_if_sigma20_masyr": 40.616,
+      "max_sigma_per_epoch_3sigma_if_mu50_mas": 24.621
+    },
+    {
+      "candidate_id": 339109,
+      "max_available_conservative_gap_days": 762.95966,
+      "min_mu_3sigma_if_sigma20_masyr": 40.621,
+      "max_sigma_per_epoch_3sigma_if_mu50_mas": 24.618
+    },
+    {
+      "candidate_id": 609290,
+      "max_available_conservative_gap_days": 762.95966,
+      "min_mu_3sigma_if_sigma20_masyr": 40.621,
+      "max_sigma_per_epoch_3sigma_if_mu50_mas": 24.618
+    },
+    {
+      "candidate_id": 1108588,
+      "max_available_conservative_gap_days": 762.951398,
+      "min_mu_3sigma_if_sigma20_masyr": 40.622,
+      "max_sigma_per_epoch_3sigma_if_mu50_mas": 24.617
+    },
+    {
+      "candidate_id": 711005,
+      "max_available_conservative_gap_days": 762.826439,
+      "min_mu_3sigma_if_sigma20_masyr": 40.628,
+      "max_sigma_per_epoch_3sigma_if_mu50_mas": 24.613
+    },
+    {
+      "candidate_id": 1142350,
+      "max_available_conservative_gap_days": 761.099633,
+      "min_mu_3sigma_if_sigma20_masyr": 40.721,
+      "max_sigma_per_epoch_3sigma_if_mu50_mas": 24.558
+    },
+    {
+      "candidate_id": 1036583,
+      "max_available_conservative_gap_days": 760.988365,
+      "min_mu_3sigma_if_sigma20_masyr": 40.727,
+      "max_sigma_per_epoch_3sigma_if_mu50_mas": 24.554
+    },
+    {
+      "candidate_id": 1060646,
+      "max_available_conservative_gap_days": 760.988365,
+      "min_mu_3sigma_if_sigma20_masyr": 40.727,
+      "max_sigma_per_epoch_3sigma_if_mu50_mas": 24.554
+    },
+    {
+      "candidate_id": 837290,
+      "max_available_conservative_gap_days": 760.886245,
+      "min_mu_3sigma_if_sigma20_masyr": 40.732,
+      "max_sigma_per_epoch_3sigma_if_mu50_mas": 24.551
+    },
+    {
+      "candidate_id": 804617,
+      "max_available_conservative_gap_days": 760.835731,
+      "min_mu_3sigma_if_sigma20_masyr": 40.735,
+      "max_sigma_per_epoch_3sigma_if_mu50_mas": 24.549
+    },
+    {
+      "candidate_id": 920430,
+      "max_available_conservative_gap_days": 760.835731,
+      "min_mu_3sigma_if_sigma20_masyr": 40.735,
+      "max_sigma_per_epoch_3sigma_if_mu50_mas": 24.549
+    },
+    {
+      "candidate_id": 311339,
+      "max_available_conservative_gap_days": 758.16241,
+      "min_mu_3sigma_if_sigma20_masyr": 40.878,
+      "max_sigma_per_epoch_3sigma_if_mu50_mas": 24.463
+    },
+    {
+      "candidate_id": 312972,
+      "max_available_conservative_gap_days": 758.16241,
+      "min_mu_3sigma_if_sigma20_masyr": 40.878,
+      "max_sigma_per_epoch_3sigma_if_mu50_mas": 24.463
+    },
+    {
+      "candidate_id": 1231018,
+      "max_available_conservative_gap_days": 758.064577,
+      "min_mu_3sigma_if_sigma20_masyr": 40.884,
+      "max_sigma_per_epoch_3sigma_if_mu50_mas": 24.46
+    },
+    {
+      "candidate_id": 1038406,
+      "max_available_conservative_gap_days": 757.984825,
+      "min_mu_3sigma_if_sigma20_masyr": 40.888,
+      "max_sigma_per_epoch_3sigma_if_mu50_mas": 24.457
+    },
+    {
+      "candidate_id": 885213,
+      "max_available_conservative_gap_days": 757.013323,
+      "min_mu_3sigma_if_sigma20_masyr": 40.94,
+      "max_sigma_per_epoch_3sigma_if_mu50_mas": 24.426
+    },
+    {
+      "candidate_id": 382195,
+      "max_available_conservative_gap_days": 752.635101,
+      "min_mu_3sigma_if_sigma20_masyr": 41.179,
+      "max_sigma_per_epoch_3sigma_if_mu50_mas": 24.284
+    },
+    {
+      "candidate_id": 383151,
+      "max_available_conservative_gap_days": 752.635101,
+      "min_mu_3sigma_if_sigma20_masyr": 41.179,
+      "max_sigma_per_epoch_3sigma_if_mu50_mas": 24.284
+    },
+    {
+      "candidate_id": 513217,
+      "max_available_conservative_gap_days": 751.567127,
+      "min_mu_3sigma_if_sigma20_masyr": 41.237,
+      "max_sigma_per_epoch_3sigma_if_mu50_mas": 24.25
+    },
+    {
+      "candidate_id": 575105,
+      "max_available_conservative_gap_days": 750.12368,
+      "min_mu_3sigma_if_sigma20_masyr": 41.317,
+      "max_sigma_per_epoch_3sigma_if_mu50_mas": 24.203
+    },
+    {
+      "candidate_id": 575106,
+      "max_available_conservative_gap_days": 750.12368,
+      "min_mu_3sigma_if_sigma20_masyr": 41.317,
+      "max_sigma_per_epoch_3sigma_if_mu50_mas": 24.203
+    },
+    {
+      "candidate_id": 387132,
+      "max_available_conservative_gap_days": 749.408098,
+      "min_mu_3sigma_if_sigma20_masyr": 41.356,
+      "max_sigma_per_epoch_3sigma_if_mu50_mas": 24.18
+    },
+    {
+      "candidate_id": 468358,
+      "max_available_conservative_gap_days": 747.747621,
+      "min_mu_3sigma_if_sigma20_masyr": 41.448,
+      "max_sigma_per_epoch_3sigma_if_mu50_mas": 24.127
+    },
+    {
+      "candidate_id": 293802,
+      "max_available_conservative_gap_days": 747.64207,
+      "min_mu_3sigma_if_sigma20_masyr": 41.454,
+      "max_sigma_per_epoch_3sigma_if_mu50_mas": 24.123
+    },
+    {
+      "candidate_id": 104394,
+      "max_available_conservative_gap_days": 747.353872,
+      "min_mu_3sigma_if_sigma20_masyr": 41.47,
+      "max_sigma_per_epoch_3sigma_if_mu50_mas": 24.114
+    },
+    {
+      "candidate_id": 423357,
+      "max_available_conservative_gap_days": 746.890497,
+      "min_mu_3sigma_if_sigma20_masyr": 41.495,
+      "max_sigma_per_epoch_3sigma_if_mu50_mas": 24.099
+    },
+    {
+      "candidate_id": 379073,
+      "max_available_conservative_gap_days": 746.740185,
+      "min_mu_3sigma_if_sigma20_masyr": 41.504,
+      "max_sigma_per_epoch_3sigma_if_mu50_mas": 24.094
+    },
+    {
+      "candidate_id": 1312621,
+      "max_available_conservative_gap_days": 740.677528,
+      "min_mu_3sigma_if_sigma20_masyr": 41.843,
+      "max_sigma_per_epoch_3sigma_if_mu50_mas": 23.899
+    },
+    {
+      "candidate_id": 1247563,
+      "max_available_conservative_gap_days": 734.635509,
+      "min_mu_3sigma_if_sigma20_masyr": 42.188,
+      "max_sigma_per_epoch_3sigma_if_mu50_mas": 23.704
+    },
+    {
+      "candidate_id": 2352371,
+      "max_available_conservative_gap_days": 716.516675,
+      "min_mu_3sigma_if_sigma20_masyr": 43.254,
+      "max_sigma_per_epoch_3sigma_if_mu50_mas": 23.119
+    },
+    {
+      "candidate_id": 1658535,
+      "max_available_conservative_gap_days": 696.947667,
+      "min_mu_3sigma_if_sigma20_masyr": 44.469,
+      "max_sigma_per_epoch_3sigma_if_mu50_mas": 22.488
+    },
+    {
+      "candidate_id": 2169015,
+      "max_available_conservative_gap_days": 696.09312,
+      "min_mu_3sigma_if_sigma20_masyr": 44.523,
+      "max_sigma_per_epoch_3sigma_if_mu50_mas": 22.46
+    },
+    {
+      "candidate_id": 2836975,
+      "max_available_conservative_gap_days": 612.759545,
+      "min_mu_3sigma_if_sigma20_masyr": 50.579,
+      "max_sigma_per_epoch_3sigma_if_mu50_mas": 19.771
+    },
+    {
+      "candidate_id": 2704216,
+      "max_available_conservative_gap_days": 512.563668,
+      "min_mu_3sigma_if_sigma20_masyr": 60.466,
+      "max_sigma_per_epoch_3sigma_if_mu50_mas": 16.538
+    },
+    {
+      "candidate_id": 1186177,
+      "max_available_conservative_gap_days": 507.693547,
+      "min_mu_3sigma_if_sigma20_masyr": 61.046,
+      "max_sigma_per_epoch_3sigma_if_mu50_mas": 16.381
+    },
+    {
+      "candidate_id": 1203651,
+      "max_available_conservative_gap_days": 507.693547,
+      "min_mu_3sigma_if_sigma20_masyr": 61.046,
+      "max_sigma_per_epoch_3sigma_if_mu50_mas": 16.381
+    },
+    {
+      "candidate_id": 914378,
+      "max_available_conservative_gap_days": 497.960112,
+      "min_mu_3sigma_if_sigma20_masyr": 62.239,
+      "max_sigma_per_epoch_3sigma_if_mu50_mas": 16.067
+    },
+    {
+      "candidate_id": 1651050,
+      "max_available_conservative_gap_days": 497.623023,
+      "min_mu_3sigma_if_sigma20_masyr": 62.281,
+      "max_sigma_per_epoch_3sigma_if_mu50_mas": 16.056
+    },
+    {
+      "candidate_id": 1218999,
+      "max_available_conservative_gap_days": 497.512959,
+      "min_mu_3sigma_if_sigma20_masyr": 62.295,
+      "max_sigma_per_epoch_3sigma_if_mu50_mas": 16.053
+    },
+    {
+      "candidate_id": 1251470,
+      "max_available_conservative_gap_days": 497.512959,
+      "min_mu_3sigma_if_sigma20_masyr": 62.295,
+      "max_sigma_per_epoch_3sigma_if_mu50_mas": 16.053
+    },
+    {
+      "candidate_id": 897873,
+      "max_available_conservative_gap_days": 496.466832,
+      "min_mu_3sigma_if_sigma20_masyr": 62.426,
+      "max_sigma_per_epoch_3sigma_if_mu50_mas": 16.019
+    },
+    {
+      "candidate_id": 1948077,
+      "max_available_conservative_gap_days": 474.57198,
+      "min_mu_3sigma_if_sigma20_masyr": 65.306,
+      "max_sigma_per_epoch_3sigma_if_mu50_mas": 15.312
+    },
+    {
+      "candidate_id": 1687583,
+      "max_available_conservative_gap_days": 470.148877,
+      "min_mu_3sigma_if_sigma20_masyr": 65.921,
+      "max_sigma_per_epoch_3sigma_if_mu50_mas": 15.17
+    },
+    {
+      "candidate_id": 1910402,
+      "max_available_conservative_gap_days": 467.188288,
+      "min_mu_3sigma_if_sigma20_masyr": 66.338,
+      "max_sigma_per_epoch_3sigma_if_mu50_mas": 15.074
+    },
+    {
+      "candidate_id": 2117792,
+      "max_available_conservative_gap_days": 467.188288,
+      "min_mu_3sigma_if_sigma20_masyr": 66.338,
+      "max_sigma_per_epoch_3sigma_if_mu50_mas": 15.074
+    },
+    {
+      "candidate_id": 2117793,
+      "max_available_conservative_gap_days": 467.188288,
+      "min_mu_3sigma_if_sigma20_masyr": 66.338,
+      "max_sigma_per_epoch_3sigma_if_mu50_mas": 15.074
+    },
+    {
+      "candidate_id": 2150648,
+      "max_available_conservative_gap_days": 467.136554,
+      "min_mu_3sigma_if_sigma20_masyr": 66.346,
+      "max_sigma_per_epoch_3sigma_if_mu50_mas": 15.073
+    },
+    {
+      "candidate_id": 2425141,
+      "max_available_conservative_gap_days": 467.136554,
+      "min_mu_3sigma_if_sigma20_masyr": 66.346,
+      "max_sigma_per_epoch_3sigma_if_mu50_mas": 15.073
+    },
+    {
+      "candidate_id": 1093603,
+      "max_available_conservative_gap_days": 405.887373,
+      "min_mu_3sigma_if_sigma20_masyr": 76.357,
+      "max_sigma_per_epoch_3sigma_if_mu50_mas": 13.096
+    }
+  ],
+  "limitations": [
+    "No measured source flux or F356W detection: all positional uncertainties and true proper motions are hypothetical.",
+    "Only the maximum available gap is considered; the pair with maximum gap may have worse SNR or registration.",
+    "Cross-filter F444W/F356W chromatic astrometric biases, morphology, confusion, correlations and registration systematics are omitted.",
+    "3sigma is a scalar displacement approximation with equal independent 1D epoch errors, not a calibrated two-dimensional PM test.",
+    "Counts are conditional among 62 geometrically covered candidates, not 125-source PM completeness and NOT survey effective area."
+  ]
+}
