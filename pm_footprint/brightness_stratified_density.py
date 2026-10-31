@@ -59,7 +59,9 @@ def analyze(rows,red_area=RED_AREA,total_area=TOTAL_AREA):
         ids.add(key)
         mag=float(row["mag_F444W"]);red=int(row["red365"])
         if red not in (0,1) or not math.isfinite(mag):raise ValueError("invalid source")
-        data.append({"mag":mag,"red":red,"ra":float(row["ra_deg"]),"dec":float(row["dec_deg"])})
+        data.append({"mag":mag,"red":red,"ra":float(row["ra_deg"]),"dec":float(row["dec_deg"]),
+                     "bad_kron":int(row.get("FLAG_BAD_KRON_LW",0)),
+                     "f277_nonpositive":float(row.get("f_F277W",1))<=0})
     bins=[]
     for lo,hi in zip(EDGES[:-1],EDGES[1:]):
         sub=[z for z in data if lo<=z["mag"]<hi]
@@ -69,6 +71,18 @@ def analyze(rows,red_area=RED_AREA,total_area=TOTAL_AREA):
                      "red365_count":nr,"nonred_count":no,
                      "density_ratio":rate_ratio(nr,no,red_area,total_area)})
     groups=proximity_groups(data)
+    quality={}
+    for label,mag_condition in (("bright_m444_lt25",lambda z:z["mag"]<25),
+                                ("faint_m444_ge25",lambda z:z["mag"]>=25)):
+        quality[label]={}
+        for flag in (0,1):
+            subset=[z for z in data if mag_condition(z) and z["bad_kron"]==flag]
+            nr=sum(z["red"] for z in subset);no=len(subset)-nr
+            quality[label][f"FLAG_BAD_KRON_LW_{flag}"]={
+                "red":nr,"nonred":no,"density_ratio":rate_ratio(nr,no,red_area,total_area)}
+        quality[label]["nonpositive_F277W"]={
+            "red":sum(z["red"] for z in data if mag_condition(z) and z["f277_nonpositive"]),
+            "nonred":sum(1-z["red"] for z in data if mag_condition(z) and z["f277_nonpositive"])}
     return {
       "status":"EXPLORATORY_MAGNITUDE_STRATIFIED_COUNTS_NOT_COMPLETENESS",
       "source":"frozen 125-row Zhen-Kai v13 candidate photometry fixture",
@@ -76,10 +90,12 @@ def analyze(rows,red_area=RED_AREA,total_area=TOTAL_AREA):
       "n_rows":len(data),"n_unique_ids":len(ids),"mag_bins":bins,
       **stratification(data,red_area,total_area),
       "proximity_groups_0p5arcsec":{"n_groups":len(groups),**stratification(groups,red_area,total_area)},
+      "quality_flag_strata":quality,
       "limitations":[
         "25 AB is a descriptive exploratory threshold, not preregistered; Fisher p is not confirmatory.",
         "Poisson Wald CIs assume independent counts and fixed area, neglect spatial correlation and depth.",
         "Close-pair groups are proximity components, not confirmed distinct astrophysical sources.",
+        "FLAG_BAD_KRON_LW is a diagnostic, not an adopted source-rejection criterion or proven artifact label.",
         "F444W magnitude stratification does not control F277W local noise, flags, crowding or F356W SNR.",
         "Public 60mas WHT grid loses about 0.96% per-tile native area; geometric, not selection matched.",
         "No claim of intrinsic underdensity or PM recovery completeness."]}
