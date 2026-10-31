@@ -101,3 +101,26 @@ Sources: [COSMOS2025 catalog documentation](https://cosmos2025.iap.fr/catalog.ht
 **Independent origin sensitivity:** The original user-supplied 20-tile binary FITS archive was directly reprocessed with both axes of the 0.6arcsec equal-area mask grid translated by **0.3arcsec**. The shifted-grid approximate sky-union lower/upper values are `0.0128598364/0.0130712959 deg²`, compared with unshifted `0.0128598478/0.0130711831 deg²`. The upper union changes by only `1.13e-7 deg²` (**0.000863%**), demonstrating excellent **grid-origin stability** at 0.6arcsec. This does **not** eliminate the larger 0.3- vs 0.6-arcsec **grid-resolution** difference or make the union an exact native-pixel result. The committed [script](jwst_mask_union_repro.py) now supports `--shift-x-cells 0.5 --shift-y-cells 0.5`; [numeric QC](results/jwst_starmask/grid_origin_qc_20261031.json). No WHT download or MAST re-query was used.
 
 **Critical conditional F277W noise diagnostic:** At `m_F444W=26.2`, the `F444W/F277W>30` measured-flux threshold is `f_F277W < 0.00400755 microJy` for `f_F444W=0.12022644 microJy`. To **prove** this ratio with a 2sigma non-detection requires `m_F277W,5sigma >= 28.898`, deeper than the nominal planned 27.71–28.28 AB range. In a Gaussian toy noise model with truly zero F277W flux, a **signed measured-flux ratio cut** (`0<f_F277W,measured<f_F444W/30`, plus F277W SNR<2) passes only **24.85%** at 27.71 and **37.12%** at 28.28, whereas a simple measured-flux upper-threshold rule allowing negative flux passes **74.85%** and **87.12%**, respectively. These probabilities are **conditional illustrations, not measured completeness**, and demonstrate that negative-flux treatment can dominate the effective dropout selection function. The exact original Dave selection code and local empirical F277W errors are needed. See [analytic code](dropout_noise_sensitivity.py), [tests](../tests/test_dropout_noise_sensitivity.py), and [numeric scenarios](results/dropout_noise_sensitivity_20261031.json).
+
+## 2026-10-31: baseline-only proper-motion feasibility matrix (not completeness)
+
+To avoid conflating 59.5% *geometric area* or 62/125 *candidate footprint membership* with **measurable proper motion**, the [reproducible baseline-only feasibility audit](pm_baseline_feasibility.py) applies the simple equal-independent-epoch-error condition
+
+```text
+mu_min(3sigma) = 3 sqrt(2) sigma_pos / (Delta_t / 365.25 days)
+sigma_pos,max(3sigma) = mu (Delta_t / 365.25 days) / [3 sqrt(2)] .
+```
+
+For the **62** candidate positions with F444W/F356W >=365-day archival separation, using their *longest available conservative gap* (which need not be the best-SNR pair), the number for which the **time baseline alone** would suffice at 3 sigma is:
+
+| hypothetical per-epoch 1-D position error | mu=20 mas/yr | mu=30 | mu=50 | mu=80 | mu=100 |
+|---|---:|---:|---:|---:|---:|
+| 10 mas | 4 | 46 | 62 | 62 | 62 |
+| 15 mas | 0 | 4 | 61 | 62 | 62 |
+| 20 mas | 0 | 1 | **45** | 62 | 62 |
+| 30 mas | 0 | 0 | 1 | 46 | 61 |
+
+At the **median 752.10-day gap**, a true mu=50 mas/yr requires an equal per-epoch 1-D position error <=**24.27 mas** for a 3-sigma displacement under this toy model. This is **not an estimate of the true number of detectable PMs**: none of the 62 has a measured F356W SNR/centroid uncertainty in these inputs; unknown true mu, filter-dependent PSFs/chromatic offsets, registration errors and blending can dominate. It is not an area or a completeness curve. [62-source priority list and assumptions](results/f356w_baselines/pm_feasibility_scenarios.json); [5 synthetic tests](../tests/test_pm_baseline_feasibility.py).
+
+**Additional official catalog flag check:** The [COSMOS2025 catalog documentation](https://cosmos2025.iap.fr/catalog.html) says `warn_flag=4` identifies *single-NIRCam-band detections* when one band has magnitude uncertainty <0.2 and the other NIRCam/HST/MIRI bands are >0.5 mag uncertain or undetected. The 125 F444W-only selection intentionally targets this configuration, so **blanket `warn_flag==0` is potentially a serious selection bias**, not a safe default. Using the first-order AB magnitude error relation `sigma_mag ≈ 1.0857 / SNR`, the <0.2-mag trigger corresponds to SNR >~**5.43**, just above Dave's F444W SNR>5 threshold. This is an **approximate diagnostic, not a measured flag count**, and depends on the actual catalog error convention/version and whether other bands are detected. Verify flags directly for the 125 IDs before changing the selection. The same catalog defines `flag_star` from source-pixel overlap with the JWST mask and `flag_blend` from an F444W Kron correction >3; 0/125 masked *centers* does not imply 0/125 flagged apertures.
+
