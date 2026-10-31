@@ -1,0 +1,56 @@
+{
+  "status": "PROVISIONAL_SAMPLED_V13_WHT_EXACT_ARCHIVE_EPOCH_OVERLAY",
+  "source_user_upload_sha256": "0e53849130a19c2777191ec3aed2439b8b443a6a5eb1ff858344e6f70367b990",
+  "normalization_note": "JSON transcription of user-uploaded results; this repo JSON is normalized and its byte checksum is not the original upload SHA.",
+  "input_sha256": {
+    "grid": "17c149d5d9392ab50f63fe490fe0afc695b4031d2182a10f3f2854a93b607a60",
+    "sample": "81f845bf69aee743615353a7d3dcc3551443e03cc9ab4fa8f61c12d443fdf6ab",
+    "metadata": "2e03857153777bddf6f0a0ad19c5bc289829d1c8d0da42a628ae4695e45e62db",
+    "roster": "d43ce32e33b898f6bf57551affe41f209e0b455a4e4e63b4e99a8eea03236bbd"
+  },
+  "exact_archive_deg2": 0.5338989551843558,
+  "exact_red_epoch_deg2": 0.31748660889853736,
+  "phase_results": [
+    {
+      "phase": 0.25,
+      "wht_positive_cells": 533631,
+      "wht_positive_area_deg2": 0.533609115207066,
+      "wht_positive_centers_outside_archive": 109,
+      "area_intersections_deg2": {
+        "archive": 0.53350011666025,
+        "red_365d": 0.31740570799788875,
+        "same_f444w_365d": 0.03868489128513753,
+        "any_nircam_365d": 0.33183399125175755
+      },
+      "red_epoch_fraction_of_v13_wht": 0.594828122219614
+    },
+    {
+      "phase": 0.75,
+      "wht_positive_cells": 533651,
+      "wht_positive_area_deg2": 0.5336291131805829,
+      "wht_positive_centers_outside_archive": 110,
+      "area_intersections_deg2": {
+        "archive": 0.5335191148143709,
+        "red_365d": 0.31739670814846693,
+        "same_f444w_365d": 0.03867289141788671,
+        "any_nircam_365d": 0.3318479906636622
+      },
+      "red_epoch_fraction_of_v13_wht": 0.5947889654233655
+    }
+  ],
+  "red_wht_intersection_phase_range_deg2": [
+    0.31739670814846693,
+    0.31740570799788875
+  ],
+  "red_epoch_fraction_phase_range": [
+    0.5947889654233655,
+    0.594828122219614
+  ],
+  "limitations": [
+    "3.6-arcsec sampling with two offsets: phase differences are NOT confidence intervals.",
+    "JWST star-mask intersection remains outstanding.",
+    "Cross-filter epoch geometry does NOT establish F356W source detection or PM precision.",
+    "WHT>0 is not F444W=26.2 AB dropout selection completeness.",
+    "TAN WCS reconstructed from saved grid metadata; no full FITS is loaded."
+  ]
+}
