@@ -45,8 +45,7 @@ def probe(path, sample=True):
         return item
     # Header-only mode: do not access hdu.data or scan image payload.
     # FITS Header.fromfile reads the first header blocks only, even for 50 GB files.
-    import gzip
-    opener = gzip.open if item["compressed"] else open
+    opener = open
     with opener(path, "rb") as stream:
         hdr = fits.Header.fromfile(stream)
     shape = [int(hdr.get("NAXIS"+str(j), 0))
