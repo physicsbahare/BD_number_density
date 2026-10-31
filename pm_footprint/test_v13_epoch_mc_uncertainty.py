@@ -44,10 +44,10 @@ class TestMaskMCUncertainty(unittest.TestCase):
         self.assertLess(x["placement_cap_fraction_envelope_all_phases"][0],lo)
         self.assertGreater(x["placement_cap_fraction_envelope_all_phases"][1],hi)
 
-    def test_maskless_control(self):
+    def test_red_free_sample(self):
         src=inputs()
         src[1]["sample_membership_counts"]["red365"]=0
-        src[1]["sample_membership_counts"]["survey"]=0
+        src[1]["sample_membership_counts"]["survey"]=1000
         x=analyze(*src)
         self.assertTrue(0<x["phase_results"][0]["unmasked_fraction"]<1)
 
