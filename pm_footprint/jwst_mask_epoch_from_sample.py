@@ -45,12 +45,14 @@ def wht_fraction_bounds(S,R,W,WR,b,c):
     x=|star-mask ∩ W ∩ R|; y=|star-mask ∩ W ∩ (S\\R)|.
     Since S\\W is known in R and its complement, bound x,y separately.
     """
-    if not (0<=c<=b<=S and 0<=WR<=R<=S and 0<=WR<=W<=S):
+    if not (0<=c<=b<=S and b-c<=S-R+1e-10 and 0<=WR<=R<=S and 0<=WR<=W<=S):
         raise ValueError("Inconsistent nested areas")
     delta_r=R-WR;delta_not=(S-W)-delta_r
     if delta_not< -1e-8:raise ValueError("WHT red not nested in archive")
-    xlo,xhi=max(0,c-delta_r),c
-    ylo,yhi=max(0,b-c-delta_not),b-c
+    xlo,xhi=max(0,c-delta_r),min(c,WR)
+    ylo,yhi=max(0,b-c-delta_not),min(b-c,W-WR)
+    if xlo>xhi+1e-10 or ylo>yhi+1e-10:
+        raise ValueError("No feasible spatial mask allocation")
     if W-xhi-ylo<=0 or W-xlo-yhi<=0:
         raise ValueError("No positive unmasked WHT denominator")
     return {"fraction_lower":(WR-xhi)/(W-xhi-ylo),
