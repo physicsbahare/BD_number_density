@@ -43,39 +43,28 @@ def probe(path, sample=True):
         item["note"] = ("Compressed file: first FITS header only, no full gzip "
                         "scan; extensions, if any, are not inventoried.")
         return item
-    with fits.open(path, memmap=True, lazy_load_hdus=True) as hdul:
-        for i, hdu in enumerate(hdul):
-            hdr = hdu.header
-            shape = [int(hdr.get("NAXIS"+str(j), 0))
-                     for j in range(int(hdr.get("NAXIS", 0)), 0, -1)]
-            d = {"index": i, "extname": hdr.get("EXTNAME"),
-                 "shape": shape, "bitpix": hdr.get("BITPIX"),
-                 "bunit": hdr.get("BUNIT"), "wht_type": hdr.get("WHTTYPE"),
-                 "photmjsr": hdr.get("PHOTMJSR"),
-                 "has_celestial_wcs": False}
-            try:
-                w = WCS(hdr)
-                d["has_celestial_wcs"] = bool(w.has_celestial)
-                if w.has_celestial:
-                    d["pixel_scale_matrix_deg"] = w.celestial.pixel_scale_matrix.tolist()
-                    d["crval"] = [float(x) for x in w.celestial.wcs.crval]
-            except Exception as exc:
-                d["wcs_error"] = str(exc)[:150]
-            if sample and not item["compressed"] and len(shape) == 2 and min(shape) > 10:
-                # Memmap + scalar reads: no whole-image array materialization.
-                data = hdu.data
-                ys = np.linspace(0, shape[0]-1, 11, dtype=int)
-                xs = np.linspace(0, shape[1]-1, 11, dtype=int)
-                vals = np.array([float(data[y, x]) for y in ys for x in xs])
-                good = np.isfinite(vals)
-                d["sparse_121_samples"] = {
-                    "finite": int(good.sum()),
-                    "positive": int(np.count_nonzero(vals[good] > 0)),
-                    "min_finite": float(vals[good].min()) if good.any() else None,
-                    "median_positive": float(np.median(vals[good & (vals > 0)]))
-                    if np.any(good & (vals > 0)) else None,
-                }
-            item["hdus"].append(d)
+    # Header-only mode: do not access hdu.data or scan image payload.
+    # FITS Header.fromfile reads the first header blocks only, even for 50 GB files.
+    import gzip
+    opener = gzip.open if item["compressed"] else open
+    with opener(path, "rb") as stream:
+        hdr = fits.Header.fromfile(stream)
+    shape = [int(hdr.get("NAXIS"+str(j), 0))
+             for j in range(int(hdr.get("NAXIS", 0)), 0, -1)]
+    d = {"index": 0, "extname": hdr.get("EXTNAME"),
+         "shape": shape, "bitpix": hdr.get("BITPIX"),
+         "bunit": hdr.get("BUNIT"), "wht_type": hdr.get("WHTTYPE"),
+         "photmjsr": hdr.get("PHOTMJSR"), "has_celestial_wcs": False}
+    try:
+        w = WCS(hdr)
+        d["has_celestial_wcs"] = bool(w.has_celestial)
+        if w.has_celestial:
+            d["pixel_scale_matrix_deg"] = w.celestial.pixel_scale_matrix.tolist()
+            d["crval"] = [float(x) for x in w.celestial.wcs.crval]
+    except Exception as exc:
+        d["wcs_error"] = str(exc)[:150]
+    item["hdus"].append(d)
+    item["scope"] = "PRIMARY_HEADER_ONLY; extensions and pixel values not examined"
     return item
 
 
@@ -91,7 +80,7 @@ def main():
                    if any(f in x.name.lower() for f in FILTERS))
     if not tiles:
         p.error("No COSMOS-Web WHT tiles found; check --cosmos-dir")
-    result = {"purpose": "metadata and sparse QC only, NOT effective area",
+    result = {"purpose": "primary FITS header QC only, NOT effective area",
               "v13": probe(args.v13), "cosmos_web": [probe(t, sample=False) for t in tiles],
               "tile_count": len(tiles),
               "warning": "WHT>0 is geometric coverage, not 26.2 AB completeness. "
