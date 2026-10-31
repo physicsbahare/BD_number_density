@@ -1,0 +1,25 @@
+{
+  "status": "DIRECT_USER_ARCHIVE_GRID_ORIGIN_SENSITIVITY_NOT_SELECTION_MATCHED",
+  "date": "2026-10-31",
+  "archive_sha256": "a06107b1c654387bf3ab5284792201cb299b7942f52dc95e41089b0e2967cd52",
+  "grid_arcsec": 0.6,
+  "unshifted_origin": {
+    "lower_deg2": 0.012859847813542347,
+    "upper_deg2": 0.013071183105480923,
+    "occupied_cells": 913332
+  },
+  "shift_half_cell_xy": {
+    "lower_deg2": 0.01285983637956551,
+    "upper_deg2": 0.013071295900109702,
+    "occupied_cells": 913006,
+    "sum_per_tile_gridded_deg2": 0.014186433681973117,
+    "worst_tile_area_conservation": 0.9985790905600357
+  },
+  "shift_effect": {
+    "delta_lower_deg2": -1.1433976836519588e-8,
+    "delta_upper_deg2": 1.1279462877947233e-7,
+    "relative_upper_change": 0.000008629259330945798
+  },
+  "interpretation": "0.3arcsec translations of both axes barely affect 0.6arcsec mask union. This does not resolve 0.3arcsec vs 0.6arcsec raster-resolution gap, native pixel union exactness, mask semantics or WHT overlap.",
+  "reproduce": "python -m pm_footprint.jwst_mask_union_repro --archive /path/to/cosmos_web_starmask_jwst.tar.gz --shift-x-cells 0.5 --shift-y-cells 0.5 --output shifted.json"
+}
