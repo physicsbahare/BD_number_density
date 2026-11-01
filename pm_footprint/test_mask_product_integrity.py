@@ -15,6 +15,13 @@ def fixture(sample_bytes=b'x_lambert_rad,y_lambert_rad\n0.0,0.0\n'):
         'native_area_deg2': .0007,
         'wcs_center_area_ratio_to_nominal_30mas': 1.,
         'wcs_pc_off_diagonal': [0., 0.],
+        'astropy_wcs_parity': {
+            'reference': 'astropy.wcs.WCS.all_pix2world, origin=0',
+            'positions_checked': 9,
+            'max_angular_sep_arcsec': 1e-7,
+            'max_cd_matrix_disagreement_deg_per_pix': 1e-18,
+            'center_solid_angle_deg2_per_native_pixel': (0.03/3600)**2,
+        },
         'grid_0.3_area_ratio_to_native': .993,
         'grid_0.6_area_ratio_to_native': .999,
     }
@@ -54,6 +61,23 @@ class TestMaskProductIntegrity(unittest.TestCase):
     def test_missing_tile_wcs_metadata_rejected(self):
         s = fixture(); del s['tiles'][0]['wcs_pc_off_diagonal']
         with self.assertRaisesRegex(ValueError, 'PC off-diagonal'):
+            validate_mask_product(s)
+
+    def test_missing_independent_astropy_parity_rejected(self):
+        s = fixture(); del s['tiles'][3]['astropy_wcs_parity']
+        with self.assertRaisesRegex(ValueError, 'Astropy WCS audit'):
+            validate_mask_product(s)
+
+    def test_incorrect_astropy_sky_displacement_rejected(self):
+        s = fixture()
+        s['tiles'][0]['astropy_wcs_parity']['max_angular_sep_arcsec'] = 0.02
+        with self.assertRaisesRegex(ValueError, 'not independently validated'):
+            validate_mask_product(s)
+
+    def test_inconsistent_native_pixel_area_rejected(self):
+        s = fixture()
+        s['tiles'][1]['astropy_wcs_parity']['center_solid_angle_deg2_per_native_pixel'] *= 1.01
+        with self.assertRaisesRegex(ValueError, 'pixel area mismatch'):
             validate_mask_product(s)
 
     def test_area_sum_mismatch_rejected(self):
