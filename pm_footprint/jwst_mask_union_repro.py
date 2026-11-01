@@ -5,7 +5,7 @@ sky positions for the epoch-geometry intersection script.
 Usage: python -m pm_footprint.jwst_mask_union_repro --archive FILE.tar.gz
 0.3"/0.6" results are raster approximations, not a calibrated dropout effective area.
 """
-import argparse, tarfile, numpy as np, time, json
+import argparse, tarfile, numpy as np, time, json, hashlib
 from .mask_wcs import (pixel_to_lambert, cd_from_header,
                        tan_pixel_area_deg2, legacy_column_scaling_error_arcsec)
 from pathlib import Path
@@ -19,6 +19,11 @@ parser.add_argument('--shift-x-cells',type=float,default=0.0,help='Shift grid or
 parser.add_argument('--shift-y-cells',type=float,default=0.0,help='Shift grid origin in y by this fraction of one cell')
 args=parser.parse_args()
 F=args.archive;R=np.pi/180
+archive_hasher=hashlib.sha256()
+with open(F,'rb') as archive_stream:
+ for block in iter(lambda: archive_stream.read(1024*1024), b''):
+  archive_hasher.update(block)
+archive_sha256=archive_hasher.hexdigest()
 r0=150.12*R; d0=2.2*R; s0=np.sin(d0);c0=np.cos(d0)
 GRIDS=[0.3,0.6]; ORIGIN=-0.7; SIZE=1.4
 T=time.time()
@@ -98,7 +103,7 @@ with tarfile.open(F,'r|gz') as tar:
    t[f'grid_{g}_clipped_excess_deg2']=excess
   tiles.append(t)
   print(f'{n+1}/20 {m.name} native={native:.9f} grid0.3/native={t["grid_0.3_area_ratio_to_native"]:.5f} grid0.6/native={t["grid_0.6_area_ratio_to_native"]:.5f} elapsed={time.time()-T:.1f}s',flush=True)
-res={'grid_origin_shift_in_cells':[args.shift_x_cells,args.shift_y_cells], 'source':'user supplied JWST binary starmask archive; no WHT or MAST used','wcs_convention':'FITS CD[i,j]=CDELT[i]*PC[i,j]; earlier mask union/MC files require WCS validation before scientific use','method':'native 30mas binary mask aggregated in 10x10 blocks, bilinear mass-conserving fractional deposition onto Lambert equal-area grid; per sky cell max occupancy is an APPROXIMATE union lower bound; sum clipped at 1 an APPROXIMATE upper bound; grid resolution sensitivity 0.3/0.6 arcsec','tiles':tiles,'sum_tile_native_masked_area_deg2_NOT_UNION':sum(q['native_area_deg2'] for q in tiles),'grid_results':{}}
+res={'source_archive_sha256':archive_sha256, 'source_archive_size_bytes':Path(F).stat().st_size, 'grid_origin_shift_in_cells':[args.shift_x_cells,args.shift_y_cells], 'source':'user supplied JWST binary starmask archive; no WHT or MAST used','wcs_convention':'FITS CD[i,j]=CDELT[i]*PC[i,j]; earlier mask union/MC files require WCS validation before scientific use','method':'native 30mas binary mask aggregated in 10x10 blocks, bilinear mass-conserving fractional deposition onto Lambert equal-area grid; per sky cell max occupancy is an APPROXIMATE union lower bound; sum clipped at 1 an APPROXIMATE upper bound; grid resolution sensitivity 0.3/0.6 arcsec','tiles':tiles,'sum_tile_native_masked_area_deg2_NOT_UNION':sum(q['native_area_deg2'] for q in tiles),'grid_results':{}}
 for g in GRIDS:
  keys=np.concatenate([kv[0] for kv in out[str(g)]]);values=np.concatenate([kv[1] for kv in out[str(g)]])
  uniq,inv=np.unique(keys,return_inverse=True)
@@ -119,6 +124,7 @@ for g in GRIDS:
   np.savetxt(args.sample_out,np.column_stack((x,y)),delimiter=',',
              header='x_lambert_rad,y_lambert_rad',comments='',fmt='%.13g')
   res['weighted_mc_sample']={'file':str(args.sample_out),'n':args.samples,
+                              'sha256':hashlib.sha256(Path(args.sample_out).read_bytes()).hexdigest(),
                               'seed':args.seed,'source_grid_arcsec':g,
                               'sampling_area_deg2':hi,
                               'weight':'clipped sum across tiles (upper raster approximation)'}
