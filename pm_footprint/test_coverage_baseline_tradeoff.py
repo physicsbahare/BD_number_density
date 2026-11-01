@@ -14,6 +14,7 @@ class TestCoverageBaselineTradeoff(unittest.TestCase):
         r=evaluate(json.loads(a.read_text()),json.loads(b.read_text()))
         self.assertAlmostEqual(r['threshold_baseline_table'][0]['red_epoch_fraction'],.5949515238195074)
         self.assertEqual(r['730d_vs_365d_positive_wht']['red_candidates_lost'],20)
+        self.assertAlmostEqual(r['730d_vs_365d_positive_wht']['density_ratio_730_to_365'],1.0007476695451267)
         self.assertEqual(r['730d_vs_365d_positive_wht']['confirmed_pm_ids_at_730d'],[387132])
         self.assertLess(abs(r['wht_50pct_median_cut_vs_positive']['red365_fraction_change_percentage_points']),.2)
 
