@@ -1,0 +1,22 @@
+{
+  "status": "NOMINAL_PIXEL_AREA_SET_BOUNDS_NOT_DIRECT_SPATIAL_INTERSECTION",
+  "date": "2026-11-01",
+  "wht_survey_deg2": 0.528823684998808,
+  "wht_red365_deg2": 0.31462445722188803,
+  "mask_per_tile_sum_nominal_deg2_upper_cap_if_code1_excluded": 0.0141992195,
+  "unmasked_fraction": 0.5949515238195074,
+  "fraction_lower": 0.5837756614052463,
+  "fraction_upper": 0.6113670808808773,
+  "mask_placement_extremes": {
+    "lower": "all available masked area assigned to red subset",
+    "upper": "all available masked area assigned to nonred subset"
+  },
+  "assumptions": [
+    "Mask code 1 denotes excluded sky.",
+    "Nominal per-tile 30mas pixel area sum upper-bounds unique masked area, subject to native WCS determinant and TAN distortion QC.",
+    "Red region is nested within official WHT>0 survey footprint."
+  ],
+  "independent_of_mask_sky_WCS": true,
+  "limitation": "Not a measured JWST mask union intersection, not a selection-matched area, and not proper-motion completeness. Native pixel solid-angle QC pending.",
+  "repro": "python -m pm_footprint.official_mask_placement_bounds"
+}
