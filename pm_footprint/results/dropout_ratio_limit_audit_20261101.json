@@ -1,0 +1,92 @@
+{
+  "status": "V13_CANDIDATE_LEVEL_LIMIT_AUDIT_NOT_SELECTION_AREA_OR_COSMOS2025_RESELECTION",
+  "photometry_source": "pm_footprint/results/v13_epoch_candidate_photometry_fixture_20261031.csv",
+  "flux_unit": "nJy (validated against AB magnitudes)",
+  "f444w_reference_ab": 26.2,
+  "f444w_reference_flux_njy": 120.22644346174118,
+  "required_f277w_sigma_njy_for_ratio_gt30_at_26p2": 2.0037740576956864,
+  "required_f277w_5sigma_depth_ab_for_ratio_gt30_at_26p2": 28.897953115119062,
+  "groups": {
+    "all": {
+      "n": 125,
+      "f277_signed_snr_lt2": 125,
+      "f277_abs_snr_lt2": 125,
+      "f277_negative_flux": 26,
+      "n_ratio_gt30_from_zero_centered_2sigma": 57,
+      "n_ratio_gt30_from_positive_flux_plus_2sigma": 50,
+      "median_f277_sigma_njy": 8.681924948037663,
+      "median_f277_5sigma_depth_ab": 27.30603492114213,
+      "median_ratio_from_zero_centered_2sigma": 24.92066838838431
+    },
+    "red365": {
+      "n": 62,
+      "f277_signed_snr_lt2": 62,
+      "f277_abs_snr_lt2": 62,
+      "f277_negative_flux": 12,
+      "n_ratio_gt30_from_zero_centered_2sigma": 20,
+      "n_ratio_gt30_from_positive_flux_plus_2sigma": 18,
+      "median_f277_sigma_njy": 8.332924760625527,
+      "median_f277_5sigma_depth_ab": 27.350585153933576,
+      "median_ratio_from_zero_centered_2sigma": 18.232910912953777
+    },
+    "nonred365": {
+      "n": 63,
+      "f277_signed_snr_lt2": 63,
+      "f277_abs_snr_lt2": 63,
+      "f277_negative_flux": 14,
+      "n_ratio_gt30_from_zero_centered_2sigma": 37,
+      "n_ratio_gt30_from_positive_flux_plus_2sigma": 32,
+      "median_f277_sigma_njy": 8.922795410565083,
+      "median_f277_5sigma_depth_ab": 27.276322651091817,
+      "median_ratio_from_zero_centered_2sigma": 43.39095616212124
+    },
+    "f444w_bright_lt25": {
+      "n": 66,
+      "f277_signed_snr_lt2": 66,
+      "f277_abs_snr_lt2": 66,
+      "f277_negative_flux": 26,
+      "n_ratio_gt30_from_zero_centered_2sigma": 57,
+      "n_ratio_gt30_from_positive_flux_plus_2sigma": 50,
+      "median_f277_sigma_njy": 8.867865768360062,
+      "median_f277_5sigma_depth_ab": 27.283029984573382,
+      "median_ratio_from_zero_centered_2sigma": 67.8273868224682
+    },
+    "f444w_25_to_26p2": {
+      "n": 59,
+      "f277_signed_snr_lt2": 59,
+      "f277_abs_snr_lt2": 59,
+      "f277_negative_flux": 0,
+      "n_ratio_gt30_from_zero_centered_2sigma": 0,
+      "n_ratio_gt30_from_positive_flux_plus_2sigma": 0,
+      "median_f277_sigma_njy": 8.434759645476323,
+      "median_f277_5sigma_depth_ab": 27.3373932102379,
+      "median_ratio_from_zero_centered_2sigma": 11.07239703797628
+    }
+  },
+  "confirmed_pm_objects": {
+    "387132": {
+      "f444w_ab": 26.19802459123042,
+      "red365": 1,
+      "f277w_sigma_njy": 5.4389932190115875,
+      "ratio_lower_bound_zero_centered_2sigma": 11.07239703797628,
+      "ratio_bound_positive_flux_plus_2sigma": 8.544636907349316,
+      "f277w_5sigma_depth_ab": 27.813778695747544
+    },
+    "1651050": {
+      "f444w_ab": 25.180081719789733,
+      "red365": 1,
+      "f277w_sigma_njy": 5.623453902446744,
+      "ratio_lower_bound_zero_centered_2sigma": 27.348541920429458,
+      "ratio_bound_positive_flux_plus_2sigma": 14.661115584933562,
+      "f277w_5sigma_depth_ab": 27.77756714061583
+    }
+  },
+  "interpretation": [
+    "Signed F277W SNR<2 and measured F444W/F277W>30 are NOT equivalent to a ratio lower bound >30 using a 2sigma upper limit.",
+    "The zero-centered 2sigma convention uses 2*ERR; the alternative max(0,measured flux)+2*ERR is a deliberately more conservative diagnostic, not an exact posterior bound.",
+    "F277W errors here come from the independent v13 fixture, not necessarily Dave's original COSMOS2025 aperture errors or official spatially calibrated depths.",
+    "The ratio test is not a proposed veto of any of Dave's 125 sources; it evaluates strength of their color-limit evidence.",
+    "A 5sigma depth requirement of about 28.90 AB at F444W=26.2 is conditional on a 2sigma zero-centered F277W limit and ratio 30.",
+    "Candidate-level errors cannot establish any sky-area completeness or F356W astrometric sensitivity."
+  ]
+}
