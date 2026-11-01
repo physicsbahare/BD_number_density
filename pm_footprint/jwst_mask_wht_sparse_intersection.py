@@ -125,12 +125,20 @@ def estimate(mask_area, archive, red, wht, wht_area, red_wht_area):
     n = len(wht)
     if n < 100 or len(red) != n or len(archive) != n:
         raise ValueError("Need >=100 aligned mask samples")
+    archive = np.asarray(archive, bool)
+    red = np.asarray(red, bool)
+    wht = np.asarray(wht, bool)
     if np.any(red & ~archive):
         raise ValueError("Red must be nested in archive")
     if not 0 < red_wht_area < wht_area:
         raise ValueError("Invalid full WHT reference areas")
-    a = np.asarray(wht, bool)
-    b = a & np.asarray(red, bool)
+    # Reference areas are explicitly restricted to the COSMOS-Web archive
+    # polygon. A native WHT image may have WHT>0 *outside* that polygon;
+    # subtracting those mask pixels from an archive-clipped denominator
+    # would systematically overestimate the removed area.
+    outside_archive = wht & ~archive
+    a = wht & archive
+    b = a & red
     pa, pb = float(a.mean()), float(b.mean())
     x, y = mask_area*pa, mask_area*pb
     remaining_wht = wht_area-x
@@ -148,6 +156,7 @@ def estimate(mask_area, archive, red, wht, wht_area, red_wht_area):
         "n_mask_samples_in_archive": int(np.sum(archive)),
         "n_mask_samples_in_red": int(np.sum(red)),
         "n_mask_samples_in_WHT": int(a.sum()),
+        "n_WHT_positive_samples_outside_archive_ignored": int(outside_archive.sum()),
         "n_mask_samples_in_WHT_and_red": int(b.sum()),
         "mask_raster_upper_area_deg2": mask_area,
         "direct_mask_WHT_intersection_MC_deg2": x,
@@ -185,6 +194,7 @@ def run(points_csv, mask_summary, wht_fits, metadata, output,
         "epoch_polygon_QC": epoch_qc,
         "limitations": [
             "This is spatial WHT-mask-epoch overlap, but a 0.6arcsec raster weighted-cell-center Monte Carlo, NOT native 30mas exact mask union.",
+            "WHT>0 pixels outside the archival F444W polygon are excluded to match the archived reference WHT areas.",
             "WHT reference areas use a two-phase 3.6arcsec sample, not exact native-pixel area. Phase/raster systematics not in MC interval.",
             "Assumes code 1 is excluded, pending official documentation.",
             "WHT>0 is geometric coverage, not calibrated F444W=26.2 detection or blue-band dropout completeness.",
