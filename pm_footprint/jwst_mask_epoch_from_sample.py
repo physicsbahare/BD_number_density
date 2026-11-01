@@ -19,6 +19,7 @@ import numpy as np
 import pandas as pd
 from shapely import STRtree, points
 from .exact_geometry import polygon_region
+from .mask_product_integrity import validate_mask_product
 
 BASELINES=(30,180,365,730)
 RED=("F277W","F356W","F410M","F444W")
@@ -69,9 +70,9 @@ def evaluate(points_csv,mask_summary,metadata_csv,exact_json,wht_json):
     xy=points(pts.x_lambert_rad.to_numpy(),pts.y_lambert_rad.to_numpy())
     n=len(pts)
     if n<100:raise ValueError("Need >=100 weighted mask samples")
-    area=mask_summary.get("grid_results",{}).get("0.6",{}).get("union_upper_bound_deg2")
-    if area is None:
-        area=mask_summary["grids"]["0.6arcsec"]["union_masked_area_approx_upper_deg2"]
+    # Reject old pre-PC-fix rasters and unpaired point CSVs.
+    validate_mask_product(mask_summary, points_csv, n)
+    area=mask_summary["grid_results"]["0.6"]["union_upper_bound_deg2"]
     area=float(area)
     raw=pd.read_csv(metadata_csv)
     frame=raw.loc[(raw.obs_collection.astype(str).str.upper()=="JWST")
