@@ -1,0 +1,95 @@
+{
+  "status": "GEOMETRIC_BASELINE_AND_WHT_THRESHOLD_ROBUSTNESS_NOT_PM_COMPLETENESS",
+  "inputs": [
+    "pm_footprint/results/wht60/summary.json",
+    "pm_footprint/results/exact/summary.json"
+  ],
+  "threshold_baseline_table": [
+    {
+      "wht_relative_median_threshold": 0,
+      "baseline_days": 365,
+      "wht_area_deg2": 0.528823684998808,
+      "red_epoch_area_deg2": 0.31462445722188803,
+      "red_epoch_fraction": 0.5949515238195074,
+      "same_f444w_area_deg2": 0.038337293888894355,
+      "candidate_red_count": 62,
+      "candidate_same_f444w_count": 0
+    },
+    {
+      "wht_relative_median_threshold": 0,
+      "baseline_days": 730,
+      "wht_area_deg2": 0.528823684998808,
+      "red_epoch_area_deg2": 0.21297346305548384,
+      "red_epoch_fraction": 0.4027305680454987,
+      "same_f444w_area_deg2": 0.011966491666667304,
+      "candidate_red_count": 42,
+      "candidate_same_f444w_count": 0
+    },
+    {
+      "wht_relative_median_threshold": 0.1,
+      "baseline_days": 365,
+      "wht_area_deg2": 0.5287434327765925,
+      "red_epoch_area_deg2": 0.31458792805522323,
+      "red_epoch_fraction": 0.5949727382962023,
+      "same_f444w_area_deg2": 0.038332620000005424,
+      "candidate_red_count": 62,
+      "candidate_same_f444w_count": 0
+    },
+    {
+      "wht_relative_median_threshold": 0.1,
+      "baseline_days": 730,
+      "wht_area_deg2": 0.5287434327765925,
+      "red_epoch_area_deg2": 0.2129477897221511,
+      "red_epoch_fraction": 0.4027431387731806,
+      "same_f444w_area_deg2": 0.011964646666667298,
+      "candidate_red_count": 42,
+      "candidate_same_f444w_count": 0
+    },
+    {
+      "wht_relative_median_threshold": 0.5,
+      "baseline_days": 365,
+      "wht_area_deg2": 0.5175289024991531,
+      "red_epoch_area_deg2": 0.30869238416644124,
+      "red_epoch_fraction": 0.5964737093440814,
+      "same_f444w_area_deg2": 0.037616344722225685,
+      "candidate_red_count": 62,
+      "candidate_same_f444w_count": 0
+    },
+    {
+      "wht_relative_median_threshold": 0.5,
+      "baseline_days": 730,
+      "wht_area_deg2": 0.5175289024991531,
+      "red_epoch_area_deg2": 0.20889328583329603,
+      "red_epoch_fraction": 0.40363598018303504,
+      "same_f444w_area_deg2": 0.011755787500000309,
+      "candidate_red_count": 42,
+      "candidate_same_f444w_count": 0
+    }
+  ],
+  "wht_50pct_median_cut_vs_positive": {
+    "survey_area_reduction_pct": 2.13583143494801,
+    "red365_area_reduction_pct": 1.8854456223227456,
+    "red365_fraction_change_percentage_points": 0.1522185524573949,
+    "candidate_count_change": 0
+  },
+  "730d_vs_365d_positive_wht": {
+    "red_area_retained_fraction": 0.6769132474189217,
+    "red_area_lost_deg2": 0.10165099416640419,
+    "red_candidates_retained_fraction": 0.6774193548387096,
+    "red_candidates_lost": 20,
+    "confirmed_pm_ids_at_365d": [
+      387132,
+      1651050
+    ],
+    "confirmed_pm_ids_at_730d": [
+      387132
+    ]
+  },
+  "limitations": [
+    "Relative WHT>0.5 median is a per-tile weight cut, NOT a calibrated F444W=26.2 selection-depth cut.",
+    "WHT 0.6 arcsec raster deposition loses about 0.96 percent of per-tile area; this sensitivity check does not remove that systematic.",
+    "Multi-epoch red imaging is overwhelmingly cross-filter (F356W), not proof of F356W detection or astrometric precision.",
+    "Mask WCS provenance requires revalidation; no JWST mask correction is included.",
+    "No source quality, local F115W/F150W/F277W errors, F356W SNR, or proper-motion completeness included."
+  ]
+}
