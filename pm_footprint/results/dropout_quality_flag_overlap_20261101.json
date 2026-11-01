@@ -1,0 +1,55 @@
+{
+  "status": "POTENTIAL_FLAG4_SELECTION_OVERLAP_NOT_ACTUAL_COSMOS2025_FLAGS",
+  "source_catalog": "Zhen-Kai v13 frozen Dave125 photometry fixture",
+  "official_rule": "COSMOS2025 warn_flag=4: delta_mag<0.2 in only one NIRCam band; all other NIRCam+HST+MIRI delta_mag>0.5 or undetected",
+  "f444w_snr_threshold_for_approx_mag_error_lt_0p2": 5.428681023790647,
+  "n_candidates": 125,
+  "n_passing_f444w_half_of_warn4": 124,
+  "n_between_snr5_and_magerror0p2": 1,
+  "f444w_half_exception_ids": [
+    9095
+  ],
+  "epoch_counts": {
+    "red365": {
+      "n": 62,
+      "f444_mag_error_lt_0p2": 62
+    },
+    "nonred365": {
+      "n": 63,
+      "f444_mag_error_lt_0p2": 62
+    }
+  },
+  "confirmed_movers": {
+    "387132": {
+      "f444w_snr": 18.332243465662813,
+      "approx_f444w_mag_error": 0.05922549560242129,
+      "passes_f444w_half_of_warn4": true
+    },
+    "1651050": {
+      "f444w_snr": 40.72564647971017,
+      "approx_f444w_mag_error": 0.02665976598552098,
+      "passes_f444w_half_of_warn4": true
+    }
+  },
+  "negative_blue_snr_below_minus2": [
+    {
+      "candidate_id": 142367,
+      "band": "F115W",
+      "signed_snr": -5.630257851597632
+    },
+    {
+      "candidate_id": 203707,
+      "band": "F150W",
+      "signed_snr": -2.008243497636655
+    }
+  ],
+  "n_unique_candidates_with_negative_blue_snr_below_minus2": 2,
+  "limitations": [
+    "The 124/125 result checks only the F444W magnitude-error condition; it does NOT determine actual warn_flag=4.",
+    "Official COSMOS2025 photometry, other NIRCam+HST+MIRI bands, and its actual flags differ from this v13 fixture.",
+    "Signed SNR<2 permits large negative deviations; flag these for background QA, not automatic deletion.",
+    "Do not veto all warn_flag=4 objects in a deliberate F444W-only brown-dwarf selection.",
+    "flag_star measures source-pixel overlap with JWST mask, not just source-center mask membership.",
+    "Neither quality flags nor this audit measure geometric mask-WHT intersection or PM completeness."
+  ]
+}
