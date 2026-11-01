@@ -55,6 +55,37 @@ class TestMaskWHTSparseIntersection(unittest.TestCase):
         self.assertGreater(d["MC_95pct_halfwidth_red_fraction"],0)
         self.assertLess(d["MC_95pct_halfwidth_red_fraction"],0.01)
 
+    def test_outside_archive_wht_is_not_subtracted(self):
+        # 50 WHT-positive samples outside the archive are not part of the
+        # reference WHT survey area and must not enter the mask correction.
+        n = 1000
+        archive = np.zeros(n, dtype=bool)
+        archive[:950] = True
+        red = np.zeros(n, dtype=bool)
+        red[:600] = True
+        wht = np.zeros(n, dtype=bool)
+        wht[:900] = True
+        wht[950:] = True
+        result = estimate(.01, archive, red, wht, .50, .30)
+        self.assertEqual(result["n_WHT_positive_samples_outside_archive_ignored"], 50)
+        self.assertEqual(result["n_mask_samples_in_WHT"], 900)
+        self.assertAlmostEqual(result["direct_mask_WHT_intersection_MC_deg2"], .009)
+        self.assertAlmostEqual(result["direct_mask_WHT_red365_intersection_MC_deg2"], .006)
+        self.assertAlmostEqual(result["corrected_red_fraction"], .294/.491)
+
+    def test_outside_archive_only_does_not_change_result(self):
+        n = 1000
+        archive = np.ones(n, dtype=bool)
+        archive[950:] = False
+        red = np.zeros(n, dtype=bool)
+        red[:500] = True
+        wht = np.ones(n, dtype=bool)
+        a = estimate(.01, archive, red, wht, .5, .3)
+        wht[950:] = False
+        b = estimate(.01, archive, red, wht, .5, .3)
+        self.assertAlmostEqual(a["corrected_red_fraction"], b["corrected_red_fraction"])
+        self.assertEqual(a["n_WHT_positive_samples_outside_archive_ignored"], 50)
+
     def test_invalid_nesting_fails(self):
         n=100
         archive=np.zeros(n,bool)
