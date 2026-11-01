@@ -6,6 +6,8 @@ Usage: python -m pm_footprint.jwst_mask_union_repro --archive FILE.tar.gz
 0.3"/0.6" results are raster approximations, not a calibrated dropout effective area.
 """
 import argparse, tarfile, numpy as np, time, json
+from .mask_wcs import (pixel_to_lambert, cd_from_header,
+                       tan_pixel_area_deg2, legacy_column_scaling_error_arcsec)
 from pathlib import Path
 parser=argparse.ArgumentParser()
 parser.add_argument('--archive',required=True)
@@ -37,13 +39,10 @@ def hdr(f):
   if end:return h
 
 def sky(x,y,h):
- u=(x+1-h['CRPIX1'])*h['CDELT1']*R;v=(y+1-h['CRPIX2'])*h['CDELT2']*R
- xi=h['PC1_1']*u+h['PC1_2']*v; eta=h['PC2_1']*u+h['PC2_2']*v
- a=h['CRVAL1']*R;d=h['CRVAL2']*R;sd=np.sin(d);cd=np.cos(d)
- ra=a+np.arctan2(xi,cd-eta*sd)
- dec=np.arctan2(sd+eta*cd,np.sqrt((cd-eta*sd)**2+xi**2))
- dra=ra-r0;k=np.sqrt(2/(1+s0*np.sin(dec)+c0*np.cos(dec)*np.cos(dra)))
- return k*np.cos(dec)*np.sin(dra)/R, k*(c0*np.sin(dec)-s0*np.cos(dec)*np.cos(dra))/R
+ # FITS convention: CD[i,j] = CDELT[i] * PC[i,j] (row scaling).
+ # The former column-scaled implementation misplaced rotated sky pixels.
+ return pixel_to_lambert(x,y,h)
+
 
 def depos(xe,ye,frac,g):
  gs=g/3600.;N=round(SIZE/gs)
@@ -65,11 +64,17 @@ with tarfile.open(F,'r|gz') as tar:
   if not m.isfile():continue
   f=tar.extractfile(m);h=hdr(f);nx=h['NAXIS1'];ny=h['NAXIS2']
   assert nx==19200 and ny==24910 and h['BITPIX']==8
+  corners_x=np.array([0,nx-1,0,nx-1,(nx-1)/2.])
+  corners_y=np.array([0,0,ny-1,ny-1,(ny-1)/2.])
+  legacy_shift=legacy_column_scaling_error_arcsec(h,corners_x,corners_y)
+  nominal=(.03/3600)**2
+  center_area=float(tan_pixel_area_deg2((nx-1)/2.,(ny-1)/2.,h))
   cnt=0; xx=[];yy=[];ff=[]
   for i in range(0,ny,1000):
    rows=min(1000,ny-i)
    dat=f.read(rows*nx)
    a=np.frombuffer(dat,dtype=np.uint8).reshape(rows//10,10,nx//10,10)
+   if np.any(a>1): raise ValueError('Nonbinary JWST mask values in '+m.name)
    b=a.sum(axis=(1,3),dtype=np.uint16)
    j,k=np.nonzero(b)
    if not len(j):continue
@@ -78,7 +83,12 @@ with tarfile.open(F,'r|gz') as tar:
    xx.append(xe.astype(np.float32)); yy.append(ye.astype(np.float32));ff.append((v/100).astype(np.float32))
   x=np.concatenate(xx);y=np.concatenate(yy);frac=np.concatenate(ff)
   native=cnt*(.03/3600)**2
-  t={'tile':m.name,'pixels_code1':cnt,'native_area_deg2':native}
+  t={'tile':m.name,'pixels_code1':cnt,'native_area_deg2':native,
+     'wcs_pc_off_diagonal':[float(h['PC1_2']),float(h['PC2_1'])],
+     'wcs_cd_det_deg2_per_pixel':float(np.linalg.det(cd_from_header(h))),
+     'wcs_center_tan_pixel_area_deg2':center_area,
+     'wcs_center_area_ratio_to_nominal_30mas':center_area/nominal,
+     'legacy_column_scaled_pc_shift_arcsec_max_corners':float(np.max(legacy_shift))}
   for g in GRIDS:
    key,v,excess=depos(x,y,frac,g)
    out[str(g)].append((key,v))
@@ -88,7 +98,7 @@ with tarfile.open(F,'r|gz') as tar:
    t[f'grid_{g}_clipped_excess_deg2']=excess
   tiles.append(t)
   print(f'{n+1}/20 {m.name} native={native:.9f} grid0.3/native={t["grid_0.3_area_ratio_to_native"]:.5f} grid0.6/native={t["grid_0.6_area_ratio_to_native"]:.5f} elapsed={time.time()-T:.1f}s',flush=True)
-res={'grid_origin_shift_in_cells':[args.shift_x_cells,args.shift_y_cells], 'source':'user supplied JWST binary starmask archive; no WHT or MAST used','method':'native 30mas binary mask aggregated in 10x10 blocks, bilinear mass-conserving fractional deposition onto Lambert equal-area grid; per sky cell max occupancy is an APPROXIMATE union lower bound; sum clipped at 1 an APPROXIMATE upper bound; grid resolution sensitivity 0.3/0.6 arcsec','tiles':tiles,'sum_tile_native_masked_area_deg2_NOT_UNION':sum(q['native_area_deg2'] for q in tiles),'grid_results':{}}
+res={'grid_origin_shift_in_cells':[args.shift_x_cells,args.shift_y_cells], 'source':'user supplied JWST binary starmask archive; no WHT or MAST used','wcs_convention':'FITS CD[i,j]=CDELT[i]*PC[i,j]; earlier mask union/MC files require WCS validation before scientific use','method':'native 30mas binary mask aggregated in 10x10 blocks, bilinear mass-conserving fractional deposition onto Lambert equal-area grid; per sky cell max occupancy is an APPROXIMATE union lower bound; sum clipped at 1 an APPROXIMATE upper bound; grid resolution sensitivity 0.3/0.6 arcsec','tiles':tiles,'sum_tile_native_masked_area_deg2_NOT_UNION':sum(q['native_area_deg2'] for q in tiles),'grid_results':{}}
 for g in GRIDS:
  keys=np.concatenate([kv[0] for kv in out[str(g)]]);values=np.concatenate([kv[1] for kv in out[str(g)]])
  uniq,inv=np.unique(keys,return_inverse=True)
