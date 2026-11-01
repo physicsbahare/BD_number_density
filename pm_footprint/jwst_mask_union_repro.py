@@ -8,6 +8,7 @@ Usage: python -m pm_footprint.jwst_mask_union_repro --archive FILE.tar.gz
 import argparse, tarfile, numpy as np, time, json, hashlib
 from .mask_wcs import (pixel_to_lambert, cd_from_header,
                        tan_pixel_area_deg2, legacy_column_scaling_error_arcsec)
+from .mask_astropy_parity import validate_fits_header_wcs
 from pathlib import Path
 parser=argparse.ArgumentParser()
 parser.add_argument('--archive',required=True)
@@ -69,6 +70,9 @@ with tarfile.open(F,'r|gz') as tar:
   if not m.isfile():continue
   f=tar.extractfile(m);h=hdr(f);nx=h['NAXIS1'];ny=h['NAXIS2']
   assert nx==19200 and ny==24910 and h['BITPIX']==8
+  # Critical independent FITS WCS reference before any pixel-area deposition.
+  # Stops the analysis if PC/CDELT/TAN conventions misplace real mask pixels.
+  reference_wcs = validate_fits_header_wcs(h, nx, ny)
   corners_x=np.array([0,nx-1,0,nx-1,(nx-1)/2.])
   corners_y=np.array([0,0,ny-1,ny-1,(ny-1)/2.])
   legacy_shift=legacy_column_scaling_error_arcsec(h,corners_x,corners_y)
@@ -93,6 +97,7 @@ with tarfile.open(F,'r|gz') as tar:
      'wcs_cd_det_deg2_per_pixel':float(np.linalg.det(cd_from_header(h))),
      'wcs_center_tan_pixel_area_deg2':center_area,
      'wcs_center_area_ratio_to_nominal_30mas':center_area/nominal,
+     'astropy_wcs_parity':reference_wcs,
      'legacy_column_scaled_pc_shift_arcsec_max_corners':float(np.max(legacy_shift))}
   for g in GRIDS:
    key,v,excess=depos(x,y,frac,g)
