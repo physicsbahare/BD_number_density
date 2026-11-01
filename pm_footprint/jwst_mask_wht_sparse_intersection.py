@@ -20,6 +20,7 @@ from shapely import STRtree, points
 
 from .exact_geometry import CENTER_RA, CENTER_DEC, polygon_region, bands
 from .jwst_mask_epoch_from_sample import epoch_flags
+from .mask_product_integrity import validate_mask_product
 
 
 def lambert_inverse(x, y):
@@ -176,15 +177,16 @@ def run(points_csv, mask_summary, wht_fits, metadata, output,
     sample = pd.read_csv(points_csv)
     if list(sample.columns) != ["x_lambert_rad", "y_lambert_rad"]:
         raise ValueError("Invalid weighted mask sample columns")
+    mask = json.loads(Path(mask_summary).read_text())
+    # Fail BEFORE any sparse WHT reads: the old raster sample had an
+    # unvalidated PC/CDELT WCS and must never be used for a science estimate.
+    validate_mask_product(mask, points_csv, len(sample))
     x = sample.x_lambert_rad.to_numpy(float)
     y = sample.y_lambert_rad.to_numpy(float)
     ra, dec = lambert_inverse(x, y)
     wht, wht_qc = sparse_wht_positive(wht_fits, ra, dec)
     archive, red, epoch_qc = red_epoch_membership(x, y, metadata)
-    mask = json.loads(Path(mask_summary).read_text())
-    area = float(mask["grid_results"]["0.6"]["union_upper_bound_deg2"]
-                 if "grid_results" in mask else
-                 mask["grids"]["0.6arcsec"]["union_masked_area_approx_upper_deg2"])
+    area = float(mask["grid_results"]["0.6"]["union_upper_bound_deg2"])
     result = estimate(area, archive, red, wht, wht_area, red_wht_area)
     result.update({
         "status": "DIRECT_SPATIAL_JWST_MASK_V13_WHT_RED365_MC_NOT_SELECTION_COMPLETENESS",
