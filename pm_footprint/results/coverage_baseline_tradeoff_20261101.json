@@ -83,7 +83,11 @@
     ],
     "confirmed_pm_ids_at_730d": [
       387132
-    ]
+    ],
+    "candidate_density_365_per_deg2": 197.06033201441383,
+    "candidate_density_730_per_deg2": 197.20766802321359,
+    "candidate_density_lost_annulus_per_deg2": 196.75164187041497,
+    "density_ratio_730_to_365": 1.0007476695451267
   },
   "limitations": [
     "Relative WHT>0.5 median is a per-tile weight cut, NOT a calibrated F444W=26.2 selection-depth cut.",
