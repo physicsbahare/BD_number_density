@@ -45,6 +45,24 @@ def validate_mask_product(summary, points_path=None, n_points=None):
         _finite_positive(t.get("wcs_center_area_ratio_to_nominal_30mas"), "TAN native-pixel area ratio")
         if len(t.get("wcs_pc_off_diagonal", [])) != 2:
             raise ValueError("Missing measured FITS PC off-diagonal terms")
+        # Production sky raster MUST agree with an independent Astropy
+        # transformation of nine native FITS pixel coordinates per tile.
+        parity = t.get("astropy_wcs_parity")
+        if not isinstance(parity, dict):
+            raise ValueError("Missing independent real-header Astropy WCS audit")
+        if parity.get("positions_checked") != 9:
+            raise ValueError("Expected nine independent WCS test positions per tile")
+        sep = float(parity.get("max_angular_sep_arcsec", float("nan")))
+        err = float(parity.get("max_cd_matrix_disagreement_deg_per_pix", float("nan")))
+        if not (math.isfinite(sep) and 0 <= sep <= 0.001 and
+                math.isfinite(err) and 0 <= err <= 1e-12):
+            raise ValueError("Mask raster WCS not independently validated")
+        area = _finite_positive(
+            parity.get("center_solid_angle_deg2_per_native_pixel"),
+            "independently audited TAN pixel area")
+        ratio = area / (0.03 / 3600.0)**2
+        if abs(ratio - float(t["wcs_center_area_ratio_to_nominal_30mas"])) > 1e-8:
+            raise ValueError("Astropy-validated mask pixel area mismatch")
         for key in ("grid_0.3_area_ratio_to_native", "grid_0.6_area_ratio_to_native"):
             r = _finite_positive(t.get(key), key)
             if not 0.95 <= r <= 1.01:
