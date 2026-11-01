@@ -1,0 +1,42 @@
+{
+  "status": "SOURCE_LEVEL_FITS_PC_WCS_CONVENTION_ERROR_CORRECTED__ACTUAL_MASK_UNION_RECOMPUTATION_PENDING",
+  "date": "2026-11-01",
+  "source": "pm_footprint/jwst_mask_union_repro.py (former sky() implementation)",
+  "finding": "The former sky() scaled pixel-axis offsets by CDELT before applying PC, equivalent to CD_ij=PC_ij*CDELT_j. FITS WCS requires CD_ij=CDELT_i*PC_ij. This changes rotated WCS positions when CDELT1 != CDELT2 and PC off-diagonals are nonzero.",
+  "independent_reference": "https://fits.gsfc.nasa.gov/standard30/htmlfiles/fits_standard3000083.html",
+  "algebra": {
+    "former_xi": "PC1_1*CDELT1*dx + PC1_2*CDELT2*dy",
+    "correct_xi": "CDELT1*(PC1_1*dx + PC1_2*dy)",
+    "former_eta": "PC2_1*CDELT1*dx + PC2_2*CDELT2*dy",
+    "correct_eta": "CDELT2*(PC2_1*dx + PC2_2*dy)",
+    "former_minus_correct_xi_deg": "(CDELT2-CDELT1)*PC1_2*dy",
+    "former_minus_correct_eta_deg": "(CDELT1-CDELT2)*PC2_1*dx"
+  },
+  "synthetic_regression_only": {
+    "description": "Artificial 30-degree PC rotation, CDELT1=-0.03/3600 deg, CDELT2=+0.03/3600 deg, dx=dy=1000 pixels; NOT the real mask WCS.",
+    "legacy_minus_correct_tangent_plane_shift_arcsec": 42.42640687119285,
+    "diagonal_PC_shift_arcsec": 0
+  },
+  "real_data_status": {
+    "native_mask_code1_counts": "UNALTERED; direct binary pixel counting is independent of this transform",
+    "candidate_center_mask_membership": "UNALTERED; jwst_starmask_audit.position_pixels uses correct row-scaled CD",
+    "published_WHT_geometric_area": "UNALTERED; independent WHT pipeline",
+    "previous_union_area_grid_qc": "PROVISIONAL; MUST REVALIDATE WITH ACTUAL MASK FITS PC/CDELT before quoting precise area",
+    "previous_epoch_mc_20261031": "PROVISIONAL; sampled sky locations came from potentially misregistered union raster",
+    "v13_conditional_mask_bounds": "PROVISIONAL; inherit mask-epoch Monte Carlo WCS caveat",
+    "actual_PC_offdiagonals_and_real_shift": "UNKNOWN; source FITS archive not available in this run, so cannot establish whether nonzero or quantify bias"
+  },
+  "code_changes": [
+    "New pm_footprint/mask_wcs.py implements correct FITS PC row scaling, TAN inverse, Lambert sky projection, TAN local solid-angle Jacobian, and legacy offset diagnostic.",
+    "pm_footprint/jwst_mask_union_repro.py now uses corrected transform and records per-tile PC off-diagonals, determinant, nominal area ratio, and max legacy shift across tile corners.",
+    "Explicitly rejects nonbinary mask codes before aggregating.",
+    "Seven synthetic WCS unit tests pass locally without FITS, WHT, or astropy."
+  ],
+  "next_reproduction": [
+    "Run python -m unittest pm_footprint.test_mask_wcs -v",
+    "Re-run python -m pm_footprint.jwst_mask_union_repro --archive /path/to/previously-supplied/cosmos_web_starmask_jwst.tar.gz --output corrected_union.json --sample-out corrected_points.csv --samples 10000",
+    "Inspect per-tile legacy_column_scaled_pc_shift_arcsec_max_corners and wcs_center_area_ratio_to_nominal_30mas; verify FITS WCS against astropy on a small header-only test.",
+    "Then rerun mask point vs exact epoch polygons with existing MAST metadata, without downloading WHT; retain conditional WHT bounds until spatial WHT occupancy cells exist."
+  ],
+  "scope": "Source-level reproducibility correction, NOT a new selection-matched effective area measurement."
+}
