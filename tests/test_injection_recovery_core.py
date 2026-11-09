@@ -73,3 +73,39 @@ def test_refuse_edge_or_invalid_calibration():
         inject_psf_njy(image, variance, psf, 0, 0, 100, 10, np.random.default_rng())
     with pytest.raises(ValueError):
         inject_psf_njy(image, variance, psf, 10, 10, 100, 0, np.random.default_rng())
+
+
+def test_cutout_pilot_writes_fits_and_requires_ali_hst(tmp_path):
+    from astropy.io import fits
+    from injection_recovery.run_cutout_pilot import run
+
+    entries = {}
+    for band in ("F115W", "F150W", "F277W", "F444W"):
+        sci = tmp_path / f"{band}_sci.fits"
+        var = tmp_path / f"{band}_var.fits"
+        psf = tmp_path / f"{band}_psf.fits"
+        fits.writeto(sci, np.zeros((31, 31)), overwrite=False)
+        fits.writeto(var, np.ones((31, 31)), overwrite=False)
+        fits.writeto(psf, np.ones((5, 5)), overwrite=False)
+        entries[band] = {
+            "science_path": str(sci),
+            "variance_path": str(var),
+            "psf_path": str(psf),
+            "x": 15.0,
+            "y": 15.0,
+            "flux_njy": 100.0,
+            "electrons_per_njy": 10.0,
+        }
+    manifest = dict(project="dave", injection_id="fixture01", bands=entries,
+                    wcs_alignment_verified=True, image_units_verified=True)
+    result = run(manifest, tmp_path / "injected", seed=11)
+    assert result["status"] == "IMAGE_INJECTION_ONLY_NOT_RECOVERED_NOT_COMPLETENESS"
+    assert len(result["bands"]) == 4
+    with fits.open(tmp_path / "injected" / "fixture01_F444W.fits") as hdus:
+        assert hdus["SCI"].shape == (31, 31)
+        assert np.isclose((hdus["VAR"].data - 1.0).sum(), 10.0, atol=1e-4)
+    with pytest.raises(FileExistsError):
+        run(manifest, tmp_path / "injected")
+    manifest["project"] = "ali"
+    with pytest.raises(ValueError, match="F814W"):
+        run(manifest, tmp_path / "ali_injected")
