@@ -1,0 +1,22 @@
+name: Ali and Dave injection smoke tests
+
+on:
+  pull_request:
+    paths:
+      - 'injection_recovery/**'
+      - 'tests/test_injection_recovery_core.py'
+      - '.github/workflows/injection_recovery_smoke.yml'
+  workflow_dispatch:
+
+jobs:
+  unit-tests-only:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install light testing dependencies
+        run: python -m pip install numpy scipy astropy pytest
+      - name: Test injection, selection, and FITS cutout pilot
+        run: python -m pytest -q tests/test_injection_recovery_core.py
