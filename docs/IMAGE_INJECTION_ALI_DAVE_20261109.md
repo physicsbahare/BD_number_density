@@ -115,3 +115,42 @@ photometric selectors **only**. It does NOT prove astrophysical completeness.
 **Gate before claiming a result:** same-source reproducibility, image
 injection+recovery with the actual catalogue pipeline, masks/depth checked,
 negative-control positions, and an uncertainty budget.
+
+
+## Optional executable CUTOUT pilot (still NOT recovery)
+
+\`python -m injection_recovery.run_cutout_pilot --manifest pilot.json --out output_dir\`
+
+The JSON must contain \`project\` ("dave" or "ali"),
+\`injection_id\`, \`wcs_alignment_verified: true\`,
+\`image_units_verified: true\`, and a \`bands\` dictionary.
+For each required filter, provide the exact fields:
+
+\`\`\`json
+{
+  "science_path": "LOCAL_CONVERTED_CUTOUT_SCI.fits",
+  "variance_path": "LOCAL_CONVERTED_CUTOUT_VAR.fits",
+  "psf_path": "LOCAL_REGISTERED_PSF.fits",
+  "x": 64.25,
+  "y": 64.75,
+  "flux_njy": 100.0,
+  "electrons_per_njy": 50.0
+}
+\`\`\`
+
+The above numbers and filenames are **illustrative only**, not
+instrument calibrations. Repeat this entry for F115W/F150W/F277W/F444W;
+include F814W too for Ali. \`x,y\` are **cutout-local, per-band, WCS-verified**
+coordinates, not necessarily equal across different band images.
+HDU numbers/names can optionally be set with \`science_ext\`,
+\`variance_ext\` and \`psf_ext\` (default 0). Cutouts must be
+<=2048² pixels. Provide arrays already converted to nJy per pixel,
+and an independently calibrated electrons-per-nJy factor
+for that filter's exposure. Do not use published mosaics' original
+MJy/sr numbers as if they were nJy/pixel.
+
+The program refuses overwriting outputs and writes a FITS with SCI, VAR
+plus a traceable JSON for each pilot. It **does not** run original
+source detection, estimate \`new_e\`, compare recovered measurements,
+or output completeness. Calibrated cutouts should be produced on the
+local computer, not committed to this repository.
