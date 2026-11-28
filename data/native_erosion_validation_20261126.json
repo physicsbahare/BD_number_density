@@ -1,0 +1,9 @@
+{
+  "input": "/home/bahareh/results/ali_fiveband_reconstruction/A7/F115W_wht_coverage.npz",
+  "test": "Compare boundary-based aperture validity with the exact union of 5x7 and 7x5 minimum-filter erosions over the entire native tile",
+  "full_tile_bitwise_identical": true,
+  "valid_aperture_center_pixels": 463282390,
+  "boundary_method_seconds": 0.9935534000396729,
+  "reference_method_seconds": 17.040770769119263,
+  "status": "EXECUTED"
+}

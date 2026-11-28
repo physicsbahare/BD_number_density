@@ -1,0 +1,148 @@
+{
+  "records": [
+    {
+      "teff_lo_K": 300,
+      "n": 6690,
+      "n_pass": 5623,
+      "empirical_probability": 0.84050822122571,
+      "gaussian_probability": 0.8444535161408975,
+      "wilson95": [
+        0.8315396056689079,
+        0.8490860153631543
+      ]
+    },
+    {
+      "teff_lo_K": 450,
+      "n": 6683,
+      "n_pass": 5503,
+      "empirical_probability": 0.8234325901541224,
+      "gaussian_probability": 0.8434362384371576,
+      "wilson95": [
+        0.8141057233686785,
+        0.8323878456238206
+      ]
+    },
+    {
+      "teff_lo_K": 600,
+      "n": 6739,
+      "n_pass": 5630,
+      "empirical_probability": 0.8354355245585399,
+      "gaussian_probability": 0.8397735735548475,
+      "wilson95": [
+        0.8263922007079055,
+        0.8440966469997361
+      ]
+    },
+    {
+      "teff_lo_K": 750,
+      "n": 6663,
+      "n_pass": 5454,
+      "empirical_probability": 0.8185502026114363,
+      "gaussian_probability": 0.8301528761079886,
+      "wilson95": [
+        0.8091138267368339,
+        0.8276194788652622
+      ]
+    },
+    {
+      "teff_lo_K": 900,
+      "n": 6689,
+      "n_pass": 5376,
+      "empirical_probability": 0.8037075796083122,
+      "gaussian_probability": 0.8153001876042438,
+      "wilson95": [
+        0.7940159024264601,
+        0.8130506215601871
+      ]
+    },
+    {
+      "teff_lo_K": 1050,
+      "n": 6734,
+      "n_pass": 5337,
+      "empirical_probability": 0.7925452925452925,
+      "gaussian_probability": 0.8004516775863277,
+      "wilson95": [
+        0.7826951488319994,
+        0.8020618574110069
+      ]
+    },
+    {
+      "teff_lo_K": 1200,
+      "n": 6682,
+      "n_pass": 5100,
+      "empirical_probability": 0.7632445375636037,
+      "gaussian_probability": 0.7802904074831376,
+      "wilson95": [
+        0.7529026862213273,
+        0.7732838860550268
+      ]
+    },
+    {
+      "teff_lo_K": 1350,
+      "n": 6672,
+      "n_pass": 4995,
+      "empirical_probability": 0.7486510791366906,
+      "gaussian_probability": 0.7543342770065956,
+      "wilson95": [
+        0.7381012665022727,
+        0.7589147307269565
+      ]
+    },
+    {
+      "teff_lo_K": 1500,
+      "n": 6690,
+      "n_pass": 4890,
+      "empirical_probability": 0.7309417040358744,
+      "gaussian_probability": 0.7369166365058071,
+      "wilson95": [
+        0.7201846655446142,
+        0.7414336770780969
+      ]
+    },
+    {
+      "teff_lo_K": 1650,
+      "n": 6725,
+      "n_pass": 4698,
+      "empirical_probability": 0.6985873605947955,
+      "gaussian_probability": 0.6986403081426574,
+      "wilson95": [
+        0.6875094018063668,
+        0.7094385745051635
+      ]
+    },
+    {
+      "teff_lo_K": 1800,
+      "n": 6664,
+      "n_pass": 4366,
+      "empirical_probability": 0.6551620648259304,
+      "gaussian_probability": 0.6583086415044775,
+      "wilson95": [
+        0.6436635918719397,
+        0.6664817546800997
+      ]
+    },
+    {
+      "teff_lo_K": 1950,
+      "n": 6731,
+      "n_pass": 4002,
+      "empirical_probability": 0.5945624721438122,
+      "gaussian_probability": 0.5861660902456219,
+      "wilson95": [
+        0.5827825397187232,
+        0.6062345303613361
+      ]
+    },
+    {
+      "teff_lo_K": 2100,
+      "n": 6665,
+      "n_pass": 3406,
+      "empirical_probability": 0.5110277569392349,
+      "gaussian_probability": 0.5140146301703851,
+      "wilson95": [
+        0.49902400005113035,
+        0.5230188091695878
+      ]
+    }
+  ],
+  "n_trials": 87027
+}

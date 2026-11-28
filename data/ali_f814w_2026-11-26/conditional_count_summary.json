@@ -1,0 +1,78 @@
+{
+  "status": "COMPLETE_NUMERICAL_RUN",
+  "tiles": [
+    "A1",
+    "A10",
+    "A2",
+    "A3",
+    "A4",
+    "A5",
+    "A6",
+    "A7",
+    "A8",
+    "A9",
+    "B1",
+    "B10",
+    "B2",
+    "B3",
+    "B4",
+    "B5",
+    "B6",
+    "B7",
+    "B8",
+    "B9"
+  ],
+  "snr_mode": "preserved_nircam",
+  "cells_per_tile": 512,
+  "rmax_pc": 50000.0,
+  "radial_domain": "depth",
+  "f814w_noise_scale": 1.0,
+  "f814w_snr_scale": 1.0,
+  "f814w_threshold_shift": 0.0,
+  "four_area_deg2": 0.5333332029647787,
+  "five_area_deg2": 0.5324308306666868,
+  "boundary_interpolated_area_fraction": 0.011313063376371554,
+  "results": {
+    "five_empirical": {
+      "total": 23.84371388009468,
+      "thin": 16.263683818272494,
+      "thick": 5.477254777702957,
+      "halo": 2.102775284119227,
+      "measured_density_uncertainty": 1.7686418549904455,
+      "incomplete_density_bin_contribution": 5.959328410875614,
+      "quadrature_error_bound": 1.7306251134384674e-06
+    },
+    "five_gaussian": {
+      "total": 24.165091306111986,
+      "thin": 16.48597078094002,
+      "thick": 5.549550967017885,
+      "halo": 2.1295695581540848,
+      "measured_density_uncertainty": 1.7927476905099682,
+      "incomplete_density_bin_contribution": 6.04209122629876,
+      "quadrature_error_bound": 1.421608239755471e-07
+    },
+    "four_matched": {
+      "total": 28.805100941172288,
+      "thin": 19.60687810918605,
+      "thick": 6.63454014123146,
+      "halo": 2.563682690754779,
+      "measured_density_uncertainty": 2.1324524047190905,
+      "incomplete_density_bin_contribution": 7.16561841370636,
+      "quadrature_error_bound": 1.7635985656313006e-07
+    },
+    "four_original": {
+      "total": 28.886864370261556,
+      "thin": 19.63279570743635,
+      "thick": 6.665477164886899,
+      "halo": 2.588591497938308,
+      "measured_density_uncertainty": 2.1362553035551812,
+      "incomplete_density_bin_contribution": 7.1845711678264825,
+      "quadrature_error_bound": 1.9523870134879085e-07
+    }
+  },
+  "nircam_calibration": "/home/bahareh/results/ali_calibration_legacy_r015",
+  "f814w_interpolated_cells": 26,
+  "f814w_source_noise": true,
+  "source_noise_quadrature_nodes": 15,
+  "nircam_F277W_F444W_correlation_sensitivity": 0.0
+}

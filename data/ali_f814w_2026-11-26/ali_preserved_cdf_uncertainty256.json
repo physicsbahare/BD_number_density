@@ -1,0 +1,572 @@
+{
+  "method": "Conditional finite-blank-CDF uncertainty via linear selection weights.\n\nThis is the sampling uncertainty of the empirical CDF, conditional on the\nnoise/PSF/SNR calibration and the explicit depth-limited radial domain. Shared\nblank scenes across temperature bins are kept correlated. Spatially separate\nblank apertures are approximated as independent; no model systematics included.\n",
+  "nodes": 256,
+  "shot_nodes": 15,
+  "preserved_nircam": true,
+  "cells_per_tile": 512,
+  "radial_domain": "depth",
+  "expected_count_ecdf_step_quadrature": 23.819323385487415,
+  "conditional_cdf_sampling_standard_error": 0.049559585108618485,
+  "strata": [
+    {
+      "tile": "A1",
+      "depth_quartile": 0,
+      "n": 587,
+      "count": 0.3024541294922528,
+      "variance_of_mean": 2.6814857043286926e-05
+    },
+    {
+      "tile": "A1",
+      "depth_quartile": 1,
+      "n": 587,
+      "count": 0.2995113717548822,
+      "variance_of_mean": 3.411382387407999e-05
+    },
+    {
+      "tile": "A1",
+      "depth_quartile": 2,
+      "n": 587,
+      "count": 0.2994858078965488,
+      "variance_of_mean": 2.7777942147497186e-05
+    },
+    {
+      "tile": "A1",
+      "depth_quartile": 3,
+      "n": 587,
+      "count": 0.28217821695850787,
+      "variance_of_mean": 3.8027924303126625e-05
+    },
+    {
+      "tile": "A10",
+      "depth_quartile": 0,
+      "n": 610,
+      "count": 0.2297883420414252,
+      "variance_of_mean": 1.4343808172953364e-05
+    },
+    {
+      "tile": "A10",
+      "depth_quartile": 1,
+      "n": 610,
+      "count": 0.1591846639030974,
+      "variance_of_mean": 9.057596996227694e-06
+    },
+    {
+      "tile": "A10",
+      "depth_quartile": 2,
+      "n": 610,
+      "count": 0.2887156031356209,
+      "variance_of_mean": 2.334944524252783e-05
+    },
+    {
+      "tile": "A10",
+      "depth_quartile": 3,
+      "n": 610,
+      "count": 0.22921264171567196,
+      "variance_of_mean": 1.79199021453885e-05
+    },
+    {
+      "tile": "A2",
+      "depth_quartile": 0,
+      "n": 580,
+      "count": 0.31554606648357875,
+      "variance_of_mean": 2.4480234883878145e-05
+    },
+    {
+      "tile": "A2",
+      "depth_quartile": 1,
+      "n": 580,
+      "count": 0.31458095633881705,
+      "variance_of_mean": 2.8380759915949908e-05
+    },
+    {
+      "tile": "A2",
+      "depth_quartile": 2,
+      "n": 579,
+      "count": 0.3257816165150241,
+      "variance_of_mean": 2.7858486465331884e-05
+    },
+    {
+      "tile": "A2",
+      "depth_quartile": 3,
+      "n": 580,
+      "count": 0.27181476020994705,
+      "variance_of_mean": 3.6537191639484866e-05
+    },
+    {
+      "tile": "A3",
+      "depth_quartile": 0,
+      "n": 584,
+      "count": 0.2160440647706946,
+      "variance_of_mean": 8.295434376455706e-06
+    },
+    {
+      "tile": "A3",
+      "depth_quartile": 1,
+      "n": 584,
+      "count": 0.3679660978868992,
+      "variance_of_mean": 4.48544007825929e-05
+    },
+    {
+      "tile": "A3",
+      "depth_quartile": 2,
+      "n": 584,
+      "count": 0.2895555441321431,
+      "variance_of_mean": 2.8087487396483518e-05
+    },
+    {
+      "tile": "A3",
+      "depth_quartile": 3,
+      "n": 584,
+      "count": 0.2611651225010645,
+      "variance_of_mean": 3.6499701833124695e-05
+    },
+    {
+      "tile": "A4",
+      "depth_quartile": 0,
+      "n": 586,
+      "count": 0.3654210972271495,
+      "variance_of_mean": 4.07965091197919e-05
+    },
+    {
+      "tile": "A4",
+      "depth_quartile": 1,
+      "n": 586,
+      "count": 0.35129364177165234,
+      "variance_of_mean": 4.083485200000732e-05
+    },
+    {
+      "tile": "A4",
+      "depth_quartile": 2,
+      "n": 586,
+      "count": 0.3726402753734724,
+      "variance_of_mean": 3.715021129219754e-05
+    },
+    {
+      "tile": "A4",
+      "depth_quartile": 3,
+      "n": 586,
+      "count": 0.3445422537144751,
+      "variance_of_mean": 4.621407131162186e-05
+    },
+    {
+      "tile": "A5",
+      "depth_quartile": 0,
+      "n": 599,
+      "count": 0.24639259338642264,
+      "variance_of_mean": 1.7296398461915622e-05
+    },
+    {
+      "tile": "A5",
+      "depth_quartile": 1,
+      "n": 598,
+      "count": 0.2727027134336005,
+      "variance_of_mean": 2.2384570619384834e-05
+    },
+    {
+      "tile": "A5",
+      "depth_quartile": 2,
+      "n": 598,
+      "count": 0.21186182684646604,
+      "variance_of_mean": 1.6702385670344673e-05
+    },
+    {
+      "tile": "A5",
+      "depth_quartile": 3,
+      "n": 598,
+      "count": 0.2535509017659848,
+      "variance_of_mean": 2.1290892404688396e-05
+    },
+    {
+      "tile": "A6",
+      "depth_quartile": 0,
+      "n": 600,
+      "count": 0.32458480075725904,
+      "variance_of_mean": 4.024511442222366e-05
+    },
+    {
+      "tile": "A6",
+      "depth_quartile": 1,
+      "n": 600,
+      "count": 0.35294506421655514,
+      "variance_of_mean": 3.784841170028062e-05
+    },
+    {
+      "tile": "A6",
+      "depth_quartile": 2,
+      "n": 600,
+      "count": 0.34592030169266913,
+      "variance_of_mean": 3.5985329833004396e-05
+    },
+    {
+      "tile": "A6",
+      "depth_quartile": 3,
+      "n": 600,
+      "count": 0.3308028078272273,
+      "variance_of_mean": 4.0460520880403624e-05
+    },
+    {
+      "tile": "A7",
+      "depth_quartile": 0,
+      "n": 596,
+      "count": 0.3348161806583098,
+      "variance_of_mean": 3.406046042689772e-05
+    },
+    {
+      "tile": "A7",
+      "depth_quartile": 1,
+      "n": 596,
+      "count": 0.43865455408504705,
+      "variance_of_mean": 5.277291989029399e-05
+    },
+    {
+      "tile": "A7",
+      "depth_quartile": 2,
+      "n": 595,
+      "count": 0.19309253849576155,
+      "variance_of_mean": 1.1991934609215346e-05
+    },
+    {
+      "tile": "A7",
+      "depth_quartile": 3,
+      "n": 596,
+      "count": 0.32015521635100186,
+      "variance_of_mean": 5.555169900817233e-05
+    },
+    {
+      "tile": "A8",
+      "depth_quartile": 0,
+      "n": 595,
+      "count": 0.3303475773082262,
+      "variance_of_mean": 2.9586150080529338e-05
+    },
+    {
+      "tile": "A8",
+      "depth_quartile": 1,
+      "n": 595,
+      "count": 0.31710233121193865,
+      "variance_of_mean": 3.424229334918178e-05
+    },
+    {
+      "tile": "A8",
+      "depth_quartile": 2,
+      "n": 595,
+      "count": 0.3041201951167121,
+      "variance_of_mean": 3.869947454231691e-05
+    },
+    {
+      "tile": "A8",
+      "depth_quartile": 3,
+      "n": 595,
+      "count": 0.3035872903413544,
+      "variance_of_mean": 3.8062880762566655e-05
+    },
+    {
+      "tile": "A9",
+      "depth_quartile": 0,
+      "n": 595,
+      "count": 0.3166848854476646,
+      "variance_of_mean": 2.9839016329739532e-05
+    },
+    {
+      "tile": "A9",
+      "depth_quartile": 1,
+      "n": 594,
+      "count": 0.30641868645149806,
+      "variance_of_mean": 3.324592439492648e-05
+    },
+    {
+      "tile": "A9",
+      "depth_quartile": 2,
+      "n": 594,
+      "count": 0.309365671310611,
+      "variance_of_mean": 3.040268438342969e-05
+    },
+    {
+      "tile": "A9",
+      "depth_quartile": 3,
+      "n": 595,
+      "count": 0.3277447565100057,
+      "variance_of_mean": 3.622984196178954e-05
+    },
+    {
+      "tile": "B1",
+      "depth_quartile": 0,
+      "n": 587,
+      "count": 0.30408288204334977,
+      "variance_of_mean": 3.041784038928386e-05
+    },
+    {
+      "tile": "B1",
+      "depth_quartile": 1,
+      "n": 586,
+      "count": 0.5160789069039713,
+      "variance_of_mean": 8.091951115477952e-05
+    },
+    {
+      "tile": "B1",
+      "depth_quartile": 2,
+      "n": 586,
+      "count": 0.09998290684559052,
+      "variance_of_mean": 3.2740305292874178e-06
+    },
+    {
+      "tile": "B1",
+      "depth_quartile": 3,
+      "n": 587,
+      "count": 0.32021660763062304,
+      "variance_of_mean": 3.537573344469675e-05
+    },
+    {
+      "tile": "B10",
+      "depth_quartile": 0,
+      "n": 602,
+      "count": 0.20402076939582114,
+      "variance_of_mean": 1.4933280977952935e-05
+    },
+    {
+      "tile": "B10",
+      "depth_quartile": 1,
+      "n": 602,
+      "count": 0.2832529510821045,
+      "variance_of_mean": 2.7477301481662146e-05
+    },
+    {
+      "tile": "B10",
+      "depth_quartile": 2,
+      "n": 601,
+      "count": 0.19964274168317553,
+      "variance_of_mean": 1.2269637410253218e-05
+    },
+    {
+      "tile": "B10",
+      "depth_quartile": 3,
+      "n": 602,
+      "count": 0.24361936938978213,
+      "variance_of_mean": 3.643523372301548e-05
+    },
+    {
+      "tile": "B2",
+      "depth_quartile": 0,
+      "n": 587,
+      "count": 0.3573266482679133,
+      "variance_of_mean": 2.865284526356104e-05
+    },
+    {
+      "tile": "B2",
+      "depth_quartile": 1,
+      "n": 587,
+      "count": 0.34713955739586855,
+      "variance_of_mean": 2.6562626486397543e-05
+    },
+    {
+      "tile": "B2",
+      "depth_quartile": 2,
+      "n": 586,
+      "count": 0.3377477402436611,
+      "variance_of_mean": 3.504330824905746e-05
+    },
+    {
+      "tile": "B2",
+      "depth_quartile": 3,
+      "n": 587,
+      "count": 0.30096435364164076,
+      "variance_of_mean": 4.7390250583226754e-05
+    },
+    {
+      "tile": "B3",
+      "depth_quartile": 0,
+      "n": 589,
+      "count": 0.3283275501320863,
+      "variance_of_mean": 2.6635325984816738e-05
+    },
+    {
+      "tile": "B3",
+      "depth_quartile": 1,
+      "n": 589,
+      "count": 0.31826950956862315,
+      "variance_of_mean": 3.116956981616624e-05
+    },
+    {
+      "tile": "B3",
+      "depth_quartile": 2,
+      "n": 588,
+      "count": 0.3161663847080205,
+      "variance_of_mean": 2.7143840090342225e-05
+    },
+    {
+      "tile": "B3",
+      "depth_quartile": 3,
+      "n": 589,
+      "count": 0.28607213441542273,
+      "variance_of_mean": 4.229674050405818e-05
+    },
+    {
+      "tile": "B4",
+      "depth_quartile": 0,
+      "n": 581,
+      "count": 0.33934667243595984,
+      "variance_of_mean": 4.328962927347242e-05
+    },
+    {
+      "tile": "B4",
+      "depth_quartile": 1,
+      "n": 581,
+      "count": 0.3084913997091882,
+      "variance_of_mean": 2.9566996499252504e-05
+    },
+    {
+      "tile": "B4",
+      "depth_quartile": 2,
+      "n": 581,
+      "count": 0.34584822823354616,
+      "variance_of_mean": 4.0060551048032955e-05
+    },
+    {
+      "tile": "B4",
+      "depth_quartile": 3,
+      "n": 581,
+      "count": 0.31020668792024975,
+      "variance_of_mean": 2.820879706707408e-05
+    },
+    {
+      "tile": "B5",
+      "depth_quartile": 0,
+      "n": 603,
+      "count": 0.2523480346034446,
+      "variance_of_mean": 2.1991173823408795e-05
+    },
+    {
+      "tile": "B5",
+      "depth_quartile": 1,
+      "n": 603,
+      "count": 0.4332345887473189,
+      "variance_of_mean": 5.057625546770375e-05
+    },
+    {
+      "tile": "B5",
+      "depth_quartile": 2,
+      "n": 603,
+      "count": 0.08639816527777694,
+      "variance_of_mean": 2.2134352559444404e-06
+    },
+    {
+      "tile": "B5",
+      "depth_quartile": 3,
+      "n": 603,
+      "count": 0.2175835009391439,
+      "variance_of_mean": 2.0632571313173404e-05
+    },
+    {
+      "tile": "B6",
+      "depth_quartile": 0,
+      "n": 588,
+      "count": 0.23343842002844478,
+      "variance_of_mean": 1.4643396291275813e-05
+    },
+    {
+      "tile": "B6",
+      "depth_quartile": 1,
+      "n": 587,
+      "count": 0.1939203057608205,
+      "variance_of_mean": 1.0649548638562848e-05
+    },
+    {
+      "tile": "B6",
+      "depth_quartile": 2,
+      "n": 587,
+      "count": 0.32443204767414335,
+      "variance_of_mean": 2.9433085009003117e-05
+    },
+    {
+      "tile": "B6",
+      "depth_quartile": 3,
+      "n": 588,
+      "count": 0.21164361095117898,
+      "variance_of_mean": 1.5035945548336471e-05
+    },
+    {
+      "tile": "B7",
+      "depth_quartile": 0,
+      "n": 585,
+      "count": 0.3477930317036564,
+      "variance_of_mean": 3.124641253001497e-05
+    },
+    {
+      "tile": "B7",
+      "depth_quartile": 1,
+      "n": 585,
+      "count": 0.37267722578088613,
+      "variance_of_mean": 3.235422132337714e-05
+    },
+    {
+      "tile": "B7",
+      "depth_quartile": 2,
+      "n": 585,
+      "count": 0.30475787926603615,
+      "variance_of_mean": 4.10834142270053e-05
+    },
+    {
+      "tile": "B7",
+      "depth_quartile": 3,
+      "n": 585,
+      "count": 0.2514916577603523,
+      "variance_of_mean": 4.0242951534676165e-05
+    },
+    {
+      "tile": "B8",
+      "depth_quartile": 0,
+      "n": 591,
+      "count": 0.20534836203233553,
+      "variance_of_mean": 8.023655453749552e-06
+    },
+    {
+      "tile": "B8",
+      "depth_quartile": 1,
+      "n": 591,
+      "count": 0.3907353893849626,
+      "variance_of_mean": 4.5102469566447624e-05
+    },
+    {
+      "tile": "B8",
+      "depth_quartile": 2,
+      "n": 590,
+      "count": 0.20567409671723197,
+      "variance_of_mean": 1.956238987811951e-05
+    },
+    {
+      "tile": "B8",
+      "depth_quartile": 3,
+      "n": 591,
+      "count": 0.33544048459594017,
+      "variance_of_mean": 4.415007456616036e-05
+    },
+    {
+      "tile": "B9",
+      "depth_quartile": 0,
+      "n": 589,
+      "count": 0.350495962458001,
+      "variance_of_mean": 3.0396742720804596e-05
+    },
+    {
+      "tile": "B9",
+      "depth_quartile": 1,
+      "n": 588,
+      "count": 0.34551779685498524,
+      "variance_of_mean": 3.4463344072086976e-05
+    },
+    {
+      "tile": "B9",
+      "depth_quartile": 2,
+      "n": 588,
+      "count": 0.3437334631103422,
+      "variance_of_mean": 2.9772195055544903e-05
+    },
+    {
+      "tile": "B9",
+      "depth_quartile": 3,
+      "n": 588,
+      "count": 0.3181221931565849,
+      "variance_of_mean": 3.916259921329986e-05
+    }
+  ]
+}

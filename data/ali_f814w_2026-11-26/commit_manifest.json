@@ -1,0 +1,342 @@
+[
+  {
+    "path": "README.md",
+    "bytes": 3850,
+    "blob_sha": "98b173459bc4f5aae0931eacf4d8220ff4c65528"
+  },
+  {
+    "path": "data/ali_f814w_2026-11-26/REPORT.md",
+    "bytes": 10004,
+    "blob_sha": "028cb9bfb9d0e82272f60019100d03f784713e95"
+  },
+  {
+    "path": "data/ali_f814w_2026-11-26/ali_preserved_cdf_uncertainty256.json",
+    "bytes": 13473,
+    "blob_sha": "bb1222b1e0890b7c558e8d5a831467721ba1de40"
+  },
+  {
+    "path": "data/ali_f814w_2026-11-26/ali_preserved_cdf_uncertainty512.json",
+    "bytes": 13467,
+    "blob_sha": "2de1efb82ea229718a902ffcd24b3bf87b9de630"
+  },
+  {
+    "path": "data/ali_f814w_2026-11-26/calibration_full.json",
+    "bytes": 262087,
+    "blob_sha": "33f45848929ec0651915785a88bd84559ec3f608"
+  },
+  {
+    "path": "data/ali_f814w_2026-11-26/calibration_summary.csv",
+    "bytes": 8209,
+    "blob_sha": "6f4c70163e4cc5e1ce33f50eb41eb9022cc9f7d7"
+  },
+  {
+    "path": "data/ali_f814w_2026-11-26/conditional_count_summary.json",
+    "bytes": 2216,
+    "blob_sha": "9128dd8302d603b2babb487fe13f9e040f2494c0"
+  },
+  {
+    "path": "data/ali_f814w_2026-11-26/conditional_temperature_component_counts.csv",
+    "bytes": 8285,
+    "blob_sha": "48816ce91d18c1a75d26547e3cd63cdc2d154b90"
+  },
+  {
+    "path": "data/ali_f814w_2026-11-26/depth_diagnostics.json",
+    "bytes": 400,
+    "blob_sha": "f743d9dbfa7c02e54a82768313c4fdca4a083224"
+  },
+  {
+    "path": "data/ali_f814w_2026-11-26/executed_run_comparison.csv",
+    "bytes": 6241,
+    "blob_sha": "d6592939c682b743820ef82a6f82175fac05558a"
+  },
+  {
+    "path": "data/ali_f814w_2026-11-26/executed_runs.json",
+    "bytes": 26453,
+    "blob_sha": "696c2a41787fabdea22f4efc0c0457a077f6a364"
+  },
+  {
+    "path": "data/ali_f814w_2026-11-26/execution_environment.json",
+    "bytes": 450,
+    "blob_sha": "06c33511f081baadf62a6b177a20d0051035e077"
+  },
+  {
+    "path": "data/ali_f814w_2026-11-26/f814w_coverage.svg",
+    "bytes": 16697,
+    "blob_sha": "41c6681007e52a7ac0770cfec3194e6bc83dddfa"
+  },
+  {
+    "path": "data/ali_f814w_2026-11-26/f814w_depth_maps.svg",
+    "bytes": 499079,
+    "blob_sha": "e751cc1985475f275259e028b126ba63ff4abaec"
+  },
+  {
+    "path": "data/ali_f814w_2026-11-26/f814w_flux_and_psf_validation.svg",
+    "bytes": 25131,
+    "blob_sha": "638fa76598957be01fefda0e23a7ba8adce01fc6"
+  },
+  {
+    "path": "data/ali_f814w_2026-11-26/f814w_injection_probability.svg",
+    "bytes": 27483,
+    "blob_sha": "8488510166873d4b1b7abb62a5cd2df01c315954"
+  },
+  {
+    "path": "data/ali_f814w_2026-11-26/f814w_noise_distribution.svg",
+    "bytes": 62985,
+    "blob_sha": "e116b8346a6b25f69cee55c042cd70777f879870"
+  },
+  {
+    "path": "data/ali_f814w_2026-11-26/f814w_population_flux_validation.svg",
+    "bytes": 18536,
+    "blob_sha": "2dac499e744b3c0456fff54d19f0b1551c3572b1"
+  },
+  {
+    "path": "data/ali_f814w_2026-11-26/f814w_recovery_convergence.svg",
+    "bytes": 19192,
+    "blob_sha": "1a6f6d338e822baf9db357afffcc2df07c2f35a4"
+  },
+  {
+    "path": "data/ali_f814w_2026-11-26/footprint_phase_bound.json",
+    "bytes": 431,
+    "blob_sha": "bd7ec70238b532fb3d0e85cfc0d87b0c648236b0"
+  },
+  {
+    "path": "data/ali_f814w_2026-11-26/independent_empirical_validation.json",
+    "bytes": 4232,
+    "blob_sha": "d62ae582270a9a6940372737dc48c019a9a68939"
+  },
+  {
+    "path": "data/ali_f814w_2026-11-26/independent_empirical_validation_by_tile.csv",
+    "bytes": 10124,
+    "blob_sha": "683cf963527dba335636b1371c2279399436b58e"
+  },
+  {
+    "path": "data/ali_f814w_2026-11-26/injection_by_tile.csv",
+    "bytes": 60941,
+    "blob_sha": "f0021adf3cc769ed31cf50cf81d679511de49c23"
+  },
+  {
+    "path": "data/ali_f814w_2026-11-26/injection_depth_strata.csv",
+    "bytes": 27273,
+    "blob_sha": "1ec97eb099e81d653928a8d5c6150aba9eb61222"
+  },
+  {
+    "path": "data/ali_f814w_2026-11-26/injection_probabilities.csv",
+    "bytes": 3073,
+    "blob_sha": "5bed267232eef9038a1273f5fa9a7f3d3786d887"
+  },
+  {
+    "path": "data/ali_f814w_2026-11-26/injection_validation.json",
+    "bytes": 7455,
+    "blob_sha": "ba9837012dfd1ffa90dd4b38e67fc5b903facd3a"
+  },
+  {
+    "path": "data/ali_f814w_2026-11-26/native_coverage_summary.json",
+    "bytes": 59278,
+    "blob_sha": "6389f1fdd2462ca6ce7bf7ddcdcc3b527f048f43"
+  },
+  {
+    "path": "data/ali_f814w_2026-11-26/population_flux_validation.json",
+    "bytes": 3430,
+    "blob_sha": "d6d2b1d70d8b33d258553c8ca66d727a6eee2b9f"
+  },
+  {
+    "path": "data/ali_f814w_2026-11-26/population_flux_validation_by_tile.csv",
+    "bytes": 59681,
+    "blob_sha": "0a528dfbdcdb9ca1d1613fc28649c287d8001727"
+  },
+  {
+    "path": "data/ali_f814w_2026-11-26/positive_weight_four_area.json",
+    "bytes": 207,
+    "blob_sha": "0be752f67be32f820b466ffd983500e463368c8a"
+  },
+  {
+    "path": "data/ali_f814w_2026-11-26/preserved_framework_checks.json",
+    "bytes": 933,
+    "blob_sha": "cd297f0b6ca5ccc94d30d45ec6ec8a5d32e8764a"
+  },
+  {
+    "path": "data/ali_f814w_2026-11-26/psf_controls.csv",
+    "bytes": 28430,
+    "blob_sha": "c103cfa1f9c15bc7c2cd02db7db640900ee1e5d6"
+  },
+  {
+    "path": "data/ali_f814w_2026-11-26/result_and_validation_status.json",
+    "bytes": 2582,
+    "blob_sha": "50da2d131145f3e1c5f449560be7f7d634c08229"
+  },
+  {
+    "path": "data/ali_f814w_2026-11-26/scientific_review.md",
+    "bytes": 14098,
+    "blob_sha": "c5da42d9dcef3b2148f6eb39816e1f5ad5ac108d"
+  },
+  {
+    "path": "data/ali_f814w_2026-11-26/selected_regression_tests.txt",
+    "bytes": 99,
+    "blob_sha": "ed402b97e4aad53aa823d93fd72793cc9abc0747"
+  },
+  {
+    "path": "data/ali_f814w_2026-11-26/star_mask_audit.json",
+    "bytes": 118395,
+    "blob_sha": "94c537437abf8b11a79f55afe2733eccac9dac21"
+  },
+  {
+    "path": "data/ali_f814w_2026-11-26/star_mask_wcs_checks.json",
+    "bytes": 1796,
+    "blob_sha": "74e9c5de231984195698a872411acd5b65cab20d"
+  },
+  {
+    "path": "data/ali_f814w_2026-11-26/survey_input_manifest.json",
+    "bytes": 79978,
+    "blob_sha": "eef04faeb705d8aa53735a4226277959700ef5e2"
+  },
+  {
+    "path": "data/ali_f814w_2026-11-26/temperature_component_counts.svg",
+    "bytes": 43823,
+    "blob_sha": "3347865ff2d37be0aacd3bee828c417afdf589d1"
+  },
+  {
+    "path": "data/elfowl_fiveband_bin_reach.csv",
+    "bytes": 1464,
+    "blob_sha": "f082e56a833ccb0ad40329699ef09be49c79efc1"
+  },
+  {
+    "path": "data/elfowl_fiveband_provenance.json",
+    "bytes": 1481,
+    "blob_sha": "ed96fe90a6cdd7956b6cff89e459fb6f3207c92e"
+  },
+  {
+    "path": "data/native_erosion_validation_20261126.json",
+    "bytes": 442,
+    "blob_sha": "3e0c8c32cb466142ace2eeebbbc007cc678cd18e"
+  },
+  {
+    "path": "data/original_F814W_response.dat",
+    "bytes": 132674,
+    "blob_sha": "51213cbc852269fa7c2990c04340308c1230c4c0"
+  },
+  {
+    "path": "docs/ALI_F814W_REPRODUCE_20261128.md",
+    "bytes": 9502,
+    "blob_sha": "4f233c7c74f47b66161aa82eed402bacc2e70000"
+  },
+  {
+    "path": "docs/ALI_F814W_STATUS_20261126.md",
+    "bytes": 11985,
+    "blob_sha": "6508e07357a3ab9fddf4f9efa5d9984d03f6d0f7"
+  },
+  {
+    "path": "docs/F814W_EXECUTION_LEDGER_20261126.md",
+    "bytes": 5086,
+    "blob_sha": "2aeea7dd232a867860c36379557d245c46d3536a"
+  },
+  {
+    "path": "docs/F814W_RECONSTRUCTION_PLAN_20261126.md",
+    "bytes": 2267,
+    "blob_sha": "af99b1cda118018a6a55cea484289d79bfdca84a"
+  },
+  {
+    "path": "requirements.txt",
+    "bytes": 88,
+    "blob_sha": "45d0bd99d660cf0957d4c804a4799e3e63c14e42"
+  },
+  {
+    "path": "src/ali_count_run.py",
+    "bytes": 13369,
+    "blob_sha": "9c811adaa7f25ad5a5d6b143e185c11cd63d7a71"
+  },
+  {
+    "path": "src/ali_depth_analysis.py",
+    "bytes": 14322,
+    "blob_sha": "5d8a232a7b60402d1848ffdea30e319a48bc17f6"
+  },
+  {
+    "path": "src/ali_empirical_validation.py",
+    "bytes": 3441,
+    "blob_sha": "88ea5759ed1c00e696c09d8da633d37228d014a0"
+  },
+  {
+    "path": "src/ali_f814w_count_figures.py",
+    "bytes": 3717,
+    "blob_sha": "f41311813f11327987dd0570d4cdbe31f7b1fdf0"
+  },
+  {
+    "path": "src/ali_f814w_extra_figures.py",
+    "bytes": 2367,
+    "blob_sha": "11e1d4e36b35fb44129c872bdb846fe40645104a"
+  },
+  {
+    "path": "src/ali_f814w_finalize.py",
+    "bytes": 15666,
+    "blob_sha": "8f2f8a5daf82d8207eaf9592c0a99e01eac43609"
+  },
+  {
+    "path": "src/ali_f814w_validation_report.py",
+    "bytes": 6594,
+    "blob_sha": "3e8be0c45e862d91dfc22bf6080437a343812cf7"
+  },
+  {
+    "path": "src/ali_footprint_phase_bound.py",
+    "bytes": 1698,
+    "blob_sha": "99853345d5a68ad76f105d2ae87cf47f710ccae1"
+  },
+  {
+    "path": "src/ali_mask_audit.py",
+    "bytes": 2567,
+    "blob_sha": "96967c16ae2572a3e5050a13359ee696fe76073f"
+  },
+  {
+    "path": "src/ali_native_coverage.py",
+    "bytes": 9258,
+    "blob_sha": "36deb5d11eb6e8a403d6673bf324da591eb9f22e"
+  },
+  {
+    "path": "src/ali_original_footprint.py",
+    "bytes": 3627,
+    "blob_sha": "e94f7bcf3cd046f67d8ed3ba402006d4894d43cc"
+  },
+  {
+    "path": "src/ali_selection_uncertainty.py",
+    "bytes": 4806,
+    "blob_sha": "93cb56b3adc61d25c3eabca52c9273695a74b2aa"
+  },
+  {
+    "path": "src/ali_spatial_counts.py",
+    "bytes": 5136,
+    "blob_sha": "68876c8dff2a274309eeb52c31a2dff7d8f475ab"
+  },
+  {
+    "path": "src/ali_verify_atmosphere_cache.py",
+    "bytes": 1288,
+    "blob_sha": "d46252ef7e6c1cb58ab711c608dae03ef0d64d8e"
+  },
+  {
+    "path": "src/depth_reconstruction.py",
+    "bytes": 11087,
+    "blob_sha": "521337ac0fade2651a411a53f19aaa2b574afe69"
+  },
+  {
+    "path": "src/f814w_population_validation.py",
+    "bytes": 4691,
+    "blob_sha": "b5e3786e6696679eaa81266a021f6fd43db5a60e"
+  },
+  {
+    "path": "src/f814w_targeted_recovery.py",
+    "bytes": 8627,
+    "blob_sha": "0ea3217787241ae0720e6de9cf67c1bf127e3bd9"
+  },
+  {
+    "path": "tests/test_ali_probabilities.py",
+    "bytes": 3200,
+    "blob_sha": "ff9986ae1c457da1b035c61fb5a432e8b1480fa6"
+  },
+  {
+    "path": "tests/test_depth_reconstruction.py",
+    "bytes": 1136,
+    "blob_sha": "195e576fecfcfd9aa31182f5c20a671fdef43247"
+  },
+  {
+    "path": "tests/test_native_coverage.py",
+    "bytes": 459,
+    "blob_sha": "5c26e5383c03e6e8d25bdc4d4730dd06d73bcd3b"
+  }
+]

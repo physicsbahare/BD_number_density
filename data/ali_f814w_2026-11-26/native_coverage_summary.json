@@ -1,0 +1,1980 @@
+{
+  "four_area_deg2": 0.5326474605751123,
+  "five_area_deg2": 0.5324308306666868,
+  "geometry": {
+    "global_origin_xy": [
+      -46450,
+      -46350
+    ],
+    "native_shape_yx": [
+      94500,
+      88800
+    ],
+    "step": 100,
+    "global_wcs": "WCSAXES =                    2 / Number of coordinate axes                      \nCRPIX1  =                  1.0 / Pixel coordinate of reference point            \nCRPIX2  =                  1.0 / Pixel coordinate of reference point            \nPC1_1   =    -0.93969262078591 / Coordinate transformation matrix element       \nPC1_2   =     0.34202014332567 / Coordinate transformation matrix element       \nPC2_1   =     0.34202014332567 / Coordinate transformation matrix element       \nPC2_2   =     0.93969262078591 / Coordinate transformation matrix element       \nCDELT1  =  8.3333333333333E-06 / [deg] Coordinate increment at reference point  \nCDELT2  =  8.3333333333333E-06 / [deg] Coordinate increment at reference point  \nCUNIT1  = 'deg'                / Units of coordinate increment and value        \nCUNIT2  = 'deg'                / Units of coordinate increment and value        \nCTYPE1  = 'RA---TAN'           / Right ascension, gnomonic projection           \nCTYPE2  = 'DEC--TAN'           / Declination, gnomonic projection               \nCRVAL1  =          150.1163213 / [deg] Coordinate value at reference point      \nCRVAL2  =          2.200973097 / [deg] Coordinate value at reference point      \nLONPOLE =                180.0 / [deg] Native longitude of celestial pole       \nLATPOLE =          2.200973097 / [deg] Native latitude of celestial pole        \nMJDREF  =                  0.0 / [d] MJD of fiducial time                       \nDATE-BEG= '2023-01-05T20:00:49.319' / ISO-8601 time at start of observation     \nMJD-BEG =      59949.833904152 / [d] MJD at start of observation                \nDATE-AVG= '2023-06-04T05:19:02.591' / ISO-8601 time at midpoint of observation  \nMJD-AVG =      60099.221557769 / [d] MJD at midpoint of observation             \nDATE-END= '2024-05-17T12:31:56.370' / ISO-8601 time at end of observation       \nMJD-END =      60447.522180208 / [d] MJD at end of observation                  \nXPOSURE =            15976.284 / [s] Exposure (integration) time                \nTELAPSE =            15976.284 / [s] Elapsed time (start to stop)               \nOBSGEO-X=     -712775582.93142 / [m] observatory X-coordinate                   \nOBSGEO-Y=     -1154243615.7541 / [m] observatory Y-coordinate                   \nOBSGEO-Z=     -250885071.81877 / [m] observatory Z-coordinate                   \nRADESYS = 'ICRS'               / Equatorial coordinate system                   \nVELOSYS =             26017.79 / [m/s] Velocity towards source                  \nEND                                                                             ",
+    "inputs": [
+      {
+        "band": "F115W",
+        "tile": "A1",
+        "weight_path": "/mnt/E_202/JWST/COSMOS-Web/NIRCam_mosaics/mosaic_nircam_f115w_COSMOS-Web_30mas_A1_v1.0_wht.fits.gz",
+        "shape": [
+          24910,
+          19200
+        ],
+        "global_offset_xy": [
+          22990,
+          -23090
+        ],
+        "wcs_translation_residual_native_pixel": 2.2118911147117615e-09,
+        "fractional_translation_xy": [
+          2.255546860396862e-10,
+          -9.458744898438454e-11
+        ]
+      },
+      {
+        "band": "F115W",
+        "tile": "A2",
+        "weight_path": "/mnt/E_202/JWST/COSMOS-Web/NIRCam_mosaics/mosaic_nircam_f115w_COSMOS-Web_30mas_A2_v1.0_wht.fits.gz",
+        "shape": [
+          24910,
+          19200
+        ],
+        "global_offset_xy": [
+          5690,
+          -23090
+        ],
+        "wcs_translation_residual_native_pixel": 1.735315890982747e-09,
+        "fractional_translation_xy": [
+          3.637978807091713e-10,
+          -3.055902197957039e-10
+        ]
+      },
+      {
+        "band": "F115W",
+        "tile": "A3",
+        "weight_path": "/mnt/E_202/JWST/COSMOS-Web/NIRCam_mosaics/mosaic_nircam_f115w_COSMOS-Web_30mas_A3_v1.0_wht.fits.gz",
+        "shape": [
+          24910,
+          19200
+        ],
+        "global_offset_xy": [
+          -11610,
+          -23090
+        ],
+        "wcs_translation_residual_native_pixel": 1.9063008949160576e-09,
+        "fractional_translation_xy": [
+          1.1823431123048067e-09,
+          -4.001776687800884e-10
+        ]
+      },
+      {
+        "band": "F115W",
+        "tile": "A4",
+        "weight_path": "/mnt/E_202/JWST/COSMOS-Web/NIRCam_mosaics/mosaic_nircam_f115w_COSMOS-Web_30mas_A4_v1.0_wht.fits.gz",
+        "shape": [
+          24910,
+          19200
+        ],
+        "global_offset_xy": [
+          -28910,
+          -23090
+        ],
+        "wcs_translation_residual_native_pixel": 1.4624674804508686e-09,
+        "fractional_translation_xy": [
+          9.094947017729282e-10,
+          -5.4569682106375694e-11
+        ]
+      },
+      {
+        "band": "F115W",
+        "tile": "A5",
+        "weight_path": "/mnt/E_202/JWST/COSMOS-Web/NIRCam_mosaics/mosaic_nircam_f115w_COSMOS-Web_30mas_A5_v1.0_wht.fits.gz",
+        "shape": [
+          24910,
+          19200
+        ],
+        "global_offset_xy": [
+          -46210,
+          -23090
+        ],
+        "wcs_translation_residual_native_pixel": 2.3792381398379803e-09,
+        "fractional_translation_xy": [
+          -1.3606040738523006e-09,
+          1.8189894035458565e-11
+        ]
+      },
+      {
+        "band": "F115W",
+        "tile": "A6",
+        "weight_path": "/mnt/E_202/JWST/COSMOS-Web/NIRCam_mosaics/mosaic_nircam_f115w_COSMOS-Web_30mas_A6_v1.0_wht.fits.gz",
+        "shape": [
+          24910,
+          19200
+        ],
+        "global_offset_xy": [
+          22990,
+          -46171
+        ],
+        "wcs_translation_residual_native_pixel": 2.0481820683926344e-09,
+        "fractional_translation_xy": [
+          7.785274647176266e-10,
+          -7.057678885757923e-10
+        ]
+      },
+      {
+        "band": "F115W",
+        "tile": "A7",
+        "weight_path": "/mnt/E_202/JWST/COSMOS-Web/NIRCam_mosaics/mosaic_nircam_f115w_COSMOS-Web_30mas_A7_v1.0_wht.fits.gz",
+        "shape": [
+          24910,
+          19200
+        ],
+        "global_offset_xy": [
+          5690,
+          -46171
+        ],
+        "wcs_translation_residual_native_pixel": 1.5161276678554714e-09,
+        "fractional_translation_xy": [
+          -2.5011104298755527e-10,
+          -8.731149137020111e-11
+        ]
+      },
+      {
+        "band": "F115W",
+        "tile": "A8",
+        "weight_path": "/mnt/E_202/JWST/COSMOS-Web/NIRCam_mosaics/mosaic_nircam_f115w_COSMOS-Web_30mas_A8_v1.0_wht.fits.gz",
+        "shape": [
+          24910,
+          19200
+        ],
+        "global_offset_xy": [
+          -11610,
+          -46171
+        ],
+        "wcs_translation_residual_native_pixel": 1.7917045624926686e-09,
+        "fractional_translation_xy": [
+          -6.784830475226045e-10,
+          2.546585164964199e-10
+        ]
+      },
+      {
+        "band": "F115W",
+        "tile": "A9",
+        "weight_path": "/mnt/E_202/JWST/COSMOS-Web/NIRCam_mosaics/mosaic_nircam_f115w_COSMOS-Web_30mas_A9_v1.0_wht.fits.gz",
+        "shape": [
+          24910,
+          19200
+        ],
+        "global_offset_xy": [
+          -28910,
+          -46171
+        ],
+        "wcs_translation_residual_native_pixel": 1.9572325982153416e-09,
+        "fractional_translation_xy": [
+          -1.7826096154749393e-10,
+          2.3283064365386963e-10
+        ]
+      },
+      {
+        "band": "F115W",
+        "tile": "A10",
+        "weight_path": "/mnt/E_202/JWST/COSMOS-Web/NIRCam_mosaics/mosaic_nircam_f115w_COSMOS-Web_30mas_A10_v1.0_wht.fits.gz",
+        "shape": [
+          24910,
+          19200
+        ],
+        "global_offset_xy": [
+          -46210,
+          -46171
+        ],
+        "wcs_translation_residual_native_pixel": 1.9354047253727913e-09,
+        "fractional_translation_xy": [
+          2.9103830456733704e-11,
+          -1.0913936421275139e-10
+        ]
+      },
+      {
+        "band": "F115W",
+        "tile": "B1",
+        "weight_path": "/mnt/E_202/JWST/COSMOS-Web/NIRCam_mosaics/mosaic_nircam_f115w_COSMOS-Web_30mas_B1_v1.0_wht.fits.gz",
+        "shape": [
+          24910,
+          19200
+        ],
+        "global_offset_xy": [
+          22990,
+          23072
+        ],
+        "wcs_translation_residual_native_pixel": 1.520675141364336e-09,
+        "fractional_translation_xy": [
+          1.8917489796876907e-10,
+          2.9103830456733704e-11
+        ]
+      },
+      {
+        "band": "F115W",
+        "tile": "B2",
+        "weight_path": "/mnt/E_202/JWST/COSMOS-Web/NIRCam_mosaics/mosaic_nircam_f115w_COSMOS-Web_30mas_B2_v1.0_wht.fits.gz",
+        "shape": [
+          24910,
+          19200
+        ],
+        "global_offset_xy": [
+          5690,
+          23072
+        ],
+        "wcs_translation_residual_native_pixel": 1.0913936421275139e-09,
+        "fractional_translation_xy": [
+          4.729372449219227e-11,
+          -4.0745362639427185e-10
+        ]
+      },
+      {
+        "band": "F115W",
+        "tile": "B3",
+        "weight_path": "/mnt/E_202/JWST/COSMOS-Web/NIRCam_mosaics/mosaic_nircam_f115w_COSMOS-Web_30mas_B3_v1.0_wht.fits.gz",
+        "shape": [
+          24910,
+          19200
+        ],
+        "global_offset_xy": [
+          -11610,
+          23072
+        ],
+        "wcs_translation_residual_native_pixel": 1.1750671546906233e-09,
+        "fractional_translation_xy": [
+          -5.311449058353901e-10,
+          -3.5288394428789616e-10
+        ]
+      },
+      {
+        "band": "F115W",
+        "tile": "B4",
+        "weight_path": "/mnt/E_202/JWST/COSMOS-Web/NIRCam_mosaics/mosaic_nircam_f115w_COSMOS-Web_30mas_B4_v1.0_wht.fits.gz",
+        "shape": [
+          24910,
+          19200
+        ],
+        "global_offset_xy": [
+          -28910,
+          23072
+        ],
+        "wcs_translation_residual_native_pixel": 2.7175701688975096e-09,
+        "fractional_translation_xy": [
+          4.984030965715647e-10,
+          -1.2369127944111824e-10
+        ]
+      },
+      {
+        "band": "F115W",
+        "tile": "B5",
+        "weight_path": "/mnt/E_202/JWST/COSMOS-Web/NIRCam_mosaics/mosaic_nircam_f115w_COSMOS-Web_30mas_B5_v1.0_wht.fits.gz",
+        "shape": [
+          24910,
+          19200
+        ],
+        "global_offset_xy": [
+          -46210,
+          23072
+        ],
+        "wcs_translation_residual_native_pixel": 2.7794158086180687e-09,
+        "fractional_translation_xy": [
+          1.8189894035458565e-10,
+          -1.8917489796876907e-10
+        ]
+      },
+      {
+        "band": "F115W",
+        "tile": "B6",
+        "weight_path": "/mnt/E_202/JWST/COSMOS-Web/NIRCam_mosaics/mosaic_nircam_f115w_COSMOS-Web_30mas_B6_v1.0_wht.fits.gz",
+        "shape": [
+          24910,
+          19200
+        ],
+        "global_offset_xy": [
+          22990,
+          -9
+        ],
+        "wcs_translation_residual_native_pixel": 2.0118022803217173e-09,
+        "fractional_translation_xy": [
+          -6.548361852765083e-11,
+          -3.6197889130562544e-10
+        ]
+      },
+      {
+        "band": "F115W",
+        "tile": "B7",
+        "weight_path": "/mnt/E_202/JWST/COSMOS-Web/NIRCam_mosaics/mosaic_nircam_f115w_COSMOS-Web_30mas_B7_v1.0_wht.fits.gz",
+        "shape": [
+          24910,
+          19200
+        ],
+        "global_offset_xy": [
+          5690,
+          -9
+        ],
+        "wcs_translation_residual_native_pixel": 1.6443664208054543e-09,
+        "fractional_translation_xy": [
+          -8.658389560878277e-10,
+          1.800799509510398e-10
+        ]
+      },
+      {
+        "band": "F115W",
+        "tile": "B8",
+        "weight_path": "/mnt/E_202/JWST/COSMOS-Web/NIRCam_mosaics/mosaic_nircam_f115w_COSMOS-Web_30mas_B8_v1.0_wht.fits.gz",
+        "shape": [
+          24910,
+          19200
+        ],
+        "global_offset_xy": [
+          -11610,
+          -9
+        ],
+        "wcs_translation_residual_native_pixel": 1.3533281162381172e-09,
+        "fractional_translation_xy": [
+          -6.693881005048752e-10,
+          8.412825991399586e-11
+        ]
+      },
+      {
+        "band": "F115W",
+        "tile": "B9",
+        "weight_path": "/mnt/E_202/JWST/COSMOS-Web/NIRCam_mosaics/mosaic_nircam_f115w_COSMOS-Web_30mas_B9_v1.0_wht.fits.gz",
+        "shape": [
+          24910,
+          19200
+        ],
+        "global_offset_xy": [
+          -28910,
+          -9
+        ],
+        "wcs_translation_residual_native_pixel": 1.4370016288012266e-09,
+        "fractional_translation_xy": [
+          2.546585164964199e-10,
+          2.546585164964199e-10
+        ]
+      },
+      {
+        "band": "F115W",
+        "tile": "B10",
+        "weight_path": "/mnt/E_202/JWST/COSMOS-Web/NIRCam_mosaics/mosaic_nircam_f115w_COSMOS-Web_30mas_B10_v1.0_wht.fits.gz",
+        "shape": [
+          24910,
+          19200
+        ],
+        "global_offset_xy": [
+          -46210,
+          -9
+        ],
+        "wcs_translation_residual_native_pixel": 2.255546860396862e-09,
+        "fractional_translation_xy": [
+          -4.729372449219227e-10,
+          -8.36735125631094e-11
+        ]
+      },
+      {
+        "band": "F150W",
+        "tile": "A1",
+        "weight_path": "/mnt/E_202/JWST/COSMOS-Web/NIRCam_mosaics/mosaic_nircam_f150w_COSMOS-Web_30mas_A1_v1.0_wht.fits.gz",
+        "shape": [
+          24910,
+          19200
+        ],
+        "global_offset_xy": [
+          22990,
+          -23090
+        ],
+        "wcs_translation_residual_native_pixel": 2.2118911147117615e-09,
+        "fractional_translation_xy": [
+          2.255546860396862e-10,
+          -9.458744898438454e-11
+        ]
+      },
+      {
+        "band": "F150W",
+        "tile": "A2",
+        "weight_path": "/mnt/E_202/JWST/COSMOS-Web/NIRCam_mosaics/mosaic_nircam_f150w_COSMOS-Web_30mas_A2_v1.0_wht.fits.gz",
+        "shape": [
+          24910,
+          19200
+        ],
+        "global_offset_xy": [
+          5690,
+          -23090
+        ],
+        "wcs_translation_residual_native_pixel": 1.735315890982747e-09,
+        "fractional_translation_xy": [
+          3.637978807091713e-10,
+          -3.055902197957039e-10
+        ]
+      },
+      {
+        "band": "F150W",
+        "tile": "A3",
+        "weight_path": "/mnt/E_202/JWST/COSMOS-Web/NIRCam_mosaics/mosaic_nircam_f150w_COSMOS-Web_30mas_A3_v1.0_wht.fits.gz",
+        "shape": [
+          24910,
+          19200
+        ],
+        "global_offset_xy": [
+          -11610,
+          -23090
+        ],
+        "wcs_translation_residual_native_pixel": 1.9063008949160576e-09,
+        "fractional_translation_xy": [
+          1.1823431123048067e-09,
+          -4.001776687800884e-10
+        ]
+      },
+      {
+        "band": "F150W",
+        "tile": "A4",
+        "weight_path": "/mnt/E_202/JWST/COSMOS-Web/NIRCam_mosaics/mosaic_nircam_f150w_COSMOS-Web_30mas_A4_v1.0_wht.fits.gz",
+        "shape": [
+          24910,
+          19200
+        ],
+        "global_offset_xy": [
+          -28910,
+          -23090
+        ],
+        "wcs_translation_residual_native_pixel": 1.4624674804508686e-09,
+        "fractional_translation_xy": [
+          9.094947017729282e-10,
+          -5.4569682106375694e-11
+        ]
+      },
+      {
+        "band": "F150W",
+        "tile": "A5",
+        "weight_path": "/mnt/E_202/JWST/COSMOS-Web/NIRCam_mosaics/mosaic_nircam_f150w_COSMOS-Web_30mas_A5_v1.0_wht.fits.gz",
+        "shape": [
+          24910,
+          19200
+        ],
+        "global_offset_xy": [
+          -46210,
+          -23090
+        ],
+        "wcs_translation_residual_native_pixel": 2.3792381398379803e-09,
+        "fractional_translation_xy": [
+          -1.3606040738523006e-09,
+          1.8189894035458565e-11
+        ]
+      },
+      {
+        "band": "F150W",
+        "tile": "A6",
+        "weight_path": "/mnt/E_202/JWST/COSMOS-Web/NIRCam_mosaics/mosaic_nircam_f150w_COSMOS-Web_30mas_A6_v1.0_wht.fits.gz",
+        "shape": [
+          24910,
+          19200
+        ],
+        "global_offset_xy": [
+          22990,
+          -46171
+        ],
+        "wcs_translation_residual_native_pixel": 2.0481820683926344e-09,
+        "fractional_translation_xy": [
+          7.785274647176266e-10,
+          -7.057678885757923e-10
+        ]
+      },
+      {
+        "band": "F150W",
+        "tile": "A7",
+        "weight_path": "/mnt/E_202/JWST/COSMOS-Web/NIRCam_mosaics/mosaic_nircam_f150w_COSMOS-Web_30mas_A7_v1.0_wht.fits.gz",
+        "shape": [
+          24910,
+          19200
+        ],
+        "global_offset_xy": [
+          5690,
+          -46171
+        ],
+        "wcs_translation_residual_native_pixel": 1.5161276678554714e-09,
+        "fractional_translation_xy": [
+          -2.5011104298755527e-10,
+          -8.731149137020111e-11
+        ]
+      },
+      {
+        "band": "F150W",
+        "tile": "A8",
+        "weight_path": "/mnt/E_202/JWST/COSMOS-Web/NIRCam_mosaics/mosaic_nircam_f150w_COSMOS-Web_30mas_A8_v1.0_wht.fits.gz",
+        "shape": [
+          24910,
+          19200
+        ],
+        "global_offset_xy": [
+          -11610,
+          -46171
+        ],
+        "wcs_translation_residual_native_pixel": 1.7917045624926686e-09,
+        "fractional_translation_xy": [
+          -6.784830475226045e-10,
+          2.546585164964199e-10
+        ]
+      },
+      {
+        "band": "F150W",
+        "tile": "A9",
+        "weight_path": "/mnt/E_202/JWST/COSMOS-Web/NIRCam_mosaics/mosaic_nircam_f150w_COSMOS-Web_30mas_A9_v1.0_wht.fits.gz",
+        "shape": [
+          24910,
+          19200
+        ],
+        "global_offset_xy": [
+          -28910,
+          -46171
+        ],
+        "wcs_translation_residual_native_pixel": 1.9572325982153416e-09,
+        "fractional_translation_xy": [
+          -1.7826096154749393e-10,
+          2.3283064365386963e-10
+        ]
+      },
+      {
+        "band": "F150W",
+        "tile": "A10",
+        "weight_path": "/mnt/E_202/JWST/COSMOS-Web/NIRCam_mosaics/mosaic_nircam_f150w_COSMOS-Web_30mas_A10_v1.0_wht.fits.gz",
+        "shape": [
+          24910,
+          19200
+        ],
+        "global_offset_xy": [
+          -46210,
+          -46171
+        ],
+        "wcs_translation_residual_native_pixel": 1.9354047253727913e-09,
+        "fractional_translation_xy": [
+          2.9103830456733704e-11,
+          -1.0913936421275139e-10
+        ]
+      },
+      {
+        "band": "F150W",
+        "tile": "B1",
+        "weight_path": "/mnt/E_202/JWST/COSMOS-Web/NIRCam_mosaics/mosaic_nircam_f150w_COSMOS-Web_30mas_B1_v1.0_wht.fits.gz",
+        "shape": [
+          24910,
+          19200
+        ],
+        "global_offset_xy": [
+          22990,
+          23072
+        ],
+        "wcs_translation_residual_native_pixel": 1.520675141364336e-09,
+        "fractional_translation_xy": [
+          1.8917489796876907e-10,
+          2.9103830456733704e-11
+        ]
+      },
+      {
+        "band": "F150W",
+        "tile": "B2",
+        "weight_path": "/mnt/E_202/JWST/COSMOS-Web/NIRCam_mosaics/mosaic_nircam_f150w_COSMOS-Web_30mas_B2_v1.0_wht.fits.gz",
+        "shape": [
+          24910,
+          19200
+        ],
+        "global_offset_xy": [
+          5690,
+          23072
+        ],
+        "wcs_translation_residual_native_pixel": 1.0913936421275139e-09,
+        "fractional_translation_xy": [
+          4.729372449219227e-11,
+          -4.0745362639427185e-10
+        ]
+      },
+      {
+        "band": "F150W",
+        "tile": "B3",
+        "weight_path": "/mnt/E_202/JWST/COSMOS-Web/NIRCam_mosaics/mosaic_nircam_f150w_COSMOS-Web_30mas_B3_v1.0_wht.fits.gz",
+        "shape": [
+          24910,
+          19200
+        ],
+        "global_offset_xy": [
+          -11610,
+          23072
+        ],
+        "wcs_translation_residual_native_pixel": 1.1750671546906233e-09,
+        "fractional_translation_xy": [
+          -5.311449058353901e-10,
+          -3.5288394428789616e-10
+        ]
+      },
+      {
+        "band": "F150W",
+        "tile": "B4",
+        "weight_path": "/mnt/E_202/JWST/COSMOS-Web/NIRCam_mosaics/mosaic_nircam_f150w_COSMOS-Web_30mas_B4_v1.0_wht.fits.gz",
+        "shape": [
+          24910,
+          19200
+        ],
+        "global_offset_xy": [
+          -28910,
+          23072
+        ],
+        "wcs_translation_residual_native_pixel": 2.7175701688975096e-09,
+        "fractional_translation_xy": [
+          4.984030965715647e-10,
+          -1.2369127944111824e-10
+        ]
+      },
+      {
+        "band": "F150W",
+        "tile": "B5",
+        "weight_path": "/mnt/E_202/JWST/COSMOS-Web/NIRCam_mosaics/mosaic_nircam_f150w_COSMOS-Web_30mas_B5_v1.0_wht.fits.gz",
+        "shape": [
+          24910,
+          19200
+        ],
+        "global_offset_xy": [
+          -46210,
+          23072
+        ],
+        "wcs_translation_residual_native_pixel": 2.7794158086180687e-09,
+        "fractional_translation_xy": [
+          1.8189894035458565e-10,
+          -1.8917489796876907e-10
+        ]
+      },
+      {
+        "band": "F150W",
+        "tile": "B6",
+        "weight_path": "/mnt/E_202/JWST/COSMOS-Web/NIRCam_mosaics/mosaic_nircam_f150w_COSMOS-Web_30mas_B6_v1.0_wht.fits.gz",
+        "shape": [
+          24910,
+          19200
+        ],
+        "global_offset_xy": [
+          22990,
+          -9
+        ],
+        "wcs_translation_residual_native_pixel": 2.0118022803217173e-09,
+        "fractional_translation_xy": [
+          -6.548361852765083e-11,
+          -3.6197889130562544e-10
+        ]
+      },
+      {
+        "band": "F150W",
+        "tile": "B7",
+        "weight_path": "/mnt/E_202/JWST/COSMOS-Web/NIRCam_mosaics/mosaic_nircam_f150w_COSMOS-Web_30mas_B7_v1.0_wht.fits.gz",
+        "shape": [
+          24910,
+          19200
+        ],
+        "global_offset_xy": [
+          5690,
+          -9
+        ],
+        "wcs_translation_residual_native_pixel": 1.6443664208054543e-09,
+        "fractional_translation_xy": [
+          -8.658389560878277e-10,
+          1.800799509510398e-10
+        ]
+      },
+      {
+        "band": "F150W",
+        "tile": "B8",
+        "weight_path": "/mnt/E_202/JWST/COSMOS-Web/NIRCam_mosaics/mosaic_nircam_f150w_COSMOS-Web_30mas_B8_v1.0_wht.fits.gz",
+        "shape": [
+          24910,
+          19200
+        ],
+        "global_offset_xy": [
+          -11610,
+          -9
+        ],
+        "wcs_translation_residual_native_pixel": 1.3533281162381172e-09,
+        "fractional_translation_xy": [
+          -6.693881005048752e-10,
+          8.412825991399586e-11
+        ]
+      },
+      {
+        "band": "F150W",
+        "tile": "B9",
+        "weight_path": "/mnt/E_202/JWST/COSMOS-Web/NIRCam_mosaics/mosaic_nircam_f150w_COSMOS-Web_30mas_B9_v1.0_wht.fits.gz",
+        "shape": [
+          24910,
+          19200
+        ],
+        "global_offset_xy": [
+          -28910,
+          -9
+        ],
+        "wcs_translation_residual_native_pixel": 1.4370016288012266e-09,
+        "fractional_translation_xy": [
+          2.546585164964199e-10,
+          2.546585164964199e-10
+        ]
+      },
+      {
+        "band": "F150W",
+        "tile": "B10",
+        "weight_path": "/mnt/E_202/JWST/COSMOS-Web/NIRCam_mosaics/mosaic_nircam_f150w_COSMOS-Web_30mas_B10_v1.0_wht.fits.gz",
+        "shape": [
+          24910,
+          19200
+        ],
+        "global_offset_xy": [
+          -46210,
+          -9
+        ],
+        "wcs_translation_residual_native_pixel": 2.255546860396862e-09,
+        "fractional_translation_xy": [
+          -4.729372449219227e-10,
+          -8.36735125631094e-11
+        ]
+      },
+      {
+        "band": "F277W",
+        "tile": "A1",
+        "weight_path": "/mnt/E_202/JWST/COSMOS-Web/NIRCam_mosaics/mosaic_nircam_f277w_COSMOS-Web_30mas_A1_v1.0_wht.fits.gz",
+        "shape": [
+          24910,
+          19200
+        ],
+        "global_offset_xy": [
+          22990,
+          -23090
+        ],
+        "wcs_translation_residual_native_pixel": 2.2118911147117615e-09,
+        "fractional_translation_xy": [
+          2.255546860396862e-10,
+          -9.458744898438454e-11
+        ]
+      },
+      {
+        "band": "F277W",
+        "tile": "A2",
+        "weight_path": "/mnt/E_202/JWST/COSMOS-Web/NIRCam_mosaics/mosaic_nircam_f277w_COSMOS-Web_30mas_A2_v1.0_wht.fits.gz",
+        "shape": [
+          24910,
+          19200
+        ],
+        "global_offset_xy": [
+          5690,
+          -23090
+        ],
+        "wcs_translation_residual_native_pixel": 1.735315890982747e-09,
+        "fractional_translation_xy": [
+          3.637978807091713e-10,
+          -3.055902197957039e-10
+        ]
+      },
+      {
+        "band": "F277W",
+        "tile": "A3",
+        "weight_path": "/mnt/E_202/JWST/COSMOS-Web/NIRCam_mosaics/mosaic_nircam_f277w_COSMOS-Web_30mas_A3_v1.0_wht.fits.gz",
+        "shape": [
+          24910,
+          19200
+        ],
+        "global_offset_xy": [
+          -11610,
+          -23090
+        ],
+        "wcs_translation_residual_native_pixel": 1.9063008949160576e-09,
+        "fractional_translation_xy": [
+          1.1823431123048067e-09,
+          -4.001776687800884e-10
+        ]
+      },
+      {
+        "band": "F277W",
+        "tile": "A4",
+        "weight_path": "/mnt/E_202/JWST/COSMOS-Web/NIRCam_mosaics/mosaic_nircam_f277w_COSMOS-Web_30mas_A4_v1.0_wht.fits.gz",
+        "shape": [
+          24910,
+          19200
+        ],
+        "global_offset_xy": [
+          -28910,
+          -23090
+        ],
+        "wcs_translation_residual_native_pixel": 1.4624674804508686e-09,
+        "fractional_translation_xy": [
+          9.094947017729282e-10,
+          -5.4569682106375694e-11
+        ]
+      },
+      {
+        "band": "F277W",
+        "tile": "A5",
+        "weight_path": "/mnt/E_202/JWST/COSMOS-Web/NIRCam_mosaics/mosaic_nircam_f277w_COSMOS-Web_30mas_A5_v1.0_wht.fits.gz",
+        "shape": [
+          24910,
+          19200
+        ],
+        "global_offset_xy": [
+          -46210,
+          -23090
+        ],
+        "wcs_translation_residual_native_pixel": 2.3792381398379803e-09,
+        "fractional_translation_xy": [
+          -1.3606040738523006e-09,
+          1.8189894035458565e-11
+        ]
+      },
+      {
+        "band": "F277W",
+        "tile": "A6",
+        "weight_path": "/mnt/E_202/JWST/COSMOS-Web/NIRCam_mosaics/mosaic_nircam_f277w_COSMOS-Web_30mas_A6_v1.0_wht.fits.gz",
+        "shape": [
+          24910,
+          19200
+        ],
+        "global_offset_xy": [
+          22990,
+          -46171
+        ],
+        "wcs_translation_residual_native_pixel": 2.0481820683926344e-09,
+        "fractional_translation_xy": [
+          7.785274647176266e-10,
+          -7.057678885757923e-10
+        ]
+      },
+      {
+        "band": "F277W",
+        "tile": "A7",
+        "weight_path": "/mnt/E_202/JWST/COSMOS-Web/NIRCam_mosaics/mosaic_nircam_f277w_COSMOS-Web_30mas_A7_v1.0_wht.fits.gz",
+        "shape": [
+          24910,
+          19200
+        ],
+        "global_offset_xy": [
+          5690,
+          -46171
+        ],
+        "wcs_translation_residual_native_pixel": 1.5161276678554714e-09,
+        "fractional_translation_xy": [
+          -2.5011104298755527e-10,
+          -8.731149137020111e-11
+        ]
+      },
+      {
+        "band": "F277W",
+        "tile": "A8",
+        "weight_path": "/mnt/E_202/JWST/COSMOS-Web/NIRCam_mosaics/mosaic_nircam_f277w_COSMOS-Web_30mas_A8_v1.0_wht.fits.gz",
+        "shape": [
+          24910,
+          19200
+        ],
+        "global_offset_xy": [
+          -11610,
+          -46171
+        ],
+        "wcs_translation_residual_native_pixel": 1.7917045624926686e-09,
+        "fractional_translation_xy": [
+          -6.784830475226045e-10,
+          2.546585164964199e-10
+        ]
+      },
+      {
+        "band": "F277W",
+        "tile": "A9",
+        "weight_path": "/mnt/E_202/JWST/COSMOS-Web/NIRCam_mosaics/mosaic_nircam_f277w_COSMOS-Web_30mas_A9_v1.0_wht.fits.gz",
+        "shape": [
+          24910,
+          19200
+        ],
+        "global_offset_xy": [
+          -28910,
+          -46171
+        ],
+        "wcs_translation_residual_native_pixel": 1.9572325982153416e-09,
+        "fractional_translation_xy": [
+          -1.7826096154749393e-10,
+          2.3283064365386963e-10
+        ]
+      },
+      {
+        "band": "F277W",
+        "tile": "A10",
+        "weight_path": "/mnt/E_202/JWST/COSMOS-Web/NIRCam_mosaics/mosaic_nircam_f277w_COSMOS-Web_30mas_A10_v1.0_wht.fits.gz",
+        "shape": [
+          24910,
+          19200
+        ],
+        "global_offset_xy": [
+          -46210,
+          -46171
+        ],
+        "wcs_translation_residual_native_pixel": 1.9354047253727913e-09,
+        "fractional_translation_xy": [
+          2.9103830456733704e-11,
+          -1.0913936421275139e-10
+        ]
+      },
+      {
+        "band": "F277W",
+        "tile": "B1",
+        "weight_path": "/mnt/E_202/JWST/COSMOS-Web/NIRCam_mosaics/mosaic_nircam_f277w_COSMOS-Web_30mas_B1_v1.0_wht.fits.gz",
+        "shape": [
+          24910,
+          19200
+        ],
+        "global_offset_xy": [
+          22990,
+          23072
+        ],
+        "wcs_translation_residual_native_pixel": 1.520675141364336e-09,
+        "fractional_translation_xy": [
+          1.8917489796876907e-10,
+          2.9103830456733704e-11
+        ]
+      },
+      {
+        "band": "F277W",
+        "tile": "B2",
+        "weight_path": "/mnt/E_202/JWST/COSMOS-Web/NIRCam_mosaics/mosaic_nircam_f277w_COSMOS-Web_30mas_B2_v1.0_wht.fits.gz",
+        "shape": [
+          24910,
+          19200
+        ],
+        "global_offset_xy": [
+          5690,
+          23072
+        ],
+        "wcs_translation_residual_native_pixel": 1.0913936421275139e-09,
+        "fractional_translation_xy": [
+          4.729372449219227e-11,
+          -4.0745362639427185e-10
+        ]
+      },
+      {
+        "band": "F277W",
+        "tile": "B3",
+        "weight_path": "/mnt/E_202/JWST/COSMOS-Web/NIRCam_mosaics/mosaic_nircam_f277w_COSMOS-Web_30mas_B3_v1.0_wht.fits.gz",
+        "shape": [
+          24910,
+          19200
+        ],
+        "global_offset_xy": [
+          -11610,
+          23072
+        ],
+        "wcs_translation_residual_native_pixel": 1.1750671546906233e-09,
+        "fractional_translation_xy": [
+          -5.311449058353901e-10,
+          -3.5288394428789616e-10
+        ]
+      },
+      {
+        "band": "F277W",
+        "tile": "B4",
+        "weight_path": "/mnt/E_202/JWST/COSMOS-Web/NIRCam_mosaics/mosaic_nircam_f277w_COSMOS-Web_30mas_B4_v1.0_wht.fits.gz",
+        "shape": [
+          24910,
+          19200
+        ],
+        "global_offset_xy": [
+          -28910,
+          23072
+        ],
+        "wcs_translation_residual_native_pixel": 2.7175701688975096e-09,
+        "fractional_translation_xy": [
+          4.984030965715647e-10,
+          -1.2369127944111824e-10
+        ]
+      },
+      {
+        "band": "F277W",
+        "tile": "B5",
+        "weight_path": "/mnt/E_202/JWST/COSMOS-Web/NIRCam_mosaics/mosaic_nircam_f277w_COSMOS-Web_30mas_B5_v1.0_wht.fits.gz",
+        "shape": [
+          24910,
+          19200
+        ],
+        "global_offset_xy": [
+          -46210,
+          23072
+        ],
+        "wcs_translation_residual_native_pixel": 2.7794158086180687e-09,
+        "fractional_translation_xy": [
+          1.8189894035458565e-10,
+          -1.8917489796876907e-10
+        ]
+      },
+      {
+        "band": "F277W",
+        "tile": "B6",
+        "weight_path": "/mnt/E_202/JWST/COSMOS-Web/NIRCam_mosaics/mosaic_nircam_f277w_COSMOS-Web_30mas_B6_v1.0_wht.fits.gz",
+        "shape": [
+          24910,
+          19200
+        ],
+        "global_offset_xy": [
+          22990,
+          -9
+        ],
+        "wcs_translation_residual_native_pixel": 2.0118022803217173e-09,
+        "fractional_translation_xy": [
+          -6.548361852765083e-11,
+          -3.6197889130562544e-10
+        ]
+      },
+      {
+        "band": "F277W",
+        "tile": "B7",
+        "weight_path": "/mnt/E_202/JWST/COSMOS-Web/NIRCam_mosaics/mosaic_nircam_f277w_COSMOS-Web_30mas_B7_v1.0_wht.fits.gz",
+        "shape": [
+          24910,
+          19200
+        ],
+        "global_offset_xy": [
+          5690,
+          -9
+        ],
+        "wcs_translation_residual_native_pixel": 1.6443664208054543e-09,
+        "fractional_translation_xy": [
+          -8.658389560878277e-10,
+          1.800799509510398e-10
+        ]
+      },
+      {
+        "band": "F277W",
+        "tile": "B8",
+        "weight_path": "/mnt/E_202/JWST/COSMOS-Web/NIRCam_mosaics/mosaic_nircam_f277w_COSMOS-Web_30mas_B8_v1.0_wht.fits.gz",
+        "shape": [
+          24910,
+          19200
+        ],
+        "global_offset_xy": [
+          -11610,
+          -9
+        ],
+        "wcs_translation_residual_native_pixel": 1.3533281162381172e-09,
+        "fractional_translation_xy": [
+          -6.693881005048752e-10,
+          8.412825991399586e-11
+        ]
+      },
+      {
+        "band": "F277W",
+        "tile": "B9",
+        "weight_path": "/mnt/E_202/JWST/COSMOS-Web/NIRCam_mosaics/mosaic_nircam_f277w_COSMOS-Web_30mas_B9_v1.0_wht.fits.gz",
+        "shape": [
+          24910,
+          19200
+        ],
+        "global_offset_xy": [
+          -28910,
+          -9
+        ],
+        "wcs_translation_residual_native_pixel": 1.4370016288012266e-09,
+        "fractional_translation_xy": [
+          2.546585164964199e-10,
+          2.546585164964199e-10
+        ]
+      },
+      {
+        "band": "F277W",
+        "tile": "B10",
+        "weight_path": "/mnt/E_202/JWST/COSMOS-Web/NIRCam_mosaics/mosaic_nircam_f277w_COSMOS-Web_30mas_B10_v1.0_wht.fits.gz",
+        "shape": [
+          24910,
+          19200
+        ],
+        "global_offset_xy": [
+          -46210,
+          -9
+        ],
+        "wcs_translation_residual_native_pixel": 2.255546860396862e-09,
+        "fractional_translation_xy": [
+          -4.729372449219227e-10,
+          -8.36735125631094e-11
+        ]
+      },
+      {
+        "band": "F444W",
+        "tile": "A1",
+        "weight_path": "/mnt/E_202/JWST/COSMOS-Web/NIRCam_mosaics/mosaic_nircam_f444w_COSMOS-Web_30mas_A1_v1.0_wht.fits.gz",
+        "shape": [
+          24910,
+          19200
+        ],
+        "global_offset_xy": [
+          22990,
+          -23090
+        ],
+        "wcs_translation_residual_native_pixel": 2.2118911147117615e-09,
+        "fractional_translation_xy": [
+          2.255546860396862e-10,
+          -9.458744898438454e-11
+        ]
+      },
+      {
+        "band": "F444W",
+        "tile": "A2",
+        "weight_path": "/mnt/E_202/JWST/COSMOS-Web/NIRCam_mosaics/mosaic_nircam_f444w_COSMOS-Web_30mas_A2_v1.0_wht.fits.gz",
+        "shape": [
+          24910,
+          19200
+        ],
+        "global_offset_xy": [
+          5690,
+          -23090
+        ],
+        "wcs_translation_residual_native_pixel": 1.735315890982747e-09,
+        "fractional_translation_xy": [
+          3.637978807091713e-10,
+          -3.055902197957039e-10
+        ]
+      },
+      {
+        "band": "F444W",
+        "tile": "A3",
+        "weight_path": "/mnt/E_202/JWST/COSMOS-Web/NIRCam_mosaics/mosaic_nircam_f444w_COSMOS-Web_30mas_A3_v1.0_wht.fits.gz",
+        "shape": [
+          24910,
+          19200
+        ],
+        "global_offset_xy": [
+          -11610,
+          -23090
+        ],
+        "wcs_translation_residual_native_pixel": 1.9063008949160576e-09,
+        "fractional_translation_xy": [
+          1.1823431123048067e-09,
+          -4.001776687800884e-10
+        ]
+      },
+      {
+        "band": "F444W",
+        "tile": "A4",
+        "weight_path": "/mnt/E_202/JWST/COSMOS-Web/NIRCam_mosaics/mosaic_nircam_f444w_COSMOS-Web_30mas_A4_v1.0_wht.fits.gz",
+        "shape": [
+          24910,
+          19200
+        ],
+        "global_offset_xy": [
+          -28910,
+          -23090
+        ],
+        "wcs_translation_residual_native_pixel": 1.4624674804508686e-09,
+        "fractional_translation_xy": [
+          9.094947017729282e-10,
+          -5.4569682106375694e-11
+        ]
+      },
+      {
+        "band": "F444W",
+        "tile": "A5",
+        "weight_path": "/mnt/E_202/JWST/COSMOS-Web/NIRCam_mosaics/mosaic_nircam_f444w_COSMOS-Web_30mas_A5_v1.0_wht.fits.gz",
+        "shape": [
+          24910,
+          19200
+        ],
+        "global_offset_xy": [
+          -46210,
+          -23090
+        ],
+        "wcs_translation_residual_native_pixel": 2.3792381398379803e-09,
+        "fractional_translation_xy": [
+          -1.3606040738523006e-09,
+          1.8189894035458565e-11
+        ]
+      },
+      {
+        "band": "F444W",
+        "tile": "A6",
+        "weight_path": "/mnt/E_202/JWST/COSMOS-Web/NIRCam_mosaics/mosaic_nircam_f444w_COSMOS-Web_30mas_A6_v1.0_wht.fits.gz",
+        "shape": [
+          24910,
+          19200
+        ],
+        "global_offset_xy": [
+          22990,
+          -46171
+        ],
+        "wcs_translation_residual_native_pixel": 2.0481820683926344e-09,
+        "fractional_translation_xy": [
+          7.785274647176266e-10,
+          -7.057678885757923e-10
+        ]
+      },
+      {
+        "band": "F444W",
+        "tile": "A7",
+        "weight_path": "/mnt/E_202/JWST/COSMOS-Web/NIRCam_mosaics/mosaic_nircam_f444w_COSMOS-Web_30mas_A7_v1.0_wht.fits.gz",
+        "shape": [
+          24910,
+          19200
+        ],
+        "global_offset_xy": [
+          5690,
+          -46171
+        ],
+        "wcs_translation_residual_native_pixel": 1.5161276678554714e-09,
+        "fractional_translation_xy": [
+          -2.5011104298755527e-10,
+          -8.731149137020111e-11
+        ]
+      },
+      {
+        "band": "F444W",
+        "tile": "A8",
+        "weight_path": "/mnt/E_202/JWST/COSMOS-Web/NIRCam_mosaics/mosaic_nircam_f444w_COSMOS-Web_30mas_A8_v1.0_wht.fits.gz",
+        "shape": [
+          24910,
+          19200
+        ],
+        "global_offset_xy": [
+          -11610,
+          -46171
+        ],
+        "wcs_translation_residual_native_pixel": 1.7917045624926686e-09,
+        "fractional_translation_xy": [
+          -6.784830475226045e-10,
+          2.546585164964199e-10
+        ]
+      },
+      {
+        "band": "F444W",
+        "tile": "A9",
+        "weight_path": "/mnt/E_202/JWST/COSMOS-Web/NIRCam_mosaics/mosaic_nircam_f444w_COSMOS-Web_30mas_A9_v1.0_wht.fits.gz",
+        "shape": [
+          24910,
+          19200
+        ],
+        "global_offset_xy": [
+          -28910,
+          -46171
+        ],
+        "wcs_translation_residual_native_pixel": 1.9572325982153416e-09,
+        "fractional_translation_xy": [
+          -1.7826096154749393e-10,
+          2.3283064365386963e-10
+        ]
+      },
+      {
+        "band": "F444W",
+        "tile": "A10",
+        "weight_path": "/mnt/E_202/JWST/COSMOS-Web/NIRCam_mosaics/mosaic_nircam_f444w_COSMOS-Web_30mas_A10_v1.0_wht.fits.gz",
+        "shape": [
+          24910,
+          19200
+        ],
+        "global_offset_xy": [
+          -46210,
+          -46171
+        ],
+        "wcs_translation_residual_native_pixel": 1.9354047253727913e-09,
+        "fractional_translation_xy": [
+          2.9103830456733704e-11,
+          -1.0913936421275139e-10
+        ]
+      },
+      {
+        "band": "F444W",
+        "tile": "B1",
+        "weight_path": "/mnt/E_202/JWST/COSMOS-Web/NIRCam_mosaics/mosaic_nircam_f444w_COSMOS-Web_30mas_B1_v1.0_wht.fits.gz",
+        "shape": [
+          24910,
+          19200
+        ],
+        "global_offset_xy": [
+          22990,
+          23072
+        ],
+        "wcs_translation_residual_native_pixel": 1.520675141364336e-09,
+        "fractional_translation_xy": [
+          1.8917489796876907e-10,
+          2.9103830456733704e-11
+        ]
+      },
+      {
+        "band": "F444W",
+        "tile": "B2",
+        "weight_path": "/mnt/E_202/JWST/COSMOS-Web/NIRCam_mosaics/mosaic_nircam_f444w_COSMOS-Web_30mas_B2_v1.0_wht.fits.gz",
+        "shape": [
+          24910,
+          19200
+        ],
+        "global_offset_xy": [
+          5690,
+          23072
+        ],
+        "wcs_translation_residual_native_pixel": 1.0913936421275139e-09,
+        "fractional_translation_xy": [
+          4.729372449219227e-11,
+          -4.0745362639427185e-10
+        ]
+      },
+      {
+        "band": "F444W",
+        "tile": "B3",
+        "weight_path": "/mnt/E_202/JWST/COSMOS-Web/NIRCam_mosaics/mosaic_nircam_f444w_COSMOS-Web_30mas_B3_v1.0_wht.fits.gz",
+        "shape": [
+          24910,
+          19200
+        ],
+        "global_offset_xy": [
+          -11610,
+          23072
+        ],
+        "wcs_translation_residual_native_pixel": 1.1750671546906233e-09,
+        "fractional_translation_xy": [
+          -5.311449058353901e-10,
+          -3.5288394428789616e-10
+        ]
+      },
+      {
+        "band": "F444W",
+        "tile": "B4",
+        "weight_path": "/mnt/E_202/JWST/COSMOS-Web/NIRCam_mosaics/mosaic_nircam_f444w_COSMOS-Web_30mas_B4_v1.0_wht.fits.gz",
+        "shape": [
+          24910,
+          19200
+        ],
+        "global_offset_xy": [
+          -28910,
+          23072
+        ],
+        "wcs_translation_residual_native_pixel": 2.7175701688975096e-09,
+        "fractional_translation_xy": [
+          4.984030965715647e-10,
+          -1.2369127944111824e-10
+        ]
+      },
+      {
+        "band": "F444W",
+        "tile": "B5",
+        "weight_path": "/mnt/E_202/JWST/COSMOS-Web/NIRCam_mosaics/mosaic_nircam_f444w_COSMOS-Web_30mas_B5_v1.0_wht.fits.gz",
+        "shape": [
+          24910,
+          19200
+        ],
+        "global_offset_xy": [
+          -46210,
+          23072
+        ],
+        "wcs_translation_residual_native_pixel": 2.7794158086180687e-09,
+        "fractional_translation_xy": [
+          1.8189894035458565e-10,
+          -1.8917489796876907e-10
+        ]
+      },
+      {
+        "band": "F444W",
+        "tile": "B6",
+        "weight_path": "/mnt/E_202/JWST/COSMOS-Web/NIRCam_mosaics/mosaic_nircam_f444w_COSMOS-Web_30mas_B6_v1.0_wht.fits.gz",
+        "shape": [
+          24910,
+          19200
+        ],
+        "global_offset_xy": [
+          22990,
+          -9
+        ],
+        "wcs_translation_residual_native_pixel": 2.0118022803217173e-09,
+        "fractional_translation_xy": [
+          -6.548361852765083e-11,
+          -3.6197889130562544e-10
+        ]
+      },
+      {
+        "band": "F444W",
+        "tile": "B7",
+        "weight_path": "/mnt/E_202/JWST/COSMOS-Web/NIRCam_mosaics/mosaic_nircam_f444w_COSMOS-Web_30mas_B7_v1.0_wht.fits.gz",
+        "shape": [
+          24910,
+          19200
+        ],
+        "global_offset_xy": [
+          5690,
+          -9
+        ],
+        "wcs_translation_residual_native_pixel": 1.6443664208054543e-09,
+        "fractional_translation_xy": [
+          -8.658389560878277e-10,
+          1.800799509510398e-10
+        ]
+      },
+      {
+        "band": "F444W",
+        "tile": "B8",
+        "weight_path": "/mnt/E_202/JWST/COSMOS-Web/NIRCam_mosaics/mosaic_nircam_f444w_COSMOS-Web_30mas_B8_v1.0_wht.fits.gz",
+        "shape": [
+          24910,
+          19200
+        ],
+        "global_offset_xy": [
+          -11610,
+          -9
+        ],
+        "wcs_translation_residual_native_pixel": 1.3533281162381172e-09,
+        "fractional_translation_xy": [
+          -6.693881005048752e-10,
+          8.412825991399586e-11
+        ]
+      },
+      {
+        "band": "F444W",
+        "tile": "B9",
+        "weight_path": "/mnt/E_202/JWST/COSMOS-Web/NIRCam_mosaics/mosaic_nircam_f444w_COSMOS-Web_30mas_B9_v1.0_wht.fits.gz",
+        "shape": [
+          24910,
+          19200
+        ],
+        "global_offset_xy": [
+          -28910,
+          -9
+        ],
+        "wcs_translation_residual_native_pixel": 1.4370016288012266e-09,
+        "fractional_translation_xy": [
+          2.546585164964199e-10,
+          2.546585164964199e-10
+        ]
+      },
+      {
+        "band": "F444W",
+        "tile": "B10",
+        "weight_path": "/mnt/E_202/JWST/COSMOS-Web/NIRCam_mosaics/mosaic_nircam_f444w_COSMOS-Web_30mas_B10_v1.0_wht.fits.gz",
+        "shape": [
+          24910,
+          19200
+        ],
+        "global_offset_xy": [
+          -46210,
+          -9
+        ],
+        "wcs_translation_residual_native_pixel": 2.255546860396862e-09,
+        "fractional_translation_xy": [
+          -4.729372449219227e-10,
+          -8.36735125631094e-11
+        ]
+      },
+      {
+        "band": "F814W",
+        "tile": "A1",
+        "weight_path": "/mnt/E_202/JWST/COSMOS_Web/HST_F814W_v0.5.2026jul/tiles/mosaic_cosmos_fulldepth_hst_acs_wfc_f814w_30mas_tile_A1_v0.5.2026jul_wht.fits.gz",
+        "shape": [
+          24910,
+          19200
+        ],
+        "global_offset_xy": [
+          22990,
+          -23090
+        ],
+        "wcs_translation_residual_native_pixel": 0.0008303086688101757,
+        "fractional_translation_xy": [
+          -0.09482388362448546,
+          0.30453685035172384
+        ],
+        "header_global_offset_xy": [
+          22991,
+          -23090
+        ],
+        "applied_static_registration_xy": [
+          0.8885847021300471,
+          0.3068253331459033
+        ]
+      },
+      {
+        "band": "F814W",
+        "tile": "A2",
+        "weight_path": "/mnt/E_202/JWST/COSMOS_Web/HST_F814W_v0.5.2026jul/tiles/mosaic_cosmos_fulldepth_hst_acs_wfc_f814w_30mas_tile_A2_v0.5.2026jul_wht.fits.gz",
+        "shape": [
+          24910,
+          19200
+        ],
+        "global_offset_xy": [
+          5690,
+          -23090
+        ],
+        "wcs_translation_residual_native_pixel": 1.735315890982747e-09,
+        "fractional_translation_xy": [
+          3.637978807091713e-10,
+          -3.055902197957039e-10
+        ],
+        "header_global_offset_xy": [
+          5690,
+          -23090
+        ],
+        "applied_static_registration_xy": [
+          0.04482322144206321,
+          0.038192869113158216
+        ]
+      },
+      {
+        "band": "F814W",
+        "tile": "A3",
+        "weight_path": "/mnt/E_202/JWST/COSMOS_Web/HST_F814W_v0.5.2026jul/tiles/mosaic_cosmos_fulldepth_hst_acs_wfc_f814w_30mas_tile_A3_v0.5.2026jul_wht.fits.gz",
+        "shape": [
+          24910,
+          19200
+        ],
+        "global_offset_xy": [
+          -11610,
+          -23090
+        ],
+        "wcs_translation_residual_native_pixel": 1.9063008949160576e-09,
+        "fractional_translation_xy": [
+          1.1823431123048067e-09,
+          -4.001776687800884e-10
+        ],
+        "header_global_offset_xy": [
+          -11610,
+          -23090
+        ],
+        "applied_static_registration_xy": [
+          0.07326250363264304,
+          -0.09790435397364601
+        ]
+      },
+      {
+        "band": "F814W",
+        "tile": "A4",
+        "weight_path": "/mnt/E_202/JWST/COSMOS_Web/HST_F814W_v0.5.2026jul/tiles/mosaic_cosmos_fulldepth_hst_acs_wfc_f814w_30mas_tile_A4_v0.5.2026jul_wht.fits.gz",
+        "shape": [
+          24910,
+          19200
+        ],
+        "global_offset_xy": [
+          -28910,
+          -23090
+        ],
+        "wcs_translation_residual_native_pixel": 0.0008323982110596262,
+        "fractional_translation_xy": [
+          -0.09483353578980314,
+          0.30112787618054426
+        ],
+        "header_global_offset_xy": [
+          -28909,
+          -23090
+        ],
+        "applied_static_registration_xy": [
+          0.8421018798958037,
+          0.2843839460898995
+        ]
+      },
+      {
+        "band": "F814W",
+        "tile": "A5",
+        "weight_path": "/mnt/E_202/JWST/COSMOS_Web/HST_F814W_v0.5.2026jul/tiles/mosaic_cosmos_fulldepth_hst_acs_wfc_f814w_30mas_tile_A5_v0.5.2026jul_wht.fits.gz",
+        "shape": [
+          24910,
+          19200
+        ],
+        "global_offset_xy": [
+          -46210,
+          -23090
+        ],
+        "wcs_translation_residual_native_pixel": 0.0008401351879001595,
+        "fractional_translation_xy": [
+          -0.094813852054358,
+          0.29999155192126636
+        ],
+        "header_global_offset_xy": [
+          -46209,
+          -23090
+        ],
+        "applied_static_registration_xy": [
+          0.8072874159895034,
+          0.27505217348959166
+        ]
+      },
+      {
+        "band": "F814W",
+        "tile": "A6",
+        "weight_path": "/mnt/E_202/JWST/COSMOS_Web/HST_F814W_v0.5.2026jul/tiles/mosaic_cosmos_fulldepth_hst_acs_wfc_f814w_30mas_tile_A6_v0.5.2026jul_wht.fits.gz",
+        "shape": [
+          24910,
+          19200
+        ],
+        "global_offset_xy": [
+          22990,
+          -46171
+        ],
+        "wcs_translation_residual_native_pixel": 0.0008288967910630163,
+        "fractional_translation_xy": [
+          -0.09330795869391295,
+          0.30452900801901706
+        ],
+        "header_global_offset_xy": [
+          22991,
+          -46171
+        ],
+        "applied_static_registration_xy": [
+          0.8935968353820679,
+          0.2817028276014199
+        ]
+      },
+      {
+        "band": "F814W",
+        "tile": "A7",
+        "weight_path": "/mnt/E_202/JWST/COSMOS_Web/HST_F814W_v0.5.2026jul/tiles/mosaic_cosmos_fulldepth_hst_acs_wfc_f814w_30mas_tile_A7_v0.5.2026jul_wht.fits.gz",
+        "shape": [
+          24910,
+          19200
+        ],
+        "global_offset_xy": [
+          5690,
+          -46171
+        ],
+        "wcs_translation_residual_native_pixel": 0.0008239140224759467,
+        "fractional_translation_xy": [
+          -0.09332007329794578,
+          0.30340032123058336
+        ],
+        "header_global_offset_xy": [
+          5691,
+          -46171
+        ],
+        "applied_static_registration_xy": [
+          0.8321102091888576,
+          0.304616102784099
+        ]
+      },
+      {
+        "band": "F814W",
+        "tile": "A8",
+        "weight_path": "/mnt/E_202/JWST/COSMOS_Web/HST_F814W_v0.5.2026jul/tiles/mosaic_cosmos_fulldepth_hst_acs_wfc_f814w_30mas_tile_A8_v0.5.2026jul_wht.fits.gz",
+        "shape": [
+          24910,
+          19200
+        ],
+        "global_offset_xy": [
+          -11610,
+          -46171
+        ],
+        "wcs_translation_residual_native_pixel": 0.0008260874583356781,
+        "fractional_translation_xy": [
+          -0.09332073789300921,
+          0.302271637134254
+        ],
+        "header_global_offset_xy": [
+          -11609,
+          -46171
+        ],
+        "applied_static_registration_xy": [
+          0.8469759342857708,
+          0.3165985481896486
+        ]
+      },
+      {
+        "band": "F814W",
+        "tile": "A9",
+        "weight_path": "/mnt/E_202/JWST/COSMOS_Web/HST_F814W_v0.5.2026jul/tiles/mosaic_cosmos_fulldepth_hst_acs_wfc_f814w_30mas_tile_A9_v0.5.2026jul_wht.fits.gz",
+        "shape": [
+          24910,
+          19200
+        ],
+        "global_offset_xy": [
+          -28910,
+          -46171
+        ],
+        "wcs_translation_residual_native_pixel": 0.0008338212428498082,
+        "fractional_translation_xy": [
+          -0.09330994779520552,
+          0.30114295045495965
+        ],
+        "header_global_offset_xy": [
+          -28909,
+          -46171
+        ],
+        "applied_static_registration_xy": [
+          0.8112129035758112,
+          0.33443289182394587
+        ]
+      },
+      {
+        "band": "F814W",
+        "tile": "A10",
+        "weight_path": "/mnt/E_202/JWST/COSMOS_Web/HST_F814W_v0.5.2026jul/tiles/mosaic_cosmos_fulldepth_hst_acs_wfc_f814w_30mas_tile_A10_v0.5.2026jul_wht.fits.gz",
+        "shape": [
+          24910,
+          19200
+        ],
+        "global_offset_xy": [
+          -46210,
+          -46171
+        ],
+        "wcs_translation_residual_native_pixel": 0.000841552100609988,
+        "fractional_translation_xy": [
+          -0.09328770777210593,
+          0.30001426517992513
+        ],
+        "header_global_offset_xy": [
+          -46209,
+          -46171
+        ],
+        "applied_static_registration_xy": [
+          0.9276590789757951,
+          0.24470728288934843
+        ]
+      },
+      {
+        "band": "F814W",
+        "tile": "B1",
+        "weight_path": "/mnt/E_202/JWST/COSMOS_Web/HST_F814W_v0.5.2026jul/tiles/mosaic_cosmos_fulldepth_hst_acs_wfc_f814w_30mas_tile_B1_v0.5.2026jul_wht.fits.gz",
+        "shape": [
+          24910,
+          19200
+        ],
+        "global_offset_xy": [
+          22990,
+          23072
+        ],
+        "wcs_translation_residual_native_pixel": 0.0008331449134857394,
+        "fractional_translation_xy": [
+          -0.09785573586123064,
+          0.3045729818622931
+        ],
+        "header_global_offset_xy": [
+          22991,
+          23072
+        ],
+        "applied_static_registration_xy": [
+          0.9388353510920094,
+          0.3403194819310873
+        ]
+      },
+      {
+        "band": "F814W",
+        "tile": "B2",
+        "weight_path": "/mnt/E_202/JWST/COSMOS_Web/HST_F814W_v0.5.2026jul/tiles/mosaic_cosmos_fulldepth_hst_acs_wfc_f814w_30mas_tile_B2_v0.5.2026jul_wht.fits.gz",
+        "shape": [
+          24910,
+          19200
+        ],
+        "global_offset_xy": [
+          5690,
+          23072
+        ],
+        "wcs_translation_residual_native_pixel": 1.0913936421275139e-09,
+        "fractional_translation_xy": [
+          4.729372449219227e-11,
+          -4.0745362639427185e-10
+        ],
+        "header_global_offset_xy": [
+          5690,
+          23072
+        ],
+        "applied_static_registration_xy": [
+          0.015071911935745662,
+          -0.023990565276495443
+        ]
+      },
+      {
+        "band": "F814W",
+        "tile": "B3",
+        "weight_path": "/mnt/E_202/JWST/COSMOS_Web/HST_F814W_v0.5.2026jul/tiles/mosaic_cosmos_fulldepth_hst_acs_wfc_f814w_30mas_tile_B3_v0.5.2026jul_wht.fits.gz",
+        "shape": [
+          24910,
+          19200
+        ],
+        "global_offset_xy": [
+          -11610,
+          23072
+        ],
+        "wcs_translation_residual_native_pixel": 1.1750671546906233e-09,
+        "fractional_translation_xy": [
+          -5.311449058353901e-10,
+          -3.5288394428789616e-10
+        ],
+        "header_global_offset_xy": [
+          -11610,
+          23072
+        ],
+        "applied_static_registration_xy": [
+          0.006842234964389378,
+          0.0026833116371575367
+        ]
+      },
+      {
+        "band": "F814W",
+        "tile": "B4",
+        "weight_path": "/mnt/E_202/JWST/COSMOS_Web/HST_F814W_v0.5.2026jul/tiles/mosaic_cosmos_fulldepth_hst_acs_wfc_f814w_30mas_tile_B4_v0.5.2026jul_wht.fits.gz",
+        "shape": [
+          24910,
+          19200
+        ],
+        "global_offset_xy": [
+          -28910,
+          23072
+        ],
+        "wcs_translation_residual_native_pixel": 0.0008295743173221126,
+        "fractional_translation_xy": [
+          -0.09788071828370448,
+          0.3011181723923073
+        ],
+        "header_global_offset_xy": [
+          -28909,
+          23072
+        ],
+        "applied_static_registration_xy": [
+          0.886698605817385,
+          0.34401556828393176
+        ]
+      },
+      {
+        "band": "F814W",
+        "tile": "B5",
+        "weight_path": "/mnt/E_202/JWST/COSMOS_Web/HST_F814W_v0.5.2026jul/tiles/mosaic_cosmos_fulldepth_hst_acs_wfc_f814w_30mas_tile_B5_v0.5.2026jul_wht.fits.gz",
+        "shape": [
+          24910,
+          19200
+        ],
+        "global_offset_xy": [
+          -46210,
+          23072
+        ],
+        "wcs_translation_residual_native_pixel": 0.0008372955635422841,
+        "fractional_translation_xy": [
+          -0.09786613301548641,
+          0.29996656528965104
+        ],
+        "header_global_offset_xy": [
+          -46209,
+          23072
+        ],
+        "applied_static_registration_xy": [
+          0.8827146426164134,
+          0.30186173418585366
+        ]
+      },
+      {
+        "band": "F814W",
+        "tile": "B6",
+        "weight_path": "/mnt/E_202/JWST/COSMOS_Web/HST_F814W_v0.5.2026jul/tiles/mosaic_cosmos_fulldepth_hst_acs_wfc_f814w_30mas_tile_B6_v0.5.2026jul_wht.fits.gz",
+        "shape": [
+          24910,
+          19200
+        ],
+        "global_offset_xy": [
+          22990,
+          -9
+        ],
+        "wcs_translation_residual_native_pixel": 0.0008317266074300278,
+        "fractional_translation_xy": [
+          -0.09633980632133898,
+          0.30455150858506386
+        ],
+        "header_global_offset_xy": [
+          22991,
+          -9
+        ],
+        "applied_static_registration_xy": [
+          0.9294817033875572,
+          0.2524849951279428
+        ]
+      },
+      {
+        "band": "F814W",
+        "tile": "B7",
+        "weight_path": "/mnt/E_202/JWST/COSMOS_Web/HST_F814W_v0.5.2026jul/tiles/mosaic_cosmos_fulldepth_hst_acs_wfc_f814w_30mas_tile_B7_v0.5.2026jul_wht.fits.gz",
+        "shape": [
+          24910,
+          19200
+        ],
+        "global_offset_xy": [
+          5690,
+          -9
+        ],
+        "wcs_translation_residual_native_pixel": 1.6443664208054543e-09,
+        "fractional_translation_xy": [
+          -8.658389560878277e-10,
+          1.800799509510398e-10
+        ],
+        "header_global_offset_xy": [
+          5690,
+          -9
+        ],
+        "applied_static_registration_xy": [
+          0.01322638367845346,
+          -0.058113538523619605
+        ]
+      },
+      {
+        "band": "F814W",
+        "tile": "B8",
+        "weight_path": "/mnt/E_202/JWST/COSMOS_Web/HST_F814W_v0.5.2026jul/tiles/mosaic_cosmos_fulldepth_hst_acs_wfc_f814w_30mas_tile_B8_v0.5.2026jul_wht.fits.gz",
+        "shape": [
+          24910,
+          19200
+        ],
+        "global_offset_xy": [
+          -11610,
+          -9
+        ],
+        "wcs_translation_residual_native_pixel": 1.3533281162381172e-09,
+        "fractional_translation_xy": [
+          -6.693881005048752e-10,
+          8.412825991399586e-11
+        ],
+        "header_global_offset_xy": [
+          -11610,
+          -9
+        ],
+        "applied_static_registration_xy": [
+          -0.05461509064760883,
+          0.04797538946281348
+        ]
+      },
+      {
+        "band": "F814W",
+        "tile": "B9",
+        "weight_path": "/mnt/E_202/JWST/COSMOS_Web/HST_F814W_v0.5.2026jul/tiles/mosaic_cosmos_fulldepth_hst_acs_wfc_f814w_30mas_tile_B9_v0.5.2026jul_wht.fits.gz",
+        "shape": [
+          24910,
+          19200
+        ],
+        "global_offset_xy": [
+          -28910,
+          -9
+        ],
+        "wcs_translation_residual_native_pixel": 1.4370016288012266e-09,
+        "fractional_translation_xy": [
+          2.546585164964199e-10,
+          2.219167072325945e-10
+        ],
+        "header_global_offset_xy": [
+          -28910,
+          -9
+        ],
+        "applied_static_registration_xy": [
+          -0.02351366503268646,
+          -0.015056289149695874
+        ]
+      },
+      {
+        "band": "F814W",
+        "tile": "B10",
+        "weight_path": "/mnt/E_202/JWST/COSMOS_Web/HST_F814W_v0.5.2026jul/tiles/mosaic_cosmos_fulldepth_hst_acs_wfc_f814w_30mas_tile_B10_v0.5.2026jul_wht.fits.gz",
+        "shape": [
+          24910,
+          19200
+        ],
+        "global_offset_xy": [
+          -46210,
+          -9
+        ],
+        "wcs_translation_residual_native_pixel": 0.0008387159250560217,
+        "fractional_translation_xy": [
+          -0.09633999491779832,
+          0.29997565206758736
+        ],
+        "header_global_offset_xy": [
+          -46209,
+          -9
+        ],
+        "applied_static_registration_xy": [
+          0.8798728464423683,
+          0.3558487969427422
+        ]
+      }
+    ],
+    "definition": "Finite positive WHT; native 0.10 arcsec-radius aperture support eroded per tile before union. Header-WCS translations rounded to nearest native pixel; residual and fractional offsets retained."
+  },
+  "common_area_never_exceeds_four": true
+}

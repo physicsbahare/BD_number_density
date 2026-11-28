@@ -1,0 +1,20 @@
+{
+  "checks": {
+    "src/cosmosweb_counts.py": {
+      "local_blob_sha": "80bf0e5a0cd480062549b0071f460c0f23bc7f48",
+      "recovered_base_blob_sha": "3b93ea70115bad1fbb9350cfdb399bfb685d7753",
+      "matches_after_removing_one_recovery_newline": true
+    },
+    "config/cosmos_web.yaml": {
+      "local_blob_sha": "499ef43884d503e34bb7298bb2b8d2314029cb9d",
+      "recovered_base_blob_sha": "9dbe3970c67156cc68160ab813b4490fb3a1d550",
+      "matches_after_removing_one_recovery_newline": true
+    },
+    "data/preliminary_cosmosweb_teff_counts.csv": {
+      "local_blob_sha": "67b1d3070e6b24573a879218d1cdd6bd59e36e85",
+      "recovered_base_blob_sha": "9772b9c4f20d5c52f56a9eeb67cb37b269aaa574",
+      "matches_after_removing_one_recovery_newline": true
+    }
+  },
+  "note": "Local recovery added one trailing newline; removing it exactly recovers pinned Git blob. These three existing files are not modified in the new commit."
+}

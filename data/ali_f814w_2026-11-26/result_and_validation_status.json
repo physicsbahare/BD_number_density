@@ -1,0 +1,52 @@
+{
+  "scientific_status": "HISTORICAL_BASELINE_AND_EXACT_NATIVE_FIVE_BAND_VALIDATION_UNRESOLVED",
+  "final_accepted_count": null,
+  "conditional_expected_count": 23.84371388009468,
+  "five_band_area_deg2": 0.5324308306666868,
+  "conditional_surface_density_arcmin2": 0.012439651263786704,
+  "components": {
+    "thin": 16.263683818272494,
+    "thick": 5.477254777702957,
+    "halo": 2.102775284119227
+  },
+  "four_band_reconstructed_full_footprint_count": 28.886864370261556,
+  "four_band_reconstructed_full_area_deg2": 0.5333332029647787,
+  "four_band_matched_count": 28.805100941172288,
+  "f814w_alone_removed_count": 4.961387061077609,
+  "f814w_alone_fraction_removed": 0.17223987762480286,
+  "empirical_minus_gaussian_count": -0.3213774260173068,
+  "difference_from_provisional_25_8331": -1.9893861199053227,
+  "formal_measured_local_density_standard_error": 1.7686418549904455,
+  "incomplete_local_density_bin_contribution": 5.959328410875614,
+  "conditional_f814w_cdf_sampling_standard_error": 0.049559592083800785,
+  "linear_minus_step_ecdf_count": 0.02439118714142552,
+  "convergence_1024_minus_512": {
+    "five_empirical": 0.01410085261290206,
+    "five_gaussian": 0.01068295164582267,
+    "four_matched": 0.01888960221697289,
+    "four_original": 0.010724044610114447
+  },
+  "source_noise_31_minus_15_node_count": -6.003915913765923e-06,
+  "sensitivity_count_ranges": {
+    "noise_scale_0_95_to_1_05": [
+      24.173684979312938,
+      23.54084004683207
+    ],
+    "catalog_snr_threshold_shift_minus_plus_0_5": [
+      21.872094258861434,
+      25.355248410102547
+    ],
+    "f814w_flux_scale_0_95_to_1_05": [
+      23.854182515274672,
+      23.83320353694423
+    ]
+  },
+  "nircam_correlation_sensitivity_count": 23.74872916535791,
+  "limitations": [
+    "The reconstructed full four-band footprint is 0.533333 deg2; the archived 0.496306 deg2 mask is unrecovered.",
+    "The exact historical driver/mask/selection configuration producing 26.500648 has not been identified. Missing intermediate caches were regenerated; they are no longer a blocker.",
+    "The preserved-convention NIRCam calculation uses empirical-noise SNR, while stored catalog SNR uses another denominator. It is not an exact native five-band selection calculation.",
+    "The default radial integration retains the existing intrinsic five-sigma F444W depth bound. Native-SNR and extended-domain diagnostic counts differ materially.",
+    "ACS estimator residuals, band covariance, absolute aperture response and unpropagated population systematics prevent an unconditional combined error bar."
+  ]
+}

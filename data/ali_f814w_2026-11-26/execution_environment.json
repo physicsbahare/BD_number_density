@@ -1,0 +1,16 @@
+{
+  "python": "3.12.15",
+  "executable": "/home/bahareh/miniforge3/envs/phd/bin/python",
+  "packages": {
+    "numpy": "2.5.4",
+    "scipy": "1.18.1",
+    "astropy": "8.0.2",
+    "pandas": "3.0.6",
+    "photutils": "3.1.1",
+    "matplotlib": "3.11.2",
+    "h5py": "3.16.0",
+    "pytest": "9.2.0"
+  },
+  "source_population_branch": "feat/ali-dave-injection-recovery-20261109",
+  "source_population_commit": "e2ea00d728a863b50b30ffa62e808dd8dd564025"
+}

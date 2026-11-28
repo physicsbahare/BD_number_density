@@ -2,6 +2,18 @@
 
 Research code for predicting brown-dwarf / ultracool-dwarf counts in the COSMOS-Web field.
 
+## Ali F814W real-image continuation (2026-11-28)
+
+Twenty-tile depth reconstruction, native ACS aperture calibration, targeted
+injection tests and full-field conditional counts have been executed using
+the local server images. The preserved-convention result is 23.8437 objects
+over 0.532431 deg². Historical footprint/SNR validation remains unresolved;
+this is **not an accepted final paper prediction**.
+
+See the [executed results and limitations](data/ali_f814w_2026-11-26/REPORT.md),
+[machine-readable status](data/ali_f814w_2026-11-26/result_and_validation_status.json),
+and [reproduction commands](docs/ALI_F814W_REPRODUCE_20261128.md).
+
 ## Scientific goals
 
 This repository separates two quantities that must not be mixed:
@@ -60,3 +72,4 @@ See `docs/uncover_validation_2026-10-05.md`,
 Next requirement: generate F277W synthetic reach from the atmosphere grid,
 then forward-model the Li et al. colour/SED selection before making a
 selection-matched validation claim.
+

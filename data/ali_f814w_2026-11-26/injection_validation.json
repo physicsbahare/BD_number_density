@@ -1,0 +1,254 @@
+{
+  "status": "EXECUTED_TARGETED_APERTURE_VALIDATION",
+  "n_tiles": 20,
+  "distinct_background_scenes": 94627,
+  "injection_trials": 851643,
+  "probabilities": [
+    {
+      "true_aperture_snr": 0.0,
+      "n": 94627,
+      "n_pass": 78746,
+      "empirical_probability": 0.8321726357170787,
+      "standard_error": 0.001214872122814693,
+      "wilson95": [
+        0.8297780559924868,
+        0.8345402469083298
+      ],
+      "gaussian_probability": 0.845457145864261,
+      "difference": -0.013284510147182349,
+      "difference_over_binomial_se": -10.934904092131072,
+      "aperture_bias_njy": 17.983051980098594,
+      "injected_flux_njy_p16_p50_p84": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "convergence": {
+        "1000": 0.813,
+        "10000": 0.8305,
+        "40000": 0.832375,
+        "94627": 0.8321726357170787
+      }
+    },
+    {
+      "true_aperture_snr": 0.001,
+      "n": 94627,
+      "n_pass": 78721,
+      "empirical_probability": 0.831908440508523,
+      "standard_error": 0.0012156349639051323,
+      "wilson95": [
+        0.829512376482628,
+        0.8342775574506385
+      ],
+      "gaussian_probability": 0.8452202993642921,
+      "difference": -0.013311858855769132,
+      "difference_over_binomial_se": -10.95053963650883,
+      "aperture_bias_njy": 17.98301788030428,
+      "injected_flux_njy_p16_p50_p84": [
+        0.004949124810756094,
+        0.007012037193196081,
+        0.008263397393090444
+      ],
+      "convergence": {
+        "1000": 0.813,
+        "10000": 0.8301,
+        "40000": 0.832025,
+        "94627": 0.831908440508523
+      }
+    },
+    {
+      "true_aperture_snr": 0.01,
+      "n": 94627,
+      "n_pass": 78518,
+      "empirical_probability": 0.8297631754150506,
+      "standard_error": 0.0012217892443001927,
+      "wilson95": [
+        0.8273551372315753,
+        0.8321444406851839
+      ],
+      "gaussian_probability": 0.8430780609210317,
+      "difference": -0.013314885505981033,
+      "difference_over_binomial_se": -10.897857849131283,
+      "aperture_bias_njy": 17.983197241968767,
+      "injected_flux_njy_p16_p50_p84": [
+        0.04949124810756095,
+        0.0701203719319608,
+        0.08263397393090444
+      ],
+      "convergence": {
+        "1000": 0.812,
+        "10000": 0.8279,
+        "40000": 0.829675,
+        "94627": 0.8297631754150506
+      }
+    },
+    {
+      "true_aperture_snr": 0.1,
+      "n": 94627,
+      "n_pass": 76573,
+      "empirical_probability": 0.8092087881894174,
+      "standard_error": 0.0012773265598934576,
+      "wilson95": [
+        0.8066927414142256,
+        0.8116997308271311
+      ],
+      "gaussian_probability": 0.8206067985857978,
+      "difference": -0.011398010396380331,
+      "difference_over_binomial_se": -8.923333119551701,
+      "aperture_bias_njy": 17.98240475725744,
+      "injected_flux_njy_p16_p50_p84": [
+        0.4949124810756095,
+        0.7012037193196081,
+        0.8263397393090444
+      ],
+      "convergence": {
+        "1000": 0.79,
+        "10000": 0.8057,
+        "40000": 0.80805,
+        "94627": 0.8092087881894174
+      }
+    },
+    {
+      "true_aperture_snr": 0.5,
+      "n": 94627,
+      "n_pass": 65447,
+      "empirical_probability": 0.6916313525737897,
+      "standard_error": 0.0015012910937146871,
+      "wilson95": [
+        0.688681146428575,
+        0.6945660004942583
+      ],
+      "gaussian_probability": 0.6989565724256759,
+      "difference": -0.007325219851886167,
+      "difference_over_binomial_se": -4.879280162624004,
+      "aperture_bias_njy": 17.985225664589244,
+      "injected_flux_njy_p16_p50_p84": [
+        2.4745624053780477,
+        3.50601859659804,
+        4.1316986965452225
+      ],
+      "convergence": {
+        "1000": 0.666,
+        "10000": 0.6843,
+        "40000": 0.689475,
+        "94627": 0.6916313525737897
+      }
+    },
+    {
+      "true_aperture_snr": 1.0,
+      "n": 94627,
+      "n_pass": 48187,
+      "empirical_probability": 0.509230980586936,
+      "standard_error": 0.0016251312537801028,
+      "wilson95": [
+        0.506045471764377,
+        0.5124157399618257
+      ],
+      "gaussian_probability": 0.5118299258825088,
+      "difference": -0.0025989452955726966,
+      "difference_over_binomial_se": -1.5992217794885637,
+      "aperture_bias_njy": 17.983437633591638,
+      "injected_flux_njy_p16_p50_p84": [
+        4.9491248107560954,
+        7.01203719319608,
+        8.263397393090445
+      ],
+      "convergence": {
+        "1000": 0.481,
+        "10000": 0.502,
+        "40000": 0.5049,
+        "94627": 0.509230980586936
+      }
+    },
+    {
+      "true_aperture_snr": 2.0,
+      "n": 94627,
+      "n_pass": 16610,
+      "empirical_probability": 0.1755312965644055,
+      "standard_error": 0.0012366785607192596,
+      "wilson95": [
+        0.1731206360660037,
+        0.17796830012694237
+      ],
+      "gaussian_probability": 0.17322819503553671,
+      "difference": 0.002303101528868784,
+      "difference_over_binomial_se": 1.8623283381975073,
+      "aperture_bias_njy": 17.98543980648606,
+      "injected_flux_njy_p16_p50_p84": [
+        9.898249621512191,
+        14.02407438639216,
+        16.52679478618089
+      ],
+      "convergence": {
+        "1000": 0.164,
+        "10000": 0.1735,
+        "40000": 0.1714,
+        "94627": 0.1755312965644055
+      }
+    },
+    {
+      "true_aperture_snr": 3.0,
+      "n": 94627,
+      "n_pass": 2887,
+      "empirical_probability": 0.030509262684011964,
+      "standard_error": 0.0005590879761073791,
+      "wilson95": [
+        0.029432385477809332,
+        0.03162425704750272
+      ],
+      "gaussian_probability": 0.029008749829012602,
+      "difference": 0.001500512854999362,
+      "difference_over_binomial_se": 2.683858210377917,
+      "aperture_bias_njy": 17.985340329287425,
+      "injected_flux_njy_p16_p50_p84": [
+        14.847374432268284,
+        21.03611157958824,
+        24.79019217927133
+      ],
+      "convergence": {
+        "1000": 0.025,
+        "10000": 0.0285,
+        "40000": 0.02905,
+        "94627": 0.030509262684011964
+      }
+    },
+    {
+      "true_aperture_snr": 5.0,
+      "n": 94627,
+      "n_pass": 15,
+      "empirical_probability": 0.00015851712513341857,
+      "standard_error": 4.0925701617389355e-05,
+      "wilson95": [
+        9.606987644130978e-05,
+        0.00026154565670831643
+      ],
+      "gaussian_probability": 9.378216073051926e-05,
+      "difference": 6.473496440289932e-05,
+      "difference_over_binomial_se": 1.581767980622558,
+      "aperture_bias_njy": 17.984122103509733,
+      "injected_flux_njy_p16_p50_p84": [
+        24.745624053780475,
+        35.0601859659804,
+        41.316986965452216
+      ],
+      "convergence": {
+        "1000": 0.0,
+        "10000": 0.0,
+        "40000": 0.000175,
+        "94627": 0.00015851712513341857
+      }
+    }
+  ],
+  "psf_controls_n": 118,
+  "psf_core_observed_over_model_p16_p50_p84": [
+    0.9756898764159504,
+    1.0120824409285507,
+    1.045306423439596
+  ],
+  "limitations": [
+    "Scenes reused across flux levels: trials are not all independent; distinct random background apertures are treated as approximately independent.",
+    "Backgrounds exclude catalog neighbors; no detection, deblending, morphology, visual or quality-flag completeness.",
+    "PSF controls validate the core ratio at 0.10/0.18 arcsec, not the absolute full-PSF aperture correction.",
+    "Binomial uncertainties condition on estimated noise, registration, catalog-SNR mapping and atmosphere fluxes."
+  ]
+}

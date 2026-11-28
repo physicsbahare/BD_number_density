@@ -1,0 +1,82 @@
+[
+  {
+    "tile": "A10",
+    "max_wcs_difference_native_pixels": 1.0986695997416973e-09
+  },
+  {
+    "tile": "A1",
+    "max_wcs_difference_native_pixels": 2.510205376893282e-09
+  },
+  {
+    "tile": "A2",
+    "max_wcs_difference_native_pixels": 1.3205863069742918e-09
+  },
+  {
+    "tile": "A3",
+    "max_wcs_difference_native_pixels": 2.979504643008113e-09
+  },
+  {
+    "tile": "A4",
+    "max_wcs_difference_native_pixels": 2.35741026699543e-09
+  },
+  {
+    "tile": "A5",
+    "max_wcs_difference_native_pixels": 1.4115357771515846e-09
+  },
+  {
+    "tile": "A6",
+    "max_wcs_difference_native_pixels": 2.0081643015146255e-09
+  },
+  {
+    "tile": "A7",
+    "max_wcs_difference_native_pixels": 1.2951204553246498e-09
+  },
+  {
+    "tile": "A8",
+    "max_wcs_difference_native_pixels": 1.4224497135728598e-09
+  },
+  {
+    "tile": "A9",
+    "max_wcs_difference_native_pixels": 1.2951204553246498e-09
+  },
+  {
+    "tile": "B10",
+    "max_wcs_difference_native_pixels": 2.815795596688986e-09
+  },
+  {
+    "tile": "B1",
+    "max_wcs_difference_native_pixels": 2.2082531359046698e-09
+  },
+  {
+    "tile": "B2",
+    "max_wcs_difference_native_pixels": 9.167706593871117e-10
+  },
+  {
+    "tile": "B3",
+    "max_wcs_difference_native_pixels": 1.406078808940947e-09
+  },
+  {
+    "tile": "B4",
+    "max_wcs_difference_native_pixels": 1.0732037480920553e-09
+  },
+  {
+    "tile": "B5",
+    "max_wcs_difference_native_pixels": 2.6193447411060333e-09
+  },
+  {
+    "tile": "B6",
+    "max_wcs_difference_native_pixels": 6.111804395914078e-10
+  },
+  {
+    "tile": "B7",
+    "max_wcs_difference_native_pixels": 1.2405507732182741e-09
+  },
+  {
+    "tile": "B8",
+    "max_wcs_difference_native_pixels": 1.027729013003409e-09
+  },
+  {
+    "tile": "B9",
+    "max_wcs_difference_native_pixels": 1.6370904631912708e-09
+  }
+]

@@ -1,0 +1,132 @@
+{
+  "records": [
+    {
+      "level": 0.0,
+      "n": 47309,
+      "n_pass": 39309,
+      "recovered_probability": 0.830898983280137,
+      "empirical_cdf_probability": 0.8334877051271045,
+      "gaussian_probability": 0.845402241244454,
+      "wilson95": [
+        0.8274944286361999,
+        0.834249804739641
+      ],
+      "difference": -0.0025887218469674567,
+      "difference_over_binomial_se": -1.5021387507504473
+    },
+    {
+      "level": 0.001,
+      "n": 47309,
+      "n_pass": 39287,
+      "recovered_probability": 0.8304339554841573,
+      "empirical_cdf_probability": 0.8332782163600015,
+      "gaussian_probability": 0.8451653625034807,
+      "wilson95": [
+        0.8270257446216437,
+        0.8337885086759916
+      ],
+      "difference": -0.002844260875844218,
+      "difference_over_binomial_se": -1.6486152675139059
+    },
+    {
+      "level": 0.01,
+      "n": 47309,
+      "n_pass": 39194,
+      "recovered_probability": 0.828468156164789,
+      "empirical_cdf_probability": 0.831284769412154,
+      "gaussian_probability": 0.843022836554689,
+      "wilson95": [
+        0.82504459095365,
+        0.8318383829224801
+      ],
+      "difference": -0.0028166132473650407,
+      "difference_over_binomial_se": -1.6251326424033874
+    },
+    {
+      "level": 0.1,
+      "n": 47309,
+      "n_pass": 38201,
+      "recovered_probability": 0.8074784924644359,
+      "empirical_cdf_probability": 0.8102077884642392,
+      "gaussian_probability": 0.8205489413326735,
+      "wilson95": [
+        0.8039006976190342,
+        0.8110063572726371
+      ],
+      "difference": -0.002729295999803316,
+      "difference_over_binomial_se": -1.5056270689581013
+    },
+    {
+      "level": 0.5,
+      "n": 47309,
+      "n_pass": 32638,
+      "recovered_probability": 0.6898898729628612,
+      "empirical_cdf_probability": 0.6941650511929645,
+      "gaussian_probability": 0.6988921332816357,
+      "wilson95": [
+        0.6857066309480132,
+        0.6940422796228684
+      ],
+      "difference": -0.00427517823010326,
+      "difference_over_binomial_se": -2.01038043781655
+    },
+    {
+      "level": 1.0,
+      "n": 47309,
+      "n_pass": 24078,
+      "recovered_probability": 0.5089517850726077,
+      "empirical_cdf_probability": 0.5106099670598859,
+      "gaussian_probability": 0.5117706643902468,
+      "wilson95": [
+        0.5044464298548985,
+        0.513455686650558
+      ],
+      "difference": -0.0016581819872781844,
+      "difference_over_binomial_se": -0.7214457642754528
+    },
+    {
+      "level": 2.0,
+      "n": 47309,
+      "n_pass": 8456,
+      "recovered_probability": 0.17873977467289523,
+      "empirical_cdf_probability": 0.17352094568496199,
+      "gaussian_probability": 0.1732020716091966,
+      "wilson95": [
+        0.17531345182197247,
+        0.18221826551408318
+      ],
+      "difference": 0.005218828987933244,
+      "difference_over_binomial_se": 2.9627428048449027
+    },
+    {
+      "level": 3.0,
+      "n": 47309,
+      "n_pass": 1460,
+      "recovered_probability": 0.030860935551375004,
+      "empirical_cdf_probability": 0.03126384585823973,
+      "gaussian_probability": 0.028999228021622307,
+      "wilson95": [
+        0.029340242475243104,
+        0.03245780999145339
+      ],
+      "difference": -0.000402910306864724,
+      "difference_over_binomial_se": -0.5067370603715875
+    },
+    {
+      "level": 5.0,
+      "n": 47309,
+      "n_pass": 9,
+      "recovered_probability": 0.00019023864380984592,
+      "empirical_cdf_probability": 0.00019177939488162726,
+      "gaussian_probability": 8.92714080860256e-05,
+      "wilson95": [
+        0.00010009134272244717,
+        0.00036154778414554904
+      ],
+      "difference": -1.540751071781336e-06,
+      "difference_over_binomial_se": -0.024299442274710224
+    }
+  ],
+  "definition": "Noise parameters from original even blank apertures. ECDF from even-indexed held-out scenes; validation uses disjoint odd-indexed held-out scenes. Four WHT strata per tile. ECDF convolved with source photon noise using 21-node Gaussian quadrature; the exact injected variance is recovered from the saved Gaussian probability.",
+  "limitations": "Binomial SE excludes finite ECDF-estimation error; no detection or catalog morphology completeness."
+}

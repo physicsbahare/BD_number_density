@@ -1,0 +1,31 @@
+{
+  "repository": "onnalininn/Evaluator-of-Nearby-dwarf-stars-in-high-Z-photometrically-selected-Objects-ENZO",
+  "tree_sha": "3399b7598ccb56feca05f1f6b82e4051e1e1c6b0",
+  "files": [
+    {
+      "path": "data_set/Elf_Owl_photometry/flux_zp25_HST_m+0.0.dat",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0168e468de4d22a5db89841ac4cfb3ca5dbfe243",
+      "size": 3382354,
+      "url": "https://api.github.com/repos/onnalininn/Evaluator-of-Nearby-dwarf-stars-in-high-Z-photometrically-selected-Objects-ENZO/git/blobs/0168e468de4d22a5db89841ac4cfb3ca5dbfe243"
+    },
+    {
+      "path": "data_set/Elf_Owl_photometry/flux_zp25_JWST_m+0.0.dat",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7f77a5d810a051f19da3864a21467961c422c199",
+      "size": 2663896,
+      "url": "https://api.github.com/repos/onnalininn/Evaluator-of-Nearby-dwarf-stars-in-high-Z-photometrically-selected-Objects-ENZO/git/blobs/7f77a5d810a051f19da3864a21467961c422c199"
+    },
+    {
+      "path": "data_set/transmission_filters/HST_F814W.dat",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2141125078fa3c8f5578084c2d6fc0f3f2796507",
+      "size": 132673,
+      "url": "https://api.github.com/repos/onnalininn/Evaluator-of-Nearby-dwarf-stars-in-high-Z-photometrically-selected-Objects-ENZO/git/blobs/2141125078fa3c8f5578084c2d6fc0f3f2796507"
+    }
+  ],
+  "note": "Original FC-ENZO solar-metallicity photometry; joined by identical model name; no survey image downloads."
+}

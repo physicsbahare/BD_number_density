@@ -1,0 +1,8 @@
+{
+  "five_native_pixels": 7667318262,
+  "extra_one_pixel_eroded_pixels": 7659781840,
+  "lost_pixels": 7536422,
+  "area_upper_bound_deg2": 0.0005233626388888889,
+  "relative_area_upper_bound": 0.0009829280254807296,
+  "definition": "Conservative phase-support sensitivity proxy: one extra native-pixel erosion of the global five-band valid-centered-aperture intersection. Pixel area at tangent point bounds the lost solid angle."
+}

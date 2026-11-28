@@ -1,0 +1,13 @@
+{
+  "empirical_F814W_2sigma_AB_p16_p50_p84": [
+    28.350294189453123,
+    28.556196212768555,
+    28.936372604370117
+  ],
+  "nominal_catalog_2SNR_AB_p16_p50_p84": [
+    29.070058822631836,
+    29.244707107543945,
+    29.620193252563475
+  ],
+  "note": "Spatial-cell percentiles, not area-weighted. Nominal catalog threshold omits the fitted background offset; it is an estimator-scale diagnostic."
+}
