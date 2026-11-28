@@ -1,5 +1,11 @@
 # Ali: footprint, native SNR and radial-domain validation
 
+Subsequent scope clarification: the user authorized a distinct depth-limited
+population estimand. Its finite result is reported in
+[ALI_DEPTH_LIMITED_20261128.md](ALI_DEPTH_LIMITED_20261128.md). This report's
+all-distance divergence result remains unchanged; its acceptance ruling applies
+to the unrestricted estimand considered here.
+
 Continuation of `5c8cd562ef79da3ef8dc87b1b146e5c1650fd69b`, executed 2026-11-28.
 
 **No finite final five-band population prediction is accepted.** The appropriate

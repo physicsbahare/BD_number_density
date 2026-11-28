@@ -37,7 +37,7 @@ def joint_veto_detection(fv,fd,nv,nd,sv,sd,correlation):
 
 
 def integrate_cells(d25,rho,sigma_noise,sigma_snr,encircled,area_sr,
-                    rmax=50000.,epsrel=1e-6,background_mean=None,empirical_cdf=None,radial_domain='depth',f814w_source_coefficient=None,nircam_correlation=0.):
+                    rmax=50000.,epsrel=1e-6,background_mean=None,empirical_cdf=None,radial_domain='depth',f814w_source_coefficient=None,nircam_correlation=0.,depth_sigma=5.,boundary_flux_scale=1.):
     """Adaptive line-of-sight quadrature, preserving component normalization.
 
     Arrays are cell x band, ordered blue bands then F444W. Distances and
@@ -52,7 +52,10 @@ def integrate_cells(d25,rho,sigma_noise,sigma_snr,encircled,area_sr,
     amp=f25*np.asarray(d25)**2*ee
     if radial_domain in ('depth','catalog_depth'):
         limit_noise=sigma_noise[:,-1] if radial_domain=='depth' else sigma_snr[:,-1]
-        reach=np.sqrt(amp[:,-1]/(5*limit_noise))
+        if not np.isfinite(depth_sigma) or depth_sigma<=0:raise ValueError('Depth threshold must be positive')
+        boundary_flux_scale=np.asarray(boundary_flux_scale)
+        if np.any(~np.isfinite(boundary_flux_scale)) or np.any(boundary_flux_scale<=0):raise ValueError('Boundary flux scale must be positive')
+        reach=np.sqrt(amp[:,-1]/(depth_sigma*limit_noise*boundary_flux_scale))
         def depth_integrand(t):
             if t<=0:return np.zeros(3)
             r=t*reach

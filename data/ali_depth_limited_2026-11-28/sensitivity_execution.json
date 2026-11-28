@@ -1,0 +1,17 @@
+{
+  "maps": "/home/bahareh/results/ali_final_counts/spatial_maps.npz",
+  "calibration": "/home/bahareh/results/ali_calibration_final",
+  "cells": 512,
+  "shot_nodes": 15,
+  "scenarios": [
+    "boundary4",
+    "boundary6",
+    "noise095",
+    "noise105",
+    "threshold_minus05",
+    "threshold_plus05",
+    "native_r50",
+    "correlation"
+  ],
+  "area_deg2": 0.5324308306666886
+}

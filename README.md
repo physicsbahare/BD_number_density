@@ -4,15 +4,20 @@ Research code for predicting brown-dwarf / ultracool-dwarf counts in the COSMOS-
 
 ## Ali F814W real-image continuation (2026-11-28)
 
-The follow-up to `5c8cd56` adopts native catalog SNR and a valid five-band
-geometric measurement footprint of **0.532430831 deg²**. The unchanged
-untruncated halo and nonzero source-free forced-photometry selection probability
-make the all-distance integral divergent. **No finite final paper count or
-surface density is accepted.** A source-associated catalog detection kernel or
-an independently justified population domain is required. The historical
-0.496306 deg² mask remains unidentified; no area was tuned to recover it.
+Following `d431c5e`, the explicitly authorized **depth-limited** population
+definition gives **12.360844 expected photometric passes over 0.532430831 deg²**
+(0.006448852 arcmin⁻²). The intrinsic population is bounded by the local
+five-sigma empirical F444W point-source sensitivity, with native catalog-SNR
+probabilities inside that domain. This is a foreground approximation, not an
+exact catalog-selection or visually vetted sample prediction.
 
-See the [executed validation resolution](docs/ALI_VALIDATION_RESOLUTION_20261128.md),
+See the [depth-limited scientific report](docs/ALI_DEPTH_LIMITED_20261128.md),
+[literature rationale](docs/ALI_DEPTH_LIMITED_LITERATURE_20261128.md), and
+[numerical results](data/ali_depth_limited_2026-11-28/result.json).
+The unrestricted forced-photometry integral remains divergent. The historical
+0.496306 deg² mask remains unidentified; no count or area was tuned to it.
+
+The preceding all-distance diagnosis is preserved in the [validation resolution](docs/ALI_VALIDATION_RESOLUTION_20261128.md),
 [new numerical tables and figures](data/ali_validation_2026-11-28), and
 [acceptance status](data/ali_validation_2026-11-28/result_status.json).
 Completed F814W calibration/injections, depth maps and atmosphere calculations

@@ -1,0 +1,76 @@
+{
+  "status": "COMPLETE_NUMERICAL_RUN",
+  "tiles": [
+    "A1",
+    "A10",
+    "A2",
+    "A3",
+    "A4",
+    "A5",
+    "A6",
+    "A7",
+    "A8",
+    "A9",
+    "B1",
+    "B10",
+    "B2",
+    "B3",
+    "B4",
+    "B5",
+    "B6",
+    "B7",
+    "B8",
+    "B9"
+  ],
+  "snr_mode": "catalog",
+  "cells_per_tile": 512,
+  "rmax_pc": 50000.0,
+  "radial_domain": "depth",
+  "f814w_noise_scale": 1.0,
+  "f814w_snr_scale": 1.0,
+  "f814w_threshold_shift": 0.0,
+  "four_area_deg2": 0.5333332029647787,
+  "five_area_deg2": 0.5324308306666868,
+  "boundary_interpolated_area_fraction": 0.011313063376371554,
+  "results": {
+    "five_empirical": {
+      "total": 12.360844100804112,
+      "thin": 8.335186286654274,
+      "thick": 2.972337862114771,
+      "halo": 1.0533199520350682,
+      "measured_density_uncertainty": 0.8414434272461976,
+      "incomplete_density_bin_contribution": 5.036238646467148,
+      "quadrature_error_bound": 4.2049984833504983e-07
+    },
+    "five_gaussian": {
+      "total": 12.531691544357088,
+      "thin": 8.451558688124857,
+      "thick": 3.0127778275728425,
+      "halo": 1.0673550286593874,
+      "measured_density_uncertainty": 0.8531236867826941,
+      "incomplete_density_bin_contribution": 5.106493189486866,
+      "quadrature_error_bound": 5.432823339990494e-09
+    },
+    "four_matched": {
+      "total": 14.861435786045444,
+      "thin": 10.017737334670187,
+      "thick": 3.575179043573075,
+      "halo": 1.2685194078021829,
+      "measured_density_uncertainty": 1.0115138179252547,
+      "incomplete_density_bin_contribution": 6.047755416673187,
+      "quadrature_error_bound": 6.575613972434658e-09
+    },
+    "four_original": {
+      "total": 14.908489744013531,
+      "thin": 10.033871264633868,
+      "thick": 3.594316143584307,
+      "halo": 1.2803023357953556,
+      "measured_density_uncertainty": 1.0138962956987414,
+      "incomplete_density_bin_contribution": 6.062298740555785,
+      "quadrature_error_bound": 5.518202284567611e-09
+    }
+  },
+  "f814w_interpolated_cells": 26,
+  "f814w_source_noise": true,
+  "source_noise_quadrature_nodes": 15
+}

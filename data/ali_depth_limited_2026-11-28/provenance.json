@@ -1,0 +1,33 @@
+{
+  "python": "3.12.15 (main, Oct 13 2026, 16:52:04) [GCC 15.3.0]",
+  "numpy": "2.5.4",
+  "scipy": "1.18.1",
+  "files": [
+    {
+      "path": "/home/bahareh/projects/BD_number_density/src/cosmosweb_counts.py",
+      "bytes": 3665,
+      "sha256": "abca9667bb033510c0262547777c15d7c17adaf81fae64eda91e957722a0a71f"
+    },
+    {
+      "path": "/home/bahareh/projects/BD_number_density/data/elfowl_fiveband_bin_reach.csv",
+      "bytes": 1464,
+      "sha256": "9c47a5a02faad20c69822eb69ec5288f541d8397f86a9aedfc4641c7ea656287"
+    },
+    {
+      "path": "/home/bahareh/results/ali_calibration_final/calibration.json",
+      "bytes": 262087,
+      "sha256": "e7ca977eef77900b711d0f35efcdb23aac90119604024e9118e29a4054b97a28"
+    },
+    {
+      "path": "/home/bahareh/results/ali_final_counts/count_summary.json",
+      "bytes": 2083,
+      "sha256": "4fea3899dd6cef2e6fe3b74cc54518fc1ac666e9cd252c545891004938098ae9"
+    }
+  ],
+  "large_reused_inputs": [
+    "/home/bahareh/results/ali_final_counts/spatial_maps.npz",
+    "/home/bahareh/results/ali_calibration_final/*.npz"
+  ],
+  "new_injections": 0,
+  "new_raw_image_depth_reconstructions": 0
+}
