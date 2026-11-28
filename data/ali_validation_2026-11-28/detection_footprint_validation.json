@@ -1,0 +1,163 @@
+{
+  "original_positive_wht_area_deg2": 0.5333332029647787,
+  "native_four_area_deg2": 0.5326474605751123,
+  "native_five_area_deg2": 0.5324308306666868,
+  "erroneous_chi_positive_original_four_area_deg2": 0.4992440686204752,
+  "erroneous_chi_positive_native_four_area_deg2": 0.4985926267383237,
+  "erroneous_chi_positive_five_area_deg2": 0.49838880351797055,
+  "historical_area_deg2": 0.496306,
+  "tiles": [
+    {
+      "tile": "A1",
+      "member": "detection_images/detection_chi2pos_SWLW_A1.fits",
+      "NSCI_MU": -0.04184205266057511,
+      "NSCI_SIG": 1.1613012299631358,
+      "recovery": "All FITS members completed; bitmap and twenty grids verified after an unhandled trailing non-FITS archive member. Unpersisted per-tile header diagnostics are not fabricated."
+    },
+    {
+      "tile": "A2",
+      "member": "detection_images/detection_chi2pos_SWLW_A2.fits",
+      "NSCI_MU": null,
+      "NSCI_SIG": null,
+      "recovery": "All FITS members completed; bitmap and twenty grids verified after an unhandled trailing non-FITS archive member. Unpersisted per-tile header diagnostics are not fabricated."
+    },
+    {
+      "tile": "A3",
+      "member": "detection_images/detection_chi2pos_SWLW_A3.fits",
+      "NSCI_MU": null,
+      "NSCI_SIG": null,
+      "recovery": "All FITS members completed; bitmap and twenty grids verified after an unhandled trailing non-FITS archive member. Unpersisted per-tile header diagnostics are not fabricated."
+    },
+    {
+      "tile": "A4",
+      "member": "detection_images/detection_chi2pos_SWLW_A4.fits",
+      "NSCI_MU": null,
+      "NSCI_SIG": null,
+      "recovery": "All FITS members completed; bitmap and twenty grids verified after an unhandled trailing non-FITS archive member. Unpersisted per-tile header diagnostics are not fabricated."
+    },
+    {
+      "tile": "A5",
+      "member": "detection_images/detection_chi2pos_SWLW_A5.fits",
+      "NSCI_MU": null,
+      "NSCI_SIG": null,
+      "recovery": "All FITS members completed; bitmap and twenty grids verified after an unhandled trailing non-FITS archive member. Unpersisted per-tile header diagnostics are not fabricated."
+    },
+    {
+      "tile": "A6",
+      "member": "detection_images/detection_chi2pos_SWLW_A6.fits",
+      "NSCI_MU": null,
+      "NSCI_SIG": null,
+      "recovery": "All FITS members completed; bitmap and twenty grids verified after an unhandled trailing non-FITS archive member. Unpersisted per-tile header diagnostics are not fabricated."
+    },
+    {
+      "tile": "A7",
+      "member": "detection_images/detection_chi2pos_SWLW_A7.fits",
+      "NSCI_MU": null,
+      "NSCI_SIG": null,
+      "recovery": "All FITS members completed; bitmap and twenty grids verified after an unhandled trailing non-FITS archive member. Unpersisted per-tile header diagnostics are not fabricated."
+    },
+    {
+      "tile": "A8",
+      "member": "detection_images/detection_chi2pos_SWLW_A8.fits",
+      "NSCI_MU": null,
+      "NSCI_SIG": null,
+      "recovery": "All FITS members completed; bitmap and twenty grids verified after an unhandled trailing non-FITS archive member. Unpersisted per-tile header diagnostics are not fabricated."
+    },
+    {
+      "tile": "A9",
+      "member": "detection_images/detection_chi2pos_SWLW_A9.fits",
+      "NSCI_MU": null,
+      "NSCI_SIG": null,
+      "recovery": "All FITS members completed; bitmap and twenty grids verified after an unhandled trailing non-FITS archive member. Unpersisted per-tile header diagnostics are not fabricated."
+    },
+    {
+      "tile": "A10",
+      "member": "detection_images/detection_chi2pos_SWLW_A10.fits",
+      "NSCI_MU": null,
+      "NSCI_SIG": null,
+      "recovery": "All FITS members completed; bitmap and twenty grids verified after an unhandled trailing non-FITS archive member. Unpersisted per-tile header diagnostics are not fabricated."
+    },
+    {
+      "tile": "B1",
+      "member": "detection_images/detection_chi2pos_SWLW_B1.fits",
+      "NSCI_MU": null,
+      "NSCI_SIG": null,
+      "recovery": "All FITS members completed; bitmap and twenty grids verified after an unhandled trailing non-FITS archive member. Unpersisted per-tile header diagnostics are not fabricated."
+    },
+    {
+      "tile": "B2",
+      "member": "detection_images/detection_chi2pos_SWLW_B2.fits",
+      "NSCI_MU": null,
+      "NSCI_SIG": null,
+      "recovery": "All FITS members completed; bitmap and twenty grids verified after an unhandled trailing non-FITS archive member. Unpersisted per-tile header diagnostics are not fabricated."
+    },
+    {
+      "tile": "B3",
+      "member": "detection_images/detection_chi2pos_SWLW_B3.fits",
+      "NSCI_MU": null,
+      "NSCI_SIG": null,
+      "recovery": "All FITS members completed; bitmap and twenty grids verified after an unhandled trailing non-FITS archive member. Unpersisted per-tile header diagnostics are not fabricated."
+    },
+    {
+      "tile": "B4",
+      "member": "detection_images/detection_chi2pos_SWLW_B4.fits",
+      "NSCI_MU": null,
+      "NSCI_SIG": null,
+      "recovery": "All FITS members completed; bitmap and twenty grids verified after an unhandled trailing non-FITS archive member. Unpersisted per-tile header diagnostics are not fabricated."
+    },
+    {
+      "tile": "B5",
+      "member": "detection_images/detection_chi2pos_SWLW_B5.fits",
+      "NSCI_MU": null,
+      "NSCI_SIG": null,
+      "recovery": "All FITS members completed; bitmap and twenty grids verified after an unhandled trailing non-FITS archive member. Unpersisted per-tile header diagnostics are not fabricated."
+    },
+    {
+      "tile": "B6",
+      "member": "detection_images/detection_chi2pos_SWLW_B6.fits",
+      "NSCI_MU": null,
+      "NSCI_SIG": null,
+      "recovery": "All FITS members completed; bitmap and twenty grids verified after an unhandled trailing non-FITS archive member. Unpersisted per-tile header diagnostics are not fabricated."
+    },
+    {
+      "tile": "B7",
+      "member": "detection_images/detection_chi2pos_SWLW_B7.fits",
+      "NSCI_MU": null,
+      "NSCI_SIG": null,
+      "recovery": "All FITS members completed; bitmap and twenty grids verified after an unhandled trailing non-FITS archive member. Unpersisted per-tile header diagnostics are not fabricated."
+    },
+    {
+      "tile": "B8",
+      "member": "detection_images/detection_chi2pos_SWLW_B8.fits",
+      "NSCI_MU": null,
+      "NSCI_SIG": null,
+      "recovery": "All FITS members completed; bitmap and twenty grids verified after an unhandled trailing non-FITS archive member. Unpersisted per-tile header diagnostics are not fabricated."
+    },
+    {
+      "tile": "B9",
+      "member": "detection_images/detection_chi2pos_SWLW_B9.fits",
+      "NSCI_MU": null,
+      "NSCI_SIG": null,
+      "recovery": "All FITS members completed; bitmap and twenty grids verified after an unhandled trailing non-FITS archive member. Unpersisted per-tile header diagnostics are not fabricated."
+    },
+    {
+      "tile": "B10",
+      "member": "detection_images/detection_chi2pos_SWLW_B10.fits",
+      "NSCI_MU": null,
+      "NSCI_SIG": null,
+      "recovery": "All FITS members completed; bitmap and twenty grids verified after an unhandled trailing non-FITS archive member. Unpersisted per-tile header diagnostics are not fabricated."
+    }
+  ],
+  "method": "Coverage from cached native WHT masks. Detection positivity is an intentionally incorrect alternative. Per-cell exact cached solid angle is scaled by native positive-pixel fraction; within-cell TAN Jacobian variation is negligible relative to mask phase uncertainty.",
+  "native_snr_pixel_noise_diagnostics": [
+    {
+      "tile": "A1",
+      "catalog_fitted_scale": 145.56804253383976,
+      "white_pixel_scale_area": 145.141233854384,
+      "white_pixel_scale_fractional_variance": 137.17123092601838,
+      "fitted_offset": -29.965655680026675,
+      "pixel_background_offset": -30.896735007655742,
+      "empirical_to_catalog_sigma": 2.3312084949357397
+    }
+  ]
+}

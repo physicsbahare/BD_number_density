@@ -1,0 +1,13 @@
+{
+  "area_deg2": 0.5324308306666868,
+  "cells_per_tile": 256,
+  "zero_source_probability_area_mean": 0.00717403922429463,
+  "zero_source_probability_area_p16_p50_p84": [
+    0.005245429178313257,
+    0.006950391903159502,
+    0.009308989468930811
+  ],
+  "halo_density_exponent": 2.77,
+  "cumulative_noise_floor_power": 0.22999999999999998,
+  "untruncated_integral_converges": false
+}

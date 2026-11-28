@@ -1,0 +1,24 @@
+{
+  "base_commit": "5c8cd562ef79da3ef8dc87b1b146e5c1650fd69b",
+  "final_count_accepted": false,
+  "final_five_band_count": null,
+  "final_surface_density_arcmin2": null,
+  "final_count_uncertainty": null,
+  "formal_all_distance_forced_photometry_integral": "divergent",
+  "geometric_five_band_area_deg2": 0.5324308306666868,
+  "native_catalog_snr_adopted": true,
+  "positive_auto_flux_joint_kernel_validated": false,
+  "historical_area_reproduced": false,
+  "required_dependency": "Validated joint source-associated detection and photometric-selection kernel with a sufficiently vanishing zero-flux tail, or an independently justified finite population domain. Neither is supplied by the existing products.",
+  "prohibited_substitutions": [
+    "arbitrary radial cutoff",
+    "50-percent boundary as hard support",
+    "noise-floor-subtracted excess as selected-source count"
+  ],
+  "no_repeated_processing": [
+    "F814W injections",
+    "depth reconstruction",
+    "atmosphere calculations",
+    "Galactic population parameter fitting"
+  ]
+}

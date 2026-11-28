@@ -4,11 +4,20 @@ Research code for predicting brown-dwarf / ultracool-dwarf counts in the COSMOS-
 
 ## Ali F814W real-image continuation (2026-11-28)
 
-Twenty-tile depth reconstruction, native ACS aperture calibration, targeted
-injection tests and full-field conditional counts have been executed using
-the local server images. The preserved-convention result is 23.8437 objects
-over 0.532431 deg². Historical footprint/SNR validation remains unresolved;
-this is **not an accepted final paper prediction**.
+The follow-up to `5c8cd56` adopts native catalog SNR and a valid five-band
+geometric measurement footprint of **0.532430831 deg²**. The unchanged
+untruncated halo and nonzero source-free forced-photometry selection probability
+make the all-distance integral divergent. **No finite final paper count or
+surface density is accepted.** A source-associated catalog detection kernel or
+an independently justified population domain is required. The historical
+0.496306 deg² mask remains unidentified; no area was tuned to recover it.
+
+See the [executed validation resolution](docs/ALI_VALIDATION_RESOLUTION_20261128.md),
+[new numerical tables and figures](data/ali_validation_2026-11-28), and
+[acceptance status](data/ali_validation_2026-11-28/result_status.json).
+Completed F814W calibration/injections, depth maps and atmosphere calculations
+were reused. The previous 23.8437 result remains an explicitly conditional
+diagnostic, superseded as a candidate full native-selection prediction.
 
 See the [executed results and limitations](data/ali_f814w_2026-11-26/REPORT.md),
 [machine-readable status](data/ali_f814w_2026-11-26/result_and_validation_status.json),

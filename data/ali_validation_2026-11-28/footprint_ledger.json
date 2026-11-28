@@ -1,0 +1,12 @@
+{
+  "historical_area_deg2": 0.496306,
+  "historical_mask_provenance": "Unrecovered: scalar benchmark alone cannot identify the spatial mask.",
+  "original_four_positive_wht_centers_deg2": 0.5333332029647787,
+  "native_four_aperture_valid_deg2": 0.5326474605751123,
+  "native_five_aperture_valid_deg2": 0.5324308306666868,
+  "aperture_support_loss_deg2": 0.000685742389666455,
+  "f814w_coverage_loss_deg2": 0.00021662990842541419,
+  "erroneous_detection_positive_original_four_deg2": 0.4992440686204752,
+  "adopted_geometric_area_deg2": 0.5324308306666868,
+  "adoption_scope": "Valid forced-aperture photometric measurements; excludes no-data, not all catalog masks or detection completeness."
+}

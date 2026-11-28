@@ -1,0 +1,8 @@
+{
+  "nodes": [
+    64,
+    128
+  ],
+  "max_component_difference": 1.199040866595169e-14,
+  "sum_max_component_differences": 8.416358956700436e-14
+}

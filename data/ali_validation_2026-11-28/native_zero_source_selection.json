@@ -1,0 +1,133 @@
+{
+  "n": 84203,
+  "four_band_pass": 629,
+  "five_band_pass": 526,
+  "five_band_probability": 0.006246808308492571,
+  "five_band_wilson95": [
+    0.005736695854429321,
+    0.006801970131956447
+  ],
+  "tiles": [
+    {
+      "tile": "A1",
+      "n": 4495,
+      "four_band_blank_pass": 38,
+      "five_band_blank_pass": 30
+    },
+    {
+      "tile": "A10",
+      "n": 3341,
+      "four_band_blank_pass": 32,
+      "five_band_blank_pass": 29
+    },
+    {
+      "tile": "A2",
+      "n": 4627,
+      "four_band_blank_pass": 39,
+      "five_band_blank_pass": 31
+    },
+    {
+      "tile": "A3",
+      "n": 4665,
+      "four_band_blank_pass": 37,
+      "five_band_blank_pass": 32
+    },
+    {
+      "tile": "A4",
+      "n": 4675,
+      "four_band_blank_pass": 31,
+      "five_band_blank_pass": 26
+    },
+    {
+      "tile": "A5",
+      "n": 3407,
+      "four_band_blank_pass": 13,
+      "five_band_blank_pass": 13
+    },
+    {
+      "tile": "A6",
+      "n": 4410,
+      "four_band_blank_pass": 41,
+      "five_band_blank_pass": 35
+    },
+    {
+      "tile": "A7",
+      "n": 4558,
+      "four_band_blank_pass": 43,
+      "five_band_blank_pass": 37
+    },
+    {
+      "tile": "A8",
+      "n": 4557,
+      "four_band_blank_pass": 39,
+      "five_band_blank_pass": 38
+    },
+    {
+      "tile": "A9",
+      "n": 4576,
+      "four_band_blank_pass": 34,
+      "five_band_blank_pass": 28
+    },
+    {
+      "tile": "B1",
+      "n": 4329,
+      "four_band_blank_pass": 26,
+      "five_band_blank_pass": 17
+    },
+    {
+      "tile": "B10",
+      "n": 3340,
+      "four_band_blank_pass": 25,
+      "five_band_blank_pass": 18
+    },
+    {
+      "tile": "B2",
+      "n": 4513,
+      "four_band_blank_pass": 29,
+      "five_band_blank_pass": 27
+    },
+    {
+      "tile": "B3",
+      "n": 4545,
+      "four_band_blank_pass": 33,
+      "five_band_blank_pass": 26
+    },
+    {
+      "tile": "B4",
+      "n": 4486,
+      "four_band_blank_pass": 22,
+      "five_band_blank_pass": 19
+    },
+    {
+      "tile": "B5",
+      "n": 3308,
+      "four_band_blank_pass": 20,
+      "five_band_blank_pass": 19
+    },
+    {
+      "tile": "B6",
+      "n": 2398,
+      "four_band_blank_pass": 30,
+      "five_band_blank_pass": 29
+    },
+    {
+      "tile": "B7",
+      "n": 4638,
+      "four_band_blank_pass": 31,
+      "five_band_blank_pass": 22
+    },
+    {
+      "tile": "B8",
+      "n": 4691,
+      "four_band_blank_pass": 32,
+      "five_band_blank_pass": 24
+    },
+    {
+      "tile": "B9",
+      "n": 4644,
+      "four_band_blank_pass": 34,
+      "five_band_blank_pass": 26
+    }
+  ],
+  "interpretation": "No source injected: chance satisfaction of signed native catalog-SNR cuts on real held-out backgrounds. This is not true-source catalog-detection completeness."
+}
